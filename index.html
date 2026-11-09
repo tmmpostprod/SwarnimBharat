@@ -124,7 +124,7 @@ button,a{-webkit-tap-highlight-color:transparent}
                 Select your primary dimension of national transformation and claim your certified registry number instantly.
               </p>
 </div>
-<form class="flex flex-col gap-space-sm my-space-md" id="direct-pledge-form" onsubmit="event.preventDefault(); document.getElementById('pledge-success').classList.remove('hidden');">
+<form class="flex flex-col gap-space-sm my-space-md" id="direct-pledge-form" onsubmit="submitCivicPledge(event)">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
 <div>
 <label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Full Name / पूरा नाम</label>
@@ -143,6 +143,15 @@ button,a{-webkit-tap-highlight-color:transparent}
 <option value="DL">Delhi NCR</option>
 <option value="WB">West Bengal</option>
 <option value="AS">Assam</option>
+<option value="MP">Madhya Pradesh</option>
+<option value="RJ">Rajasthan</option>
+<option value="PB">Punjab</option>
+<option value="HR">Haryana</option>
+<option value="BR">Bihar</option>
+<option value="AP">Andhra Pradesh</option>
+<option value="TG">Telangana</option>
+<option value="OD">Odisha</option>
+<option value="Other">Other State / UT</option>
 </select>
 </div>
 </div>
@@ -176,6 +185,55 @@ button,a{-webkit-tap-highlight-color:transparent}
 <div class="hidden p-space-sm bg-surface-container-highest rounded-lg flex items-center gap-space-sm text-primary font-title-sm text-title-sm" id="pledge-success">
 <span class="material-symbols-outlined text-primary text-[24px]">task_alt</span>
 <span class="">संकल्प पूर्ण! Your pledge is sealed. Certificate preview generated below.</span>
+</div>
+
+<!-- Digital Sovereign Certificate Card (Appears after submission) -->
+<div id="certificate-display" class="hidden mt-space-md p-space-md bg-gradient-to-br from-surface-container-lowest via-surface-container to-surface-container-low rounded-2xl border-2 border-primary-container/80 shadow-2xl relative overflow-hidden text-left">
+  <!-- Tricolor Accent Top Strip -->
+  <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-tertiary via-surface-container-lowest to-secondary"></div>
+  
+  <!-- Header with Shield Emblem -->
+  <div class="text-center pt-2 pb-3 border-b border-outline-variant/30">
+    <div class="flex items-center justify-center gap-3">
+      <img src="assets/logo-shield.png" alt="Emblem" class="w-8 h-11 object-contain drop-shadow"/>
+      <div class="text-left">
+        <h4 class="font-headline-sm text-sm text-primary font-bold tracking-wide uppercase leading-tight">स्वर्णिम भारत उदयघोष</h4>
+        <p class="font-label-sm text-[10px] text-tertiary uppercase tracking-widest font-semibold">Rashtriya Samarpan Patra • 2026–2047</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body Text -->
+  <div class="py-4 text-center space-y-2">
+    <p class="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider">This officially certifies that</p>
+    <h3 class="font-headline-md text-2xl text-on-surface font-bold text-primary" id="cert-name-preview">Aarav Sharma</h3>
+    <p class="font-body-sm text-xs text-on-surface-variant max-w-sm mx-auto">
+      has taken the solemn sovereign pledge for an awakened, self-reliant &amp; Viksit Bharat by 2047 representing
+      <span class="font-semibold text-on-surface" id="cert-state-preview">Delhi NCR</span>.
+    </p>
+
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 text-on-primary-container font-label-md text-xs font-semibold">
+      <span class="material-symbols-outlined text-[14px] text-primary">eco</span>
+      <span id="cert-focus-preview">Prakriti &amp; Green Energy</span>
+    </div>
+  </div>
+
+  <!-- Bottom Certificate Footer with Registry ID & Actions -->
+  <div class="pt-3 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+    <div>
+      <span class="text-on-surface-variant text-[11px] block">Registry Code:</span>
+      <span class="font-mono font-bold text-primary text-xs tracking-wider" id="cert-id-preview">SB-2047-1430494</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm font-semibold flex items-center gap-1 shadow-sm transition-colors" type="button">
+        <span class="material-symbols-outlined text-[16px]">print</span>
+        <span>Print / Save</span>
+      </button>
+      <a id="cert-whatsapp-btn" href="#" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-label-sm font-semibold flex items-center gap-1 shadow-sm transition-colors">
+        <span>Share WhatsApp</span>
+      </a>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -371,18 +429,143 @@ button,a{-webkit-tap-highlight-color:transparent}
 </section>
 </div>
 <script>
-  // Simple live counter simulation to elevate the patriotic civic ticker
-  (function() {
+  // ========================================================
+  // 🔗 GOOGLE SHEETS WEBHOOK INTEGRATION
+  // Google Apps Script Deploy URL yahan paste karein:
+  // (Setup instructions ke liye GOOGLE_SHEETS_SETUP.md dekhein)
+  // ========================================================
+  const GOOGLE_SHEETS_WEBHOOK_URL = '';
+
+  // Base starting count for the national campaign
+  const BASE_STARTING_PLEDGES = 1430493;
+
+  function getStoredPledgeCount() {
+    const stored = localStorage.getItem('swarnim_pledge_count');
+    return stored ? parseInt(stored, 10) : BASE_STARTING_PLEDGES;
+  }
+
+  function updateCounterDisplay(num) {
     const counterEl = document.getElementById('pledge-counter');
     if (counterEl) {
-      let currentVal = 1428950;
-      setInterval(() => {
-        const increment = Math.floor(Math.random() * 3) + 1;
-        currentVal += increment;
-        counterEl.textContent = currentVal.toLocaleString('en-IN');
-      }, 4000);
+      counterEl.textContent = num.toLocaleString('en-IN');
     }
-  })();
+  }
+
+  // Initialize counter on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentVal = getStoredPledgeCount();
+    updateCounterDisplay(currentVal);
+
+    // Fetch live count from Google Sheets if configured
+    if (GOOGLE_SHEETS_WEBHOOK_URL && GOOGLE_SHEETS_WEBHOOK_URL.trim() !== '') {
+      fetch(GOOGLE_SHEETS_WEBHOOK_URL + '?action=getCount')
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.count) {
+            const total = BASE_STARTING_PLEDGES + data.count;
+            localStorage.setItem('swarnim_pledge_count', total);
+            updateCounterDisplay(total);
+          }
+        })
+        .catch(err => console.log('Could not fetch live sheet count:', err));
+    }
+  });
+
+  // Handle Form Submission, Live Counter Increment & Certificate Generation
+  window.submitCivicPledge = function(event) {
+    if (event) event.preventDefault();
+
+    const form = document.getElementById('direct-pledge-form');
+    if (!form) return;
+
+    const nameInput = form.querySelector('input[type="text"]');
+    const stateSelect = form.querySelector('select');
+    const focusRadio = form.querySelector('input[name="focus"]:checked');
+
+    const fullName = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'Rashtriya Citizen';
+    const state = (stateSelect && stateSelect.value) ? (stateSelect.options[stateSelect.selectedIndex].text || stateSelect.value) : 'Bharat';
+    const focusVal = focusRadio ? focusRadio.value : 'green';
+
+    const focusLabels = {
+      'green': 'Prakriti & Green Energy',
+      'atmanirbhar': 'Swadeshi & Innovation',
+      'heritage': 'Civilizational Pride',
+      'kartavya': 'Kartavya & Civic Duty'
+    };
+    const focusLabel = focusLabels[focusVal] || 'Sovereign Viksit Bharat';
+
+    // 1. Increment Counter in LocalStorage & UI
+    let currentCount = getStoredPledgeCount() + 1;
+    localStorage.setItem('swarnim_pledge_count', currentCount);
+    updateCounterDisplay(currentCount);
+
+    // 2. Generate Unique Sovereign Registry ID
+    const pledgeId = 'SB-2047-' + currentCount;
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+
+    // 3. Populate Certificate Card
+    const nameEl = document.getElementById('cert-name-preview');
+    const stateEl = document.getElementById('cert-state-preview');
+    const focusEl = document.getElementById('cert-focus-preview');
+    const idEl = document.getElementById('cert-id-preview');
+    const waBtn = document.getElementById('cert-whatsapp-btn');
+
+    if (nameEl) nameEl.textContent = fullName;
+    if (stateEl) stateEl.textContent = state;
+    if (focusEl) focusEl.textContent = focusLabel;
+    if (idEl) idEl.textContent = pledgeId;
+
+    // 4. Setup WhatsApp Share Link
+    if (waBtn) {
+      const shareMsg = `🇮🇳 मैंने स्वर्णिम भारत उदयघोष (2026-2047) का संकल्प लिया है!\n\n` +
+        `👤 नाम: ${fullName}\n` +
+        `🏛️ राज्य: ${state}\n` +
+        `🎯 संकल्प: ${focusLabel}\n` +
+        `🎖️ Registry ID: ${pledgeId}\n\n` +
+        `आप भी विकसित भारत के लिए संकल्प लें और अपना प्रमाण पत्र प्राप्त करें:\n${window.location.origin + window.location.pathname}`;
+      waBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMsg)}`;
+    }
+
+    // 5. Show Success Box and Certificate Preview
+    const successBox = document.getElementById('pledge-success');
+    const certDisplay = document.getElementById('certificate-display');
+    if (successBox) successBox.classList.remove('hidden');
+    if (certDisplay) {
+      certDisplay.classList.remove('hidden');
+      setTimeout(() => {
+        certDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 150);
+    }
+
+    // 6. Send Data to Google Sheets Webhook (if URL configured)
+    if (GOOGLE_SHEETS_WEBHOOK_URL && GOOGLE_SHEETS_WEBHOOK_URL.trim() !== '') {
+      fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: fullName,
+          state: state,
+          focus: focusLabel,
+          pledgeId: pledgeId,
+          timestamp: now.toISOString(),
+          localDate: dateStr
+        })
+      }).then(() => {
+        console.log('✅ Pledge successfully synced to Google Sheet!');
+      }).catch(err => {
+        console.log('Google Sheets sync notice:', err);
+      });
+    }
+
+    // Also store local list of user pledges
+    try {
+      const myPledges = JSON.parse(localStorage.getItem('my_swarnim_pledges') || '[]');
+      myPledges.unshift({ fullName, state, focus: focusLabel, pledgeId, date: dateStr });
+      localStorage.setItem('my_swarnim_pledges', JSON.stringify(myPledges));
+    } catch(e) {}
+  };
 </script>
 <section class="max-w-6xl mx-auto px-5 py-10 text-center">
 <div class="rounded-2xl border border-[#d4af37]/40 bg-[#f6f3ec] p-6 md:p-8">

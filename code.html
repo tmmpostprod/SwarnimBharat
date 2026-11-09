@@ -129,7 +129,7 @@
 <div class="grid grid-cols-4 gap-3 sm:gap-5 md:gap-6">
 <!-- Days Card -->
 <article class="countdown-card rounded-xl sm:rounded-2xl py-4 sm:py-6 px-1 sm:px-4 text-center flex flex-col items-center justify-center transition-transform hover:-translate-y-0.5 duration-200" data-purpose="metric-days">
-<span class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-[#112338] tracking-tight leading-none mb-1.5 sm:mb-2">
+<span class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-[#112338] tracking-tight leading-none mb-1.5 sm:mb-2" id="metric-days-val">
             48
           </span>
 <span class="text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#727a87] uppercase">
@@ -138,7 +138,7 @@
 </article>
 <!-- Hours Card -->
 <article class="countdown-card rounded-xl sm:rounded-2xl py-4 sm:py-6 px-1 sm:px-4 text-center flex flex-col items-center justify-center transition-transform hover:-translate-y-0.5 duration-200" data-purpose="metric-hours">
-<span class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-[#112338] tracking-tight leading-none mb-1.5 sm:mb-2">
+<span class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-[#112338] tracking-tight leading-none mb-1.5 sm:mb-2" id="metric-hours-val">
             14
           </span>
 <span class="text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#727a87] uppercase">
@@ -147,7 +147,7 @@
 </article>
 <!-- Minutes Card -->
 <article class="countdown-card rounded-xl sm:rounded-2xl py-4 sm:py-6 px-1 sm:px-4 text-center flex flex-col items-center justify-center transition-transform hover:-translate-y-0.5 duration-200" data-purpose="metric-minutes">
-<span class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-[#112338] tracking-tight leading-none mb-1.5 sm:mb-2">
+<span class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-[#112338] tracking-tight leading-none mb-1.5 sm:mb-2" id="metric-minutes-val">
             26
           </span>
 <span class="text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#727a87] uppercase">
@@ -156,7 +156,7 @@
 </article>
 <!-- Seconds Card (Special Orange Accent) -->
 <article class="countdown-card rounded-xl sm:rounded-2xl py-4 sm:py-6 px-1 sm:px-4 text-center flex flex-col items-center justify-center transition-transform hover:-translate-y-0.5 duration-200" data-purpose="metric-seconds">
-<span class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-[#bf541e] tracking-tight leading-none mb-1.5 sm:mb-2">
+<span class="font-sans font-bold text-2xl sm:text-4xl md:text-5xl text-[#bf541e] tracking-tight leading-none mb-1.5 sm:mb-2" id="metric-seconds-val">
             03
           </span>
 <span class="text-[9px] sm:text-xs md:text-sm font-semibold tracking-widest text-[#727a87] uppercase">
@@ -164,10 +164,64 @@
           </span>
 </article>
 </div>
+
+<!-- Explore Main Website CTA Button -->
+<div class="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+  <a href="index.html" class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#132c4d] hover:bg-[#1a3d6b] text-white font-medium text-sm sm:text-base shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 group">
+    <span>मुख्य वेबसाइट देखें / Explore Website</span>
+    <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+  </a>
+</div>
 </section>
 <!-- END: CountdownTimer -->
 </main>
 <!-- END: MainContent -->
+
+<footer class="w-full py-6 text-center text-xs text-[#727a87] border-t border-[#ebe4d8]">
+  <p>© 2026–2047 स्वर्णिम भारत उदयघोष • मेरा देश, मेरी ज़िम्मेदारी</p>
+</footer>
+
+<script>
+  (function initCountdown() {
+    var STORAGE_KEY = 'swarnim_target_launch';
+    var target = localStorage.getItem(STORAGE_KEY);
+    if (!target) {
+      // Default to 48 days, 14 hours, 26 minutes from initial load
+      var now = Date.now();
+      var durationMs = (48 * 86400 + 14 * 3600 + 26 * 60 + 3) * 1000;
+      target = now + durationMs;
+      localStorage.setItem(STORAGE_KEY, target);
+    } else {
+      target = parseInt(target, 10);
+    }
+
+    var dEl = document.getElementById('metric-days-val');
+    var hEl = document.getElementById('metric-hours-val');
+    var mEl = document.getElementById('metric-minutes-val');
+    var sEl = document.getElementById('metric-seconds-val');
+
+    function pad(n) {
+      return n < 10 ? '0' + n : '' + n;
+    }
+
+    function update() {
+      var diff = Math.max(0, target - Date.now());
+      var totalSeconds = Math.floor(diff / 1000);
+      var days = Math.floor(totalSeconds / 86400);
+      var hours = Math.floor((totalSeconds % 86400) / 3600);
+      var minutes = Math.floor((totalSeconds % 3600) / 60);
+      var seconds = totalSeconds % 60;
+
+      if (dEl) dEl.textContent = pad(days);
+      if (hEl) hEl.textContent = pad(hours);
+      if (mEl) mEl.textContent = pad(minutes);
+      if (sEl) sEl.textContent = pad(seconds);
+    }
+
+    update();
+    setInterval(update, 1000);
+  })();
+</script>
 
 
 
