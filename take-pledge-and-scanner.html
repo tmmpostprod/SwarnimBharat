@@ -478,7 +478,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 <span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-widest block">Live Citizen Affirmation Ticker</span>
 <div class="flex items-baseline gap-2">
 <span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight" id="pledgeCounter">
-  124
+  125
 </span>
 <span class="font-label-md text-label-md text-primary font-bold">100+ Live Verified</span>
 </div>
@@ -727,10 +727,10 @@ button,a{-webkit-tap-highlight-color:transparent}
     // 2. Real-Time Counter Control (Only increments on real pledge submit)
     function getPledgeCount() {
       const stored = localStorage.getItem('swarnim_pledge_count');
-      const parsed = stored ? parseInt(stored, 10) : 124;
-      if (parsed > 10000) {
-        localStorage.setItem('swarnim_pledge_count', 124);
-        return 124;
+      const parsed = stored ? parseInt(stored, 10) : 125;
+      if (parsed > 10000 || parsed < 125) {
+        localStorage.setItem('swarnim_pledge_count', 125);
+        return 125;
       }
       return parsed;
     }

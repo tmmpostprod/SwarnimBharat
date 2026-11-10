@@ -74,7 +74,7 @@ function doPost(e) {
       }
     }
 
-    var baseCount = 124;
+    var baseCount = 125;
     var rowCount = Math.max(0, sheet.getLastRow()); // includes newly appended
     var totalCount = baseCount + rowCount;
     var pledgeId = "SB-2047-" + totalCount;
@@ -105,7 +105,7 @@ function doGet(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var rowCount = Math.max(0, sheet.getLastRow() - 1);
-    var baseCount = 1429876;
+    var baseCount = 125;
     var totalCount = baseCount + rowCount;
     
     return ContentService
@@ -118,7 +118,7 @@ function doGet(e) {
       .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
     return ContentService
-      .createTextOutput(JSON.stringify({ status: "error", count: 1429876, message: error.toString() }))
+      .createTextOutput(JSON.stringify({ status: "error", count: 125, message: error.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
   }
 }

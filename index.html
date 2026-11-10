@@ -57,59 +57,59 @@ button,a{-webkit-tap-highlight-color:transparent}
           Scan the sovereign QR code or register online to seal your personal contribution towards the centenary dawn of an awakened, developed, and self-reliant India.
         </p>
 </div>
-<!-- Main Scanner Interactive Bento Card -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-<!-- QR Code & Scanner Preview Container (Left 5 cols) -->
-<div class="lg:col-span-5 flex flex-col items-center gap-4 w-full">
+<!-- Main Scanner Interactive Bento Card (50/50 Layout Matching Reference Image) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+<!-- Left Column: Scanner Card + Recent Pledges Below It -->
+<div class="flex flex-col gap-4 w-full">
 
-<!-- 1. Normal Square Scanner Card (Fit & Snug, No Left/Right Gap) -->
-<div class="max-w-[440px] sm:max-w-[460px] mx-auto w-full bg-surface-container-lowest rounded-2xl p-4 sm:p-5 shadow-md border border-primary-container/40 relative flex flex-col items-center text-center overflow-hidden">
+<!-- 1. Normal Square Scanner Card (Fit & Snug, Matching Reference Image) -->
+<div class="w-full bg-surface-container-lowest rounded-2xl p-5 sm:p-6 shadow-md border border-primary-container/40 relative flex flex-col items-center text-center overflow-hidden">
 <!-- Corner Brass Ornaments -->
-<div class="absolute top-3 left-3 w-3.5 h-3.5 border-t-2 border-l-2 border-primary-container"></div>
-<div class="absolute top-3 right-3 w-3.5 h-3.5 border-t-2 border-r-2 border-primary-container"></div>
-<div class="absolute bottom-3 left-3 w-3.5 h-3.5 border-b-2 border-l-2 border-primary-container"></div>
-<div class="absolute bottom-3 right-3 w-3.5 h-3.5 border-b-2 border-r-2 border-primary-container"></div>
+<div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-primary-container"></div>
+<div class="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-primary-container"></div>
+<div class="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-primary-container"></div>
+<div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-primary-container"></div>
 
-<div class="flex items-center gap-1.5 text-primary font-label-md text-xs sm:text-sm uppercase tracking-widest font-bold mb-2">
-<span class="material-symbols-outlined text-[18px]">qr_code_scanner</span>
+<div class="flex items-center gap-1.5 text-primary font-label-md text-xs sm:text-sm uppercase tracking-widest font-bold mb-3">
+<span class="material-symbols-outlined text-[19px]">qr_code_scanner</span>
 <span class="">Live Civic Authenticator</span>
 </div>
 
-<!-- Featured Square QR Scanner Display (Properly Proportioned, No Gaps on Left/Right) -->
-<div class="relative w-full max-w-[280px] sm:max-w-[300px] aspect-square my-1.5 rounded-xl overflow-hidden bg-surface-container p-2.5 shadow-inner border border-outline-variant/30 flex items-center justify-center mx-auto">
+<!-- Featured Square QR Scanner Display (Crisp, Symmetrical Framing) -->
+<div class="relative w-full max-w-[280px] sm:max-w-[310px] aspect-square my-1.5 rounded-xl overflow-hidden bg-surface-container p-2.5 shadow-inner border border-outline-variant/30 flex items-center justify-center mx-auto">
 <img class="w-full h-full object-contain rounded-lg drop-shadow-md" alt="Official Swarnim Bharat Viksit Bharat QR Code" src="assets/official-qr-code.png"/>
 <!-- Active Scanning Crosshair Line -->
 <div class="absolute left-3 right-3 h-0.5 bg-gradient-to-r from-transparent via-tertiary to-transparent shadow-[0_0_10px_#a73a00] animate-pulse" id="scanner-beam"></div>
 </div>
 
-<div class="w-full max-w-[340px] mx-auto mt-2 p-2 bg-surface-container-low rounded-lg text-center">
+<div class="w-full max-w-[360px] mx-auto mt-2.5 p-2.5 bg-surface-container-low rounded-lg text-center">
 <p class="font-body-sm text-xs text-on-surface leading-snug">
   स्कैन करते ही तुरंत <span class="font-semibold text-primary">संकल्प फॉर्म</span> खुलेगा। यह स्थायी QR कोड कभी एक्सपायर नहीं होगा।
 </p>
 </div>
 
 <!-- Basic Camera & Upload Trigger Modes -->
-<div class="w-full max-w-[340px] mx-auto pt-2 grid grid-cols-2 gap-2">
-<button id="homeCameraTriggerBtn" class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-xs text-on-surface font-semibold shadow-xs" onclick="window.openCameraScanner()" type="button">
-<span class="material-symbols-outlined text-[17px] text-primary">photo_camera</span>
+<div class="w-full max-w-[360px] mx-auto pt-2.5 grid grid-cols-2 gap-2.5">
+<button id="homeCameraTriggerBtn" class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-xs text-on-surface font-semibold shadow-xs" onclick="window.openCameraScanner()" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">photo_camera</span>
 <span class="">Scan with Camera</span>
 </button>
-<button id="homeUploadQrBtn" class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-xs text-on-surface font-semibold shadow-xs" onclick="window.triggerQrUpload()" type="button">
-<span class="material-symbols-outlined text-[17px] text-tertiary">upload_file</span>
+<button id="homeUploadQrBtn" class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-xs text-on-surface font-semibold shadow-xs" onclick="window.triggerQrUpload()" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">upload_file</span>
 <span class="">Upload QR Image</span>
 </button>
 </div>
 
 <!-- Official Print QR Download Action for Posters & Banners -->
-<div class="w-full max-w-[340px] mx-auto mt-2.5 pt-2 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-1.5 text-[11px]">
-  <span class="text-on-surface-variant font-medium">बैनर / स्टैंडी HD QR:</span>
+<div class="w-full max-w-[360px] mx-auto mt-3 pt-2.5 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-2 text-xs">
+  <span class="text-on-surface-variant font-medium text-[11px] sm:text-xs">बैनर / स्टैंडी HD QR:</span>
   <div class="flex items-center gap-1.5">
-    <a href="assets/official-qr-poster.png" download="Swarnim_Bharat_Official_Poster.png" class="px-2 py-1 rounded-md bg-primary-container text-on-primary-container font-semibold hover:bg-primary-fixed transition-colors flex items-center gap-1 shadow-xs text-[11px]">
-      <span class="material-symbols-outlined text-[14px]">print</span>
+    <a href="assets/official-qr-poster.png" download="Swarnim_Bharat_Official_Poster.png" class="px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-semibold hover:bg-primary-fixed transition-colors flex items-center gap-1 shadow-xs text-xs">
+      <span class="material-symbols-outlined text-[15px]">print</span>
       <span>Poster HD</span>
     </a>
-    <a href="assets/official-qr-code.png" download="Swarnim_Bharat_Official_QR.png" class="px-2 py-1 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold transition-colors flex items-center gap-1 border border-outline-variant/40 text-[11px]">
-      <span class="material-symbols-outlined text-[14px]">qr_code</span>
+    <a href="assets/official-qr-code.png" download="Swarnim_Bharat_Official_QR.png" class="px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold transition-colors flex items-center gap-1 border border-outline-variant/40 text-xs">
+      <span class="material-symbols-outlined text-[15px]">qr_code</span>
       <span>QR Only</span>
     </a>
   </div>
@@ -117,24 +117,24 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 
 <!-- 2. DIRECTLY UNDER SCANNER: Recent Confirmed Citizens Honor Stream (Left Column) -->
-<div class="max-w-[440px] sm:max-w-[460px] mx-auto w-full bg-surface-container-low rounded-2xl p-4 border border-outline-variant/40 shadow-sm flex flex-col">
+<div class="w-full bg-surface-container-low rounded-2xl p-4 sm:p-5 border border-outline-variant/40 shadow-sm flex flex-col">
   <div class="flex items-center justify-between pb-2 mb-2 border-b border-outline-variant/30">
-    <div class="flex items-center gap-1.5">
-      <span class="material-symbols-outlined text-primary text-[19px]">how_to_reg</span>
-      <span class="font-title-sm text-xs sm:text-sm text-on-surface font-bold">हाल ही में संकल्प लेने वाले देशभक्त नागरिक</span>
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary text-[20px]">how_to_reg</span>
+      <span class="font-title-sm text-sm text-on-surface font-bold">हाल ही में संकल्प लेने वाले देशभक्त नागरिक</span>
     </div>
-    <span class="font-label-sm text-[10px] text-primary uppercase font-bold flex items-center gap-1 bg-primary-container/20 px-2 py-0.5 rounded-full">
+    <span class="font-label-sm text-[10px] text-primary uppercase font-bold flex items-center gap-1 bg-primary-container/20 px-2.5 py-0.5 rounded-full">
       <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
       100+ Live Verified
     </span>
   </div>
   
-  <p class="font-body-sm text-[11px] text-on-surface-variant mb-2">
-    🔒 <span class="font-semibold">गोपनीयता सुरक्षित:</span> केवल नाम, राज्य व संकल्प दिखते हैं (फोन नंबर और ईमेल गोपनीय रखकर सुरक्षित एक्सेल में दर्ज होते हैं)।
+  <p class="font-body-sm text-[11px] text-on-surface-variant mb-2.5">
+    🔒 <span class="font-semibold">गोपनीयता सुरक्षित:</span> केवल नाम, राज्य व संकल्प दिखते हैं (फोन नंबर और ईमेल गोपनीय रहकर सुरक्षित एक्सेल में दर्ज होते हैं)।
   </p>
 
   <!-- Dynamic Stream List Container (Left) -->
-  <div class="flex flex-col gap-2 max-h-[360px] overflow-y-auto pr-1" id="left-citizen-stream">
+  <div class="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1" id="left-citizen-stream">
     <!-- Citizen 1 -->
     <div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between shadow-xs transition-all">
       <div class="flex items-center gap-2.5 min-w-0">
@@ -264,10 +264,10 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 </div>
 
-<!-- Fast Online Pledge Form & Real-time Live Ticker (Right 7 cols) -->
-<div class="lg:col-span-7 flex flex-col items-center gap-4 w-full">
+<!-- Right Column: Live Registry Ticker + Pledge Form (Matching Reference Image) -->
+<div class="flex flex-col gap-4 w-full">
 <!-- 1. Real-Time Live Ticker Card -->
-<div class="max-w-[580px] w-full bg-inverse-surface text-surface rounded-2xl p-space-md sm:p-space-lg shadow-xl relative overflow-hidden">
+<div class="w-full bg-inverse-surface text-surface rounded-2xl p-space-md sm:p-space-lg shadow-xl relative overflow-hidden">
 <div class="flex items-center justify-between mb-space-xs">
 <span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider">
 <span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span> Live Citizen Registry
@@ -275,7 +275,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 <span class="font-label-sm text-label-sm text-surface-variant">Real-Time Sync</span>
 </div>
 <div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg font-bold text-primary-fixed" id="live-pledge-counter">124</span>
+<span class="font-headline-lg text-headline-lg font-bold text-primary-fixed" id="live-pledge-counter">125</span>
 <span class="font-body-md text-body-md text-surface-variant">Pledges Confirmed</span>
 </div>
 <!-- Progress Bar to Phase 1 Milestone (500 Pledges) -->
@@ -289,7 +289,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 
 <!-- 2. Digital Direct Pledge Commitment Box (Blank Fields by Default) -->
-<div class="max-w-[580px] w-full bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-md border border-outline-variant/30 flex flex-col justify-between">
+<div class="w-full bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-md border border-outline-variant/30 flex flex-col justify-between">
 <div class="flex flex-col gap-space-xs">
 <h3 class="font-title-lg text-title-lg text-on-surface font-bold">Enter Your Civic Vow / संकल्प पत्र</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">
@@ -407,153 +407,6 @@ button,a{-webkit-tap-highlight-color:transparent}
     <span>प्रमाण पत्र देखें ↗</span>
   </a>
 </div>
-</div>
-
-<!-- 3. DIRECTLY UNDER GENERATE CERTIFICATE: Recent Confirmed Citizens Stream (Right Side) -->
-<div class="max-w-[580px] w-full bg-surface-container-low rounded-2xl p-4 border border-outline-variant/40 shadow-sm flex flex-col">
-  <div class="flex items-center justify-between pb-space-xs mb-space-xs border-b border-outline-variant/30">
-    <div class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-[20px]">workspace_premium</span>
-      <span class="font-title-sm text-sm text-on-surface font-bold">हाल ही में संकल्प लेने वाले देशभक्त नागरिक</span>
-    </div>
-    <span class="font-label-sm text-[10px] text-primary uppercase font-bold flex items-center gap-1 bg-primary-container/20 px-2 py-0.5 rounded-full">
-      <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-      Real-Time Sync
-    </span>
-  </div>
-  
-  <p class="font-body-sm text-[11px] text-on-surface-variant mb-space-xs">
-    🔒 <span class="font-semibold">गोपनीयता सुरक्षित:</span> केवल नाम, राज्य व संकल्प यहाँ दिखते हैं (फोन नंबर और ईमेल सुरक्षित एक्सेल डेटाबेस में रिकॉर्ड होते हैं)।
-  </p>
-
-  <!-- Dynamic Stream List Container (Right) -->
-  <div class="flex flex-col gap-2 max-h-[300px] overflow-y-auto pr-1" id="right-citizen-stream">
-    <!-- Citizen 1 -->
-    <div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between shadow-xs transition-all">
-      <div class="flex items-center gap-2.5 min-w-0">
-        <div class="w-8 h-8 rounded-full bg-primary-container/30 text-primary font-bold text-xs flex items-center justify-center shrink-0">AS</div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1">
-            <span class="font-title-sm text-xs font-bold text-on-surface truncate">Aarav Sharma</span>
-            <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
-          </div>
-          <p class="font-body-sm text-[11px] text-on-surface-variant truncate">Varanasi, UP • <span class="text-primary font-medium">Prakriti &amp; Green Energy</span></p>
-        </div>
-      </div>
-      <div class="text-right shrink-0">
-        <span class="font-mono text-[10px] text-primary font-bold block">#SB-2047-0124</span>
-        <span class="font-label-sm text-[9px] text-outline block">2 min ago</span>
-      </div>
-    </div>
-
-    <!-- Citizen 2 -->
-    <div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between shadow-xs transition-all">
-      <div class="flex items-center gap-2.5 min-w-0">
-        <div class="w-8 h-8 rounded-full bg-secondary-container/30 text-secondary font-bold text-xs flex items-center justify-center shrink-0">PP</div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1">
-            <span class="font-title-sm text-xs font-bold text-on-surface truncate">Priya Patel</span>
-            <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
-          </div>
-          <p class="font-body-sm text-[11px] text-on-surface-variant truncate">Ahmedabad, GJ • <span class="text-secondary font-medium">Swadeshi &amp; Innovation</span></p>
-        </div>
-      </div>
-      <div class="text-right shrink-0">
-        <span class="font-mono text-[10px] text-primary font-bold block">#SB-2047-0123</span>
-        <span class="font-label-sm text-[9px] text-outline block">9 min ago</span>
-      </div>
-    </div>
-
-    <!-- Citizen 3 -->
-    <div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between shadow-xs transition-all">
-      <div class="flex items-center gap-2.5 min-w-0">
-        <div class="w-8 h-8 rounded-full bg-primary-fixed/40 text-on-primary-fixed font-bold text-xs flex items-center justify-center shrink-0">RS</div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1">
-            <span class="font-title-sm text-xs font-bold text-on-surface truncate">Col. Rajeshwar Singh (Retd.)</span>
-            <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
-          </div>
-          <p class="font-body-sm text-[11px] text-on-surface-variant truncate">Jammu &amp; Kashmir • <span class="text-tertiary font-medium">Kartavya &amp; Civic Duty</span></p>
-        </div>
-      </div>
-      <div class="text-right shrink-0">
-        <span class="font-mono text-[10px] text-primary font-bold block">#SB-2047-0122</span>
-        <span class="font-label-sm text-[9px] text-outline block">22 min ago</span>
-      </div>
-    </div>
-
-    <!-- Citizen 4 -->
-    <div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between shadow-xs transition-all">
-      <div class="flex items-center gap-2.5 min-w-0">
-        <div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface font-bold text-xs flex items-center justify-center shrink-0">AD</div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1">
-            <span class="font-title-sm text-xs font-bold text-on-surface truncate">Ananya Deshmukh</span>
-            <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
-          </div>
-          <p class="font-body-sm text-[11px] text-on-surface-variant truncate">Pune, Maharashtra • <span class="text-primary font-medium">Civilizational Pride</span></p>
-        </div>
-      </div>
-      <div class="text-right shrink-0">
-        <span class="font-mono text-[10px] text-primary font-bold block">#SB-2047-0121</span>
-        <span class="font-label-sm text-[9px] text-outline block">45 min ago</span>
-      </div>
-    </div>
-
-    <!-- Citizen 5 -->
-    <div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between shadow-xs transition-all">
-      <div class="flex items-center gap-2.5 min-w-0">
-        <div class="w-8 h-8 rounded-full bg-secondary-fixed/40 text-on-secondary-fixed font-bold text-xs flex items-center justify-center shrink-0">GS</div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1">
-            <span class="font-title-sm text-xs font-bold text-on-surface truncate">Gurpreet Singh</span>
-            <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
-          </div>
-          <p class="font-body-sm text-[11px] text-on-surface-variant truncate">Amritsar, Punjab • <span class="text-tertiary font-medium">Kartavya &amp; Civic Duty</span></p>
-        </div>
-      </div>
-      <div class="text-right shrink-0">
-        <span class="font-mono text-[10px] text-primary font-bold block">#SB-2047-0120</span>
-        <span class="font-label-sm text-[9px] text-outline block">1 hr ago</span>
-      </div>
-    </div>
-
-    <!-- Citizen 6 -->
-    <div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between shadow-xs transition-all">
-      <div class="flex items-center gap-2.5 min-w-0">
-        <div class="w-8 h-8 rounded-full bg-primary-container/20 text-primary font-bold text-xs flex items-center justify-center shrink-0">SM</div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1">
-            <span class="font-title-sm text-xs font-bold text-on-surface truncate">Sunita Meena</span>
-            <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
-          </div>
-          <p class="font-body-sm text-[11px] text-on-surface-variant truncate">Jaipur, Rajasthan • <span class="text-primary font-medium">Prakriti &amp; Green Energy</span></p>
-        </div>
-      </div>
-      <div class="text-right shrink-0">
-        <span class="font-mono text-[10px] text-primary font-bold block">#SB-2047-0119</span>
-        <span class="font-label-sm text-[9px] text-outline block">2 hrs ago</span>
-      </div>
-    </div>
-
-    <!-- Citizen 7 -->
-    <div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-between shadow-xs transition-all">
-      <div class="flex items-center gap-2.5 min-w-0">
-        <div class="w-8 h-8 rounded-full bg-secondary-container/20 text-secondary font-bold text-xs flex items-center justify-center shrink-0">KV</div>
-        <div class="min-w-0">
-          <div class="flex items-center gap-1">
-            <span class="font-title-sm text-xs font-bold text-on-surface truncate">K. Venkatesh</span>
-            <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
-          </div>
-          <p class="font-body-sm text-[11px] text-on-surface-variant truncate">Bengaluru, KA • <span class="text-secondary font-medium">Swadeshi &amp; Innovation</span></p>
-        </div>
-      </div>
-      <div class="text-right shrink-0">
-        <span class="font-mono text-[10px] text-primary font-bold block">#SB-2047-0118</span>
-        <span class="font-label-sm text-[9px] text-outline block">3 hrs ago</span>
-      </div>
-    </div>
-  </div>
 </div>
 
 </div>
@@ -925,42 +778,37 @@ button,a{-webkit-tap-highlight-color:transparent}
 
   function prependCitizenToBothStreams(name, state, vow, regId) {
     const leftStream = document.getElementById('left-citizen-stream');
-    const rightStream = document.getElementById('right-citizen-stream');
     const initials = name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase() || 'CT';
     
-    const createCard = () => {
-      const card = document.createElement('div');
-      card.className = 'p-2.5 rounded-lg bg-surface-container-highest/60 border border-primary-container flex items-center justify-between shadow-xs transition-all';
-      card.innerHTML = `
-        <div class="flex items-center gap-2.5 min-w-0">
-          <div class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center shrink-0">${initials}</div>
-          <div class="min-w-0">
-            <div class="flex items-center gap-1">
-              <span class="font-title-sm text-xs font-bold text-on-surface truncate">${name}</span>
-              <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
-            </div>
-            <p class="font-body-sm text-[11px] text-on-surface-variant truncate">${state} • <span class="text-primary font-medium">${vow}</span></p>
+    const card = document.createElement('div');
+    card.className = 'p-2.5 rounded-lg bg-surface-container-highest/60 border border-primary-container flex items-center justify-between shadow-xs transition-all';
+    card.innerHTML = `
+      <div class="flex items-center gap-2.5 min-w-0">
+        <div class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center shrink-0">${initials}</div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-1">
+            <span class="font-title-sm text-xs font-bold text-on-surface truncate">${name}</span>
+            <span class="material-symbols-outlined text-primary text-[13px]">verified</span>
           </div>
+          <p class="font-body-sm text-[11px] text-on-surface-variant truncate">${state} • <span class="text-primary font-medium">${vow}</span></p>
         </div>
-        <div class="text-right shrink-0">
-          <span class="font-mono text-[10px] text-primary font-bold block">#${regId}</span>
-          <span class="font-label-sm text-[9px] text-tertiary font-bold block">Just now</span>
-        </div>
-      `;
-      return card;
-    };
+      </div>
+      <div class="text-right shrink-0">
+        <span class="font-mono text-[10px] text-primary font-bold block">#${regId}</span>
+        <span class="font-label-sm text-[9px] text-tertiary font-bold block">Just now</span>
+      </div>
+    `;
 
-    if (leftStream) leftStream.insertBefore(createCard(), leftStream.firstChild);
-    if (rightStream) rightStream.insertBefore(createCard(), rightStream.firstChild);
+    if (leftStream) leftStream.insertBefore(card, leftStream.firstChild);
   }
 
   function getCurrentCount() {
     const stored = localStorage.getItem('swarnim_pledge_count');
-    const parsed = stored ? parseInt(stored, 10) : 124;
-    // Reset old demo huge numbers to realistic 100+ count
-    if (parsed > 10000) {
-      localStorage.setItem('swarnim_pledge_count', 124);
-      return 124;
+    const parsed = stored ? parseInt(stored, 10) : 125;
+    // Reset old demo huge numbers to realistic 100+ count (baseline 125 as shown in reference)
+    if (parsed > 10000 || parsed < 125) {
+      localStorage.setItem('swarnim_pledge_count', 125);
+      return 125;
     }
     return parsed;
   }
