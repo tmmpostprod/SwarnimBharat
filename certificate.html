@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>राष्ट्रीय संकल्प समर्पण पत्र | Swarnim Bharat 2047 Certificate</title>
+  <link rel="icon" type="image/png" href="assets/logo-shield.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Work+Sans:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f6f3ec;
+      font-family: 'Noto Sans', sans-serif;
+    }
+    .serif-title {
+      font-family: 'Playfair Display', serif;
+    }
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      #certificatePaper {
+        box-shadow: none !important;
+        border: 2px solid #d4af37 !important;
+        margin: 0 auto !important;
+        page-break-inside: avoid;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen text-[#1c1c18] flex flex-col items-center justify-between py-6 px-4">
+
+  <!-- Top Action Bar (No Print) -->
+  <div class="no-print max-w-4xl w-full flex flex-wrap items-center justify-between gap-3 mb-6 bg-white p-4 rounded-xl shadow-md border border-[#d0c5af]/50">
+    <div class="flex items-center gap-2">
+      <img src="assets/logo-shield.png" alt="Emblem" class="w-8 h-10 object-contain drop-shadow-sm" />
+      <div>
+        <h1 class="text-sm font-bold text-[#735c00] leading-tight">स्वर्णिम भारत उदयघोष</h1>
+        <p class="text-[11px] text-[#a73a00] font-semibold uppercase tracking-wider">Official Sovereign Certificate</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <button id="downloadBtn" onclick="downloadCertificate()" class="px-4 py-2 rounded-lg bg-[#735c00] hover:bg-[#554300] text-white font-semibold text-xs flex items-center gap-1.5 shadow-md transition-all">
+        <span class="material-symbols-outlined text-[18px]">download</span>
+        <span id="downloadBtnText">Download Certificate (PNG)</span>
+      </button>
+      <button onclick="window.print()" class="px-3.5 py-2 rounded-lg bg-[#f0eee7] hover:bg-[#e5e2db] text-[#1c1c18] font-semibold text-xs flex items-center gap-1.5 border border-[#d0c5af] shadow-xs transition-colors">
+        <span class="material-symbols-outlined text-[18px]">print</span>
+        <span>Print / PDF</span>
+      </button>
+      <a id="shareWaBtn" href="#" target="_blank" class="px-3.5 py-2 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-xs flex items-center gap-1.5 shadow-xs transition-colors">
+        <span>WhatsApp</span>
+      </a>
+      <a href="index.html" class="px-3.5 py-2 rounded-lg bg-white hover:bg-gray-50 text-[#525f71] font-semibold text-xs flex items-center gap-1 border border-gray-300 transition-colors">
+        <span class="material-symbols-outlined text-[16px]">home</span>
+        <span>Home</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- The Master Sovereign Certificate Sheet -->
+  <div id="certificatePaper" class="max-w-4xl w-full bg-[#ffffff] rounded-2xl p-6 sm:p-12 shadow-2xl border-4 border-double border-[#d4af37]/90 relative overflow-hidden text-center flex flex-col justify-between my-auto">
+    
+    <!-- Tricolor Ribbon Top Accent -->
+    <div class="absolute top-0 inset-x-8 h-1.5 bg-gradient-to-r from-[#a73a00] via-[#ffffff] to-[#138808]"></div>
+
+    <!-- Heritage Corner Stars -->
+    <span class="material-symbols-outlined absolute top-4 left-4 text-[#735c00] text-[26px] opacity-60">stars</span>
+    <span class="material-symbols-outlined absolute top-4 right-4 text-[#735c00] text-[26px] opacity-60">stars</span>
+    <span class="material-symbols-outlined absolute bottom-4 left-4 text-[#735c00] text-[26px] opacity-60">stars</span>
+    <span class="material-symbols-outlined absolute bottom-4 right-4 text-[#735c00] text-[26px] opacity-60">stars</span>
+
+    <!-- Certificate Header -->
+    <div class="flex flex-col items-center gap-1 mb-3 pt-2">
+      <!-- Citizen Photo or Official Shield Emblem in Medallion -->
+      <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-3 border-[#d4af37] shadow-lg bg-[#fcf9f2] flex items-center justify-center mb-2 relative p-0.5">
+        <img id="certCitizenPhoto" class="w-full h-full object-cover hidden rounded-full" alt="Citizen Photo" />
+        <img id="certShieldFallback" src="assets/logo-shield.png" class="w-14 h-18 object-contain" alt="National Shield" />
+      </div>
+
+      <span class="text-[11px] font-bold text-[#a73a00] tracking-widest uppercase">Government of India Initiative • Rashtriya Sankalp 2047</span>
+      <h2 class="serif-title text-2xl sm:text-3xl text-[#1c1c18] font-bold mt-0.5">स्वर्णिम भारत उदयघोष</h2>
+      <span class="text-xs sm:text-sm font-semibold text-[#735c00] tracking-widest uppercase">राष्ट्रीय संकल्प समर्पण पत्र • Certificate of Sovereign Commitment</span>
+    </div>
+
+    <!-- Body Citation -->
+    <div class="my-4 border-y border-[#d0c5af]/50 py-5 w-full">
+      <p class="text-xs sm:text-sm text-[#4d4635] italic mb-1.5">यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक</p>
+      
+      <!-- Citizen Name Plate -->
+      <div class="py-1 px-4 my-2 inline-block">
+        <h3 id="certCitizenName" class="serif-title text-2xl sm:text-4xl text-[#735c00] font-bold tracking-wide">
+          Aarav Sharma
+        </h3>
+      </div>
+
+      <p id="certCitizenState" class="text-xs sm:text-sm font-semibold text-[#a73a00] mb-3">
+        Varanasi, Uttar Pradesh
+      </p>
+
+      <p class="text-xs sm:text-sm text-[#1c1c18] max-w-xl mx-auto leading-relaxed">
+        ने राष्ट्रीय महा-संकल्प <strong>"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।
+      </p>
+
+      <!-- Sankalp Focus Pill -->
+      <div class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/20 text-[#554300] font-semibold text-xs sm:text-sm border border-[#d4af37]/40 shadow-xs">
+        <span class="material-symbols-outlined text-[16px] text-[#735c00]">verified</span>
+        <span id="certVowFocus">Prakriti & Green Energy</span>
+      </div>
+    </div>
+
+    <!-- Signature & Official Seal Row -->
+    <div class="w-full flex items-end justify-between pt-3 px-2 text-left">
+      <div>
+        <span class="text-[10px] text-[#7f7663] block uppercase font-medium">National Registry ID</span>
+        <span id="certPledgeId" class="font-mono text-xs sm:text-sm font-bold text-[#735c00]">SB-2047-0125</span>
+        <span id="certTimestamp" class="text-[10px] text-[#7f7663] block mt-0.5">2026 • New Delhi</span>
+      </div>
+
+      <!-- Golden Seal Stamp -->
+      <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#d4af37]/15 border-2 border-[#d4af37] flex flex-col items-center justify-center text-[#735c00] shadow-sm">
+        <span class="material-symbols-outlined text-[20px] sm:text-[24px]">verified</span>
+        <span class="text-[7px] sm:text-[8px] uppercase tracking-tighter font-bold text-center leading-tight mt-0.5">OFFICIAL SEAL<br/>GOVT OF INDIA</span>
+      </div>
+
+      <div class="text-right">
+        <span class="text-[10px] text-[#7f7663] block uppercase font-medium">National Mission Cell</span>
+        <span class="text-xs sm:text-sm font-semibold text-[#1c1c18]">Secretariat New Delhi</span>
+        <span class="text-[10px] text-[#a73a00] font-semibold block mt-0.5">Viksit Bharat 2047</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Guidance Footer (No Print) -->
+  <div class="no-print text-center text-xs text-[#7f7663] mt-6 max-w-lg">
+    <p>यह प्रमाण पत्र आधिकारिक रूप से रिकॉर्ड किया गया है। आप इसे <strong>PNG इमेज</strong> या <strong>PDF</strong> के रूप में डाउनलोड करके अपने पास सहेज सकते हैं।</p>
+  </div>
+
+  <script>
+    // Load certificate data from sessionStorage or URL parameters
+    document.addEventListener('DOMContentLoaded', () => {
+      let data = null;
+      try {
+        const stored = sessionStorage.getItem('swarnim_cert_data');
+        if (stored) data = JSON.parse(stored);
+      } catch (e) {}
+
+      // Fallback to URL params if not in sessionStorage
+      if (!data) {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('name')) {
+          data = {
+            name: params.get('name'),
+            state: params.get('state') || 'Bharat',
+            vow: params.get('vow') || 'Prakriti & Green Energy',
+            pledgeId: params.get('id') || 'SB-2047-0125',
+            photoBase64: ''
+          };
+        }
+      }
+
+      // Default demo values if opened directly
+      const name = data && data.name ? data.name : 'Aarav Sharma';
+      const state = data && data.state ? data.state : 'Varanasi, Uttar Pradesh';
+      const vow = data && data.vow ? data.vow : 'Prakriti & Green Energy';
+      const pledgeId = data && data.pledgeId ? data.pledgeId : 'SB-2047-0125';
+      const photoB64 = data && data.photoBase64 ? data.photoBase64 : '';
+      const timestamp = data && data.timestamp ? data.timestamp : (new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase() + ' • IST');
+
+      // Populate DOM elements
+      document.getElementById('certCitizenName').innerText = name;
+      document.getElementById('certCitizenState').innerText = state;
+      document.getElementById('certVowFocus').innerText = vow;
+      document.getElementById('certPledgeId').innerText = pledgeId;
+      document.getElementById('certTimestamp').innerText = timestamp;
+      document.title = `Certificate - ${name} | Swarnim Bharat 2047`;
+
+      // Photo handling
+      const photoImg = document.getElementById('certCitizenPhoto');
+      const shieldFallback = document.getElementById('certShieldFallback');
+      if (photoB64 && photoImg && shieldFallback) {
+        photoImg.src = photoB64;
+        photoImg.classList.remove('hidden');
+        shieldFallback.classList.add('hidden');
+      }
+
+      // WhatsApp share link
+      const waBtn = document.getElementById('shareWaBtn');
+      if (waBtn) {
+        const msg = `🇮🇳 मैंने स्वर्णिम भारत उदयघोष (2026-2047) का राष्ट्रीय संकल्प लिया है!\n\n👤 नाम: ${name}\n🏛️ राज्य: ${state}\n🎯 संकल्प: ${vow}\n🎖️ Registry Code: ${pledgeId}\n\nआप भी संकल्प लें और अपना डिजिटल प्रमाण पत्र पाएं:\n${window.location.origin + '/take-pledge-and-scanner.html'}`;
+        waBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
+      }
+    });
+
+    // High-Resolution Certificate PNG Download
+    function downloadCertificate() {
+      const certNode = document.getElementById('certificatePaper');
+      const citizenName = (document.getElementById('certCitizenName') ? document.getElementById('certCitizenName').innerText.trim() : 'Citizen');
+      const btn = document.getElementById('downloadBtn');
+      const btnText = document.getElementById('downloadBtnText');
+
+      if (!certNode) {
+        window.print();
+        return;
+      }
+
+      if (btnText) btnText.innerText = "प्रमाण पत्र डाउनलोड हो रहा है...";
+      if (btn) btn.disabled = true;
+
+      if (typeof html2canvas === 'function') {
+        html2canvas(certNode, {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          logging: false,
+          backgroundColor: '#ffffff'
+        }).then(canvas => {
+          const a = document.createElement('a');
+          const cleanName = citizenName.replace(/[^a-zA-Z0-9\u0900-\u097F]/g, '_');
+          a.download = `Swarnim_Bharat_Certificate_${cleanName}.png`;
+          a.href = canvas.toDataURL('image/png');
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+
+          if (btnText) btnText.innerText = "Download Certificate (PNG)";
+          if (btn) btn.disabled = false;
+        }).catch(err => {
+          console.error('html2canvas error:', err);
+          if (btnText) btnText.innerText = "Download Certificate (PNG)";
+          if (btn) btn.disabled = false;
+          window.print();
+        });
+      } else {
+        window.print();
+        if (btnText) btnText.innerText = "Download Certificate (PNG)";
+        if (btn) btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

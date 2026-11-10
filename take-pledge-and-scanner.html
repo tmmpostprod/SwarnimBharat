@@ -444,6 +444,10 @@ button,a{-webkit-tap-highlight-color:transparent}
 <span class="material-symbols-outlined text-[20px]">download</span>
 <span id="certDownloadBtnText">Download High-Res Certificate (PNG)</span>
 </button>
+<button class="flex items-center gap-2 px-5 py-3.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary-fixed transition-all font-label-md text-label-md shadow-sm font-bold" onclick="window.openCertInNewTab();" type="button">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+<span>Open in New Tab ↗</span>
+</button>
 <button class="flex items-center gap-2 px-5 py-3.5 rounded-lg bg-surface text-on-surface hover:bg-surface-container-high transition-all font-label-md text-label-md shadow-sm font-semibold border border-outline-variant/50" onclick="window.printCert();" type="button">
 <span class="material-symbols-outlined text-[20px] text-primary">print</span>
 <span>Print / PDF</span>
@@ -828,6 +832,19 @@ button,a{-webkit-tap-highlight-color:transparent}
       // Prepend to Live Honor Roll Stream
       prependToHonorRoll(name, state, pillar, newHash);
 
+      // Save cert data to sessionStorage for opening in new tab
+      const certData = {
+        name: name,
+        state: state,
+        vow: pillar,
+        pledgeId: newHash,
+        photoBase64: userUploadedPhotoBase64,
+        timestamp: `${dateStr} • ${timeStr}`
+      };
+      try {
+        sessionStorage.setItem('swarnim_cert_data', JSON.stringify(certData));
+      } catch (e) {}
+
       // Send to Google Sheet if URL is configured
       const isConfigured = GOOGLE_SCRIPT_URL && 
                            GOOGLE_SCRIPT_URL !== "यहाँ_अपना_WEB_APP_URL_पेस्ट_करें" && 
@@ -978,6 +995,26 @@ button,a{-webkit-tap-highlight-color:transparent}
         if (btnText) btnText.innerText = "Download High-Res Certificate (PNG)";
         if (btn) btn.disabled = false;
       }
+    };
+
+    window.openCertInNewTab = function() {
+      // Ensure latest data is in sessionStorage
+      const name = document.getElementById('certCitizenName') ? document.getElementById('certCitizenName').innerText.trim() : 'Citizen';
+      const state = document.getElementById('certState') ? document.getElementById('certState').innerText.trim() : 'Bharat';
+      const pillar = document.getElementById('certPillarName') ? document.getElementById('certPillarName').innerText.trim() : 'Viksit Bharat';
+      const regId = document.getElementById('certHash') ? document.getElementById('certHash').innerText.trim() : 'SB-2047-0125';
+      const certData = {
+        name: name,
+        state: state,
+        vow: pillar,
+        pledgeId: regId,
+        photoBase64: userUploadedPhotoBase64,
+        timestamp: document.getElementById('certDate') ? document.getElementById('certDate').innerText.trim() : ''
+      };
+      try {
+        sessionStorage.setItem('swarnim_cert_data', JSON.stringify(certData));
+      } catch (e) {}
+      window.open('certificate.html', '_blank');
     };
 
     window.printCert = function() {
