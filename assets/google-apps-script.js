@@ -28,13 +28,14 @@ function doPost(e) {
       sheet.appendRow([
         "Timestamp (IST)", 
         "Full Name (पूरा नाम)", 
+        "Phone (फ़ोन नंबर)",
         "State (राज्य)", 
         "Vow / Focus (संकल्प)", 
         "Email (ईमेल)", 
         "Citizen Photo (फोटो लिंक)",
         "Pledge Registry ID"
       ]);
-      sheet.getRange(1, 1, 1, 7).setFontWeight("bold").setBackground("#d4af37").setFontColor("#132c4d");
+      sheet.getRange(1, 1, 1, 8).setFontWeight("bold").setBackground("#d4af37").setFontColor("#132c4d");
       sheet.setFrozenRows(1);
     }
 
@@ -49,6 +50,7 @@ function doPost(e) {
     var formattedDate = Utilities.formatDate(now, "Asia/Kolkata", "dd-MMM-yyyy hh:mm:ss a");
 
     var fullName = data.full_name || data.fullName || "Citizen of Bharat";
+    var phoneNumber = data.phone_number || data.phoneNumber || data.phone || data.contact_mobile || "";
     var state = data.state || "Bharat";
     var vowFocus = data.vow_focus || data.focus || "Viksit Bharat 2047";
     var email = data.email || "";
@@ -78,7 +80,7 @@ function doPost(e) {
     var pledgeId = "SB-2047-" + totalCount;
 
     // Append new row
-    sheet.appendRow([formattedDate, fullName, state, vowFocus, email, photoUrl, pledgeId]);
+    sheet.appendRow([formattedDate, fullName, phoneNumber, state, vowFocus, email, photoUrl, pledgeId]);
 
     return ContentService
       .createTextOutput(JSON.stringify({ 
