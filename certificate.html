@@ -1,592 +1,613 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>राष्ट्रीय संकल्प समर्पण पत्र • Swarnim Bharat Sovereign Certificate</title>
-  <link rel="icon" type="image/png" href="assets/logo-shield.png"/>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- html2canvas for High Resolution PNG Download -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Work+Sans:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            certBg: '#FDFBF7',
-            gold: '#B59A53',
-            goldDark: '#A48641',
-            maroon: '#8C2121',
-            logoBlue: '#0D1B2A'
-          },
-          fontFamily: {
-            hindi: ['"Noto Sans Devanagari"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif'],
-            sans: ['"Work Sans"', 'sans-serif']
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>राष्ट्रीय संकल्प समर्पण पत्र • Sovereign Commitment Certificate</title>
+    <link rel="icon" type="image/png" href="assets/logo-shield.png"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2canvas for High Resolution PNG Download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        certBg: '#FDFBF7',
+                        gold: '#B59A53',
+                        goldDark: '#A48641',
+                        maroon: '#8C2121',
+                        logoBlue: '#0D1B2A'
+                    },
+                    fontFamily: {
+                        hindi: ['"Noto Sans Devanagari"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
+    <style>
+        body {
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
 
-  <style>
-    body {
-      background-color: #f3f4f6;
-      margin: 0;
-      padding: 0;
-      font-family: 'Work Sans', sans-serif;
-    }
+        /* Certificate Container & Scaling */
+        #cert-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            background: #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+        }
 
-    /* Certificate Container & Scaling */
-    #cert-wrapper {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      overflow: hidden;
-      background: #e5e7eb;
-      border-radius: 0.75rem;
-      padding: 1rem;
-      box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-    }
+        #certificate {
+            /* Fixed A4 Landscape sizes */
+            width: 1123px; 
+            height: 794px;
+            background-color: #FDFBF7;
+            position: relative;
+            transform-origin: top center;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            /* Padding for the double border */
+            padding: 24px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+        }
 
-    #certificate {
-      /* Fixed A4 Landscape sizes */
-      width: 1123px; 
-      height: 794px;
-      background-color: #FDFBF7;
-      position: relative;
-      transform-origin: top center;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-      padding: 24px;
-      flex-shrink: 0;
-      box-sizing: border-box;
-    }
+        .double-border {
+            width: 100%;
+            height: 100%;
+            border: 3px solid #B59A53;
+            padding: 6px;
+            position: relative;
+            box-sizing: border-box;
+        }
 
-    .double-border {
-      width: 100%;
-      height: 100%;
-      border: 3px solid #B59A53;
-      padding: 6px;
-      position: relative;
-      box-sizing: border-box;
-    }
+        .inner-border {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #B59A53;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+        }
 
-    .inner-border {
-      width: 100%;
-      height: 100%;
-      border: 1px solid #B59A53;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 34px 40px;
-      box-sizing: border-box;
-    }
+        .corner-star {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            border: 2px solid #B59A53;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FDFBF7;
+            color: #B59A53;
+            font-size: 16px;
+            z-index: 10;
+            user-select: none;
+        }
+        
+        .corner-tl { top: -16px; left: -16px; }
+        .corner-tr { top: -16px; right: -16px; }
+        .corner-bl { bottom: -16px; left: -16px; }
+        .corner-br { bottom: -16px; right: -16px; }
 
-    .corner-star {
-      position: absolute;
-      width: 32px;
-      height: 32px;
-      border: 2px solid #B59A53;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #FDFBF7;
-      color: #B59A53;
-      font-size: 16px;
-      z-index: 10;
-      user-select: none;
-    }
-    
-    .corner-tl { top: -16px; left: -16px; }
-    .corner-tr { top: -16px; right: -16px; }
-    .corner-bl { bottom: -16px; left: -16px; }
-    .corner-br { bottom: -16px; right: -16px; }
+        /* Photo positioning */
+        .cert-photo-container {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 110px;
+            height: 110px;
+            border: 2px solid #B59A53;
+            border-radius: 8px;
+            padding: 4px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            display: none; /* Hidden by default until photo added */
+            z-index: 20;
+        }
+        
+        .cert-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
 
-    /* Photo positioning */
-    .cert-photo-container {
-      position: absolute;
-      top: 36px;
-      right: 36px;
-      width: 112px;
-      height: 112px;
-      border: 2px solid #B59A53;
-      border-radius: 8px;
-      padding: 4px;
-      background: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      display: none; /* Shown dynamically if photo is uploaded */
-      z-index: 20;
-    }
-    
-    .cert-photo-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    /* Print Setup for Exact A4 Landscape */
-    @media print {
-      @page {
-        size: A4 landscape;
-        margin: 0;
-      }
-      body {
-        background: transparent !important;
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-      .no-print {
-        display: none !important;
-      }
-      #cert-wrapper {
-        padding: 0 !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        width: 1123px !important;
-        height: 794px !important;
-        display: block !important;
-      }
-      #certificate {
-        transform: none !important;
-        box-shadow: none !important;
-        margin: 0 !important;
-        page-break-inside: avoid;
-      }
-    }
-  </style>
+        /* Print Settings for Exact A4 Landscape */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+            body {
+                background: transparent !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            #cert-wrapper {
+                padding: 0 !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                width: 1123px !important;
+                height: 794px !important;
+                display: block !important;
+            }
+            #certificate {
+                transform: none !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
-<body class="text-gray-800 font-sans antialiased">
+<body class="text-gray-800 font-sans">
 
-  <!-- Top Global Bar (No Print) -->
-  <header class="no-print bg-white border-b border-gray-200 py-3 px-4 sm:px-8 shadow-xs">
-    <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-3">
-        <img src="assets/logo-shield.png" alt="Swarnim Bharat" class="h-9 w-auto object-contain" />
-        <div>
-          <h1 class="font-bold text-gray-900 text-sm sm:text-base leading-tight">स्वर्णिम भारत उदयघोष</h1>
-          <p class="text-[11px] text-goldDark font-semibold uppercase tracking-wider">A4 Sovereign Commitment Certificate</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <a href="index.html" class="px-3.5 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
-          <span class="material-symbols-outlined text-[17px]">arrow_back</span>
-          <span>Back to Home</span>
-        </a>
-        <a href="take-pledge-and-scanner.html" class="px-3.5 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
-          <span class="material-symbols-outlined text-[17px]">qr_code_scanner</span>
-          <span>Scanner Hub</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <div class="min-h-[calc(100vh-65px)] p-4 md:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-8 max-w-[1600px] mx-auto items-start">
-    
-    <!-- Left: Issue & Edit Certificate Control Panel (No Print) -->
-    <div class="no-print w-full lg:w-[380px] bg-white p-5 sm:p-6 rounded-xl shadow-lg border border-gray-200 flex-shrink-0">
-      <div class="flex items-center justify-between border-b pb-3 mb-5 border-gray-200">
-        <h2 class="text-xl font-bold text-gray-900 flex items-center gap-2">
-          <span class="material-symbols-outlined text-goldDark">badge</span>
-          <span>Citizen Certificate</span>
-        </h2>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-amber-50 text-goldDark border border-gold/40 font-semibold">Live Editor</span>
-      </div>
-      
-      <form id="cert-form" class="space-y-4 text-left" onsubmit="event.preventDefault();">
-        <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Full Name (पूरा नाम) *</label>
-          <input type="text" id="input-name" value="PRAKASH SHARMA" class="w-full px-3.5 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition uppercase text-sm font-semibold">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Phone Number (फ़ोन नंबर)</label>
-          <input type="tel" id="input-phone" placeholder="+91 98765 43210" class="w-full px-3.5 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Email ID (ईमेल)</label>
-          <input type="email" id="input-email" placeholder="name@example.com" class="w-full px-3.5 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">State / UT (राज्य) *</label>
-          <input type="text" id="input-state" value="Haryana" class="w-full px-3.5 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm font-semibold">
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Vow / Pledge Focus (संकल्प) *</label>
-          <select id="input-pledge" class="w-full px-3.5 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition bg-white text-sm font-medium">
-            <option value="🌿 Prakriti & Green Energy" selected>🌿 Prakriti & Green Energy</option>
-            <option value="🇮🇳 Swadeshi & Innovation">🇮🇳 Swadeshi & Innovation</option>
-            <option value="🛕 Civilizational Pride">🛕 Civilizational Pride</option>
-            <option value="⚖️ Kartavya & Civic Duty">⚖️ Kartavya & Civic Duty</option>
-            <option value="custom">✏️ Custom Pledge...</option>
-          </select>
-        </div>
-
-        <div id="custom-pledge-container" class="hidden">
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Custom Pledge (कस्टम संकल्प)</label>
-          <input type="text" id="input-custom-pledge" placeholder="Enter your custom pledge" class="w-full px-3.5 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm">
-        </div>
-
-        <!-- Citizen Photo Upload / Local File -->
-        <div>
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Citizen Photo / Selfie (फोटो)</label>
-          <input type="file" id="input-photo-file" accept="image/png, image/jpeg, image/jpg" class="w-full text-xs text-gray-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-goldDark hover:file:bg-amber-200 cursor-pointer">
-          <div class="mt-2">
-            <input type="url" id="input-photo" placeholder="Or paste image URL (https://...)" class="w-full px-3 py-1.5 text-xs border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition">
-          </div>
-        </div>
-
-        <!-- Registry Hash Manual Override -->
-        <div class="pt-1">
-          <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">Registry Token ID</label>
-          <input type="text" id="input-hash" value="SB-2047-0125" class="w-full px-3 py-1.5 text-xs font-mono border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition">
-        </div>
-      </form>
-    </div>
-
-    <!-- Right: Certificate Display & Export Actions -->
-    <div class="w-full lg:flex-1 flex flex-col">
-      <!-- Action Toolbar (No Print) -->
-      <div class="no-print flex flex-wrap justify-between items-center gap-3 mb-4 bg-white p-3.5 rounded-xl border border-gray-200 shadow-xs">
-        <div>
-          <h3 class="text-base font-bold text-gray-800">A4 Landscape Certificate Preview</h3>
-          <p class="text-xs text-gray-500">Auto-scaled to fit screen • Prints exactly at 1123 × 794 px A4 standard</p>
-        </div>
-        
-        <div class="flex flex-wrap items-center gap-2">
-          <!-- Download High-Res PNG Button -->
-          <button id="downloadCertBtn" onclick="downloadCertificateImage()" class="px-4 py-2 bg-[#735c00] hover:bg-[#554300] text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm transition flex items-center gap-1.5">
-            <span class="material-symbols-outlined text-[18px]">download</span>
-            <span id="downloadCertBtnText">Download PNG (HD)</span>
-          </button>
-          
-          <!-- Print / Save as PDF Button -->
-          <button onclick="window.print()" class="px-4 py-2 bg-gold hover:bg-goldDark text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm transition flex items-center gap-1.5">
-            <span class="material-symbols-outlined text-[18px]">print</span>
-            <span>Print / PDF</span>
-          </button>
-
-          <!-- WhatsApp Share -->
-          <button onclick="shareOnWhatsApp()" class="px-3.5 py-2 bg-[#25D366] hover:bg-[#1faa4b] text-white text-xs sm:text-sm font-semibold rounded-lg shadow-sm transition flex items-center gap-1">
-            <span>WhatsApp</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Wrapper to handle dynamic scaling -->
-      <div id="cert-wrapper">
-        
-        <!-- The Authentic A4 Sovereign Certificate (1123px × 794px Fixed) -->
-        <div id="certificate">
-          <div class="double-border">
-            <div class="inner-border">
-              
-              <!-- 4 Corner Star Medallions -->
-              <div class="corner-star corner-tl">★</div>
-              <div class="corner-star corner-tr">★</div>
-              <div class="corner-star corner-bl">★</div>
-              <div class="corner-star corner-br">★</div>
-
-              <!-- Citizen Photo Frame (Top Right) -->
-              <div id="cert-photo-wrapper" class="cert-photo-container">
-                <img id="cert-photo" src="" alt="Citizen Photo">
-              </div>
-
-              <!-- Swarnim Bharat Official Logo -->
-              <img src="assets/logo.png" class="h-24 sm:h-28 w-auto object-contain mb-3 mx-auto drop-shadow-md rounded-lg" alt="Swarnim Bharat Logo" onerror="this.src='assets/logo-emblem.png'">
-
-              <!-- Header Section -->
-              <div class="text-center space-y-1 w-full">
-                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 font-hindi tracking-tight">स्वर्णिम भारत उदयघोष</h1>
-                
-                <h2 class="text-goldDark font-bold tracking-widest text-xs sm:text-sm mt-1 uppercase">
-                  राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF SOVEREIGN COMMITMENT
-                </h2>
-
-                <div class="w-full border-t border-gray-300 my-4 max-w-3xl mx-auto"></div>
-              </div>
-
-              <!-- Intro Citation Text -->
-              <p class="italic text-gray-700 font-hindi text-base sm:text-lg mt-1">
-                यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक
-              </p>
-
-              <!-- Personal Citizen Details Plate -->
-              <div class="text-center my-3">
-                <h2 id="cert-name" class="font-serif text-4xl sm:text-5xl lg:text-6xl text-goldDark font-bold uppercase tracking-wide leading-tight">
-                  PRAKASH SHARMA
-                </h2>
-                <p id="cert-state" class="text-maroon text-xl sm:text-2xl font-bold mt-2">
-                  Haryana
-                </p>
-              </div>
-
-              <!-- Affirmation Body Text -->
-              <p class="text-gray-800 max-w-3xl mx-auto text-center font-hindi text-lg sm:text-xl leading-relaxed my-3">
-                ने राष्ट्रीय महा-संकल्प <strong>"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।
-              </p>
-
-              <!-- Pledge Focus Badge -->
-              <div class="my-4">
-                <div id="cert-pledge" class="bg-[#FDF8E7] border-2 border-gold rounded-full px-7 py-2.5 text-goldDark font-bold text-base sm:text-lg inline-flex items-center gap-2 shadow-xs">
-                  🌿 Prakriti & Green Energy
+    <!-- Top Navigation Header (No Print) -->
+    <header class="no-print bg-white border-b border-gray-200 py-3 px-4 sm:px-8 shadow-xs">
+        <div class="max-w-[1600px] mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo-shield.png" alt="Swarnim Bharat" class="h-9 w-auto object-contain" />
+                <div>
+                    <h1 class="font-bold text-gray-900 text-sm sm:text-base leading-tight">स्वर्णिम भारत उदयघोष</h1>
+                    <p class="text-[11px] text-goldDark font-semibold uppercase tracking-wider">A4 Sovereign Commitment Certificate</p>
                 </div>
-              </div>
-
-              <!-- Footer Section (3 Columns - Without Government Claims) -->
-              <div class="grid grid-cols-3 w-full mt-auto pt-4 px-4 items-end text-sm">
-                <!-- Left Footer: Registry Metadata -->
-                <div class="text-left space-y-1">
-                  <p class="text-gray-500 font-semibold tracking-wider text-[11px] uppercase">NATIONAL REGISTRY ID</p>
-                  <p class="text-goldDark font-bold text-base sm:text-lg font-mono" id="cert-registry-id">SB-2047-0125</p>
-                  <p class="text-gray-500 text-xs" id="current-date">10 NOV 2026 • IST</p>
-                </div>
-
-                <!-- Center Footer: Official Citizen Registry Medal Seal -->
-                <div class="flex justify-center pb-1">
-                  <div class="w-16 h-16 rounded-full bg-[#d4af37]/15 border-2 border-[#d4af37] flex flex-col items-center justify-center text-goldDark shadow-xs">
-                    <span class="material-symbols-outlined text-[20px]">verified</span>
-                    <span class="text-[7.5px] uppercase tracking-tighter font-bold text-center leading-tight mt-0.5">CITIZEN SEAL<br/>BHARAT 2047</span>
-                  </div>
-                </div>
-
-                <!-- Right Footer: Secretariat / Mission Cell -->
-                <div class="text-right space-y-1">
-                  <p class="text-gray-500 font-semibold tracking-wider text-[11px] uppercase">NATIONAL MISSION CELL</p>
-                  <p class="text-gray-900 font-bold text-sm sm:text-base">Secretariat</p>
-                  <p class="text-maroon font-bold text-xs sm:text-sm">Swarnim Bharat</p>
-                </div>
-              </div>
-
             </div>
-          </div>
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="px-3.5 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                    <span class="material-symbols-outlined text-[17px]">arrow_back</span>
+                    <span>Back to Home</span>
+                </a>
+                <a href="take-pledge-and-scanner.html" class="px-3.5 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                    <span class="material-symbols-outlined text-[17px]">qr_code_scanner</span>
+                    <span>Scanner Hub</span>
+                </a>
+            </div>
         </div>
-      </div>
-      
-    </div>
-  </div>
+    </header>
 
-  <!-- JavaScript for Live Interactivity, Scaling, and High-Resolution Export -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // Control Elements
-      const inputName = document.getElementById('input-name');
-      const inputState = document.getElementById('input-state');
-      const inputPledge = document.getElementById('input-pledge');
-      const customPledgeContainer = document.getElementById('custom-pledge-container');
-      const inputCustomPledge = document.getElementById('input-custom-pledge');
-      const inputPhoto = document.getElementById('input-photo');
-      const inputPhotoFile = document.getElementById('input-photo-file');
-      const inputHash = document.getElementById('input-hash');
-
-      // Certificate Elements
-      const certName = document.getElementById('cert-name');
-      const certState = document.getElementById('cert-state');
-      const certPledge = document.getElementById('cert-pledge');
-      const certPhotoWrapper = document.getElementById('cert-photo-wrapper');
-      const certPhoto = document.getElementById('cert-photo');
-      const certRegistryId = document.getElementById('cert-registry-id');
-      const currentDateEl = document.getElementById('current-date');
-
-      // 1. Check if opened after real form affirmation (sessionStorage data)
-      try {
-        const stored = sessionStorage.getItem('swarnim_cert_data');
-        if (stored) {
-          const certData = JSON.parse(stored);
-          if (certData.name) {
-            inputName.value = certData.name.toUpperCase();
-            certName.textContent = certData.name.toUpperCase();
-          }
-          if (certData.state) {
-            inputState.value = certData.state;
-            certState.textContent = certData.state;
-          }
-          if (certData.vow) {
-            // Find option or set custom
-            let matched = false;
-            for (let i = 0; i < inputPledge.options.length; i++) {
-              if (inputPledge.options[i].value.includes(certData.vow)) {
-                inputPledge.selectedIndex = i;
-                certPledge.textContent = inputPledge.options[i].value;
-                matched = true;
-                break;
-              }
-            }
-            if (!matched) {
-              inputPledge.value = 'custom';
-              customPledgeContainer.classList.remove('hidden');
-              inputCustomPledge.value = certData.vow;
-              certPledge.textContent = certData.vow;
-            }
-          }
-          if (certData.pledgeId) {
-            inputHash.value = certData.pledgeId;
-            certRegistryId.textContent = certData.pledgeId;
-          }
-          if (certData.photoBase64) {
-            certPhoto.src = certData.photoBase64;
-            certPhotoWrapper.style.display = 'block';
-          }
-          if (certData.timestamp) {
-            currentDateEl.textContent = certData.timestamp;
-          }
-        } else {
-          // Default Date & Registry ID
-          const dateStr = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
-          currentDateEl.textContent = `${dateStr} • IST`;
-          const storedCount = localStorage.getItem('swarnim_pledge_count') || '125';
-          certRegistryId.textContent = `SB-2047-0${storedCount}`;
-          inputHash.value = `SB-2047-0${storedCount}`;
-        }
-      } catch (err) {
-        console.warn('Session data read error:', err);
-      }
-
-      // Update Functions
-      function updateName() {
-        certName.textContent = inputName.value.trim().toUpperCase() || 'CITIZEN NAME';
-      }
-
-      function updateState() {
-        certState.textContent = inputState.value.trim() || 'State / Province';
-      }
-
-      function updatePledge() {
-        if (inputPledge.value === 'custom') {
-          customPledgeContainer.classList.remove('hidden');
-          certPledge.textContent = inputCustomPledge.value.trim() || 'My Sovereign Pledge';
-        } else {
-          customPledgeContainer.classList.add('hidden');
-          certPledge.textContent = inputPledge.value;
-        }
-      }
-
-      function updatePhotoFromUrl() {
-        const url = inputPhoto.value.trim();
-        if (url) {
-          certPhoto.src = url;
-          certPhotoWrapper.style.display = 'block';
-        } else if (!inputPhotoFile.files || inputPhotoFile.files.length === 0) {
-          certPhotoWrapper.style.display = 'none';
-          certPhoto.src = '';
-        }
-      }
-
-      function updateHash() {
-        certRegistryId.textContent = inputHash.value.trim() || 'SB-2047-0125';
-      }
-
-      // Photo upload via file input
-      if (inputPhotoFile) {
-        inputPhotoFile.addEventListener('change', function() {
-          if (this.files && this.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-              certPhoto.src = e.target.result;
-              certPhotoWrapper.style.display = 'block';
-            };
-            reader.readAsDataURL(this.files[0]);
-          }
-        });
-      }
-
-      // Fallback for broken images
-      certPhoto.onerror = function() {
-        this.src = 'assets/logo-shield.png';
-      };
-
-      // Event Listeners
-      inputName.addEventListener('input', updateName);
-      inputState.addEventListener('input', updateState);
-      inputPledge.addEventListener('change', updatePledge);
-      inputCustomPledge.addEventListener('input', updatePledge);
-      inputPhoto.addEventListener('input', updatePhotoFromUrl);
-      inputHash.addEventListener('input', updateHash);
-
-      // Scaling Logic to maintain fixed A4 aspect ratio (1123 × 794)
-      const wrapper = document.getElementById('cert-wrapper');
-      const certificate = document.getElementById('certificate');
-      
-      function scaleCertificate() {
-        if (!wrapper || !certificate) return;
-        const wrapperWidth = wrapper.clientWidth;
-        const availableWidth = wrapperWidth - 32; 
-        const certWidth = 1123; 
-
-        let scale = availableWidth / certWidth;
-        if (scale > 1) scale = 1;
-
-        certificate.style.transform = `scale(${scale})`;
+    <div class="min-h-[calc(100vh-65px)] p-4 md:p-8 flex flex-col lg:flex-row gap-8 max-w-[1600px] mx-auto items-start">
         
-        const scaledHeight = 794 * scale;
-        wrapper.style.height = `${scaledHeight + 32}px`;
-      }
+        <!-- Left: Control Panel (No Print) -->
+        <div class="no-print w-full lg:w-1/3 bg-white p-6 rounded-xl shadow-lg border border-gray-200 h-fit flex-shrink-0">
+            <div class="flex items-center justify-between border-b pb-4 mb-6 border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-900">Issue Certificate</h2>
+                <span class="text-xs px-2.5 py-1 rounded-full bg-amber-50 text-goldDark border border-gold/40 font-semibold">Live Editor</span>
+            </div>
+            
+            <form id="cert-form" class="space-y-4" onsubmit="event.preventDefault();">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name (पूरा नाम) *</label>
+                    <input type="text" id="input-name" value="PRAKASH SHARMA" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition uppercase font-semibold">
+                </div>
 
-      window.addEventListener('resize', scaleCertificate);
-      setTimeout(scaleCertificate, 60);
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number (फ़ोन नंबर)</label>
+                    <input type="tel" id="input-phone" placeholder="+91 98765 43210" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition">
+                </div>
 
-      // High-Resolution PNG Download Function using html2canvas
-      window.downloadCertificateImage = function() {
-        const certNode = document.getElementById('certificate');
-        const citizenName = (inputName.value.trim() || 'Citizen').replace(/[^a-zA-Z0-9]/g, '_');
-        const btn = document.getElementById('downloadCertBtn');
-        const btnText = document.getElementById('downloadCertBtnText');
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Email ID (ईमेल)</label>
+                    <input type="email" id="input-email" placeholder="name@example.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition">
+                </div>
 
-        if (!certNode) {
-          window.print();
-          return;
-        }
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">State / Province (राज्य) *</label>
+                    <input type="text" id="input-state" value="Haryana" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition font-semibold">
+                </div>
 
-        btn.disabled = true;
-        btnText.innerText = "Generating HD PNG...";
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Vow / Pledge Focus (संकल्प) *</label>
+                    <select id="input-pledge" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition bg-white font-medium">
+                        <option value="🌿 Prakriti & Green Energy" selected>🌿 Prakriti & Green Energy</option>
+                        <option value="🇮🇳 Swadeshi & Innovation">🇮🇳 Swadeshi & Innovation</option>
+                        <option value="🛕 Civilizational Pride">🛕 Civilizational Pride</option>
+                        <option value="⚖️ Kartavya & Civic Duty">⚖️ Kartavya & Civic Duty</option>
+                        <option value="custom">✏️ Custom Pledge...</option>
+                    </select>
+                </div>
 
-        // Temporarily reset transform for unscaled high-res capture
-        const prevTransform = certNode.style.transform;
-        certNode.style.transform = 'none';
+                <div id="custom-pledge-container" class="hidden">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Custom Pledge (कस्टम संकल्प)</label>
+                    <input type="text" id="input-custom-pledge" placeholder="Enter your custom pledge" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition">
+                </div>
 
-        html2canvas(certNode, {
-          scale: 2, // 2x scale for high resolution (2246 × 1588 px)
-          useCORS: true,
-          backgroundColor: '#FDFBF7',
-          logging: false
-        }).then(canvas => {
-          certNode.style.transform = prevTransform;
-          const link = document.createElement('a');
-          link.download = `Swarnim_Bharat_Certificate_${citizenName}.png`;
-          link.href = canvas.toDataURL('image/png');
-          link.click();
-          btnText.innerText = "Download PNG (HD)";
-          btn.disabled = false;
-        }).catch(err => {
-          console.error("Certificate download failed:", err);
-          certNode.style.transform = prevTransform;
-          btnText.innerText = "Download PNG (HD)";
-          btn.disabled = false;
-          window.print();
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Citizen Photo / Selfie (फोटो)</label>
+                    <input type="file" id="input-photo-file" accept="image/png, image/jpeg, image/jpg" class="w-full text-xs text-gray-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-goldDark hover:file:bg-amber-200 cursor-pointer mb-2">
+                    <input type="url" id="input-photo" placeholder="Or paste image URL (https://...)" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Registry Token ID</label>
+                    <input type="text" id="input-hash" value="SB-2047-0125" class="w-full px-4 py-2 font-mono text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition">
+                </div>
+            </form>
+        </div>
+
+        <!-- Right: Certificate Preview Container -->
+        <div class="w-full lg:w-2/3 flex flex-col">
+            <!-- Action Toolbar (No Print) -->
+            <div class="no-print flex flex-wrap justify-between items-center gap-3 mb-4 bg-white p-4 rounded-xl border border-gray-200 shadow-xs">
+                <div>
+                    <h3 class="text-lg font-bold text-gray-800">Live Preview</h3>
+                    <p class="text-xs text-gray-500">A4 Landscape (1123 × 794 px) • 100% Exact 1:1 Pixel Match on Download</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <button id="downloadCertBtn" onclick="downloadCertificateImage()" class="px-4 py-2 bg-[#735c00] hover:bg-[#554300] text-white text-sm font-semibold rounded-lg shadow transition flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">download</span>
+                        <span id="downloadCertBtnText">Download PNG (HD)</span>
+                    </button>
+                    <button onclick="window.print()" class="px-4 py-2 bg-gold hover:bg-goldDark text-white text-sm font-semibold rounded-lg shadow transition flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        Print / Save
+                    </button>
+                    <button onclick="shareOnWhatsApp()" class="px-3.5 py-2 bg-[#25D366] hover:bg-[#1faa4b] text-white text-sm font-semibold rounded-lg shadow transition flex items-center gap-1">
+                        <span>WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wrapper to handle dynamic scaling -->
+            <div id="cert-wrapper">
+                
+                <!-- The Certificate (Exact A4 Landscape: 1123px × 794px Fixed) -->
+                <div id="certificate">
+                    <div class="double-border">
+                        <div class="inner-border">
+                            
+                            <!-- 4 Corner Stars -->
+                            <div class="corner-star corner-tl">★</div>
+                            <div class="corner-star corner-tr">★</div>
+                            <div class="corner-star corner-bl">★</div>
+                            <div class="corner-star corner-br">★</div>
+
+                            <!-- Optional User Photo -->
+                            <div id="cert-photo-wrapper" class="cert-photo-container">
+                                <img id="cert-photo" src="" alt="Citizen Photo">
+                            </div>
+
+                            <!-- Logo -->
+                            <img src="assets/logo.png" class="h-28 w-auto object-contain mb-6 mx-auto drop-shadow-md rounded-lg" alt="Swarnim Bharat Logo" onerror="this.src='assets/logo-emblem.png'">
+
+                            <!-- Header Section -->
+                            <div class="text-center space-y-4 w-full">
+                                <h1 class="text-5xl font-bold text-gray-900 font-hindi mt-2">स्वर्णिम भारत उदयघोष</h1>
+                                
+                                <h2 class="text-goldDark font-bold tracking-widest text-sm mt-3 uppercase">
+                                    राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF SOVEREIGN COMMITMENT
+                                </h2>
+
+                                <div class="w-full border-t border-gray-300 mt-8 mb-8 max-w-4xl mx-auto"></div>
+                            </div>
+
+                            <!-- Intro Text -->
+                            <p class="italic text-gray-700 font-hindi text-lg mt-2">
+                                यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक
+                            </p>
+
+                            <!-- Personal Details -->
+                            <div class="text-center mt-6 mb-4">
+                                <h2 id="cert-name" class="font-serif text-6xl text-goldDark font-bold uppercase tracking-wide">
+                                    PRAKASH SHARMA
+                                </h2>
+                                <p id="cert-state" class="text-maroon text-2xl font-bold mt-4">
+                                    Haryana
+                                </p>
+                            </div>
+
+                            <!-- Body Text -->
+                            <p class="text-gray-800 max-w-4xl mx-auto text-center font-hindi text-xl leading-relaxed mt-6">
+                                ने राष्ट्रीय महा-संकल्प <strong>"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।
+                            </p>
+
+                            <!-- Pledge Badge -->
+                            <div class="mt-10">
+                                <div id="cert-pledge" class="bg-[#FDF8E7] border-2 border-gold rounded-full px-8 py-3 text-goldDark font-bold text-lg inline-flex items-center gap-2 shadow-sm">
+                                    🌿 Prakriti & Green Energy
+                                </div>
+                            </div>
+
+                            <!-- Footer Section -->
+                            <div class="grid grid-cols-3 w-full mt-auto pt-8 px-8 items-end text-sm">
+                                <!-- Left Footer -->
+                                <div class="text-left space-y-1">
+                                    <p class="text-gray-500 font-semibold tracking-wider text-xs">NATIONAL REGISTRY ID</p>
+                                    <p class="text-goldDark font-bold text-lg font-mono">SB-2047-<span id="random-id">0129</span></p>
+                                    <p class="text-gray-500 text-xs" id="current-date">10 NOV 2026 • IST</p>
+                                </div>
+
+                                <!-- Center Footer (Seal) -->
+                                <div class="flex justify-center pb-2">
+                                    <div class="w-16 h-16 rounded-full bg-[#d4af37]/15 border-2 border-[#d4af37] flex flex-col items-center justify-center text-goldDark shadow-xs">
+                                        <span class="material-symbols-outlined text-[20px]">verified</span>
+                                        <span class="text-[7.5px] uppercase tracking-tighter font-bold text-center leading-tight mt-0.5">CITIZEN SEAL<br/>BHARAT 2047</span>
+                                    </div>
+                                </div>
+
+                                <!-- Right Footer -->
+                                <div class="text-right space-y-1">
+                                    <p class="text-gray-500 font-semibold tracking-wider text-xs">NATIONAL MISSION CELL</p>
+                                    <p class="text-gray-900 font-bold text-lg">Secretariat</p>
+                                    <p class="text-maroon font-bold">Swarnim Bharat</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity, Scaling, and Pixel-Perfect Export -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Elements
+            const inputName = document.getElementById('input-name');
+            const inputState = document.getElementById('input-state');
+            const inputPledge = document.getElementById('input-pledge');
+            const customPledgeContainer = document.getElementById('custom-pledge-container');
+            const inputCustomPledge = document.getElementById('input-custom-pledge');
+            const inputPhoto = document.getElementById('input-photo');
+            const inputPhotoFile = document.getElementById('input-photo-file');
+            const inputHash = document.getElementById('input-hash');
+
+            const certName = document.getElementById('cert-name');
+            const certState = document.getElementById('cert-state');
+            const certPledge = document.getElementById('cert-pledge');
+            const certPhotoWrapper = document.getElementById('cert-photo-wrapper');
+            const certPhoto = document.getElementById('cert-photo');
+            const randomIdEl = document.getElementById('random-id');
+            const currentDateEl = document.getElementById('current-date');
+            
+            // Auto-populate from sessionStorage if redirected from pledge submission
+            try {
+                const stored = sessionStorage.getItem('swarnim_cert_data');
+                if (stored) {
+                    const certData = JSON.parse(stored);
+                    if (certData.name) {
+                        inputName.value = certData.name.toUpperCase();
+                        certName.textContent = certData.name.toUpperCase();
+                    }
+                    if (certData.state) {
+                        inputState.value = certData.state;
+                        certState.textContent = certData.state;
+                    }
+                    if (certData.vow) {
+                        let matched = false;
+                        for (let i = 0; i < inputPledge.options.length; i++) {
+                            if (inputPledge.options[i].value.includes(certData.vow)) {
+                                inputPledge.selectedIndex = i;
+                                certPledge.textContent = inputPledge.options[i].value;
+                                matched = true;
+                                break;
+                            }
+                        }
+                        if (!matched) {
+                            inputPledge.value = 'custom';
+                            customPledgeContainer.classList.remove('hidden');
+                            inputCustomPledge.value = certData.vow;
+                            certPledge.textContent = certData.vow;
+                        }
+                    }
+                    if (certData.pledgeId) {
+                        const cleanId = certData.pledgeId.replace(/^SB-2047-/, '');
+                        randomIdEl.textContent = cleanId;
+                        inputHash.value = certData.pledgeId;
+                    }
+                    if (certData.photoBase64) {
+                        certPhoto.src = certData.photoBase64;
+                        certPhotoWrapper.style.display = 'block';
+                    }
+                    if (certData.timestamp) {
+                        currentDateEl.textContent = certData.timestamp;
+                    }
+                } else {
+                    const dateStr = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
+                    currentDateEl.textContent = `${dateStr} • IST`;
+                    const storedCount = localStorage.getItem('swarnim_pledge_count') || '0129';
+                    randomIdEl.textContent = storedCount.padStart ? storedCount.padStart(4, '0') : storedCount;
+                    inputHash.value = `SB-2047-${storedCount}`;
+                }
+            } catch (err) {
+                console.warn('Session data read error:', err);
+            }
+
+            // Update Certificate Functions
+            function updateName() {
+                certName.textContent = inputName.value.trim().toUpperCase() || 'CITIZEN NAME';
+            }
+
+            function updateState() {
+                certState.textContent = inputState.value.trim() || 'State / Province';
+            }
+
+            function updatePledge() {
+                if (inputPledge.value === 'custom') {
+                    customPledgeContainer.classList.remove('hidden');
+                    certPledge.textContent = inputCustomPledge.value.trim() || 'My Sovereign Pledge';
+                } else {
+                    customPledgeContainer.classList.add('hidden');
+                    certPledge.textContent = inputPledge.value;
+                }
+            }
+
+            function updatePhotoFromUrl() {
+                const url = inputPhoto.value.trim();
+                if (url) {
+                    certPhoto.src = url;
+                    certPhotoWrapper.style.display = 'block';
+                } else if (!inputPhotoFile.files || inputPhotoFile.files.length === 0) {
+                    certPhotoWrapper.style.display = 'none';
+                    certPhoto.src = '';
+                }
+            }
+
+            function updateHash() {
+                const val = inputHash.value.trim();
+                const cleanId = val.replace(/^SB-2047-/, '');
+                randomIdEl.textContent = cleanId || '0125';
+            }
+
+            // Photo upload via local file input
+            if (inputPhotoFile) {
+                inputPhotoFile.addEventListener('change', function() {
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            certPhoto.src = e.target.result;
+                            certPhotoWrapper.style.display = 'block';
+                        };
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+            }
+
+            // Fallback for broken images
+            certPhoto.onerror = function() {
+                this.src = 'assets/logo-shield.png';
+            };
+
+            // Event Listeners
+            inputName.addEventListener('input', updateName);
+            inputState.addEventListener('input', updateState);
+            inputPledge.addEventListener('change', updatePledge);
+            inputCustomPledge.addEventListener('input', updatePledge);
+            inputPhoto.addEventListener('input', updatePhotoFromUrl);
+            inputHash.addEventListener('input', updateHash);
+
+            // Scaling Logic to maintain fixed aspect ratio regardless of screen size
+            const wrapper = document.getElementById('cert-wrapper');
+            const certificate = document.getElementById('certificate');
+            
+            function scaleCertificate() {
+                if (!wrapper || !certificate) return;
+                const wrapperWidth = wrapper.clientWidth;
+                // Subtracting padding to avoid overflow
+                const availableWidth = wrapperWidth - 32; 
+                const certWidth = 1123; 
+
+                // Calculate scale factor
+                let scale = availableWidth / certWidth;
+                
+                // Cap the scale at 1 to prevent it getting blurry/too huge on large screens
+                if (scale > 1) scale = 1;
+
+                certificate.style.transform = `scale(${scale})`;
+                
+                // Adjust wrapper height to match scaled certificate height
+                const scaledHeight = 794 * scale;
+                wrapper.style.height = `${scaledHeight + 32}px`;
+            }
+
+            // Initial scale & listen to resize
+            window.addEventListener('resize', scaleCertificate);
+            setTimeout(scaleCertificate, 60);
+
+            // High-Resolution 1:1 Pixel-Perfect PNG Download using an unscaled off-screen clone
+            window.downloadCertificateImage = async function() {
+                const certNode = document.getElementById('certificate');
+                const citizenName = (inputName.value.trim() || 'Citizen').replace(/[^a-zA-Z0-9]/g, '_');
+                const btn = document.getElementById('downloadCertBtn');
+                const btnText = document.getElementById('downloadCertBtnText');
+
+                if (!certNode) {
+                    window.print();
+                    return;
+                }
+
+                btn.disabled = true;
+                btnText.innerText = "Generating HD PNG...";
+
+                try {
+                    // Ensure fonts are loaded before capturing
+                    if (document.fonts && document.fonts.ready) {
+                        await document.fonts.ready;
+                    }
+
+                    // Clone certificate to offscreen container with exact fixed 1123x794 dimensions
+                    const clone = certNode.cloneNode(true);
+                    clone.id = 'certificate-clone-export';
+                    clone.style.transform = 'none';
+                    clone.style.position = 'fixed';
+                    clone.style.top = '0';
+                    clone.style.left = '-9999px';
+                    clone.style.zIndex = '-9999';
+                    clone.style.width = '1123px';
+                    clone.style.height = '794px';
+                    clone.style.margin = '0';
+                    clone.style.padding = '24px';
+                    clone.style.boxSizing = 'border-box';
+                    document.body.appendChild(clone);
+
+                    // Render clone at 2x scale (2246 × 1588 px) for ultra-sharp crispness
+                    const canvas = await html2canvas(clone, {
+                        scale: 2,
+                        width: 1123,
+                        height: 794,
+                        windowWidth: 1200,
+                        windowHeight: 900,
+                        useCORS: true,
+                        allowTaint: true,
+                        backgroundColor: '#FDFBF7',
+                        logging: false
+                    });
+
+                    // Remove clone from DOM
+                    document.body.removeChild(clone);
+
+                    // Download image
+                    const link = document.createElement('a');
+                    link.download = `Swarnim_Bharat_Sovereign_Certificate_${citizenName}.png`;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+
+                    btnText.innerText = "Download PNG (HD)";
+                    btn.disabled = false;
+                } catch (err) {
+                    console.error("Export error:", err);
+                    const existingClone = document.getElementById('certificate-clone-export');
+                    if (existingClone) document.body.removeChild(existingClone);
+                    btnText.innerText = "Download PNG (HD)";
+                    btn.disabled = false;
+                    window.print();
+                }
+            };
+
+            // WhatsApp Share helper
+            window.shareOnWhatsApp = function() {
+                const name = inputName.value.trim() || 'Citizen';
+                const text = encodeURIComponent(`🇮🇳 मैंने स्वर्णिम भारत 2047 के निर्माण हेतु राष्ट्रीय महा-संकल्प "मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी" स्वीकार किया है और मेरा डिजिटल प्रमाण पत्र प्राप्त किया है। आप भी अपना संकल्प लें: ${window.location.origin}`);
+                window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+            };
         });
-      };
-
-      // WhatsApp Share helper
-      window.shareOnWhatsApp = function() {
-        const name = inputName.value.trim() || 'Citizen';
-        const text = encodeURIComponent(`🇮🇳 मैंने स्वर्णिम भारत 2047 के निर्माण हेतु राष्ट्रीय महा-संकल्प "मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी" स्वीकार किया है और मेरा डिजिटल प्रमाण पत्र प्राप्त किया है। आप भी अपना संकल्प लें: ${window.location.origin}`);
-        window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
-      };
-    });
-  </script>
+    </script>
 </body>
 </html>
