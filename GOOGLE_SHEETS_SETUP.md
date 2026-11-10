@@ -40,22 +40,23 @@ Ye guide aapko 3 minute me aapki Google Sheet aur Google Drive ko website ke sat
 
 ---
 
-### Step 4: Website me URL Paste Karein
-1. `index.html` file kholein.
-2. Niche script me dekhein:
-   ```javascript
-   const GOOGLE_SCRIPT_URL = "यहाँ_अपना_WEB_APP_URL_पेस्ट_करें";
-   ```
-3. Quotes ke andar apna copy kiya hua URL paste kar dein:
-   ```javascript
-   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYED_ID/exec";
-   ```
-4. File save karke git push kar dein:
-   ```bash
-   git add .
-   git commit -m "Connect live Google Apps Script Webhook with photo support"
-   git push origin main
-   ```
+### Step 4: Website me URL Paste Karein (Already Connected! ✅)
+Aapka Deployment ID aur Web App URL code me successfully connect ho chuka hai:
+- **Deployment ID:** `AKfycbxD0axElmOBjSIMbK2J6hOd5raS6yOzaICltKj9VvH0FP563RPM9Hw7_6aiZ4gPo7Hf`
+- **Web App URL:** `https://script.google.com/macros/s/AKfycbxD0axElmOBjSIMbK2J6hOd5raS6yOzaICltKj9VvH0FP563RPM9Hw7_6aiZ4gPo7Hf/exec`
+
+`index.html` aur `take-pledge-and-scanner.html` dono me ye URL integrate ho chuka hai.
+
+---
+
+### ⚠️ IMPORTANT: "Who has access: Anyone" Setting Zaroor Check Karein
+Google Apps Script me default setting "Only myself" hoti hai jisse bahar se aane wale form submissions ko "Access Denied (403)" milta hai.
+Ise 1 minute me fix karein:
+1. Google Sheet me **Extensions > Apps Script** kholein.
+2. Upar blue **Deploy** button par click karein > **Manage deployments** chunein.
+3. Apne active deployment ke paas **Edit (पेंसिल ✏️ आइकन)** par click karein.
+4. **Who has access** dropdown me **"Anyone" (कोई भी)** select karein.
+5. **Version** me **"New version"** chunein aur **Deploy** dabayein.
 
 ---
 
