@@ -58,70 +58,70 @@ button,a{-webkit-tap-highlight-color:transparent}
         </p>
 </div>
 <!-- Main Scanner Interactive Bento Card -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-<!-- QR Code & Scanner Preview Container (Left 6 cols) -->
-<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+<!-- QR Code & Scanner Preview Container (Left 5 cols) -->
+<div class="lg:col-span-5 flex flex-col items-center gap-4 w-full">
 
-<!-- 1. Normal Square Scanner Card -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-md border border-primary-container/40 relative flex flex-col items-center text-center overflow-hidden">
+<!-- 1. Normal Square Scanner Card (Fit & Snug, No Left/Right Gap) -->
+<div class="max-w-[440px] sm:max-w-[460px] mx-auto w-full bg-surface-container-lowest rounded-2xl p-4 sm:p-5 shadow-md border border-primary-container/40 relative flex flex-col items-center text-center overflow-hidden">
 <!-- Corner Brass Ornaments -->
-<div class="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-primary-container"></div>
-<div class="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-primary-container"></div>
-<div class="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-primary-container"></div>
-<div class="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-primary-container"></div>
+<div class="absolute top-3 left-3 w-3.5 h-3.5 border-t-2 border-l-2 border-primary-container"></div>
+<div class="absolute top-3 right-3 w-3.5 h-3.5 border-t-2 border-r-2 border-primary-container"></div>
+<div class="absolute bottom-3 left-3 w-3.5 h-3.5 border-b-2 border-l-2 border-primary-container"></div>
+<div class="absolute bottom-3 right-3 w-3.5 h-3.5 border-b-2 border-r-2 border-primary-container"></div>
 
-<div class="flex items-center gap-space-xs text-primary font-label-md text-label-md uppercase tracking-widest mb-space-xs">
+<div class="flex items-center gap-1.5 text-primary font-label-md text-xs sm:text-sm uppercase tracking-widest font-bold mb-2">
 <span class="material-symbols-outlined text-[18px]">qr_code_scanner</span>
 <span class="">Live Civic Authenticator</span>
 </div>
 
-<!-- Featured Square QR Scanner Display -->
-<div class="relative w-56 h-56 sm:w-64 sm:h-64 my-space-xs rounded-xl overflow-hidden bg-surface-container p-3 shadow-inner border border-outline-variant/30 flex items-center justify-center">
+<!-- Featured Square QR Scanner Display (Properly Proportioned, No Gaps on Left/Right) -->
+<div class="relative w-full max-w-[280px] sm:max-w-[300px] aspect-square my-1.5 rounded-xl overflow-hidden bg-surface-container p-2.5 shadow-inner border border-outline-variant/30 flex items-center justify-center mx-auto">
 <img class="w-full h-full object-contain rounded-lg drop-shadow-md" alt="Official Swarnim Bharat Viksit Bharat QR Code" src="assets/official-qr-code.png"/>
 <!-- Active Scanning Crosshair Line -->
-<div class="absolute left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-tertiary to-transparent shadow-[0_0_10px_#a73a00] animate-pulse" id="scanner-beam"></div>
+<div class="absolute left-3 right-3 h-0.5 bg-gradient-to-r from-transparent via-tertiary to-transparent shadow-[0_0_10px_#a73a00] animate-pulse" id="scanner-beam"></div>
 </div>
 
-<div class="w-full mt-space-xs p-2.5 bg-surface-container-low rounded-lg text-center">
-<p class="font-body-sm text-body-sm text-on-surface">
-  स्कैन करते ही तुरंत <span class="font-semibold text-primary">संकल्प फॉर्म</span> खुलेगा। यह स्थायी (Permanent) QR कोड कभी एक्सपायर नहीं होगा।
+<div class="w-full max-w-[340px] mx-auto mt-2 p-2 bg-surface-container-low rounded-lg text-center">
+<p class="font-body-sm text-xs text-on-surface leading-snug">
+  स्कैन करते ही तुरंत <span class="font-semibold text-primary">संकल्प फॉर्म</span> खुलेगा। यह स्थायी QR कोड कभी एक्सपायर नहीं होगा।
 </p>
 </div>
 
 <!-- Basic Camera & Upload Trigger Modes -->
-<div class="w-full pt-space-xs grid grid-cols-2 gap-space-sm">
-<button id="homeCameraTriggerBtn" class="flex items-center justify-center gap-space-xs py-2.5 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-label-md text-on-surface font-semibold shadow-sm" onclick="window.openCameraScanner()" type="button">
-<span class="material-symbols-outlined text-[18px] text-primary">photo_camera</span>
+<div class="w-full max-w-[340px] mx-auto pt-2 grid grid-cols-2 gap-2">
+<button id="homeCameraTriggerBtn" class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-xs text-on-surface font-semibold shadow-xs" onclick="window.openCameraScanner()" type="button">
+<span class="material-symbols-outlined text-[17px] text-primary">photo_camera</span>
 <span class="">Scan with Camera</span>
 </button>
-<button id="homeUploadQrBtn" class="flex items-center justify-center gap-space-xs py-2.5 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-label-md text-on-surface font-semibold shadow-sm" onclick="window.triggerQrUpload()" type="button">
-<span class="material-symbols-outlined text-[18px] text-tertiary">upload_file</span>
+<button id="homeUploadQrBtn" class="flex items-center justify-center gap-1.5 py-2 px-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-xs text-on-surface font-semibold shadow-xs" onclick="window.triggerQrUpload()" type="button">
+<span class="material-symbols-outlined text-[17px] text-tertiary">upload_file</span>
 <span class="">Upload QR Image</span>
 </button>
 </div>
 
 <!-- Official Print QR Download Action for Posters & Banners -->
-<div class="w-full mt-space-xs pt-space-xs border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-2 text-xs">
-  <span class="text-on-surface-variant font-medium">बैनर / स्टैंडी के लिए HD QR:</span>
-  <div class="flex items-center gap-2">
-    <a href="assets/official-qr-poster.png" download="Swarnim_Bharat_Official_Poster.png" class="px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-semibold hover:bg-primary-fixed transition-colors flex items-center gap-1 shadow-sm">
-      <span class="material-symbols-outlined text-[16px]">print</span>
-      <span>Poster Standee HD</span>
+<div class="w-full max-w-[340px] mx-auto mt-2.5 pt-2 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-1.5 text-[11px]">
+  <span class="text-on-surface-variant font-medium">बैनर / स्टैंडी HD QR:</span>
+  <div class="flex items-center gap-1.5">
+    <a href="assets/official-qr-poster.png" download="Swarnim_Bharat_Official_Poster.png" class="px-2 py-1 rounded-md bg-primary-container text-on-primary-container font-semibold hover:bg-primary-fixed transition-colors flex items-center gap-1 shadow-xs text-[11px]">
+      <span class="material-symbols-outlined text-[14px]">print</span>
+      <span>Poster HD</span>
     </a>
-    <a href="assets/official-qr-code.png" download="Swarnim_Bharat_Official_QR.png" class="px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold transition-colors flex items-center gap-1 border border-outline-variant/40">
-      <span class="material-symbols-outlined text-[16px]">qr_code</span>
-      <span>QR Only (PNG)</span>
+    <a href="assets/official-qr-code.png" download="Swarnim_Bharat_Official_QR.png" class="px-2 py-1 rounded-md bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold transition-colors flex items-center gap-1 border border-outline-variant/40 text-[11px]">
+      <span class="material-symbols-outlined text-[14px]">qr_code</span>
+      <span>QR Only</span>
     </a>
   </div>
 </div>
 </div>
 
-<!-- 2. NO EMPTY GAP: Recent Confirmed Citizens Honor Stream (Left Column) -->
-<div class="bg-surface-container-low rounded-2xl p-space-md border border-outline-variant/40 shadow-sm flex flex-col">
-  <div class="flex items-center justify-between pb-space-xs mb-space-xs border-b border-outline-variant/30">
-    <div class="flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary text-[20px]">how_to_reg</span>
-      <span class="font-title-sm text-sm text-on-surface font-bold">हाल ही में संकल्प लेने वाले देशभक्त नागरिक</span>
+<!-- 2. DIRECTLY UNDER SCANNER: Recent Confirmed Citizens Honor Stream (Left Column) -->
+<div class="max-w-[440px] sm:max-w-[460px] mx-auto w-full bg-surface-container-low rounded-2xl p-4 border border-outline-variant/40 shadow-sm flex flex-col">
+  <div class="flex items-center justify-between pb-2 mb-2 border-b border-outline-variant/30">
+    <div class="flex items-center gap-1.5">
+      <span class="material-symbols-outlined text-primary text-[19px]">how_to_reg</span>
+      <span class="font-title-sm text-xs sm:text-sm text-on-surface font-bold">हाल ही में संकल्प लेने वाले देशभक्त नागरिक</span>
     </div>
     <span class="font-label-sm text-[10px] text-primary uppercase font-bold flex items-center gap-1 bg-primary-container/20 px-2 py-0.5 rounded-full">
       <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
@@ -129,8 +129,8 @@ button,a{-webkit-tap-highlight-color:transparent}
     </span>
   </div>
   
-  <p class="font-body-sm text-[11px] text-on-surface-variant mb-space-xs">
-    🔒 <span class="font-semibold">गोपनीयता सुरक्षित:</span> केवल नाम, राज्य व संकल्प यहाँ दिखते हैं (फोन नंबर और ईमेल गोपनीय रखकर सीधे एक्सेल रिकॉर्ड में सुरक्षित किए जाते हैं)।
+  <p class="font-body-sm text-[11px] text-on-surface-variant mb-2">
+    🔒 <span class="font-semibold">गोपनीयता सुरक्षित:</span> केवल नाम, राज्य व संकल्प दिखते हैं (फोन नंबर और ईमेल गोपनीय रखकर सुरक्षित एक्सेल में दर्ज होते हैं)।
   </p>
 
   <!-- Dynamic Stream List Container (Left) -->
@@ -264,10 +264,10 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 </div>
 
-<!-- Fast Online Pledge Form & Real-time Live Ticker (Right 6 cols) -->
-<div class="lg:col-span-6 flex flex-col gap-space-md">
+<!-- Fast Online Pledge Form & Real-time Live Ticker (Right 7 cols) -->
+<div class="lg:col-span-7 flex flex-col items-center gap-4 w-full">
 <!-- 1. Real-Time Live Ticker Card -->
-<div class="bg-inverse-surface text-surface rounded-2xl p-space-lg shadow-xl relative overflow-hidden">
+<div class="max-w-[580px] w-full bg-inverse-surface text-surface rounded-2xl p-space-md sm:p-space-lg shadow-xl relative overflow-hidden">
 <div class="flex items-center justify-between mb-space-xs">
 <span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider">
 <span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span> Live Citizen Registry
@@ -289,7 +289,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 
 <!-- 2. Digital Direct Pledge Commitment Box (Blank Fields by Default) -->
-<div class="bg-surface-container-lowest rounded-2xl p-space-lg shadow-md border border-outline-variant/30 flex flex-col justify-between">
+<div class="max-w-[580px] w-full bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-md border border-outline-variant/30 flex flex-col justify-between">
 <div class="flex flex-col gap-space-xs">
 <h3 class="font-title-lg text-title-lg text-on-surface font-bold">Enter Your Civic Vow / संकल्प पत्र</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">
@@ -410,7 +410,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 
 <!-- 3. DIRECTLY UNDER GENERATE CERTIFICATE: Recent Confirmed Citizens Stream (Right Side) -->
-<div class="bg-surface-container-low rounded-2xl p-space-md border border-outline-variant/40 shadow-sm flex flex-col">
+<div class="max-w-[580px] w-full bg-surface-container-low rounded-2xl p-4 border border-outline-variant/40 shadow-sm flex flex-col">
   <div class="flex items-center justify-between pb-space-xs mb-space-xs border-b border-outline-variant/30">
     <div class="flex items-center gap-2">
       <span class="material-symbols-outlined text-primary text-[20px]">workspace_premium</span>
