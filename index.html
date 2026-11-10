@@ -104,7 +104,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 <span class="font-label-sm text-label-sm text-surface-variant">Real-Time Sync</span>
 </div>
 <div class="flex items-baseline gap-space-sm">
-<span class="font-headline-lg text-headline-lg font-bold text-primary-fixed" id="pledge-counter">1,428,950</span>
+<span class="font-headline-lg text-headline-lg font-bold text-primary-fixed" id="live-pledge-counter">14,29,876</span>
 <span class="font-body-md text-body-md text-surface-variant">Pledges Confirmed</span>
 </div>
 <!-- Progress Bar to 2 Million Milestone -->
@@ -121,81 +121,104 @@ button,a{-webkit-tap-highlight-color:transparent}
 <div class="flex flex-col gap-space-xs">
 <h3 class="font-title-lg text-title-lg text-on-surface">Enter Your Civic Vow / संकल्प पत्र</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">
-                Select your primary dimension of national transformation and claim your certified registry number instantly.
-              </p>
+  अपना संकल्प लें, अपनी फोटो (वैकल्पिक) जोड़ें और तुरंत अपना डिजिटल प्रमाण पत्र प्राप्त करें।
+</p>
 </div>
-<form class="flex flex-col gap-space-sm my-space-md" id="direct-pledge-form" onsubmit="submitCivicPledge(event)">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
-<div>
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Full Name / पूरा नाम</label>
-<input class="w-full mt-1 px-3 py-2 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm outline-none focus:ring-1 focus:ring-primary" placeholder="e.g. Aarav Sharma" required="" type="text"/>
-</div>
-<div>
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">State / Territory राज्य</label>
-<select class="w-full mt-1 px-3 py-2 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm outline-none focus:ring-1 focus:ring-primary" required="">
-<option value="">Select State / UT</option>
-<option value="TN">Tamil Nadu</option>
-<option value="KL">Kerala</option>
-<option value="KA">Karnataka</option>
-<option value="MH">Maharashtra</option>
-<option value="GJ">Gujarat</option>
-<option value="UP">Uttar Pradesh</option>
-<option value="DL">Delhi NCR</option>
-<option value="WB">West Bengal</option>
-<option value="AS">Assam</option>
-<option value="MP">Madhya Pradesh</option>
-<option value="RJ">Rajasthan</option>
-<option value="PB">Punjab</option>
-<option value="HR">Haryana</option>
-<option value="BR">Bihar</option>
-<option value="AP">Andhra Pradesh</option>
-<option value="TG">Telangana</option>
-<option value="OD">Odisha</option>
-<option value="Other">Other State / UT</option>
-</select>
-</div>
-</div>
-<div>
-<label class="font-label-sm text-label-sm text-on-surface-variant uppercase">Primary Viksit Sankalp Focus</label>
-<div class="grid grid-cols-2 gap-2 mt-1">
-<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container">
-<input checked="" class="accent-primary" name="focus" type="radio" value="green"/>
-<span class="font-body-sm text-body-sm text-on-surface">Prakriti &amp; Green Energy</span>
-</label>
-<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container">
-<input class="accent-primary" name="focus" type="radio" value="atmanirbhar"/>
-<span class="font-body-sm text-body-sm text-on-surface">Swadeshi &amp; Innovation</span>
-</label>
-<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container">
-<input class="accent-primary" name="focus" type="radio" value="heritage"/>
-<span class="font-body-sm text-body-sm text-on-surface">Civilizational Pride</span>
-</label>
-<label class="flex items-center gap-2 p-2 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container">
-<input class="accent-primary" name="focus" type="radio" value="kartavya"/>
-<span class="font-body-sm text-body-sm text-on-surface">Kartavya &amp; Civic Duty</span>
-</label>
-</div>
-</div>
-<button class="w-full mt-space-xs py-3 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary-container hover:text-on-primary-container transition-colors flex items-center justify-center gap-space-xs" type="submit">
-<span class="material-symbols-outlined text-[18px]">verified</span>
-<span class="">Affirm &amp; Generate Sovereign Certificate</span>
-</button>
+
+<!-- फॉर्म -->
+<form class="flex flex-col gap-space-sm my-space-md" id="pledgeForm">
+  <!-- Row 1: Full Name & State -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+    <div>
+      <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">पूरा नाम (Full Name) <span class="text-tertiary">*</span></label>
+      <input class="w-full mt-1 px-3 py-2.5 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm outline-none border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="full_name" placeholder="उदा. आरव शर्मा" required="" type="text"/>
+    </div>
+    <div>
+      <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">स्टेट / राज्य (State) <span class="text-tertiary">*</span></label>
+      <input class="w-full mt-1 px-3 py-2.5 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm outline-none border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="state" list="indian-states" placeholder="उदा. Delhi, UP, Maharashtra..." required="" type="text"/>
+      <datalist id="indian-states">
+        <option value="Andhra Pradesh"></option>
+        <option value="Assam"></option>
+        <option value="Bihar"></option>
+        <option value="Chhattisgarh"></option>
+        <option value="Delhi NCR"></option>
+        <option value="Gujarat"></option>
+        <option value="Haryana"></option>
+        <option value="Himachal Pradesh"></option>
+        <option value="Jharkhand"></option>
+        <option value="Karnataka"></option>
+        <option value="Kerala"></option>
+        <option value="Madhya Pradesh"></option>
+        <option value="Maharashtra"></option>
+        <option value="Odisha"></option>
+        <option value="Punjab"></option>
+        <option value="Rajasthan"></option>
+        <option value="Tamil Nadu"></option>
+        <option value="Telangana"></option>
+        <option value="Uttar Pradesh"></option>
+        <option value="Uttarakhand"></option>
+        <option value="West Bengal"></option>
+      </datalist>
+    </div>
+  </div>
+
+  <!-- Row 2: Vow & Email -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+    <div>
+      <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">आपकी प्लेज / संकल्प (Vow) <span class="text-tertiary">*</span></label>
+      <input class="w-full mt-1 px-3 py-2.5 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm outline-none border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="vow_focus" placeholder="उदा. Prakriti, Swadeshi, Civic Duty..." required="" type="text" value="Prakriti &amp; Green Energy"/>
+      <div class="flex flex-wrap gap-1 mt-1.5">
+        <button class="text-[10px] px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" onclick="document.getElementById('vow_focus').value='Prakriti &amp; Green Energy'" type="button">🌿 Prakriti</button>
+        <button class="text-[10px] px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" onclick="document.getElementById('vow_focus').value='Swadeshi &amp; Innovation'" type="button">🇮🇳 Swadeshi</button>
+        <button class="text-[10px] px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" onclick="document.getElementById('vow_focus').value='Civilizational Pride'" type="button">🛕 Heritage</button>
+        <button class="text-[10px] px-2 py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-colors" onclick="document.getElementById('vow_focus').value='Kartavya &amp; Civic Duty'" type="button">⚖️ Kartavya</button>
+      </div>
+    </div>
+    <div>
+      <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">ईमेल आईडी (Email) <span class="text-tertiary">*</span></label>
+      <input class="w-full mt-1 px-3 py-2.5 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm outline-none border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="email" placeholder="name@example.com" required="" type="email"/>
+    </div>
+  </div>
+
+  <!-- Row 3: Photo Capture / Upload (Optional) -->
+  <div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div class="flex items-center gap-3 w-full sm:w-auto">
+      <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary flex-shrink-0 overflow-hidden border border-primary-container/40" id="photo-preview-box">
+        <span class="material-symbols-outlined text-[24px]" id="photo-preview-icon">photo_camera</span>
+        <img alt="Citizen Photo Preview" class="w-full h-full object-cover hidden" id="photo-preview-img"/>
+      </div>
+      <div>
+        <label class="font-label-sm text-label-sm text-on-surface font-semibold block" for="photo">अपनी फोटो लें (Optional):</label>
+        <span class="font-label-sm text-[11px] text-on-surface-variant block">Camera या Gallery से फोटो जोड़ें</span>
+      </div>
+    </div>
+    <div class="w-full sm:w-auto flex-shrink-0">
+      <input accept="image/*" capture="environment" class="block w-full text-xs text-on-surface file:mr-2 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-on-primary hover:file:bg-primary-container hover:file:text-on-primary-container file:cursor-pointer cursor-pointer" id="photo" type="file"/>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button class="w-full mt-space-xs py-3.5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center justify-center gap-space-xs font-semibold" id="submitBtn" type="submit">
+    <span class="material-symbols-outlined text-[18px]">verified</span>
+    <span id="submitBtnText">Affirm &amp; Generate</span>
+  </button>
 </form>
+
 <!-- Success State Notification -->
 <div class="hidden p-space-sm bg-surface-container-highest rounded-lg flex items-center gap-space-sm text-primary font-title-sm text-title-sm" id="pledge-success">
 <span class="material-symbols-outlined text-primary text-[24px]">task_alt</span>
-<span class="">संकल्प पूर्ण! Your pledge is sealed. Certificate preview generated below.</span>
+<span class="">आपका संकल्प और फोटो सफलतापूर्वक दर्ज हो गया! Certificate नीचे देखें।</span>
 </div>
 
 <!-- Digital Sovereign Certificate Card (Appears after submission) -->
-<div id="certificate-display" class="hidden mt-space-md p-space-md bg-gradient-to-br from-surface-container-lowest via-surface-container to-surface-container-low rounded-2xl border-2 border-primary-container/80 shadow-2xl relative overflow-hidden text-left">
+<div class="hidden mt-space-md p-space-md bg-gradient-to-br from-surface-container-lowest via-surface-container to-surface-container-low rounded-2xl border-2 border-primary-container/80 shadow-2xl relative overflow-hidden text-left" id="certificate-display">
   <!-- Tricolor Accent Top Strip -->
   <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-tertiary via-surface-container-lowest to-secondary"></div>
   
   <!-- Header with Shield Emblem -->
   <div class="text-center pt-2 pb-3 border-b border-outline-variant/30">
     <div class="flex items-center justify-center gap-3">
-      <img src="assets/logo-shield.png" alt="Emblem" class="w-8 h-11 object-contain drop-shadow"/>
+      <img alt="Emblem" class="w-8 h-11 object-contain drop-shadow" src="assets/logo-shield.png"/>
       <div class="text-left">
         <h4 class="font-headline-sm text-sm text-primary font-bold tracking-wide uppercase leading-tight">स्वर्णिम भारत उदयघोष</h4>
         <p class="font-label-sm text-[10px] text-tertiary uppercase tracking-widest font-semibold">Rashtriya Samarpan Patra • 2026–2047</p>
@@ -203,13 +226,22 @@ button,a{-webkit-tap-highlight-color:transparent}
     </div>
   </div>
 
-  <!-- Body Text -->
+  <!-- Citizen Photo & Name -->
   <div class="py-4 text-center space-y-2">
-    <p class="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider">This officially certifies that</p>
-    <h3 class="font-headline-md text-2xl text-on-surface font-bold text-primary" id="cert-name-preview">Aarav Sharma</h3>
+    <div class="flex items-center justify-center gap-3.5 my-1">
+      <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-container shadow-md bg-surface-container flex items-center justify-center flex-shrink-0" id="cert-photo-container">
+        <img alt="Citizen Photo" class="w-full h-full object-cover hidden" id="cert-citizen-photo"/>
+        <span class="material-symbols-outlined text-primary text-[32px]" id="cert-photo-placeholder">person</span>
+      </div>
+      <div class="text-left">
+        <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-wider">This certifies that</p>
+        <h3 class="font-headline-md text-2xl text-on-surface font-bold text-primary leading-tight" id="cert-name-preview">Aarav Sharma</h3>
+        <p class="font-label-sm text-xs text-tertiary font-semibold" id="cert-state-preview">Delhi NCR</p>
+      </div>
+    </div>
+
     <p class="font-body-sm text-xs text-on-surface-variant max-w-sm mx-auto">
-      has taken the solemn sovereign pledge for an awakened, self-reliant &amp; Viksit Bharat by 2047 representing
-      <span class="font-semibold text-on-surface" id="cert-state-preview">Delhi NCR</span>.
+      has solemnly taken the sovereign pledge for an awakened, self-reliant &amp; Viksit Bharat by 2047.
     </p>
 
     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 text-on-primary-container font-label-md text-xs font-semibold">
@@ -222,14 +254,14 @@ button,a{-webkit-tap-highlight-color:transparent}
   <div class="pt-3 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
     <div>
       <span class="text-on-surface-variant text-[11px] block">Registry Code:</span>
-      <span class="font-mono font-bold text-primary text-xs tracking-wider" id="cert-id-preview">SB-2047-1430494</span>
+      <span class="font-mono font-bold text-primary text-xs tracking-wider" id="cert-id-preview">SB-2047-1429876</span>
     </div>
     <div class="flex items-center gap-2">
-      <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm font-semibold flex items-center gap-1 shadow-sm transition-colors" type="button">
+      <button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm font-semibold flex items-center gap-1 shadow-sm transition-colors" onclick="window.print()" type="button">
         <span class="material-symbols-outlined text-[16px]">print</span>
         <span>Print / Save</span>
       </button>
-      <a id="cert-whatsapp-btn" href="#" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-label-sm font-semibold flex items-center gap-1 shadow-sm transition-colors">
+      <a class="px-3 py-1.5 rounded-lg bg-[#25D366] hover:bg-[#20ba59] text-white font-label-sm font-semibold flex items-center gap-1 shadow-sm transition-colors" href="#" id="cert-whatsapp-btn" target="_blank">
         <span>Share WhatsApp</span>
       </a>
     </div>
@@ -429,107 +461,170 @@ button,a{-webkit-tap-highlight-color:transparent}
 </section>
 </div>
 <script>
-  // ========================================================
-  // 🔗 GOOGLE SHEETS WEBHOOK INTEGRATION
-  // Google Apps Script Deploy URL yahan paste karein:
-  // (Setup instructions ke liye GOOGLE_SHEETS_SETUP.md dekhein)
-  // ========================================================
-  const GOOGLE_SHEETS_WEBHOOK_URL = '';
+  // अपना नया Google Apps Script का Web App URL यहाँ डालें
+  const GOOGLE_SCRIPT_URL = "यहाँ_अपना_WEB_APP_URL_पेस्ट_करें";
 
-  // Base starting count for the national campaign
-  const BASE_STARTING_PLEDGES = 1430493;
-
-  function getStoredPledgeCount() {
-    const stored = localStorage.getItem('swarnim_pledge_count');
-    return stored ? parseInt(stored, 10) : BASE_STARTING_PLEDGES;
-  }
-
-  function updateCounterDisplay(num) {
-    const counterEl = document.getElementById('pledge-counter');
-    if (counterEl) {
-      counterEl.textContent = num.toLocaleString('en-IN');
-    }
-  }
-
-  // Initialize counter on page load
-  document.addEventListener('DOMContentLoaded', function() {
-    let currentVal = getStoredPledgeCount();
-    updateCounterDisplay(currentVal);
-
-    // Fetch live count from Google Sheets if configured
-    if (GOOGLE_SHEETS_WEBHOOK_URL && GOOGLE_SHEETS_WEBHOOK_URL.trim() !== '') {
-      fetch(GOOGLE_SHEETS_WEBHOOK_URL + '?action=getCount')
-        .then(res => res.json())
-        .then(data => {
-          if (data && data.count) {
-            const total = BASE_STARTING_PLEDGES + data.count;
-            localStorage.setItem('swarnim_pledge_count', total);
-            updateCounterDisplay(total);
-          }
-        })
-        .catch(err => console.log('Could not fetch live sheet count:', err));
-    }
+  // 1. फोटो को कोड (Base64) में बदलने का फंक्शन
+  const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
   });
 
-  // Handle Form Submission, Live Counter Increment & Certificate Generation
-  window.submitCivicPledge = function(event) {
-    if (event) event.preventDefault();
+  // Photo preview logic on selection
+  const photoInput = document.getElementById('photo');
+  if (photoInput) {
+    photoInput.addEventListener('change', async function() {
+      if (this.files && this.files[0]) {
+        try {
+          const b64 = await toBase64(this.files[0]);
+          const previewImg = document.getElementById('photo-preview-img');
+          const previewIcon = document.getElementById('photo-preview-icon');
+          if (previewImg && previewIcon) {
+            previewImg.src = b64;
+            previewImg.classList.remove('hidden');
+            previewIcon.classList.add('hidden');
+          }
+        } catch(e) {
+          console.error('Photo preview failed', e);
+        }
+      }
+    });
+  }
 
-    const form = document.getElementById('direct-pledge-form');
-    if (!form) return;
+  // 2. फॉर्म सबमिट करने का लॉजिक
+  const pledgeForm = document.getElementById('pledgeForm');
+  if (pledgeForm) {
+    pledgeForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const submitBtnText = document.getElementById('submitBtnText');
+      if (submitBtnText) submitBtnText.innerText = "अपलोड हो रहा है... कृपया प्रतीक्षा करें";
+      else submitBtn.innerText = "अपलोड हो रहा है... कृपया प्रतीक्षा करें";
+      submitBtn.disabled = true;
 
-    const nameInput = form.querySelector('input[type="text"]');
-    const stateSelect = form.querySelector('select');
-    const focusRadio = form.querySelector('input[name="focus"]:checked');
+      // फॉर्म से डेटा उठाना
+      const fullName = (document.getElementById('full_name') ? document.getElementById('full_name').value.trim() : '');
+      const state = (document.getElementById('state') ? document.getElementById('state').value.trim() : '');
+      const vowFocus = (document.getElementById('vow_focus') ? document.getElementById('vow_focus').value.trim() : '');
+      const email = (document.getElementById('email') ? document.getElementById('email').value.trim() : '');
+      const photoEl = document.getElementById('photo');
 
-    const fullName = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'Rashtriya Citizen';
-    const state = (stateSelect && stateSelect.value) ? (stateSelect.options[stateSelect.selectedIndex].text || stateSelect.value) : 'Bharat';
-    const focusVal = focusRadio ? focusRadio.value : 'green';
+      let photoBase64 = "";
+      let photoName = "";
 
-    const focusLabels = {
-      'green': 'Prakriti & Green Energy',
-      'atmanirbhar': 'Swadeshi & Innovation',
-      'heritage': 'Civilizational Pride',
-      'kartavya': 'Kartavya & Civic Duty'
-    };
-    const focusLabel = focusLabels[focusVal] || 'Sovereign Viksit Bharat';
+      // अगर यूज़र ने फोटो सेलेक्ट की है
+      if (photoEl && photoEl.files.length > 0) {
+        const file = photoEl.files[0];
+        photoName = file.name;
+        try {
+          photoBase64 = await toBase64(file); // फोटो को टेक्स्ट में कन्वर्ट करना
+        } catch(err) {
+          console.error("Photo base64 conversion failed:", err);
+        }
+      }
 
-    // 1. Increment Counter in LocalStorage & UI
-    let currentCount = getStoredPledgeCount() + 1;
-    localStorage.setItem('swarnim_pledge_count', currentCount);
-    updateCounterDisplay(currentCount);
+      const payload = {
+        full_name: fullName,
+        state: state,
+        vow_focus: vowFocus,
+        email: email,
+        photoBase64: photoBase64,
+        photoName: photoName
+      };
 
-    // 2. Generate Unique Sovereign Registry ID
-    const pledgeId = 'SB-2047-' + currentCount;
-    const now = new Date();
-    const dateStr = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+      // Show Certificate Preview immediately
+      renderSovereignCertificate(fullName, state, vowFocus, photoBase64);
 
-    // 3. Populate Certificate Card
+      // डेटा Google Sheet में भेजना (अगर URL सेट है)
+      const isConfigured = GOOGLE_SCRIPT_URL && 
+                           GOOGLE_SCRIPT_URL !== "यहाँ_अपना_WEB_APP_URL_पेस्ट_करें" && 
+                           GOOGLE_SCRIPT_URL.trim() !== "";
+
+      if (isConfigured) {
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(() => {
+          alert("आपका संकल्प और फोटो सफलतापूर्वक दर्ज हो गया!");
+          document.getElementById('pledgeForm').reset();
+          resetPhotoPreview();
+          updateCounter(); // नंबर बढ़ाना
+          if (submitBtnText) submitBtnText.innerText = "Affirm & Generate";
+          else submitBtn.innerText = "Affirm & Generate";
+          submitBtn.disabled = false;
+        })
+        .catch(err => {
+          console.error("Submission error:", err);
+          alert("कुछ तकनीकी समस्या आई, पर आपका संकल्प स्थानीय रूप से दर्ज कर लिया गया है।");
+          incrementLocalCount();
+          if (submitBtnText) submitBtnText.innerText = "Affirm & Generate";
+          else submitBtn.innerText = "Affirm & Generate";
+          submitBtn.disabled = false;
+        });
+      } else {
+        // Demo mode fallback
+        setTimeout(() => {
+          alert("आपका संकल्प और फोटो सफलतापूर्वक दर्ज हो गया!\n(Google Sheet URL सेट करने पर डेटा सीधे आपकी स्प्रेडशीट और Google Drive में भी स्टोर होगा)");
+          incrementLocalCount();
+          document.getElementById('pledgeForm').reset();
+          resetPhotoPreview();
+          if (submitBtnText) submitBtnText.innerText = "Affirm & Generate";
+          else submitBtn.innerText = "Affirm & Generate";
+          submitBtn.disabled = false;
+        }, 500);
+      }
+    });
+  }
+
+  function resetPhotoPreview() {
+    const previewImg = document.getElementById('photo-preview-img');
+    const previewIcon = document.getElementById('photo-preview-icon');
+    if (previewImg && previewIcon) {
+      previewImg.src = '';
+      previewImg.classList.add('hidden');
+      previewIcon.classList.remove('hidden');
+    }
+  }
+
+  function renderSovereignCertificate(name, state, vow, photoB64) {
+    const certDisplay = document.getElementById('certificate-display');
+    const successBox = document.getElementById('pledge-success');
     const nameEl = document.getElementById('cert-name-preview');
     const stateEl = document.getElementById('cert-state-preview');
     const focusEl = document.getElementById('cert-focus-preview');
     const idEl = document.getElementById('cert-id-preview');
+    const certPhotoImg = document.getElementById('cert-citizen-photo');
+    const certPhotoPlace = document.getElementById('cert-photo-placeholder');
     const waBtn = document.getElementById('cert-whatsapp-btn');
 
-    if (nameEl) nameEl.textContent = fullName;
+    const count = getCurrentCount() + 1;
+    const pledgeId = 'SB-2047-' + count;
+
+    if (nameEl) nameEl.textContent = name;
     if (stateEl) stateEl.textContent = state;
-    if (focusEl) focusEl.textContent = focusLabel;
+    if (focusEl) focusEl.textContent = vow;
     if (idEl) idEl.textContent = pledgeId;
 
-    // 4. Setup WhatsApp Share Link
+    if (photoB64 && certPhotoImg && certPhotoPlace) {
+      certPhotoImg.src = photoB64;
+      certPhotoImg.classList.remove('hidden');
+      certPhotoPlace.classList.add('hidden');
+    } else if (certPhotoImg && certPhotoPlace) {
+      certPhotoImg.classList.add('hidden');
+      certPhotoPlace.classList.remove('hidden');
+    }
+
     if (waBtn) {
-      const shareMsg = `🇮🇳 मैंने स्वर्णिम भारत उदयघोष (2026-2047) का संकल्प लिया है!\n\n` +
-        `👤 नाम: ${fullName}\n` +
-        `🏛️ राज्य: ${state}\n` +
-        `🎯 संकल्प: ${focusLabel}\n` +
-        `🎖️ Registry ID: ${pledgeId}\n\n` +
-        `आप भी विकसित भारत के लिए संकल्प लें और अपना प्रमाण पत्र प्राप्त करें:\n${window.location.origin + window.location.pathname}`;
+      const shareMsg = `🇮🇳 मैंने स्वर्णिम भारत उदयघोष (2026-2047) का संकल्प लिया है!\n\n👤 नाम: ${name}\n🏛️ राज्य: ${state}\n🎯 संकल्प: ${vow}\n🎖️ Registry ID: ${pledgeId}\n\nआप भी संकल्प लें और प्रमाण पत्र पाएं:\n${window.location.origin + window.location.pathname}`;
       waBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareMsg)}`;
     }
 
-    // 5. Show Success Box and Certificate Preview
-    const successBox = document.getElementById('pledge-success');
-    const certDisplay = document.getElementById('certificate-display');
     if (successBox) successBox.classList.remove('hidden');
     if (certDisplay) {
       certDisplay.classList.remove('hidden');
@@ -537,35 +632,50 @@ button,a{-webkit-tap-highlight-color:transparent}
         certDisplay.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }, 150);
     }
+  }
 
-    // 6. Send Data to Google Sheets Webhook (if URL configured)
-    if (GOOGLE_SHEETS_WEBHOOK_URL && GOOGLE_SHEETS_WEBHOOK_URL.trim() !== '') {
-      fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fullName: fullName,
-          state: state,
-          focus: focusLabel,
-          pledgeId: pledgeId,
-          timestamp: now.toISOString(),
-          localDate: dateStr
-        })
-      }).then(() => {
-        console.log('✅ Pledge successfully synced to Google Sheet!');
-      }).catch(err => {
-        console.log('Google Sheets sync notice:', err);
+  function getCurrentCount() {
+    const stored = localStorage.getItem('swarnim_pledge_count');
+    return stored ? parseInt(stored, 10) : 1429876;
+  }
+
+  function incrementLocalCount() {
+    const next = getCurrentCount() + 1;
+    localStorage.setItem('swarnim_pledge_count', next);
+    setCounterText(next);
+  }
+
+  function setCounterText(val) {
+    const el = document.getElementById('live-pledge-counter') || document.getElementById('pledge-counter');
+    if (el) el.innerText = val.toLocaleString('en-IN');
+  }
+
+  // 3. लाइव नंबर अपडेट करने का कोड
+  function updateCounter() {
+    const isConfigured = GOOGLE_SCRIPT_URL && 
+                         GOOGLE_SCRIPT_URL !== "यहाँ_अपना_WEB_APP_URL_पेस्ट_करें" && 
+                         GOOGLE_SCRIPT_URL.trim() !== "";
+
+    if (isConfigured) {
+      fetch(GOOGLE_SCRIPT_URL)
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.count) {
+          localStorage.setItem('swarnim_pledge_count', data.count);
+          setCounterText(data.count);
+        }
+      })
+      .catch(err => {
+        setCounterText(getCurrentCount());
       });
+    } else {
+      setCounterText(getCurrentCount());
     }
+  }
 
-    // Also store local list of user pledges
-    try {
-      const myPledges = JSON.parse(localStorage.getItem('my_swarnim_pledges') || '[]');
-      myPledges.unshift({ fullName, state, focus: focusLabel, pledgeId, date: dateStr });
-      localStorage.setItem('my_swarnim_pledges', JSON.stringify(myPledges));
-    } catch(e) {}
-  };
+  // हर 5 सेकंड में नंबर अपडेट होगा और पेज लोड होने पर भी चलेगा
+  setInterval(updateCounter, 5000);
+  updateCounter();
 </script>
 <section class="max-w-6xl mx-auto px-5 py-10 text-center">
 <div class="rounded-2xl border border-[#d4af37]/40 bg-[#f6f3ec] p-6 md:p-8">

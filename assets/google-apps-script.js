@@ -1,40 +1,40 @@
 /**
  * ========================================================
- * 🇮🇳 Swarnim Bharat Udayghosh - Google Sheets Webhook Script
+ * 🇮🇳 Swarnim Bharat Udayghosh - Google Apps Script Webhook
  * ========================================================
  * 
- * Ye code aapki Google Sheet me real-time form data store karta hai
- * aur website ko live total count provide karta hai.
+ * Supports:
+ * - Full Name, State, Vow Focus, Email
+ * - Citizen Photo (Base64 decoded & saved to Google Drive)
+ * - Live Counter (doGet & doPost returning { count })
  * 
  * SETUP INSTRUCTIONS:
- * 1. Google Drive me nayi Google Sheet banayein (naam: "Swarnim Bharat Pledges")
- * 2. Menu me jayein: Extensions > Apps Script
- * 3. Wahan pehle se likha hua sab kuch hata kar ye pura code paste karein.
- * 4. Upar "Deploy" button dabayein > "New deployment" select karein.
- * 5. Type me "Web app" select karein.
- * 6. "Who has access" me "Anyone" select karein (ZAROORI HAI).
- * 7. "Deploy" dabayein aur jo Web App URL mile use copy karein.
- * 8. index.html me GOOGLE_SHEETS_WEBHOOK_URL me wo link paste kar dein.
+ * 1. Google Drive me Spreadsheet banayein: "Swarnim Bharat Pledges"
+ * 2. Extensions > Apps Script me ye code paste karein.
+ * 3. Deploy > New deployment > Web app chunein.
+ * 4. Execute as: "Me" | Who has access: "Anyone"
+ * 5. Deploy dabayein aur URL copy karke index.html me GOOGLE_SCRIPT_URL me paste karein.
  */
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
-  lock.tryLock(10000);
+  lock.tryLock(15000);
 
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     
-    // Agar sheet khali hai to Headers banayein
+    // Headers if sheet is empty
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
         "Timestamp (IST)", 
         "Full Name (पूरा नाम)", 
-        "State / UT (राज्य)", 
-        "Sankalp Focus (संकल्प)", 
-        "Pledge ID (प्रमाण पत्र संख्या)"
+        "State (राज्य)", 
+        "Vow / Focus (संकल्प)", 
+        "Email (ईमेल)", 
+        "Citizen Photo (फोटो लिंक)",
+        "Pledge Registry ID"
       ]);
-      // Header ko bold aur gold styling dein
-      sheet.getRange(1, 1, 1, 5).setFontWeight("bold").setBackground("#d4af37").setFontColor("#132c4d");
+      sheet.getRange(1, 1, 1, 7).setFontWeight("bold").setBackground("#d4af37").setFontColor("#132c4d");
       sheet.setFrozenRows(1);
     }
 
@@ -48,25 +48,51 @@ function doPost(e) {
     var now = new Date();
     var formattedDate = Utilities.formatDate(now, "Asia/Kolkata", "dd-MMM-yyyy hh:mm:ss a");
 
-    var fullName = data.fullName || "Citizen of Bharat";
+    var fullName = data.full_name || data.fullName || "Citizen of Bharat";
     var state = data.state || "Bharat";
-    var focus = data.focus || "Viksit Bharat";
-    var pledgeId = data.pledgeId || ("SB-" + (sheet.getLastRow() + 1430493));
+    var vowFocus = data.vow_focus || data.focus || "Viksit Bharat 2047";
+    var email = data.email || "";
+    var photoUrl = "No Photo Uploaded";
 
-    // Nayi row add karein
-    sheet.appendRow([formattedDate, fullName, state, focus, pledgeId]);
+    // Photo Base64 handling: save to Google Drive
+    if (data.photoBase64 && data.photoBase64.indexOf("base64,") !== -1) {
+      try {
+        var parts = data.photoBase64.split("base64,");
+        var contentType = parts[0].split(":")[1].split(";")[0] || "image/jpeg";
+        var decoded = Utilities.base64Decode(parts[1]);
+        var fileName = (fullName.replace(/[^a-zA-Z0-9]/g, "_") + "_" + Date.now() + ".jpg");
+        var blob = Utilities.newBlob(decoded, contentType, fileName);
+        
+        // Save file to Google Drive
+        var file = DriveApp.createFile(blob);
+        file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+        photoUrl = file.getUrl();
+      } catch (photoErr) {
+        photoUrl = "Error saving photo: " + photoErr.toString();
+      }
+    }
+
+    var baseCount = 1429876;
+    var rowCount = Math.max(0, sheet.getLastRow()); // includes newly appended
+    var totalCount = baseCount + rowCount;
+    var pledgeId = "SB-2047-" + totalCount;
+
+    // Append new row
+    sheet.appendRow([formattedDate, fullName, state, vowFocus, email, photoUrl, pledgeId]);
 
     return ContentService
       .createTextOutput(JSON.stringify({ 
-        result: "success", 
-        row: sheet.getLastRow(), 
-        count: sheet.getLastRow() - 1 
+        status: "success", 
+        result: "success",
+        count: totalCount + 1,
+        photoUrl: photoUrl,
+        pledgeId: pledgeId 
       }))
       .setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
     return ContentService
-      .createTextOutput(JSON.stringify({ result: "error", error: error.toString() }))
+      .createTextOutput(JSON.stringify({ status: "error", error: error.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
   } finally {
     lock.releaseLock();
@@ -76,18 +102,21 @@ function doPost(e) {
 function doGet(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var rowCount = Math.max(0, sheet.getLastRow() - 1); // Header row minus kar ke
+    var rowCount = Math.max(0, sheet.getLastRow() - 1);
+    var baseCount = 1429876;
+    var totalCount = baseCount + rowCount;
     
     return ContentService
       .createTextOutput(JSON.stringify({ 
         status: "success", 
-        count: rowCount,
+        count: totalCount,
+        submissions: rowCount,
         timestamp: new Date().toISOString()
       }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
     return ContentService
-      .createTextOutput(JSON.stringify({ status: "error", message: error.toString() }))
+      .createTextOutput(JSON.stringify({ status: "error", count: 1429876, message: error.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
   }
 }
