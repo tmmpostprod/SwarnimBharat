@@ -79,8 +79,45 @@ function doPost(e) {
     var totalCount = baseCount + rowCount;
     var pledgeId = "SB-2047-" + totalCount;
 
-    // Append new row
-    sheet.appendRow([formattedDate, fullName, phoneNumber, state, vowFocus, email, photoUrl, pledgeId]);
+    // Check Row 1 headers dynamically to match user's custom columns (Date, Name, State, Vow, Email, Photo URL)
+    var lastCol = Math.max(sheet.getLastColumn(), 6);
+    var headers = [];
+    if (sheet.getLastRow() > 0) {
+      headers = sheet.getRange(1, 1, 1, lastCol).getValues()[0].map(function(h) {
+        return h ? h.toString().toLowerCase().trim() : '';
+      });
+    }
+
+    // Dynamic Column Matching
+    if (headers.length > 0 && headers[0] !== '') {
+      var row = [];
+      for (var i = 0; i < headers.length; i++) {
+        var h = headers[i];
+        if (h.indexOf('date') !== -1 || h.indexOf('time') !== -1) {
+          row.push(formattedDate);
+        } else if (h.indexOf('name') !== -1 || h.indexOf('नाम') !== -1) {
+          row.push(fullName);
+        } else if (h.indexOf('state') !== -1 || h.indexOf('राज्य') !== -1) {
+          row.push(state);
+        } else if (h.indexOf('vow') !== -1 || h.indexOf('focus') !== -1 || h.indexOf('संकल्प') !== -1) {
+          row.push(vowFocus);
+        } else if (h.indexOf('email') !== -1 || h.indexOf('ईमेल') !== -1) {
+          row.push(email);
+        } else if (h.indexOf('photo') !== -1 || h.indexOf('फोटो') !== -1 || h.indexOf('image') !== -1) {
+          row.push(photoUrl);
+        } else if (h.indexOf('phone') !== -1 || h.indexOf('mobile') !== -1 || h.indexOf('फोन') !== -1 || h.indexOf('फ़ोन') !== -1) {
+          row.push(phoneNumber);
+        } else if (h.indexOf('id') !== -1 || h.indexOf('registry') !== -1) {
+          row.push(pledgeId);
+        } else {
+          row.push('');
+        }
+      }
+      sheet.appendRow(row);
+    } else {
+      // Default fallback if sheet has no headers
+      sheet.appendRow([formattedDate, fullName, state, vowFocus, email, photoUrl, phoneNumber, pledgeId]);
+    }
 
     return ContentService
       .createTextOutput(JSON.stringify({ 
