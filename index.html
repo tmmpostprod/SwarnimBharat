@@ -39,14 +39,20 @@ button,a{-webkit-tap-highlight-color:transparent}
 <div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-tertiary-fixed/25 blur-[130px] pointer-events-none"></div>
 <div class="absolute top-1/2 -right-20 w-80 h-80 rounded-full bg-secondary-fixed/25 blur-[130px] pointer-events-none"></div>
 
-<!-- 1. FULL WIDTH EDGE-TO-EDGE HERO BANNER ARTWORK -->
-<div class="w-full relative flex items-center justify-center px-0">
+<!-- 1. FULL WIDTH EDGE-TO-EDGE HERO BANNER ARTWORK WITH CLEAN MIRROR REFLECTION -->
+<div class="w-full relative flex flex-col items-center justify-center px-0 overflow-hidden">
   <img src="assets/hero-banner.png" 
        alt="Swarnim Bharat Udayghosh - 2026 to 2047 Viksit Bharat National Journey" 
-       class="w-full h-auto block select-none drop-shadow-[0_12px_32px_rgba(0,0,0,0.07)]" 
+       class="w-full h-auto block select-none drop-shadow-[0_12px_28px_rgba(0,0,0,0.06)]" 
        loading="eager" 
        fetchpriority="high"
        decoding="async" />
+  
+  <!-- Subtle Mirror Reflection Surface -->
+  <div class="w-full h-10 sm:h-14 md:h-16 overflow-hidden relative opacity-20 pointer-events-none -scale-y-100 -mt-1 select-none"
+       style="-webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, transparent 85%); mask-image: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, transparent 85%);">
+    <img src="assets/hero-banner.png" alt="" class="w-full h-auto block select-none filter blur-[0.5px]" />
+  </div>
 </div>
 
 <!-- 2. OFFICIAL TYPOGRAPHY & CTAs (Centered Directly Under Full-Width Banner) -->
