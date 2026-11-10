@@ -42,8 +42,8 @@ Ye guide aapko 3 minute me aapki Google Sheet aur Google Drive ko website ke sat
 
 ### Step 4: Website me URL Paste Karein (Already Connected! ✅)
 Aapka Deployment ID aur Web App URL code me successfully connect ho chuka hai:
-- **Deployment ID:** `AKfycbxD0axElmOBjSIMbK2J6hOd5raS6yOzaICltKj9VvH0FP563RPM9Hw7_6aiZ4gPo7Hf`
-- **Web App URL:** `https://script.google.com/macros/s/AKfycbxD0axElmOBjSIMbK2J6hOd5raS6yOzaICltKj9VvH0FP563RPM9Hw7_6aiZ4gPo7Hf/exec`
+- **Deployment ID:** `AKfycbwyyzKh126UAI5DBkrXnV-q0YIDko4Jo7VoMoctPrk3NRB3Pt0amD64Bcpa2Wp3hfAd`
+- **Web App URL:** `https://script.google.com/macros/s/AKfycbwyyzKh126UAI5DBkrXnV-q0YIDko4Jo7VoMoctPrk3NRB3Pt0amD64Bcpa2Wp3hfAd/exec`
 
 `index.html` aur `take-pledge-and-scanner.html` dono me ye URL integrate ho chuka hai.
 
