@@ -74,7 +74,7 @@ function doPost(e) {
       }
     }
 
-    var baseCount = 1429876;
+    var baseCount = 124;
     var rowCount = Math.max(0, sheet.getLastRow()); // includes newly appended
     var totalCount = baseCount + rowCount;
     var pledgeId = "SB-2047-" + totalCount;

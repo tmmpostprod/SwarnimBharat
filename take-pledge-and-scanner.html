@@ -474,9 +474,9 @@ button,a{-webkit-tap-highlight-color:transparent}
 <span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-widest block">Live Citizen Affirmation Ticker</span>
 <div class="flex items-baseline gap-2">
 <span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight" id="pledgeCounter">
-                  1,42,88,419
-                </span>
-<span class="font-label-md text-label-md text-primary font-bold">+24 / sec</span>
+  124
+</span>
+<span class="font-label-md text-label-md text-primary font-bold">100+ Live Verified</span>
 </div>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Total sovereign pledges sealed across 36 States &amp; Union Territories</span>
 </div>
@@ -536,8 +536,8 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 </div>
 <div class="flex flex-col items-end flex-shrink-0 text-right">
-<span class="font-mono text-label-sm text-outline">HASH #4A90-E1</span>
-<span class="font-label-sm text-label-sm text-tertiary font-bold">12s ago</span>
+<span class="font-mono text-label-sm text-outline">HASH #SB-2047-0124</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">2m ago</span>
 </div>
 </div>
 <!-- Citizen 2 -->
@@ -558,8 +558,8 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 </div>
 <div class="flex flex-col items-end flex-shrink-0 text-right">
-<span class="font-mono text-label-sm text-outline">HASH #2B88-C3</span>
-<span class="font-label-sm text-label-sm text-tertiary font-bold">34s ago</span>
+<span class="font-mono text-label-sm text-outline">HASH #SB-2047-0123</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">8m ago</span>
 </div>
 </div>
 <!-- Citizen 3 -->
@@ -580,8 +580,8 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 </div>
 <div class="flex flex-col items-end flex-shrink-0 text-right">
-<span class="font-mono text-label-sm text-outline">HASH #991D-A7</span>
-<span class="font-label-sm text-label-sm text-tertiary font-bold">58s ago</span>
+<span class="font-mono text-label-sm text-outline">HASH #SB-2047-0122</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">19m ago</span>
 </div>
 </div>
 <!-- Citizen 4 -->
@@ -592,18 +592,18 @@ button,a{-webkit-tap-highlight-color:transparent}
                 </div>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-2">
-<span class="font-title-sm text-title-sm text-on-surface font-bold truncate">Ananya Sen</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold truncate">Ananya Deshmukh</span>
 <span class="material-symbols-outlined text-[14px] text-primary">verified</span>
 </div>
 <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
-<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-primary font-semibold">Jaipur, RJ</span>
-<span>• Prakriti &amp; Green Energy</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-primary font-semibold">Pune, MH</span>
+<span>• Civilizational Pride</span>
 </div>
 </div>
 </div>
 <div class="flex flex-col items-end flex-shrink-0 text-right">
-<span class="font-mono text-label-sm text-outline">HASH #3E01-F5</span>
-<span class="font-label-sm text-label-sm text-tertiary font-bold">1m ago</span>
+<span class="font-mono text-label-sm text-outline">HASH #SB-2047-0121</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">35m ago</span>
 </div>
 </div>
 <!-- Citizen 5 -->
@@ -614,18 +614,18 @@ button,a{-webkit-tap-highlight-color:transparent}
                 </div>
 <div class="flex flex-col min-w-0">
 <div class="flex items-center gap-2">
-<span class="font-title-sm text-title-sm text-on-surface font-bold truncate">Gowda Shivanna</span>
+<span class="font-title-sm text-title-sm text-on-surface font-bold truncate">Gurpreet Singh</span>
 <span class="material-symbols-outlined text-[14px] text-primary">verified</span>
 </div>
 <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
-<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-secondary font-semibold">Mysuru, KA</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-label-sm font-label-sm text-secondary font-semibold">Amritsar, PB</span>
 <span>• Kartavya &amp; Civic Duty</span>
 </div>
 </div>
 </div>
 <div class="flex flex-col items-end flex-shrink-0 text-right">
-<span class="font-mono text-label-sm text-outline">HASH #7C44-B2</span>
-<span class="font-label-sm text-label-sm text-tertiary font-bold">2m ago</span>
+<span class="font-mono text-label-sm text-outline">HASH #SB-2047-0120</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">48m ago</span>
 </div>
 </div>
 </div>
@@ -720,15 +720,23 @@ button,a{-webkit-tap-highlight-color:transparent}
       }, 40);
     })();
 
-    // 2. Real-Time Counter Ticking
-    let totalPledges = 14288419;
-    const counterEl = document.getElementById('pledgeCounter');
-    setInterval(() => {
-      totalPledges += Math.floor(Math.random() * 4) + 1;
-      if (counterEl) {
-        counterEl.innerText = totalPledges.toLocaleString('en-IN');
+    // 2. Real-Time Counter Control (Only increments on real pledge submit)
+    function getPledgeCount() {
+      const stored = localStorage.getItem('swarnim_pledge_count');
+      const parsed = stored ? parseInt(stored, 10) : 124;
+      if (parsed > 10000) {
+        localStorage.setItem('swarnim_pledge_count', 124);
+        return 124;
       }
-    }, 2400);
+      return parsed;
+    }
+
+    function setPledgeCount(val) {
+      const counterEl = document.getElementById('pledgeCounter');
+      if (counterEl) counterEl.innerText = val.toLocaleString('en-IN');
+    }
+
+    setPledgeCount(getPledgeCount());
 
     // Auto-scroll and focus if opened from QR code scan
     window.addEventListener('DOMContentLoaded', () => {
@@ -802,9 +810,13 @@ button,a{-webkit-tap-highlight-color:transparent}
         certFallback.classList.remove('hidden');
       }
       
-      // Generate authentic-looking hash
-      const randomHex = Math.random().toString(16).substring(2, 6).toUpperCase();
-      const newHash = `VB47-${randomHex}-2024-C9`;
+      // Increment count ONLY upon real form submission/affirmation
+      const nextCount = getPledgeCount() + 1;
+      localStorage.setItem('swarnim_pledge_count', nextCount);
+      setPledgeCount(nextCount);
+
+      // Generate clean sequential registry hash
+      const newHash = `SB-2047-0${nextCount}`;
       document.getElementById('certHash').innerText = newHash;
 
       // Current formatted date
