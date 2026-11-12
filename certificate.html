@@ -64,16 +64,17 @@
             transform-origin: top center;
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
             /* Padding for the double border */
-            padding: 24px;
+            padding: 20px;
             box-sizing: border-box;
             flex-shrink: 0;
+            overflow: hidden;
         }
 
         .double-border {
             width: 100%;
             height: 100%;
             border: 3px solid #B59A53;
-            padding: 6px;
+            padding: 5px;
             position: relative;
             box-sizing: border-box;
         }
@@ -85,15 +86,16 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding: 40px;
+            padding: 20px 36px 14px 36px;
             box-sizing: border-box;
         }
 
         .corner-star {
             position: absolute;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border: 2px solid #B59A53;
             border-radius: 50%;
             display: flex;
@@ -101,37 +103,38 @@
             justify-content: center;
             background: #FDFBF7;
             color: #B59A53;
-            font-size: 16px;
+            font-size: 15px;
             z-index: 10;
             user-select: none;
         }
         
-        .corner-tl { top: -16px; left: -16px; }
-        .corner-tr { top: -16px; right: -16px; }
-        .corner-bl { bottom: -16px; left: -16px; }
-        .corner-br { bottom: -16px; right: -16px; }
+        .corner-tl { top: -15px; left: -15px; }
+        .corner-tr { top: -15px; right: -15px; }
+        .corner-bl { bottom: -15px; left: -15px; }
+        .corner-br { bottom: -15px; right: -15px; }
 
         /* Photo positioning */
         .cert-photo-container {
             position: absolute;
-            top: 40px;
-            right: 40px;
-            width: 110px;
-            height: 110px;
+            top: 20px;
+            right: 28px;
+            width: 105px;
+            height: 115px;
             border: 2px solid #B59A53;
             border-radius: 8px;
-            padding: 4px;
+            padding: 3px;
             background: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             display: none; /* Hidden by default until photo added */
             z-index: 20;
+            overflow: hidden;
         }
         
         .cert-photo-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 4px;
+            border-radius: 5px;
         }
 
         /* Print Settings for Exact A4 Landscape */
@@ -205,14 +208,34 @@
                     <input type="text" id="input-name" value="PRAKASH SHARMA" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition uppercase font-semibold">
                 </div>
 
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Phone Number (फ़ोन नंबर)</label>
-                    <input type="tel" id="input-phone" placeholder="+91 98765 43210" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition">
-                </div>
+                <!-- Dedicated Citizen Contact Section (Private / Backend Only) -->
+                <div class="p-4 bg-amber-50/80 border border-gold/50 rounded-xl space-y-3 shadow-xs">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-[17px] text-goldDark">shield_person</span>
+                            Citizen Contact Details
+                        </span>
+                        <span class="text-[10px] bg-white border border-gold/40 text-goldDark px-2 py-0.5 rounded font-bold uppercase">Backend Only</span>
+                    </div>
+                    <p class="text-[11px] text-gray-600 leading-tight">
+                        🔒 यह फ़ोन और ईमेल केवल आपके और Google Sheet बैकएंड के लिए सुरक्षित है। पब्लिक सर्टिफिकेट पर यह कभी प्रदर्शित नहीं होता।
+                    </p>
 
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Email ID (ईमेल)</label>
-                    <input type="email" id="input-email" placeholder="name@example.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Phone Number (फ़ोन नंबर)</label>
+                        <div class="relative">
+                            <input type="tel" id="input-phone" placeholder="+91 98765 43210" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm font-semibold text-gray-800 bg-white">
+                            <span class="material-symbols-outlined text-[18px] text-gray-400 absolute left-2.5 top-2.5">call</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Email ID (ईमेल आईडी)</label>
+                        <div class="relative">
+                            <input type="email" id="input-email" placeholder="name@example.com" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm font-medium text-gray-800 bg-white">
+                            <span class="material-symbols-outlined text-[18px] text-gray-400 absolute left-2.5 top-2.5">mail</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
@@ -286,74 +309,69 @@
                             <div class="corner-star corner-bl">★</div>
                             <div class="corner-star corner-br">★</div>
 
-                            <!-- Optional User Photo -->
+                            <!-- Optional User Photo (Top-Right Floating Passport Box) -->
                             <div id="cert-photo-wrapper" class="cert-photo-container">
                                 <img id="cert-photo" src="" alt="Citizen Photo">
                             </div>
 
-                            <!-- Logo -->
-                            <img src="assets/logo.png" class="h-28 w-auto object-contain mb-6 mx-auto drop-shadow-md rounded-lg" alt="Swarnim Bharat Logo" onerror="this.src='assets/logo-emblem.png'">
-
-                            <!-- Header Section -->
-                            <div class="text-center space-y-4 w-full">
-                                <h1 class="text-5xl font-bold text-gray-900 font-hindi mt-2">स्वर्णिम भारत उदयघोष</h1>
-                                
-                                <h2 class="text-goldDark font-bold tracking-widest text-sm mt-3 uppercase">
+                            <!-- Top Section: Centered Logo & Formal Heading -->
+                            <div class="flex flex-col items-center text-center w-full">
+                                <img src="assets/logo.png" class="h-20 w-auto object-contain mx-auto mb-1 drop-shadow-sm rounded-md" alt="Swarnim Bharat Logo" onerror="this.src='assets/logo-emblem.png'">
+                                <h1 class="text-4xl font-bold text-gray-900 font-hindi tracking-tight">स्वर्णिम भारत उदयघोष</h1>
+                                <h2 class="text-goldDark font-bold tracking-widest text-xs mt-1 uppercase">
                                     राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF SOVEREIGN COMMITMENT
                                 </h2>
-
-                                <div class="w-full border-t border-gray-300 mt-8 mb-8 max-w-4xl mx-auto"></div>
+                                <div class="w-full border-t border-gray-300 my-2.5 max-w-3xl mx-auto"></div>
                             </div>
 
-                            <!-- Intro Text -->
-                            <p class="italic text-gray-700 font-hindi text-lg mt-2">
-                                यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक
-                            </p>
-
-                            <!-- Personal Details -->
-                            <div class="text-center mt-6 mb-4">
-                                <h2 id="cert-name" class="font-serif text-6xl text-goldDark font-bold uppercase tracking-wide">
-                                    PRAKASH SHARMA
-                                </h2>
-                                <p id="cert-state" class="text-maroon text-2xl font-bold mt-4">
-                                    Haryana
+                            <!-- Middle Section: Citation, Citizen Name, State & Affirmation -->
+                            <div class="flex flex-col items-center text-center w-full max-w-4xl mx-auto">
+                                <p class="italic text-gray-700 font-hindi text-base mb-1">
+                                    यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक
                                 </p>
-                            </div>
+                                
+                                <div class="text-center my-1">
+                                    <h2 id="cert-name" class="font-serif text-5xl text-goldDark font-bold uppercase tracking-wide leading-tight">
+                                        PRAKASH SHARMA
+                                    </h2>
+                                    <p id="cert-state" class="text-maroon text-xl font-bold mt-1">
+                                        Haryana
+                                    </p>
+                                </div>
 
-                            <!-- Body Text -->
-                            <p class="text-gray-800 max-w-4xl mx-auto text-center font-hindi text-xl leading-relaxed mt-6">
-                                ने राष्ट्रीय महा-संकल्प <strong>"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।
-                            </p>
+                                <p class="text-gray-800 max-w-3xl mx-auto text-center font-hindi text-base leading-relaxed my-1.5">
+                                    ने राष्ट्रीय महा-संकल्प <strong>"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।
+                                </p>
 
-                            <!-- Pledge Badge -->
-                            <div class="mt-10">
-                                <div id="cert-pledge" class="bg-[#FDF8E7] border-2 border-gold rounded-full px-8 py-3 text-goldDark font-bold text-lg inline-flex items-center gap-2 shadow-sm">
-                                    🌿 Prakriti & Green Energy
+                                <div class="my-1.5">
+                                    <div id="cert-pledge" class="bg-[#FDF8E7] border-2 border-gold rounded-full px-6 py-2 text-goldDark font-bold text-base inline-flex items-center gap-2 shadow-xs">
+                                        🌿 Prakriti & Green Energy
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Footer Section -->
-                            <div class="grid grid-cols-3 w-full mt-auto pt-8 px-8 items-end text-sm">
-                                <!-- Left Footer -->
-                                <div class="text-left space-y-1">
-                                    <p class="text-gray-500 font-semibold tracking-wider text-xs">NATIONAL REGISTRY ID</p>
-                                    <p class="text-goldDark font-bold text-lg font-mono">SB-2047-<span id="random-id">0129</span></p>
-                                    <p class="text-gray-500 text-xs" id="current-date">10 NOV 2026 • IST</p>
+                            <!-- Bottom Section: Secure Sovereign Footer (Inside Border with Ample Margin) -->
+                            <div class="grid grid-cols-3 w-full pt-2 px-6 items-end text-sm border-t border-gold/30">
+                                <!-- Left Footer: Registry & Timestamp -->
+                                <div class="text-left space-y-0.5">
+                                    <p class="text-gray-500 font-semibold tracking-wider text-[10px]">NATIONAL REGISTRY ID</p>
+                                    <p class="text-goldDark font-bold text-base font-mono">SB-2047-<span id="random-id">0129</span></p>
+                                    <p class="text-gray-500 text-[10px]" id="current-date">10 NOV 2026 • IST</p>
                                 </div>
 
-                                <!-- Center Footer (Seal) -->
-                                <div class="flex justify-center pb-2">
-                                    <div class="w-16 h-16 rounded-full bg-[#d4af37]/15 border-2 border-[#d4af37] flex flex-col items-center justify-center text-goldDark shadow-xs">
-                                        <span class="material-symbols-outlined text-[20px]">verified</span>
-                                        <span class="text-[7.5px] uppercase tracking-tighter font-bold text-center leading-tight mt-0.5">CITIZEN SEAL<br/>BHARAT 2047</span>
+                                <!-- Center Footer: Gold Medallion Seal -->
+                                <div class="flex justify-center pb-0.5">
+                                    <div class="w-14 h-14 rounded-full bg-[#d4af37]/15 border-2 border-[#d4af37] flex flex-col items-center justify-center text-goldDark shadow-xs">
+                                        <span class="material-symbols-outlined text-[18px]">verified</span>
+                                        <span class="text-[7px] uppercase tracking-tighter font-bold text-center leading-none mt-0.5">CITIZEN SEAL<br/>BHARAT 2047</span>
                                     </div>
                                 </div>
 
-                                <!-- Right Footer -->
-                                <div class="text-right space-y-1">
-                                    <p class="text-gray-500 font-semibold tracking-wider text-xs">NATIONAL MISSION CELL</p>
-                                    <p class="text-gray-900 font-bold text-lg">Secretariat</p>
-                                    <p class="text-maroon font-bold">Swarnim Bharat</p>
+                                <!-- Right Footer: Official Secretariat -->
+                                <div class="text-right space-y-0.5">
+                                    <p class="text-gray-500 font-semibold tracking-wider text-[10px]">NATIONAL MISSION CELL</p>
+                                    <p class="text-gray-900 font-bold text-base">Secretariat</p>
+                                    <p class="text-maroon font-bold text-xs">Swarnim Bharat</p>
                                 </div>
                             </div>
 
@@ -371,6 +389,8 @@
             
             // Elements
             const inputName = document.getElementById('input-name');
+            const inputPhone = document.getElementById('input-phone');
+            const inputEmail = document.getElementById('input-email');
             const inputState = document.getElementById('input-state');
             const inputPledge = document.getElementById('input-pledge');
             const customPledgeContainer = document.getElementById('custom-pledge-container');
@@ -395,6 +415,12 @@
                     if (certData.name) {
                         inputName.value = certData.name.toUpperCase();
                         certName.textContent = certData.name.toUpperCase();
+                    }
+                    if (certData.phone && inputPhone) {
+                        inputPhone.value = certData.phone;
+                    }
+                    if (certData.email && inputEmail) {
+                        inputEmail.value = certData.email;
                     }
                     if (certData.state) {
                         inputState.value = certData.state;
@@ -439,6 +465,20 @@
             } catch (err) {
                 console.warn('Session data read error:', err);
             }
+
+            // Sync updated contact details to session storage
+            function syncContactToSession() {
+                try {
+                    let certData = {};
+                    const stored = sessionStorage.getItem('swarnim_cert_data');
+                    if (stored) certData = JSON.parse(stored);
+                    if (inputPhone) certData.phone = inputPhone.value.trim();
+                    if (inputEmail) certData.email = inputEmail.value.trim();
+                    sessionStorage.setItem('swarnim_cert_data', JSON.stringify(certData));
+                } catch (e) {}
+            }
+            if (inputPhone) inputPhone.addEventListener('input', syncContactToSession);
+            if (inputEmail) inputEmail.addEventListener('input', syncContactToSession);
 
             // Update Certificate Functions
             function updateName() {

@@ -349,6 +349,48 @@ button,a{-webkit-tap-highlight-color:transparent}
 <span>Affirm &amp; Generate Sovereign Certificate</span>
 </button>
 </div>
+
+<!-- Citizen Submission Summary Card (Private / Backend Viewable) -->
+<div id="pledgeSuccessCard" class="hidden mt-4 p-4 rounded-xl bg-surface border-2 border-primary-container shadow-md text-left">
+  <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-outline-variant/40">
+    <div class="flex items-center gap-2 text-primary font-bold text-sm">
+      <span class="material-symbols-outlined text-[20px] text-primary">verified</span>
+      <span>संकल्प सफलतापूर्वक दर्ज हुआ / Pledge Confirmed</span>
+    </div>
+    <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-primary text-on-primary font-mono" id="confirmPledgeId">SB-2047-0125</span>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+    <div>
+      <span class="text-outline uppercase font-semibold block text-[10px]">नागरिक का नाम / Name</span>
+      <span class="font-bold text-on-surface text-sm" id="confirmName">-</span>
+    </div>
+    <div>
+      <span class="text-outline uppercase font-semibold block text-[10px]">राज्य / Territory</span>
+      <span class="font-bold text-primary text-sm" id="confirmState">-</span>
+    </div>
+    <div class="p-2 rounded-lg bg-surface-container border border-outline-variant/40">
+      <span class="text-outline uppercase font-semibold block text-[10px] flex items-center gap-1">
+        <span class="material-symbols-outlined text-[13px] text-tertiary">call</span>
+        फ़ोन नंबर / Mobile (Google Sheet में सुरक्षित)
+      </span>
+      <span class="font-bold text-on-surface text-sm font-mono" id="confirmPhone">Not Provided</span>
+    </div>
+    <div class="p-2 rounded-lg bg-surface-container border border-outline-variant/40">
+      <span class="text-outline uppercase font-semibold block text-[10px] flex items-center gap-1">
+        <span class="material-symbols-outlined text-[13px] text-tertiary">mail</span>
+        ईमेल / Email ID (Google Sheet में सुरक्षित)
+      </span>
+      <span class="font-bold text-on-surface text-sm truncate block" id="confirmEmail">Not Provided</span>
+    </div>
+  </div>
+  <div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] text-on-surface-variant">
+    <span class="flex items-center gap-1.5 font-semibold text-green-700">
+      <span class="w-2 h-2 rounded-full bg-green-600 animate-pulse"></span>
+      Backend Google Sheet Synced
+    </span>
+    <span class="italic text-[10px] text-outline">🔒 फ़ोन व ईमेल पब्लिक सर्टिफिकेट पर नहीं दिखता</span>
+  </div>
+</div>
 </form>
 </div>
 </div>
@@ -832,9 +874,22 @@ button,a{-webkit-tap-highlight-color:transparent}
       // Prepend to Live Honor Roll Stream
       prependToHonorRoll(name, state, pillar, newHash);
 
+      // Show Citizen Submission Receipt Card (Private view with Phone & Email)
+      const successCard = document.getElementById('pledgeSuccessCard');
+      if (successCard) {
+        if (document.getElementById('confirmName')) document.getElementById('confirmName').innerText = name;
+        if (document.getElementById('confirmState')) document.getElementById('confirmState').innerText = `${state} • ${pillar}`;
+        if (document.getElementById('confirmPhone')) document.getElementById('confirmPhone').innerText = mobile || 'Not Provided';
+        if (document.getElementById('confirmEmail')) document.getElementById('confirmEmail').innerText = email || 'Not Provided';
+        if (document.getElementById('confirmPledgeId')) document.getElementById('confirmPledgeId').innerText = newHash;
+        successCard.classList.remove('hidden');
+      }
+
       // Save cert data to sessionStorage for opening in new tab
       const certData = {
         name: name,
+        phone: mobile,
+        email: email,
         state: state,
         vow: pillar,
         pledgeId: newHash,
@@ -1003,8 +1058,12 @@ button,a{-webkit-tap-highlight-color:transparent}
       const state = document.getElementById('certState') ? document.getElementById('certState').innerText.trim() : 'Bharat';
       const pillar = document.getElementById('certPillarName') ? document.getElementById('certPillarName').innerText.trim() : 'Viksit Bharat';
       const regId = document.getElementById('certHash') ? document.getElementById('certHash').innerText.trim() : 'SB-2047-0125';
+      const mobile = document.getElementById('contactMobile') ? document.getElementById('contactMobile').value.trim() : '';
+      const email = document.getElementById('contactEmail') ? document.getElementById('contactEmail').value.trim() : '';
       const certData = {
         name: name,
+        phone: mobile,
+        email: email,
         state: state,
         vow: pillar,
         pledgeId: regId,

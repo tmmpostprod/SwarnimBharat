@@ -80,7 +80,7 @@ function doPost(e) {
     var pledgeId = "SB-2047-" + totalCount;
 
     // Check Row 1 headers dynamically to match user's custom columns (Date, Name, State, Vow, Email, Photo URL)
-    var lastCol = Math.max(sheet.getLastColumn(), 6);
+    var lastCol = Math.max(sheet.getLastColumn(), 1);
     var headers = [];
     if (sheet.getLastRow() > 0) {
       headers = sheet.getRange(1, 1, 1, lastCol).getValues()[0].map(function(h) {
@@ -90,6 +90,22 @@ function doPost(e) {
 
     // Dynamic Column Matching
     if (headers.length > 0 && headers[0] !== '') {
+      // Check if Phone column exists in headers; if not, automatically add it!
+      var hasPhoneHeader = false;
+      for (var k = 0; k < headers.length; k++) {
+        var hk = headers[k];
+        if (hk.indexOf('phone') !== -1 || hk.indexOf('mobile') !== -1 || hk.indexOf('फोन') !== -1 || hk.indexOf('फ़ोन') !== -1) {
+          hasPhoneHeader = true;
+          break;
+        }
+      }
+
+      if (!hasPhoneHeader) {
+        var newPhoneCol = headers.length + 1;
+        sheet.getRange(1, newPhoneCol).setValue("Phone (फ़ोन नंबर)").setFontWeight("bold").setBackground("#d4af37").setFontColor("#132c4d");
+        headers.push('phone');
+      }
+
       var row = [];
       for (var i = 0; i < headers.length; i++) {
         var h = headers[i];
