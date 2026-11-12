@@ -59,12 +59,12 @@
             /* Fixed A4 Landscape sizes */
             width: 1123px; 
             height: 794px;
-            background-color: #FDFBF7;
+            background: radial-gradient(circle at center, #FFFEFA 0%, #FBF8EE 70%, #F5EED8 100%);
             position: relative;
             transform-origin: top center;
             box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
             /* Padding for the double border */
-            padding: 20px;
+            padding: 18px;
             box-sizing: border-box;
             flex-shrink: 0;
             overflow: hidden;
@@ -73,7 +73,7 @@
         .double-border {
             width: 100%;
             height: 100%;
-            border: 3px solid #B59A53;
+            border: 3.5px solid #B59A53;
             padding: 5px;
             position: relative;
             box-sizing: border-box;
@@ -82,59 +82,50 @@
         .inner-border {
             width: 100%;
             height: 100%;
-            border: 1px solid #B59A53;
+            border: 1.5px solid #B59A53;
+            outline: 1px solid rgba(181, 154, 83, 0.35);
+            outline-offset: -5px;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 36px 14px 36px;
+            padding: 24px 36px 18px 36px;
             box-sizing: border-box;
         }
 
         .corner-star {
             position: absolute;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border: 2px solid #B59A53;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #FDFBF7;
+            background: #FFFEFA;
             color: #B59A53;
-            font-size: 15px;
+            font-size: 16px;
             z-index: 10;
             user-select: none;
         }
         
-        .corner-tl { top: -15px; left: -15px; }
-        .corner-tr { top: -15px; right: -15px; }
-        .corner-bl { bottom: -15px; left: -15px; }
-        .corner-br { bottom: -15px; right: -15px; }
+        .corner-tl { top: -16px; left: -16px; }
+        .corner-tr { top: -16px; right: -16px; }
+        .corner-bl { bottom: -16px; left: -16px; }
+        .corner-br { bottom: -16px; right: -16px; }
 
-        /* Photo positioning */
-        .cert-photo-container {
+        /* Central Watermark */
+        .cert-watermark {
             position: absolute;
-            top: 20px;
-            right: 28px;
-            width: 105px;
-            height: 115px;
-            border: 2px solid #B59A53;
-            border-radius: 8px;
-            padding: 3px;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            display: none; /* Hidden by default until photo added */
-            z-index: 20;
-            overflow: hidden;
-        }
-        
-        .cert-photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 5px;
+            width: 440px;
+            height: 440px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.038;
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* Print Settings for Exact A4 Landscape */
@@ -309,72 +300,99 @@
                             <div class="corner-star corner-bl">★</div>
                             <div class="corner-star corner-br">★</div>
 
-                            <!-- Optional User Photo (Top-Right Floating Passport Box) -->
-                            <div id="cert-photo-wrapper" class="cert-photo-container">
-                                <img id="cert-photo" src="" alt="Citizen Photo">
-                            </div>
+                            <!-- Central Sovereign Watermark Emblem -->
+                            <img src="assets/logo-shield.png" class="cert-watermark" alt="" />
 
-                            <!-- Top Section: Centered Logo & Formal Heading -->
-                            <div class="flex flex-col items-center text-center w-full">
-                                <img src="assets/logo.png" class="h-20 w-auto object-contain mx-auto mb-1 drop-shadow-sm rounded-md" alt="Swarnim Bharat Logo" onerror="this.src='assets/logo-emblem.png'">
-                                <h1 class="text-4xl font-bold text-gray-900 font-hindi tracking-tight">स्वर्णिम भारत उदयघोष</h1>
-                                <h2 class="text-goldDark font-bold tracking-widest text-xs mt-1 uppercase">
-                                    राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF SOVEREIGN COMMITMENT
-                                </h2>
-                                <div class="w-full border-t border-gray-300 my-2.5 max-w-3xl mx-auto"></div>
-                            </div>
-
-                            <!-- Middle Section: Citation, Citizen Name, State & Affirmation -->
-                            <div class="flex flex-col items-center text-center w-full max-w-4xl mx-auto">
-                                <p class="italic text-gray-700 font-hindi text-base mb-1">
-                                    यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक
-                                </p>
-                                
-                                <div class="text-center my-1">
-                                    <h2 id="cert-name" class="font-serif text-5xl text-goldDark font-bold uppercase tracking-wide leading-tight">
-                                        PRAKASH SHARMA
-                                    </h2>
-                                    <p id="cert-state" class="text-maroon text-xl font-bold mt-1">
-                                        Haryana
-                                    </p>
+                            <!-- TIER 1: Balanced Sovereign Header with Dual Symmetrical Flanks -->
+                            <div class="w-full flex items-center justify-between relative z-10 pt-1">
+                                <!-- Left Flank: Sovereign Authority Medallion -->
+                                <div class="w-[130px] flex flex-col items-center text-center">
+                                    <div class="w-[84px] h-[84px] rounded-full border-2 border-[#B59A53] p-1.5 bg-white/90 shadow-xs flex items-center justify-center relative">
+                                        <img src="assets/logo-shield.png" class="h-12 w-auto object-contain" alt="Authority Crest" />
+                                    </div>
+                                    <span class="text-[9px] uppercase tracking-wider text-[#735C00] font-bold mt-1.5 leading-tight">Rashtriya Sankalp<br/>Authority</span>
                                 </div>
 
-                                <p class="text-gray-800 max-w-3xl mx-auto text-center font-hindi text-base leading-relaxed my-1.5">
-                                    ने राष्ट्रीय महा-संकल्प <strong>"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।
+                                <!-- Center: Grand Ceremonial Title & Crest -->
+                                <div class="flex-1 flex flex-col items-center text-center px-4">
+                                    <img src="assets/logo-emblem.png" class="h-14 w-auto object-contain drop-shadow-sm mb-1" alt="Swarnim Bharat" onerror="this.src='assets/logo.png'">
+                                    <h1 class="text-[38px] font-bold text-[#1A1A1A] font-hindi tracking-tight leading-none mb-1">स्वर्णिम भारत उदयघोष</h1>
+                                    <h2 class="text-[#9A7B2C] font-bold tracking-[0.2em] text-xs uppercase font-serif">
+                                        राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF SOVEREIGN COMMITMENT
+                                    </h2>
+                                </div>
+
+                                <!-- Right Flank: Official Citizen Portrait Frame (True 4:5 Passport Ratio) -->
+                                <div class="w-[130px] flex flex-col items-center text-center">
+                                    <div id="cert-photo-wrapper" class="w-[110px] h-[135px] border-2 border-[#B59A53] outline outline-1 outline-[#D4AF37] outline-offset-2 rounded-md p-1 bg-white shadow-md flex items-center justify-center overflow-hidden relative">
+                                        <img id="cert-photo" src="assets/logo-shield.png" class="w-full h-full object-cover object-top rounded" alt="Citizen Photo">
+                                        <div class="absolute bottom-0 inset-x-0 bg-[#0D1B2A]/90 text-[#E5D5A8] text-[8px] font-bold uppercase tracking-wider py-0.5 text-center">
+                                          CITIZEN CITATION
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TIER 2: Ornate Gold Ceremonial Divider -->
+                            <div class="w-full flex items-center justify-center my-1 relative z-10 max-w-4xl">
+                                <div class="flex-1 h-px bg-gradient-to-r from-transparent via-[#B59A53] to-[#B59A53]/40"></div>
+                                <span class="px-3 text-[#B59A53] text-xs font-semibold tracking-widest uppercase font-serif">✦ सत्यमेव जयते • विकसित भारत २०४७ ✦</span>
+                                <div class="flex-1 h-px bg-gradient-to-l from-transparent via-[#B59A53] to-[#B59A53]/40"></div>
+                            </div>
+
+                            <!-- TIER 3: The Citation Body & Dignified Narrative (Auto-Centered Vertically) -->
+                            <div class="flex flex-col items-center text-center w-full max-w-4xl relative z-10 my-auto">
+                                <p class="italic text-[#4A5568] font-hindi text-lg font-medium mb-1">
+                                    यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक
                                 </p>
 
-                                <div class="my-1.5">
-                                    <div id="cert-pledge" class="bg-[#FDF8E7] border-2 border-gold rounded-full px-6 py-2 text-goldDark font-bold text-base inline-flex items-center gap-2 shadow-xs">
+                                <!-- Citizen Name (Grand Hero) -->
+                                <h2 id="cert-name" class="font-serif text-5xl font-bold uppercase tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#8C6D23] via-[#B59A53] to-[#8C6D23] drop-shadow-xs my-1">
+                                    PRAKASH SHARMA
+                                </h2>
+
+                                <!-- State / Territory -->
+                                <p id="cert-state" class="text-[#8C2121] text-xl font-bold tracking-widest uppercase mb-2">
+                                    Haryana, Bharat
+                                </p>
+
+                                <!-- Sacred Affirmation Vow -->
+                                <p class="text-[#2D3748] max-w-3xl mx-auto text-center font-hindi text-[17px] leading-relaxed mb-3">
+                                    ने राष्ट्रीय महा-संकल्प <strong class="text-[#1A1A1A]">"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।
+                                </p>
+
+                                <!-- Sovereign Pillar Badge -->
+                                <div>
+                                    <div id="cert-pledge" class="bg-gradient-to-r from-[#FBF6E2] via-[#F4E8B8] to-[#FBF6E2] border-2 border-[#B59A53] rounded-full px-8 py-2.5 text-[#6B5310] font-bold text-base inline-flex items-center gap-2 shadow-xs">
                                         🌿 Prakriti & Green Energy
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Bottom Section: Secure Sovereign Footer (Inside Border with Ample Margin) -->
-                            <div class="grid grid-cols-3 w-full pt-2 px-6 items-end text-sm border-t border-gold/30">
-                                <!-- Left Footer: Registry & Timestamp -->
+                            <!-- TIER 4: Sovereign Secretariat & Seal Strip -->
+                            <div class="w-full pt-2.5 border-t border-[#B59A53]/40 grid grid-cols-3 items-end relative z-10 text-sm">
+                                <!-- Left: Registry ID & Timestamp -->
                                 <div class="text-left space-y-0.5">
                                     <p class="text-gray-500 font-semibold tracking-wider text-[10px]">NATIONAL REGISTRY ID</p>
-                                    <p class="text-goldDark font-bold text-base font-mono">SB-2047-<span id="random-id">0129</span></p>
-                                    <p class="text-gray-500 text-[10px]" id="current-date">10 NOV 2026 • IST</p>
+                                    <p class="text-[#9A7B2C] font-bold text-base font-mono">SB-2047-<span id="random-id">0129</span></p>
+                                    <p class="text-gray-500 text-[10px]" id="current-date">12 NOV 2026 • 11:20 IST • VALIDATED</p>
                                 </div>
 
-                                <!-- Center Footer: Gold Medallion Seal -->
+                                <!-- Center: Authentic 3D Gold Seal -->
                                 <div class="flex justify-center pb-0.5">
-                                    <div class="w-14 h-14 rounded-full bg-[#d4af37]/15 border-2 border-[#d4af37] flex flex-col items-center justify-center text-goldDark shadow-xs">
-                                        <span class="material-symbols-outlined text-[18px]">verified</span>
-                                        <span class="text-[7px] uppercase tracking-tighter font-bold text-center leading-none mt-0.5">CITIZEN SEAL<br/>BHARAT 2047</span>
+                                    <div class="w-16 h-16 rounded-full bg-[#d4af37]/15 border-2 border-[#d4af37] flex flex-col items-center justify-center text-[#9A7B2C] shadow-xs relative">
+                                        <span class="material-symbols-outlined text-[20px]">verified</span>
+                                        <span class="text-[7.5px] uppercase tracking-tighter font-bold text-center leading-none mt-0.5">CITIZEN SEAL<br/>BHARAT 2047</span>
                                     </div>
                                 </div>
 
-                                <!-- Right Footer: Official Secretariat -->
+                                <!-- Right: Official Secretariat -->
                                 <div class="text-right space-y-0.5">
                                     <p class="text-gray-500 font-semibold tracking-wider text-[10px]">NATIONAL MISSION CELL</p>
-                                    <p class="text-gray-900 font-bold text-base">Secretariat</p>
-                                    <p class="text-maroon font-bold text-xs">Swarnim Bharat</p>
+                                    <p class="text-gray-900 font-bold text-base font-serif">Secretariat</p>
+                                    <p class="text-[#8C2121] font-bold text-xs tracking-wider">Swarnim Bharat</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -450,7 +468,6 @@
                     }
                     if (certData.photoBase64) {
                         certPhoto.src = certData.photoBase64;
-                        certPhotoWrapper.style.display = 'block';
                     }
                     if (certData.timestamp) {
                         currentDateEl.textContent = certData.timestamp;
@@ -503,10 +520,8 @@
                 const url = inputPhoto.value.trim();
                 if (url) {
                     certPhoto.src = url;
-                    certPhotoWrapper.style.display = 'block';
                 } else if (!inputPhotoFile.files || inputPhotoFile.files.length === 0) {
-                    certPhotoWrapper.style.display = 'none';
-                    certPhoto.src = '';
+                    certPhoto.src = 'assets/logo-shield.png';
                 }
             }
 
@@ -523,7 +538,6 @@
                         const reader = new FileReader();
                         reader.onload = function(e) {
                             certPhoto.src = e.target.result;
-                            certPhotoWrapper.style.display = 'block';
                         };
                         reader.readAsDataURL(this.files[0]);
                     }
@@ -603,8 +617,9 @@
                     clone.style.width = '1123px';
                     clone.style.height = '794px';
                     clone.style.margin = '0';
-                    clone.style.padding = '24px';
+                    clone.style.padding = '18px';
                     clone.style.boxSizing = 'border-box';
+                    clone.style.background = 'radial-gradient(circle at center, #FFFEFA 0%, #FBF8EE 70%, #F5EED8 100%)';
                     document.body.appendChild(clone);
 
                     // Render clone at 2x scale (2246 × 1588 px) for ultra-sharp crispness
