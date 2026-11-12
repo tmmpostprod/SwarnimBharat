@@ -82,46 +82,57 @@ button,a{-webkit-tap-highlight-color:transparent}
 <!-- Left 7 Cols: Video & Audio Master Console -->
 <div class="lg:col-span-7 space-y-space-lg">
 <div class="relative rounded-xl overflow-hidden bg-inverse-surface text-inverse-on-surface shadow-xl">
-<!-- Simulated Video Stage -->
-<div class="relative w-full aspect-video bg-inverse-surface overflow-hidden group">
-<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-85" data-alt="Grand ceremonial national symphony orchestra performing the Swarnim Bharat Udayghosh anthem in front of India Gate and Rashtrapati Bhavan, illuminated by golden hour twilight and tricolor laser projections, ultra high definition documentary photography" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBphHvlAN9LASjsfhS2jAUxYLmrb8yIJCKKLma2cjIn0edDiJqkZ6m3S7GUeVo8ZZuRTmHlrSyDWj-f5wVP9-bDO8GHt07XzBhJEFZdFbmEE7ebEmC0r6HSAdOYp62hqzMOA0y2wSqSqf_UeYUSHTWscwQhuQwg9gbEMKkqx2PiMuZkrKO2xaWdVbFyAU8yg-EzhaUY5UaHfJQMmqsydD04QMYihogt0IMgS6Hofgyi')">
-</div>
-<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-transparent to-black/40"></div>
+<!-- Real Video Stage -->
+<div class="relative w-full aspect-video bg-black overflow-hidden group rounded-t-xl" id="videoStage">
+<video id="anthemVideoPlayer" class="w-full h-full object-cover" poster="assets/anthem-poster.jpg" preload="metadata" playsinline>
+  <source src="assets/anthem-video.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<!-- Subtle Gradient Overlays for Video Info -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/50 pointer-events-none transition-opacity duration-300" id="videoGradientOverlay"></div>
+
 <!-- Video Badge & Live Timecode -->
-<div class="absolute top-4 left-4 right-4 flex items-center justify-between">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-inverse-surface/80 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm border-0 shadow">
-<span class="material-symbols-outlined text-[14px] text-tertiary-fixed">token</span>
-                  Official Sovereign Master 4K
-                </span>
-<span class="px-2.5 py-0.5 rounded bg-black/60 text-inverse-on-surface font-label-sm text-label-sm font-mono tracking-widest">
-                  03:47 / 03:47
-                </span>
+<div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm border border-primary-container/30 shadow">
+    <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+    Official Sovereign Master HD
+  </span>
+  <span class="px-2.5 py-0.5 rounded bg-black/75 text-inverse-on-surface font-label-sm text-label-sm font-mono tracking-widest border border-white/10" id="videoLiveTime">
+    00:00 / 03:04
+  </span>
 </div>
-<!-- Center Big Play Trigger -->
-<button class="absolute inset-0 m-auto w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all" id="master-play-btn" type="button">
-<span class="material-symbols-outlined text-[42px] leading-none" id="play-icon">play_arrow</span>
-</button>
-<div class="absolute bottom-4 left-4 right-4">
-<p class="font-headline-sm text-title-lg text-inverse-on-surface font-bold">
-                  स्वर्णिम भारत उदयघोष सिम्फनी (The Sovereign Anthem)
-                </p>
-<p class="font-label-md text-label-md text-primary-fixed opacity-90">
-                  Composed with 108 Traditional Indian Instruments &amp; State Philharmonic Orchestra
-                </p>
+
+<!-- Center Big Play Trigger Overlay -->
+<div class="absolute inset-0 flex items-center justify-center z-20 cursor-pointer transition-opacity duration-300" id="videoPlayOverlay">
+  <button class="w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all" id="master-play-btn" type="button" aria-label="Play Sovereign Anthem Video">
+    <span class="material-symbols-outlined text-[42px] leading-none" id="play-icon">play_arrow</span>
+  </button>
+</div>
+
+<!-- Bottom Title Strip -->
+<div class="absolute bottom-4 left-4 right-4 z-10 pointer-events-none transition-opacity duration-300" id="videoTitleOverlay">
+  <p class="font-headline-sm text-title-lg text-white font-bold drop-shadow">
+    स्वर्णिम भारत उदयघोष (Official Anthem • Lyrics Song)
+  </p>
+  <p class="font-label-md text-label-md text-primary-fixed opacity-95 drop-shadow-sm">
+    Composed with 108 Traditional Indian Instruments &amp; State Philharmonic Orchestra
+  </p>
 </div>
 </div>
+
 <!-- Waveform & Precision Deck -->
 <div class="p-space-lg space-y-space-md bg-inverse-surface text-inverse-on-surface">
 <div class="space-y-space-xs">
 <div class="flex items-center justify-between font-label-sm text-label-sm text-primary-fixed">
 <span class="flex items-center gap-1">
 <span class="material-symbols-outlined text-[16px]">graphic_eq</span>
-                    Spatial 7.1 Philharmonic Mix • Master 96kHz / 24-Bit
-                  </span>
-<span class="font-mono text-outline-variant" id="audio-timer">01:14 • Movement II: 'संकल्प आरोहण'</span>
+Spatial 7.1 Philharmonic Mix • Master HD Video / Audio
+</span>
+<span class="font-mono text-outline-variant" id="audio-timer">00:00 / 03:04 • 'स्वर्णिम भारत उदयघोष'</span>
 </div>
 <!-- Interactive SVG Waveform Bar -->
-<div class="relative w-full h-12 bg-surface-container-highest/20 rounded-lg overflow-hidden flex items-center px-1 cursor-pointer" id="waveform-track">
+<div class="relative w-full h-12 bg-surface-container-highest/20 rounded-lg overflow-hidden flex items-center px-1 cursor-pointer select-none" id="waveform-track" title="Click to Seek / आगे-पीछे करें">
 <svg class="w-full h-10" preserveaspectratio="none" viewbox="0 0 400 40">
 <defs>
 <lineargradient id="waveGrad" x1="0%" x2="100%" y1="0%" y2="0%">
@@ -134,42 +145,45 @@ button,a{-webkit-tap-highlight-color:transparent}
 <path d="M 0,20 Q 10,5 20,20 T 40,20 T 60,35 T 80,20 T 100,5 T 120,20 T 140,32 T 160,20 T 180,2 T 200,20 T 220,38 T 240,20 T 260,8 T 280,20 T 300,34 T 320,20 T 340,6 T 360,20 T 380,30 T 400,20 L 400,40 L 0,40 Z" fill="url(#waveGrad)" opacity="0.35"></path>
 <path d="M 0,20 Q 8,10 16,20 T 32,20 T 48,28 T 64,20 T 80,10 T 96,20 T 112,26 T 128,20 T 144,6 T 160,20 T 176,32 T 192,20 T 208,12 T 224,20 T 240,28 T 256,20 T 272,8 T 288,20 T 304,26 T 320,20 T 336,12 T 352,20 T 368,28 T 384,20 T 400,20" fill="none" stroke="#d4af37" stroke-width="2"></path>
 </svg>
+<!-- Progress Fill Bar -->
+<div class="absolute left-0 top-0 bottom-0 bg-primary-container/25 pointer-events-none transition-all" id="waveform-progress" style="width: 0%;"></div>
 <!-- Scrub head indicator -->
-<div class="absolute left-[34%] top-0 bottom-0 w-1 bg-surface-container-lowest shadow-md">
-<div class="w-3 h-3 rounded-full bg-primary-fixed -ml-1 mt-0.5"></div>
+<div class="absolute top-0 bottom-0 w-1 bg-surface-container-lowest shadow-md transition-all pointer-events-none" id="waveform-scrubber" style="left: 0%;">
+<div class="w-3 h-3 rounded-full bg-primary-fixed -ml-1 mt-0.5 shadow-md"></div>
 </div>
 </div>
 </div>
 <!-- Deck Transport Controls & Downloads -->
 <div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
 <div class="flex items-center gap-space-xs">
-<button class="w-10 h-10 rounded-full bg-surface-variant/30 text-inverse-on-surface hover:bg-surface-variant/60 flex items-center justify-center transition-colors" type="button">
+<button class="w-10 h-10 rounded-full bg-surface-variant/30 text-inverse-on-surface hover:bg-surface-variant/60 flex items-center justify-center transition-colors" id="btn-replay10" type="button" title="Back 10 Seconds / 10 सेकंड पीछे">
 <span class="material-symbols-outlined text-[20px]">replay_10</span>
 </button>
-<button class="px-5 py-2 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center gap-1.5 shadow-md" id="deck-toggle" type="button">
-<span class="material-symbols-outlined text-[18px]">pause</span>
-<span>Playing Master</span>
+<button class="px-5 py-2 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center gap-1.5 shadow-md hover:bg-primary-fixed transition-all" id="deck-toggle" type="button">
+<span class="material-symbols-outlined text-[18px]" id="deck-play-icon">play_arrow</span>
+<span id="deck-status-text">Play Video Master</span>
 </button>
-<button class="w-10 h-10 rounded-full bg-surface-variant/30 text-inverse-on-surface hover:bg-surface-variant/60 flex items-center justify-center transition-colors" type="button">
+<button class="w-10 h-10 rounded-full bg-surface-variant/30 text-inverse-on-surface hover:bg-surface-variant/60 flex items-center justify-center transition-colors" id="btn-forward10" type="button" title="Forward 10 Seconds / 10 सेकंड आगे">
 <span class="material-symbols-outlined text-[20px]">forward_10</span>
 </button>
-<button class="w-10 h-10 rounded-full bg-surface-variant/30 text-inverse-on-surface hover:bg-surface-variant/60 flex items-center justify-center transition-colors" type="button">
-<span class="material-symbols-outlined text-[20px]">volume_up</span>
+<button class="w-10 h-10 rounded-full bg-surface-variant/30 text-inverse-on-surface hover:bg-surface-variant/60 flex items-center justify-center transition-colors" id="btn-volume" type="button" title="Mute / Unmute">
+<span class="material-symbols-outlined text-[20px]" id="volume-icon">volume_up</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-variant/30 text-inverse-on-surface hover:bg-surface-variant/60 flex items-center justify-center transition-colors" id="btn-fullscreen" type="button" title="Fullscreen / फुलस्क्रीन">
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
 </button>
 </div>
 <!-- Sovereign Download Assets -->
 <div class="flex items-center gap-space-xs">
 <span class="font-label-sm text-label-sm text-outline-variant mr-1">Download:</span>
-<button class="px-3 py-1.5 rounded bg-surface-variant/30 hover:bg-surface-variant/50 text-primary-fixed text-label-sm font-label-sm font-semibold transition-colors flex items-center gap-1" type="button">
-<span>Lossless WAV (94MB)</span>
-</button>
-<button class="px-3 py-1.5 rounded bg-surface-variant/30 hover:bg-surface-variant/50 text-inverse-on-surface text-label-sm font-label-sm font-semibold transition-colors flex items-center gap-1" type="button">
-<span>MP3 320k</span>
-</button>
-<button class="px-3 py-1.5 rounded bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm font-semibold transition-colors flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-[14px]">ring_volume</span>
-<span>Ringtone</span>
-</button>
+<a href="assets/anthem-video.mp4" download="Swarnim_Bharat_Anthem_Lyrics_Song.mp4" class="px-3 py-1.5 rounded bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm font-semibold transition-colors flex items-center gap-1 hover:brightness-110 shadow-xs" title="Download High-Definition Video MP4">
+<span class="material-symbols-outlined text-[14px]">download</span>
+<span>MP4 Video (HD)</span>
+</a>
+<a href="https://drive.google.com/drive/folders/18gGCE07nsglwgMMn2FdIeuDqo4RkCDJz?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded bg-surface-variant/30 hover:bg-surface-variant/50 text-inverse-on-surface text-label-sm font-label-sm font-semibold transition-colors flex items-center gap-1" title="Open Google Drive Folder for Master 4K Video">
+<span class="material-symbols-outlined text-[14px]">cloud</span>
+<span>Drive 4K Master ↗</span>
+</a>
 </div>
 </div>
 </div>
@@ -565,12 +579,68 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 <!-- Gallery Filter Pills -->
 <div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold shadow-sm transition-colors flex items-center gap-1.5" onclick="playMasterVideo()" type="button"><span class="material-symbols-outlined text-[16px]">play_circle</span><span>Official Anthem Video</span></button>
 <button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-sm" type="button">All Highlights</button>
 <button class="px-4 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm font-semibold transition-colors" type="button">Coastal Leg</button>
 <button class="px-4 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm font-semibold transition-colors" type="button">Plateau &amp; Ghats</button>
 <button class="px-4 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm font-semibold transition-colors" type="button">Northern Capital</button>
 </div>
 </div>
+
+<!-- PRIMARY FEATURED: Official Anthem Lyrics Song Video (Hero Card in Gallery) -->
+<div class="relative rounded-2xl overflow-hidden shadow-xl border-2 border-primary-container/40 bg-inverse-surface">
+  <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
+    <!-- Left 7 Cols: Video Preview Box with Direct Play -->
+    <div class="lg:col-span-7 relative aspect-video bg-black overflow-hidden cursor-pointer group" onclick="playMasterVideo()">
+      <img src="assets/anthem-poster.jpg" alt="Swarnim Bharat Official Anthem Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-[42px] leading-none">play_arrow</span>
+        </div>
+      </div>
+      <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+        <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-primary-fixed font-mono text-xs font-bold border border-primary-container/30 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+          03:04 • Official Video • HD
+        </span>
+        <span class="px-2.5 py-1 rounded bg-black/80 text-white font-label-sm text-xs font-semibold">
+          Click to Watch / चलाएं ↗
+        </span>
+      </div>
+    </div>
+    <!-- Right 5 Cols: Video Information & Actions -->
+    <div class="lg:col-span-5 p-6 sm:p-8 space-y-4 text-inverse-on-surface">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/20 text-primary-fixed border border-primary-container/40 font-label-sm text-label-sm font-bold uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[16px]">verified</span>
+        Official Anthem Video • राष्ट्रगान
+      </div>
+      <div>
+        <h3 class="font-headline-sm text-title-lg sm:text-headline-sm text-surface-bright font-bold leading-tight">
+          स्वर्णिम भारत उदयघोष — संपूर्ण राष्ट्रगान (Lyrics Song)
+        </h3>
+        <p class="font-body-sm text-body-sm text-surface-container-high/80 mt-2 leading-relaxed">
+          आधिकारिक राष्ट्रगान वीडियो: 108 पारंपरिक भारतीय वाद्यों, युवाओं की हुंकार और प्रेरणादायी बोलों के साथ "मेरा देश, मेरी ज़िम्मेदारी" का महा-संकल्प।
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-2.5 pt-2">
+        <button onclick="playMasterVideo()" class="px-5 py-2.5 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary-fixed font-label-md text-label-md font-bold transition-all shadow-md flex items-center gap-2">
+          <span class="material-symbols-outlined text-[20px]">play_circle</span>
+          <span>Watch Master / वीडियो देखें</span>
+        </button>
+        <a href="assets/anthem-video.mp4" download="Swarnim_Bharat_Anthem_Lyrics_Song.mp4" class="px-4 py-2.5 rounded-lg bg-surface-variant/30 hover:bg-surface-variant/60 text-inverse-on-surface font-label-md text-label-md font-semibold transition-all flex items-center gap-1.5 border border-white/10" title="Download High-Res MP4">
+          <span class="material-symbols-outlined text-[18px]">download</span>
+          <span>Download MP4</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/18gGCE07nsglwgMMn2FdIeuDqo4RkCDJz?usp=sharing" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-surface-variant/30 hover:bg-surface-variant/60 text-primary-fixed font-label-md text-label-md font-semibold transition-all flex items-center gap-1.5 border border-white/10" title="Open Google Drive Folder for 4K Video">
+          <span class="material-symbols-outlined text-[18px]">cloud</span>
+          <span>Drive Folder ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Asymmetrical Photo Mosaic Bento -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
 <!-- Large Featured: Kanyakumari Torch Launch -->
@@ -835,26 +905,146 @@ button,a{-webkit-tap-highlight-color:transparent}
 </section>
 </div>
 <script>
-  // Simple interactive lyric tabs & master playback toggling
+  // Video and Audio Master Playback Controller
   document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('anthemVideoPlayer');
     const playBtn = document.getElementById('master-play-btn');
     const playIcon = document.getElementById('play-icon');
+    const playOverlay = document.getElementById('videoPlayOverlay');
+    const titleOverlay = document.getElementById('videoTitleOverlay');
+    const liveTime = document.getElementById('videoLiveTime');
+    const audioTimer = document.getElementById('audio-timer');
     const deckToggle = document.getElementById('deck-toggle');
-    let isPlaying = true;
+    const deckPlayIcon = document.getElementById('deck-play-icon');
+    const deckStatusText = document.getElementById('deck-status-text');
+    const waveformTrack = document.getElementById('waveform-track');
+    const waveformProgress = document.getElementById('waveform-progress');
+    const waveformScrubber = document.getElementById('waveform-scrubber');
+    const btnReplay10 = document.getElementById('btn-replay10');
+    const btnForward10 = document.getElementById('btn-forward10');
+    const btnVolume = document.getElementById('btn-volume');
+    const volumeIcon = document.getElementById('volume-icon');
+    const btnFullscreen = document.getElementById('btn-fullscreen');
+    const videoStage = document.getElementById('videoStage');
 
-    function togglePlayback() {
-      isPlaying = !isPlaying;
+    function formatTime(sec) {
+      if (!sec || isNaN(sec)) return "00:00";
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    }
+
+    function updatePlayState(isPlaying) {
       if (isPlaying) {
-        if(playIcon) playIcon.textContent = 'pause';
-        if(deckToggle) deckToggle.innerHTML = '<span class="material-symbols-outlined text-[18px]">pause</span><span>Playing Master</span>';
+        if (playIcon) playIcon.textContent = 'pause';
+        if (deckPlayIcon) deckPlayIcon.textContent = 'pause';
+        if (deckStatusText) deckStatusText.textContent = 'Pause Video';
+        if (playOverlay) playOverlay.classList.add('opacity-0', 'pointer-events-none');
+        if (titleOverlay) titleOverlay.classList.add('opacity-0');
       } else {
-        if(playIcon) playIcon.textContent = 'play_arrow';
-        if(deckToggle) deckToggle.innerHTML = '<span class="material-symbols-outlined text-[18px]">play_arrow</span><span>Paused</span>';
+        if (playIcon) playIcon.textContent = 'play_arrow';
+        if (deckPlayIcon) deckPlayIcon.textContent = 'play_arrow';
+        if (deckStatusText) deckStatusText.textContent = 'Play Video Master';
+        if (playOverlay) playOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        if (titleOverlay) titleOverlay.classList.remove('opacity-0');
       }
     }
 
-    if (playBtn) playBtn.addEventListener('click', togglePlayback);
+    function togglePlayback() {
+      if (!video) return;
+      if (video.paused || video.ended) {
+        video.play().catch(e => console.log('Playback error:', e));
+      } else {
+        video.pause();
+      }
+    }
+
+    if (playBtn) playBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      togglePlayback();
+    });
+
+    if (playOverlay) playOverlay.addEventListener('click', togglePlayback);
+    if (video) {
+      video.addEventListener('click', togglePlayback);
+      video.addEventListener('play', () => updatePlayState(true));
+      video.addEventListener('pause', () => updatePlayState(false));
+      video.addEventListener('ended', () => {
+        updatePlayState(false);
+        if (waveformProgress) waveformProgress.style.width = '0%';
+        if (waveformScrubber) waveformScrubber.style.left = '0%';
+      });
+
+      video.addEventListener('timeupdate', function() {
+        const cur = video.currentTime;
+        const dur = video.duration || 184; // 3:04
+        const curStr = formatTime(cur);
+        const durStr = formatTime(dur);
+
+        if (liveTime) liveTime.textContent = `${curStr} / ${durStr}`;
+        if (audioTimer) audioTimer.textContent = `${curStr} / ${durStr} • 'स्वर्णिम भारत उदयघोष'`;
+
+        const pct = (cur / dur) * 100;
+        if (waveformProgress) waveformProgress.style.width = `${pct}%`;
+        if (waveformScrubber) waveformScrubber.style.left = `${pct}%`;
+      });
+    }
+
     if (deckToggle) deckToggle.addEventListener('click', togglePlayback);
+
+    if (waveformTrack && video) {
+      waveformTrack.addEventListener('click', function(e) {
+        const rect = waveformTrack.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const pct = Math.max(0, Math.min(1, clickX / rect.width));
+        const dur = video.duration || 184;
+        video.currentTime = pct * dur;
+      });
+    }
+
+    if (btnReplay10 && video) {
+      btnReplay10.addEventListener('click', function() {
+        video.currentTime = Math.max(0, video.currentTime - 10);
+      });
+    }
+
+    if (btnForward10 && video) {
+      btnForward10.addEventListener('click', function() {
+        const dur = video.duration || 184;
+        video.currentTime = Math.min(dur, video.currentTime + 10);
+      });
+    }
+
+    if (btnVolume && video) {
+      btnVolume.addEventListener('click', function() {
+        video.muted = !video.muted;
+        if (volumeIcon) {
+          volumeIcon.textContent = video.muted ? 'volume_off' : 'volume_up';
+        }
+      });
+    }
+
+    if (btnFullscreen && videoStage) {
+      btnFullscreen.addEventListener('click', function() {
+        if (!document.fullscreenElement) {
+          if (videoStage.requestFullscreen) videoStage.requestFullscreen();
+          else if (videoStage.webkitRequestFullscreen) videoStage.webkitRequestFullscreen();
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+        }
+      });
+    }
+
+    // Global helper for gallery card to scroll and play
+    window.playMasterVideo = function() {
+      const stage = document.getElementById('videoStage');
+      if (stage) {
+        stage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      setTimeout(() => {
+        if (video) video.play().catch(e => console.log('Play err:', e));
+      }, 500);
+    };
 
     // Lyric script toggle simulation
     const tabDeva = document.getElementById('tab-devanagari');
