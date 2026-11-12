@@ -1,0 +1,6 @@
+# Large media files exceeding GitHub's 100MB limit
+Swarnim Bharat Lyrics Song.mp4
+
+# OS and temporary files
+.DS_Store
+*.tmp
