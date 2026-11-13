@@ -510,6 +510,16 @@ button,a{-webkit-tap-highlight-color:transparent}
     </span>
     <span class="italic text-[10px] text-outline">🔒 फ़ोन व ईमेल पब्लिक सर्टिफिकेट पर नहीं दिखता</span>
   </div>
+  <div class="mt-3 pt-3 border-t border-outline-variant/40 flex flex-col sm:flex-row items-center gap-2">
+    <button type="button" onclick="window.openCertInNewTab();" class="w-full sm:flex-1 py-3 px-4 rounded-lg bg-primary text-on-primary font-bold text-sm shadow hover:bg-primary-container hover:text-on-primary-container transition-all flex items-center justify-center gap-2 cursor-pointer">
+      <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+      <span>सर्टिफिकेट देखें / Open Certificate in New Tab ↗</span>
+    </button>
+    <button type="button" onclick="window.downloadCertImage();" class="w-full sm:w-auto py-3 px-4 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 border border-outline-variant/40 cursor-pointer">
+      <span class="material-symbols-outlined text-[18px] text-tertiary">download</span>
+      <span>PNG Download</span>
+    </button>
+  </div>
 </div>
 </form>
 </div>
@@ -1004,10 +1014,12 @@ button,a{-webkit-tap-highlight-color:transparent}
       const newHash = `SB-2047-0${nextCount}`;
       document.getElementById('certHash').innerText = newHash;
 
-      // Current formatted date
+      // Current formatted date & time
       const now = new Date();
       const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
-      document.getElementById('certDate').innerText = `${dateStr} • IST`;
+      const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
+      const fullTimestamp = `${dateStr} • IST`;
+      document.getElementById('certDate').innerText = fullTimestamp;
 
       // Prepend to Live Honor Roll Stream
       prependToHonorRoll(name, state, pillar, newHash);
@@ -1032,11 +1044,20 @@ button,a{-webkit-tap-highlight-color:transparent}
         vow: pillar,
         pledgeId: newHash,
         photoBase64: userUploadedPhotoBase64,
-        timestamp: `${dateStr} • ${timeStr}`
+        timestamp: fullTimestamp
       };
       try {
         sessionStorage.setItem('swarnim_cert_data', JSON.stringify(certData));
-      } catch (e) {}
+      } catch (e) {
+        console.warn('sessionStorage error:', e);
+      }
+
+      // Open Certificate in a NEW TAB immediately upon pledge affirmation
+      try {
+        window.open('certificate.html', '_blank');
+      } catch (e) {
+        console.warn('Auto-open window blocked by browser:', e);
+      }
 
       // Send to Google Sheet if URL is configured
       const isConfigured = GOOGLE_SCRIPT_URL && 
@@ -1057,6 +1078,8 @@ button,a{-webkit-tap-highlight-color:transparent}
           mode: 'no-cors',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(payload)
+        }).then(() => {
+          console.log('Google Sheet sync completed');
         }).catch(err => console.log('Sheet sync status:', err));
       }
 
@@ -1235,10 +1258,12 @@ button,a{-webkit-tap-highlight-color:transparent}
       // Ensure latest data is in sessionStorage
       const name = document.getElementById('certCitizenName') ? document.getElementById('certCitizenName').innerText.trim() : 'Citizen';
       const state = document.getElementById('certState') ? document.getElementById('certState').innerText.trim() : 'Bharat';
-      const pillar = document.getElementById('certPillarName') ? document.getElementById('certPillarName').innerText.trim() : 'Viksit Bharat';
+      let pillar = document.getElementById('certPillarName') ? document.getElementById('certPillarName').innerText.trim() : 'Viksit Bharat';
+      pillar = pillar.replace(/^[🇮🇳🌿⚖️🛕]\s*/, '');
       const regId = document.getElementById('certHash') ? document.getElementById('certHash').innerText.trim() : 'SB-2047-0125';
       const mobile = document.getElementById('contactMobile') ? document.getElementById('contactMobile').value.trim() : '';
       const email = document.getElementById('contactEmail') ? document.getElementById('contactEmail').value.trim() : '';
+      const dateStr = document.getElementById('certDate') ? document.getElementById('certDate').innerText.trim() : `${new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()} • IST`;
       const certData = {
         name: name,
         phone: mobile,
@@ -1247,11 +1272,13 @@ button,a{-webkit-tap-highlight-color:transparent}
         vow: pillar,
         pledgeId: regId,
         photoBase64: userUploadedPhotoBase64,
-        timestamp: document.getElementById('certDate') ? document.getElementById('certDate').innerText.trim() : ''
+        timestamp: dateStr
       };
       try {
         sessionStorage.setItem('swarnim_cert_data', JSON.stringify(certData));
-      } catch (e) {}
+      } catch (e) {
+        console.warn('sessionStorage error:', e);
+      }
       window.open('certificate.html', '_blank');
     };
 
