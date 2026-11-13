@@ -236,17 +236,17 @@
                     </p>
 
                     <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">Phone Number (फ़ोन नंबर)</label>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Phone Number (फ़ोन नंबर) <span class="text-goldDark font-bold">*</span></label>
                         <div class="relative">
-                            <input type="tel" id="input-phone" placeholder="+91 98765 43210" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm font-semibold text-gray-800 bg-white">
+                            <input type="tel" id="input-phone" placeholder="+91 98765 43210" required="" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm font-semibold text-gray-800 bg-white">
                             <span class="material-symbols-outlined text-[18px] text-gray-400 absolute left-2.5 top-2.5">call</span>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-gray-700 mb-1">Email ID (ईमेल आईडी)</label>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Email ID (ईमेल आईडी) <span class="text-goldDark font-bold">*</span></label>
                         <div class="relative">
-                            <input type="email" id="input-email" placeholder="name@example.com" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm font-medium text-gray-800 bg-white">
+                            <input type="email" id="input-email" placeholder="name@example.com" required="" class="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm font-medium text-gray-800 bg-white">
                             <span class="material-symbols-outlined text-[18px] text-gray-400 absolute left-2.5 top-2.5">mail</span>
                         </div>
                     </div>
@@ -254,12 +254,12 @@
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">State / Province (राज्य) *</label>
-                    <input type="text" id="input-state" value="State" placeholder="Enter state/UT" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition font-semibold">
+                    <input type="text" id="input-state" value="State" placeholder="Enter state/UT" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition font-semibold">
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Vow / Pledge Focus (संकल्प) *</label>
-                    <select id="input-pledge" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition bg-white font-medium">
+                    <select id="input-pledge" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition bg-white font-medium">
                         <option value="🌿 Prakriti & Green Energy" selected>🌿 Prakriti & Green Energy</option>
                         <option value="🇮🇳 Swadeshi & Innovation">🇮🇳 Swadeshi & Innovation</option>
                         <option value="🛕 Civilizational Pride">🛕 Civilizational Pride</option>
@@ -274,7 +274,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Citizen Photo / Selfie (फोटो)</label>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Citizen Photo / Selfie (फोटो) <span class="text-goldDark font-bold">* (Mandatory)</span></label>
                     <input type="file" id="input-photo-file" accept="image/png, image/jpeg, image/jpg" class="w-full text-xs text-gray-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-amber-100 file:text-goldDark hover:file:bg-amber-200 cursor-pointer mb-2">
                     <input type="url" id="input-photo" placeholder="Or paste image URL (https://...)" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition text-sm">
                 </div>
@@ -597,6 +597,69 @@
             window.addEventListener('resize', scaleCertificate);
             setTimeout(scaleCertificate, 60);
 
+            // Helper: Render unstretched image into high-res canvas so html2canvas never distorts it
+            async function fixImageAspectInClone(imgElement, containerWidth, containerHeight, isCover) {
+                return new Promise((resolve) => {
+                    const render = () => {
+                        try {
+                            const canvas = document.createElement('canvas');
+                            const scale = 2; // Ultra sharp HD export
+                            canvas.width = containerWidth * scale;
+                            canvas.height = containerHeight * scale;
+                            canvas.style.width = '100%';
+                            canvas.style.height = '100%';
+                            canvas.style.display = 'block';
+                            canvas.style.borderRadius = '5px';
+                            const ctx = canvas.getContext('2d');
+                            ctx.imageSmoothingEnabled = true;
+                            ctx.imageSmoothingQuality = 'high';
+
+                            const nw = imgElement.naturalWidth || imgElement.width || 1;
+                            const nh = imgElement.naturalHeight || imgElement.height || 1;
+
+                            if (isCover) {
+                                const targetRatio = containerWidth / containerHeight;
+                                const imgRatio = nw / nh;
+                                let sx = 0, sy = 0, sw = nw, sh = nh;
+                                if (imgRatio > targetRatio) {
+                                    sw = nh * targetRatio;
+                                    sx = (nw - sw) / 2;
+                                } else {
+                                    sh = nw / targetRatio;
+                                    sy = Math.max(0, (nh - sh) * 0.15);
+                                }
+                                ctx.drawImage(imgElement, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+                            } else {
+                                const targetRatio = containerWidth / containerHeight;
+                                const imgRatio = nw / nh;
+                                let dw = canvas.width, dh = canvas.height, dx = 0, dy = 0;
+                                if (imgRatio > targetRatio) {
+                                    dh = canvas.width / imgRatio;
+                                    dy = (canvas.height - dh) / 2;
+                                } else {
+                                    dw = canvas.height * imgRatio;
+                                    dx = (canvas.width - dw) / 2;
+                                }
+                                ctx.drawImage(imgElement, 0, 0, nw, nh, dx, dy, dw, dh);
+                            }
+                            if (imgElement.parentNode) {
+                                imgElement.parentNode.replaceChild(canvas, imgElement);
+                            }
+                        } catch (e) {
+                            console.warn('fixImageAspectInClone error:', e);
+                        }
+                        resolve();
+                    };
+
+                    if (imgElement.complete && imgElement.naturalWidth) {
+                        render();
+                    } else {
+                        imgElement.onload = render;
+                        imgElement.onerror = () => resolve();
+                    }
+                });
+            }
+
             // High-Resolution 1:1 Pixel-Perfect PNG Download using an unscaled off-screen clone
             window.downloadCertificateImage = async function() {
                 const certNode = document.getElementById('certificate');
@@ -633,6 +696,21 @@
                     clone.style.boxSizing = 'border-box';
                     clone.style.background = '#FDFBF7';
                     document.body.appendChild(clone);
+
+                    // Ensure citizen photo and logos NEVER stretch or distort during html2canvas export
+                    const clonePhoto = clone.querySelector('#cert-photo') || clone.querySelector('#certPhotoDisplay');
+                    if (clonePhoto && clonePhoto.src) {
+                        const isUserPhoto = !clonePhoto.src.includes('logo-shield.png');
+                        await fixImageAspectInClone(clonePhoto, 115, 130, isUserPhoto);
+                    }
+
+                    const centerLogo = clone.querySelector('img[alt="Swarnim Bharat Logo"]') || clone.querySelector('.h-24');
+                    if (centerLogo && centerLogo.naturalHeight) {
+                        const aspect = centerLogo.naturalWidth / centerLogo.naturalHeight;
+                        centerLogo.style.height = '96px';
+                        centerLogo.style.width = (96 * aspect) + 'px';
+                        centerLogo.style.objectFit = 'contain';
+                    }
 
                     // Render clone at 2x scale (2246 × 1588 px) for ultra-sharp crispness
                     const canvas = await html2canvas(clone, {

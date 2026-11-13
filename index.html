@@ -449,12 +449,12 @@ button,a{-webkit-tap-highlight-color:transparent}
         <img alt="Citizen Photo Preview" class="w-full h-full object-cover hidden" id="photo-preview-img"/>
       </div>
       <div>
-        <label class="font-label-sm text-label-sm text-on-surface font-bold block" for="photo">अपनी फोटो लें या अपलोड करें (Citizen Photo):</label>
+        <label class="font-label-sm text-label-sm text-on-surface font-bold block" for="photo">अपनी फोटो लें या अपलोड करें (Citizen Photo): <span class="text-tertiary font-bold">* (अनिवार्य / Mandatory)</span></label>
         <span class="font-label-sm text-[11px] text-on-surface-variant block">Selfie लें या Gallery से फोटो जोड़ें • <strong class="text-tertiary">केवल JPG या PNG (No Video)</strong></span>
       </div>
     </div>
     <div class="w-full sm:w-auto flex-shrink-0">
-      <input accept="image/jpeg,image/png,image/jpg" capture="user" class="block w-full text-xs text-on-surface file:mr-2 file:py-2 file:px-3.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-on-primary hover:file:bg-primary-container hover:file:text-on-primary-container file:cursor-pointer cursor-pointer shadow-sm" id="photo" type="file"/>
+      <input accept="image/jpeg,image/png,image/jpg" capture="user" required="" class="block w-full text-xs text-on-surface file:mr-2 file:py-2 file:px-3.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-on-primary hover:file:bg-primary-container hover:file:text-on-primary-container file:cursor-pointer cursor-pointer shadow-sm" id="photo" type="file"/>
     </div>
   </div>
 
@@ -787,6 +787,17 @@ button,a{-webkit-tap-highlight-color:transparent}
         } catch(err) {
           console.error("Photo base64 conversion failed:", err);
         }
+      }
+
+      if (!photoBase64) {
+        alert('⚠️ कृपया अपनी फ़ोटो अपलोड करें — प्रमाण पत्र बनाने के लिए फोटो अनिवार्य है (Citizen Photo is mandatory).');
+        if (photoEl) {
+          photoEl.focus();
+          photoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (submitBtnText) submitBtnText.innerText = "Affirm & Generate Sovereign Certificate ↗";
+        submitBtn.disabled = false;
+        return;
       }
 
       const payload = {

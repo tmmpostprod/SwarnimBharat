@@ -361,11 +361,11 @@ button,a{-webkit-tap-highlight-color:transparent}
 <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
 <div class="flex flex-col space-y-1">
 <label class="font-label-md text-label-md text-on-surface font-bold" for="contactMobile">
-                  Mobile / Aadhar Linked (Optional for SMS Sync)
+                  Mobile / Aadhar Linked (Google Sheet में सुरक्षित) <span class="text-tertiary">*</span>
                 </label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[20px]">phone_iphone</span>
-<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner" id="contactMobile" placeholder="+91 98765 43210" type="tel"/>
+<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner" id="contactMobile" placeholder="+91 98765 43210" required="" type="tel"/>
 </div>
 </div>
 <div class="flex flex-col space-y-1">
@@ -379,7 +379,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 </div>
 <!-- Citizen Photo Upload / Camera Selfie (Strictly JPEG/PNG, No Video) -->
-<div class="p-3.5 rounded-xl bg-surface-container border border-outline-variant/50 flex flex-col sm:flex-row items-center justify-between gap-3.5 my-2">
+<div class="p-3.5 rounded-xl bg-surface-container border-2 border-primary-container/70 flex flex-col sm:flex-row items-center justify-between gap-3.5 my-2">
   <div class="flex items-center gap-3 w-full sm:w-auto">
     <div class="w-12 h-12 rounded-full bg-surface-bright flex items-center justify-center text-primary flex-shrink-0 overflow-hidden border-2 border-primary-container shadow-inner" id="pledgePhotoBox">
       <span class="material-symbols-outlined text-[24px]" id="pledgePhotoIcon">add_a_photo</span>
@@ -387,11 +387,12 @@ button,a{-webkit-tap-highlight-color:transparent}
     </div>
     <div class="flex flex-col">
       <label class="font-label-md text-label-md text-on-surface font-bold cursor-pointer" for="citizenPhoto">
-        अपनी फोटो लें / अपलोड करें (Citizen Photo)
+        अपनी फोटो लें / अपलोड करें (Citizen Photo) <span class="text-tertiary font-bold">* (अनिवार्य / Mandatory)</span>
       </label>
       <span class="font-body-sm text-[11px] text-on-surface-variant">
-        Selfie लें या Gallery से फोटो जोड़ें <strong class="text-tertiary font-semibold">(Only JPG / PNG, No Video)</strong>
+        Selfie लें या Gallery से फोटो जोड़ें • <strong class="text-tertiary font-semibold">केवल JPG या PNG (No Video)</strong>
       </span>
+      <span id="photoRequiredWarning" class="text-tertiary font-bold text-[11px] mt-0.5 hidden">⚠️ कृपया अपनी फ़ोटो अपलोड करें — यह प्रमाण पत्र के लिए अनिवार्य है।</span>
     </div>
   </div>
   <div class="w-full sm:w-auto flex-shrink-0">
@@ -400,6 +401,7 @@ button,a{-webkit-tap-highlight-color:transparent}
       type="file" 
       accept="image/jpeg,image/png,image/jpg" 
       capture="user"
+      required=""
       class="block w-full text-xs text-on-surface file:mr-2 file:py-2 file:px-3.5 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-primary file:text-on-primary hover:file:bg-primary-container hover:file:text-on-primary-container file:cursor-pointer cursor-pointer shadow-sm"
     />
   </div>
@@ -409,13 +411,13 @@ button,a{-webkit-tap-highlight-color:transparent}
 <label class="flex items-start gap-2.5 cursor-pointer">
 <input class="mt-1 accent-primary rounded" required="" type="checkbox"/>
 <span class="font-body-sm text-body-sm text-on-surface-variant">
-                  I confirm that I am a citizen/diaspora well-wisher of India and voluntarily register this pledge on the National Civic Registry.
+                  I confirm that I am a citizen/diaspora well-wisher of India and voluntarily register this pledge on the National Civic Registry. <span class="text-tertiary">*</span>
                 </span>
 </label>
 <label class="flex items-start gap-2.5 cursor-pointer">
-<input checked="" class="mt-1 accent-primary rounded" type="checkbox"/>
+<input checked="" class="mt-1 accent-primary rounded" required="" type="checkbox"/>
 <span class="font-body-sm text-body-sm text-on-surface-variant">
-                  Display my name on the public Real-Time Citizen Honor Roll.
+                  Display my name on the public Real-Time Citizen Honor Roll. <span class="text-tertiary">*</span>
                 </span>
 </label>
 </div>
@@ -902,6 +904,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 
     // Photo to Base64
     let userUploadedPhotoBase64 = '';
+    window.userUploadedPhotoBase64 = '';
     const citizenPhotoInput = document.getElementById('citizenPhoto');
     if (citizenPhotoInput) {
       citizenPhotoInput.addEventListener('change', function() {
@@ -916,12 +919,23 @@ button,a{-webkit-tap-highlight-color:transparent}
           const reader = new FileReader();
           reader.onload = function(e) {
             userUploadedPhotoBase64 = e.target.result;
+            window.userUploadedPhotoBase64 = e.target.result;
             const previewImg = document.getElementById('pledgePhotoImg');
             const previewIcon = document.getElementById('pledgePhotoIcon');
             if (previewImg && previewIcon) {
               previewImg.src = userUploadedPhotoBase64;
               previewImg.classList.remove('hidden');
               previewIcon.classList.add('hidden');
+            }
+            const warnEl = document.getElementById('photoRequiredWarning');
+            if (warnEl) warnEl.classList.add('hidden');
+
+            // Instantly reflect in Certificate live preview
+            const certPhoto = document.getElementById('certPhotoDisplay');
+            if (certPhoto) {
+              certPhoto.src = userUploadedPhotoBase64;
+              certPhoto.style.objectFit = 'cover';
+              certPhoto.style.padding = '0';
             }
           };
           reader.readAsDataURL(file);
@@ -952,12 +966,50 @@ button,a{-webkit-tap-highlight-color:transparent}
 
     // 3. Affirmation Form Submission & Dynamic Certificate Generation
     window.affirmPledge = function() {
-      const name = document.getElementById('fullName').value.trim() || 'YOUR NAME';
-      const state = document.getElementById('stateUT').value || 'State';
+      const nameInput = document.getElementById('fullName');
+      const stateInput = document.getElementById('stateUT');
+      const mobileInput = document.getElementById('contactMobile');
+      const emailInput = document.getElementById('contactEmail');
+      const photoInput = document.getElementById('citizenPhoto');
+
+      const name = (nameInput ? nameInput.value.trim() : '');
+      const state = (stateInput ? stateInput.value : '');
       const pillarEl = document.querySelector('input[name="pillarChoice"]:checked');
       const pillar = pillarEl ? pillarEl.value : 'Kartavya & Civic Duty';
-      const mobile = (document.getElementById('contactMobile') ? document.getElementById('contactMobile').value.trim() : '');
-      const email = (document.getElementById('contactEmail') ? document.getElementById('contactEmail').value.trim() : '');
+      const mobile = (mobileInput ? mobileInput.value.trim() : '');
+      const email = (emailInput ? emailInput.value.trim() : '');
+
+      if (!name) {
+        alert('कृपया अपना पूरा नाम दर्ज करें (Full Name is mandatory).');
+        if (nameInput) nameInput.focus();
+        return;
+      }
+      if (!state) {
+        alert('कृपया अपना राज्य अथवा केंद्र शासित प्रदेश चुनें (State/UT is mandatory).');
+        if (stateInput) stateInput.focus();
+        return;
+      }
+      if (!mobile) {
+        alert('कृपया अपना मोबाइल नंबर दर्ज करें (Mobile number is mandatory).');
+        if (mobileInput) mobileInput.focus();
+        return;
+      }
+      if (!email) {
+        alert('कृपया अपनी ईमेल आईडी दर्ज करें (Email ID is mandatory).');
+        if (emailInput) emailInput.focus();
+        return;
+      }
+      const activePhoto = userUploadedPhotoBase64 || window.userUploadedPhotoBase64;
+      if (!activePhoto) {
+        alert('⚠️ कृपया अपनी फ़ोटो अपलोड करें — प्रमाण पत्र बनाने के लिए फोटो अनिवार्य है (Photo upload is mandatory).');
+        if (photoInput) {
+          photoInput.focus();
+          photoInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        const warnEl = document.getElementById('photoRequiredWarning');
+        if (warnEl) warnEl.classList.remove('hidden');
+        return;
+      }
 
       // Update Certificate Display
       document.getElementById('certCitizenName').innerText = name.toUpperCase();
@@ -970,8 +1022,8 @@ button,a{-webkit-tap-highlight-color:transparent}
 
       // Update Certificate Photo
       const certPhoto = document.getElementById('certPhotoDisplay');
-      if (userUploadedPhotoBase64 && certPhoto) {
-        certPhoto.src = userUploadedPhotoBase64;
+      if (activePhoto && certPhoto) {
+        certPhoto.src = activePhoto;
         certPhoto.style.objectFit = 'cover';
         certPhoto.style.padding = '0';
       } else if (certPhoto) {
@@ -1159,6 +1211,72 @@ button,a{-webkit-tap-highlight-color:transparent}
     window.addEventListener('DOMContentLoaded', scaleCertificate);
     setTimeout(scaleCertificate, 200);
 
+    // Helper: Render unstretched image into high-res canvas so html2canvas never distorts it
+    async function fixImageAspectInClone(imgElement, containerWidth, containerHeight, isCover) {
+      return new Promise((resolve) => {
+        const render = () => {
+          try {
+            const canvas = document.createElement('canvas');
+            const scale = 2; // Ultra sharp HD export
+            canvas.width = containerWidth * scale;
+            canvas.height = containerHeight * scale;
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.style.display = 'block';
+            canvas.style.borderRadius = '5px';
+            const ctx = canvas.getContext('2d');
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+
+            const nw = imgElement.naturalWidth || imgElement.width || 1;
+            const nh = imgElement.naturalHeight || imgElement.height || 1;
+
+            if (isCover) {
+              const targetRatio = containerWidth / containerHeight;
+              const imgRatio = nw / nh;
+              let sx = 0, sy = 0, sw = nw, sh = nh;
+              if (imgRatio > targetRatio) {
+                // Wider than container: crop left/right evenly, center face
+                sw = nh * targetRatio;
+                sx = (nw - sw) / 2;
+              } else {
+                // Taller than container: crop bottom, anchor top 15% for face
+                sh = nw / targetRatio;
+                sy = Math.max(0, (nh - sh) * 0.15);
+              }
+              ctx.drawImage(imgElement, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+            } else {
+              // Contain mode without distortion
+              const targetRatio = containerWidth / containerHeight;
+              const imgRatio = nw / nh;
+              let dw = canvas.width, dh = canvas.height, dx = 0, dy = 0;
+              if (imgRatio > targetRatio) {
+                dh = canvas.width / imgRatio;
+                dy = (canvas.height - dh) / 2;
+              } else {
+                dw = canvas.height * imgRatio;
+                dx = (canvas.width - dw) / 2;
+              }
+              ctx.drawImage(imgElement, 0, 0, nw, nh, dx, dy, dw, dh);
+            }
+            if (imgElement.parentNode) {
+              imgElement.parentNode.replaceChild(canvas, imgElement);
+            }
+          } catch (e) {
+            console.warn('fixImageAspectInClone error:', e);
+          }
+          resolve();
+        };
+
+        if (imgElement.complete && imgElement.naturalWidth) {
+          render();
+        } else {
+          imgElement.onload = render;
+          imgElement.onerror = () => resolve();
+        }
+      });
+    }
+
     // 6. Real Certificate Download (Exact 1:1 Pixel Match High-Resolution PNG)
     window.downloadCertImage = async function() {
       const certNode = document.getElementById('mainCertificateCard');
@@ -1194,6 +1312,20 @@ button,a{-webkit-tap-highlight-color:transparent}
         clone.style.boxSizing = 'border-box';
         clone.style.background = '#FDFBF7';
         document.body.appendChild(clone);
+
+        // Ensure citizen photo and logos NEVER stretch or distort during html2canvas export
+        const clonePhoto = clone.querySelector('#certPhotoDisplay');
+        if (clonePhoto && clonePhoto.src) {
+          await fixImageAspectInClone(clonePhoto, 115, 130, !!userUploadedPhotoBase64);
+        }
+
+        const centerLogo = clone.querySelector('img[alt="Swarnim Bharat Logo"]') || clone.querySelector('.h-24');
+        if (centerLogo && centerLogo.naturalHeight) {
+          const aspect = centerLogo.naturalWidth / centerLogo.naturalHeight;
+          centerLogo.style.height = '96px';
+          centerLogo.style.width = (96 * aspect) + 'px';
+          centerLogo.style.objectFit = 'contain';
+        }
 
         const canvas = await html2canvas(clone, {
           scale: 2,
