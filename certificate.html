@@ -219,7 +219,7 @@
             <form id="cert-form" class="space-y-4" onsubmit="event.preventDefault();">
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Full Name (पूरा नाम) *</label>
-                    <input type="text" id="input-name" value="PRAKASH SHARMA" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition uppercase font-semibold">
+                    <input type="text" id="input-name" value="YOUR NAME" placeholder="Enter full name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition uppercase font-semibold">
                 </div>
 
                 <!-- Dedicated Citizen Contact Section (Private / Backend Only) -->
@@ -254,7 +254,7 @@
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">State / Province (राज्य) *</label>
-                    <input type="text" id="input-state" value="Haryana" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition font-semibold">
+                    <input type="text" id="input-state" value="State" placeholder="Enter state/UT" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition font-semibold">
                 </div>
 
                 <div>
@@ -353,10 +353,10 @@
 
                                 <div class="text-center my-2">
                                     <h2 id="cert-name" class="font-serif text-[56px] text-goldDark font-bold uppercase tracking-wide leading-none">
-                                        PRAKASH SHARMA
+                                        YOUR NAME
                                     </h2>
                                     <p id="cert-state" class="text-maroon text-2xl font-bold mt-2">
-                                        Haryana
+                                        State
                                     </p>
                                 </div>
 
@@ -503,11 +503,11 @@
 
             // Update Certificate Functions
             function updateName() {
-                certName.textContent = inputName.value.trim().toUpperCase() || 'CITIZEN NAME';
+                certName.textContent = inputName.value.trim().toUpperCase() || 'YOUR NAME';
             }
 
             function updateState() {
-                certState.textContent = inputState.value.trim() || 'State / Province';
+                certState.textContent = inputState.value.trim() || 'State';
             }
 
             function updatePledge() {

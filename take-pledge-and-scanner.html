@@ -272,7 +272,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 </label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[20px]">badge</span>
-<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner placeholder:text-outline" id="fullName" placeholder="e.g. Major Vikramaditya Sen" required="" type="text"/>
+<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner placeholder:text-outline" id="fullName" placeholder="Enter full name / पूरा नाम दर्ज करें" required="" type="text"/>
 </div>
 </div>
 <!-- State / UT Selection -->
@@ -536,10 +536,10 @@ button,a{-webkit-tap-highlight-color:transparent}
 
                     <div style="text-align: center; margin: 8px 0;">
                         <h2 id="certCitizenName" style="font-family: 'Playfair Display', serif; font-size: 56px; color: #A48641; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1; margin: 0;">
-                            PRAKASH SHARMA
+                            YOUR NAME
                         </h2>
                         <p id="certState" style="color: #8C2121; font-size: 24px; font-weight: 700; margin-top: 8px; margin-bottom: 0;">
-                            Haryana
+                            State
                         </p>
                     </div>
 
@@ -929,13 +929,31 @@ button,a{-webkit-tap-highlight-color:transparent}
       });
     }
 
+    // Live update certificate preview as user types name or chooses state
+    const fullNameInput = document.getElementById('fullName');
+    if (fullNameInput) {
+      fullNameInput.addEventListener('input', function() {
+        const val = this.value.trim().toUpperCase();
+        const certNameEl = document.getElementById('certCitizenName');
+        if (certNameEl) certNameEl.innerText = val || 'YOUR NAME';
+      });
+    }
+    const stateInput = document.getElementById('stateUT');
+    if (stateInput) {
+      stateInput.addEventListener('change', function() {
+        const val = this.value;
+        const certStateEl = document.getElementById('certState');
+        if (certStateEl) certStateEl.innerText = val || 'State';
+      });
+    }
+
     // अपना नया Google Apps Script का Web App URL यहाँ डालें
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwyyzKh126UAI5DBkrXnV-q0YIDko4Jo7VoMoctPrk3NRB3Pt0amD64Bcpa2Wp3hfAd/exec";
 
     // 3. Affirmation Form Submission & Dynamic Certificate Generation
     window.affirmPledge = function() {
-      const name = document.getElementById('fullName').value.trim() || 'Major Vikramaditya Sen';
-      const state = document.getElementById('stateUT').value || 'Delhi NCT';
+      const name = document.getElementById('fullName').value.trim() || 'YOUR NAME';
+      const state = document.getElementById('stateUT').value || 'State';
       const pillarEl = document.querySelector('input[name="pillarChoice"]:checked');
       const pillar = pillarEl ? pillarEl.value : 'Kartavya & Civic Duty';
       const mobile = (document.getElementById('contactMobile') ? document.getElementById('contactMobile').value.trim() : '');
