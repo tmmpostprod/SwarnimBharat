@@ -113,34 +113,28 @@
         .corner-bl { bottom: -16px; left: -16px; }
         .corner-br { bottom: -16px; right: -16px; }
 
-        /* Sovereign Torch / Trophy Box (Top-Left Symmetrical) */
+        /* Sovereign Torch / Trophy (Top-Left Cut-out Without Box or Background) */
         .cert-trophy-container {
             position: absolute;
-            top: 28px;
+            top: 22px;
             left: 32px;
             width: 115px;
-            height: 130px;
-            border: 2px solid #B59A53;
-            border-radius: 8px;
-            padding: 4px;
-            background: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            height: 142px;
             z-index: 20;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            pointer-events: none;
         }
 
         .cert-trophy-container img {
+            height: 142px;
+            width: auto;
             max-width: 100%;
             max-height: 100%;
-            width: auto;
-            height: 100%;
             object-fit: contain;
             display: block;
-            margin: 0 auto;
-            filter: drop-shadow(0 2px 6px rgba(181, 154, 83, 0.25));
+            filter: drop-shadow(0 4px 12px rgba(181, 154, 83, 0.35));
         }
 
         /* Citizen Photo positioning (Top-Right Aligned) */
@@ -745,7 +739,7 @@
 
                     const cloneTrophy = clone.querySelector('#cert-trophy') || clone.querySelector('#certTrophyDisplay');
                     if (cloneTrophy && cloneTrophy.src) {
-                        await fixImageAspectInClone(cloneTrophy, 115, 130, false);
+                        await fixImageAspectInClone(cloneTrophy, 115, 142, false);
                     }
 
                     const centerLogo = clone.querySelector('img[alt="Swarnim Bharat Logo"]') || clone.querySelector('.h-24');
