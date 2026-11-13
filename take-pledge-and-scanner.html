@@ -93,6 +93,33 @@ button,a{-webkit-tap-highlight-color:transparent}
 .corner-bl { bottom: -16px; left: -16px; }
 .corner-br { bottom: -16px; right: -16px; }
 
+.cert-trophy-container {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  width: 115px;
+  height: 130px;
+  border: 2px solid #B59A53;
+  border-radius: 8px;
+  padding: 4px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  z-index: 20;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cert-trophy-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 2px 6px rgba(181, 154, 83, 0.25));
+}
 .cert-photo-container {
   position: absolute;
   top: 28px;
@@ -515,9 +542,14 @@ button,a{-webkit-tap-highlight-color:transparent}
                     <span style="font-size: 76px; line-height: 1.1; color: #B59A53; margin-top: -16px;">उदयघोष</span>
                 </div>
 
-                <!-- Citizen Photo Box (Top-Right Aligned) -->
+                <!-- Left: Sovereign Torch / Trophy Box (Top-Left Symmetrical) -->
+                <div id="certTrophyWrapper" class="cert-trophy-container">
+                    <img id="certTrophyDisplay" src="assets/trophy-transparent.png" alt="संदेश भारती टॉर्च" onerror="this.src='assets/trophy-transparent.png'">
+                </div>
+
+                <!-- Right: Citizen Photo Box (Top-Right Aligned) -->
                 <div id="certPhotoWrapper" class="cert-photo-container">
-                    <img id="certPhotoDisplay" src="assets/logo-shield.png" alt="Citizen Photo" onerror="this.src='assets/logo-shield.png'" style="width: 100%; height: 100%; object-fit: contain; padding: 6px; border-radius: 5px;">
+                    <img id="certPhotoDisplay" src="assets/citizen-avatar-placeholder.png" alt="Citizen Photo" onerror="this.src='assets/citizen-avatar-placeholder.png'" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; padding: 0; border-radius: 5px;">
                 </div>
 
                 <!-- Top Section: Centered Logo & Formal Heading -->
@@ -1027,9 +1059,9 @@ button,a{-webkit-tap-highlight-color:transparent}
         certPhoto.style.objectFit = 'cover';
         certPhoto.style.padding = '0';
       } else if (certPhoto) {
-        certPhoto.src = 'assets/logo-shield.png';
-        certPhoto.style.objectFit = 'contain';
-        certPhoto.style.padding = '6px';
+        certPhoto.src = 'assets/citizen-avatar-placeholder.png';
+        certPhoto.style.objectFit = 'cover';
+        certPhoto.style.padding = '0';
       }
       
       // Increment count ONLY upon real form submission/affirmation
@@ -1313,10 +1345,16 @@ button,a{-webkit-tap-highlight-color:transparent}
         clone.style.background = '#FDFBF7';
         document.body.appendChild(clone);
 
-        // Ensure citizen photo and logos NEVER stretch or distort during html2canvas export
+        // Ensure citizen photo, trophy and logos NEVER stretch or distort during html2canvas export
         const clonePhoto = clone.querySelector('#certPhotoDisplay');
         if (clonePhoto && clonePhoto.src) {
-          await fixImageAspectInClone(clonePhoto, 115, 130, !!userUploadedPhotoBase64);
+          const isCustomPhoto = !clonePhoto.src.includes('citizen-avatar-placeholder.png') && !clonePhoto.src.includes('logo-shield.png');
+          await fixImageAspectInClone(clonePhoto, 115, 130, isCustomPhoto || true);
+        }
+
+        const cloneTrophy = clone.querySelector('#certTrophyDisplay');
+        if (cloneTrophy && cloneTrophy.src) {
+          await fixImageAspectInClone(cloneTrophy, 115, 130, false);
         }
 
         const centerLogo = clone.querySelector('img[alt="Swarnim Bharat Logo"]') || clone.querySelector('.h-24');
