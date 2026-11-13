@@ -88,7 +88,7 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 36px 16px 36px;
+            padding: 20px 36px 16px 36px;
             box-sizing: border-box;
         }
 
@@ -119,7 +119,7 @@
             top: 22px;
             left: 32px;
             width: 115px;
-            height: 142px;
+            height: 135px;
             z-index: 20;
             display: flex;
             align-items: center;
@@ -128,22 +128,22 @@
         }
 
         .cert-trophy-container img {
-            height: 142px;
+            height: 135px;
             width: auto;
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
             display: block;
-            filter: drop-shadow(0 4px 12px rgba(181, 154, 83, 0.35));
+            filter: drop-shadow(0 4px 10px rgba(181, 154, 83, 0.35));
         }
 
         /* Citizen Photo positioning (Top-Right Aligned) */
         .cert-photo-container {
             position: absolute;
-            top: 28px;
+            top: 24px;
             right: 32px;
-            width: 115px;
-            height: 130px;
+            width: 110px;
+            height: 128px;
             border: 2px solid #B59A53;
             border-radius: 8px;
             padding: 3px;
@@ -173,6 +173,137 @@
             pointer-events: none;
             z-index: 0;
             user-select: none;
+        }
+
+        /* Section 1: Top Header */
+        .cert-top-section {
+            text-align: center;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2px;
+        }
+        .cert-logo-img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 4px;
+        }
+        .cert-kicker {
+            color: #A48641;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        .cert-title {
+            font-size: 38px;
+            font-weight: 700;
+            color: #111827;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+            margin: 3px 0;
+        }
+        .cert-subtitle {
+            color: #A48641;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .cert-divider-top {
+            width: 100%;
+            max-width: 860px;
+            border-top: 1px solid #d1d5db;
+            margin: 10px auto 0 auto;
+        }
+
+        /* Section 2: Middle Content (Perfect Equal Balance) */
+        .cert-middle-section {
+            text-align: center;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            z-index: 10;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        .cert-citation {
+            font-style: italic;
+            color: #374151;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-size: 18px;
+            margin: 0 0 10px 0;
+        }
+        .cert-citizen-block {
+            margin: 0;
+            text-align: center;
+        }
+        .cert-citizen-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            color: #A48641;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            line-height: 1;
+            margin: 0;
+        }
+        .cert-state-name {
+            color: #8C2121;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 6px 0 0 0;
+        }
+        .cert-narrative {
+            color: #1f2937;
+            max-width: 860px;
+            margin: 14px 0 12px 0;
+            text-align: center;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            padding: 0 16px;
+        }
+        .cert-pillar-wrap {
+            margin: 0;
+        }
+        .cert-pillar-pill {
+            background-color: #FDFBF7;
+            border: 2px solid #B59A53;
+            border-radius: 9999px;
+            padding: 6px 28px;
+            color: #A48641;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* Section 3: Bottom Footer */
+        .cert-bottom-section {
+            width: 100%;
+            border-top: 1px solid #d1d5db;
+            padding-top: 8px;
+            padding-left: 20px;
+            padding-right: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: flex-end;
+            font-size: 14px;
+            position: relative;
+            z-index: 10;
         }
 
         /* Print Settings for Exact A4 Landscape */
@@ -365,43 +496,48 @@
                             </div>
 
                             <!-- Top Section: Centered Logo & Formal Heading -->
-                            <div class="text-center space-y-2 w-full relative z-10 pt-1">
-                                <img src="assets/logo.png" class="h-24 w-auto object-contain mx-auto drop-shadow-sm rounded-lg mb-1" alt="Swarnim Bharat Logo" onerror="this.src='assets/logo-emblem.png'">
-                                <h1 class="text-[42px] font-bold text-gray-900 font-hindi tracking-tight leading-tight">स्वर्णिम भारत उदयघोष</h1>
-                                <h2 class="text-goldDark font-bold tracking-[0.16em] text-sm uppercase">
+                            <div class="cert-top-section">
+                                <img src="assets/logo.png" class="cert-logo-img" alt="Swarnim Bharat Logo" onerror="this.src='assets/logo-emblem.png'">
+                                <span class="cert-kicker">
+                                    RASHTRIYA SANKALP ABHIYAN • NATIONAL CIVIC INITIATIVE
+                                </span>
+                                <h1 class="cert-title">
+                                    स्वर्णिम भारत उदयघोष
+                                </h1>
+                                <h2 class="cert-subtitle">
                                     राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF SOVEREIGN COMMITMENT
                                 </h2>
-                                <div class="w-full border-t border-gray-300 my-3 max-w-4xl mx-auto"></div>
+                                <div class="cert-divider-top"></div>
                             </div>
 
-                            <!-- Middle Section: Citation, Name, State & Narrative (Auto-Balanced) -->
-                            <div class="text-center w-full max-w-4xl relative z-10 my-auto">
-                                <p class="italic text-gray-700 font-hindi text-lg mb-2">
+                            <!-- Middle Section: Citation, Name, State & Narrative (Equalized Rhythm) -->
+                            <div class="cert-middle-section">
+                                <p class="cert-citation">
                                     यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक
                                 </p>
 
-                                <div class="text-center my-2">
-                                    <h2 id="cert-name" class="font-serif text-[56px] text-goldDark font-bold uppercase tracking-wide leading-none">
+                                <div class="cert-citizen-block">
+                                    <h2 id="cert-name" class="cert-citizen-name">
                                         YOUR NAME
                                     </h2>
-                                    <p id="cert-state" class="text-maroon text-2xl font-bold mt-2">
+                                    <p id="cert-state" class="cert-state-name">
                                         State
                                     </p>
                                 </div>
 
-                                <p class="text-gray-800 max-w-4xl mx-auto text-center font-hindi text-[17px] leading-relaxed my-3 px-4">
+                                <p class="cert-narrative">
                                     ने राष्ट्रीय महा-संकल्प <strong>"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।
                                 </p>
 
-                                <div class="mt-3 mb-2">
-                                    <div id="cert-pledge" class="bg-[#FDFBF7] border-2 border-gold rounded-full px-8 py-2 text-goldDark font-bold text-base inline-flex items-center gap-2 shadow-xs">
+                                <div class="cert-pillar-wrap">
+                                    <div id="cert-pledge" class="cert-pillar-pill">
                                         🇮🇳 Swadeshi & Innovation
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Bottom Section: Official Secretariat & Verification Strip -->
-                            <div class="w-full border-t border-gray-300 pt-2.5 px-6 grid grid-cols-3 items-end text-sm relative z-10">
+                            <div class="cert-bottom-section">
                                 <!-- Left: Registry ID & Timestamp -->
                                 <div class="text-left space-y-0.5">
                                     <p class="text-gray-500 font-semibold tracking-wider text-[11px]">NATIONAL REGISTRY ID</p>
@@ -420,8 +556,8 @@
                                 <!-- Right: Secretariat Swarnim Bharat -->
                                 <div class="text-right space-y-0.5">
                                     <p class="text-gray-500 font-semibold tracking-wider text-[11px]">NATIONAL MISSION CELL</p>
-                                    <p class="text-gray-900 font-bold text-lg leading-snug">Secretariat</p>
-                                    <p class="text-maroon font-bold text-sm leading-snug">Swarnim Bharat</p>
+                                    <p class="text-gray-900 font-bold text-base leading-tight">Secretariat</p>
+                                    <p class="text-maroon font-bold text-xs uppercase tracking-wider">Swarnim Bharat</p>
                                 </div>
                             </div>
                         </div>
@@ -742,12 +878,23 @@
                         await fixImageAspectInClone(cloneTrophy, 115, 142, false);
                     }
 
-                    const centerLogo = clone.querySelector('img[alt="Swarnim Bharat Logo"]') || clone.querySelector('.h-24');
+                    const centerLogo = clone.querySelector('img[alt="Swarnim Bharat Logo"]') || clone.querySelector('.cert-logo-img');
                     if (centerLogo && centerLogo.naturalHeight) {
                         const aspect = centerLogo.naturalWidth / centerLogo.naturalHeight;
-                        centerLogo.style.height = '96px';
-                        centerLogo.style.width = (96 * aspect) + 'px';
+                        centerLogo.style.height = '52px';
+                        centerLogo.style.width = (52 * aspect) + 'px';
                         centerLogo.style.objectFit = 'contain';
+                    }
+
+                    // Enforce perfectly equal vertical rhythm in export clone
+                    const cloneMid = clone.querySelector('.cert-middle-section');
+                    if (cloneMid) {
+                        cloneMid.style.flex = '1';
+                        cloneMid.style.display = 'flex';
+                        cloneMid.style.flexDirection = 'column';
+                        cloneMid.style.justifyContent = 'center';
+                        cloneMid.style.alignItems = 'center';
+                        cloneMid.style.margin = '0 auto';
                     }
 
                     // Render clone at 2x scale (2246 × 1588 px) for ultra-sharp crispness
