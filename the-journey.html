@@ -34,23 +34,117 @@ button,a{-webkit-tap-highlight-color:transparent}
 <div class="w-full h-1.5 bg-gradient-to-r from-tertiary via-surface-container-lowest to-primary"></div>
 
 <!-- Interactive Timeline / Chronology of Awakening (Opening Hero Section) -->
-<section class="w-full bg-surface-container-low py-space-xl md:py-space-xxl px-gutter" id="timeline-awakening">
+<!-- ========================================================================= -->
+<!-- SOVEREIGN HERO SECTION: THE SACRED JOURNEY (राष्ट्र-पथ) -->
+<!-- ========================================================================= -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-[#e3edf6] via-[#f7f3ed] to-surface pt-10 pb-12 md:pb-16 border-b border-outline-variant/30">
+  <!-- Subtle Sovereign Ambient Glow -->
+  <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[1200px] h-[450px] rounded-full bg-primary-fixed/20 blur-[160px] pointer-events-none"></div>
+  <div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-tertiary-fixed/25 blur-[130px] pointer-events-none"></div>
+  <div class="absolute top-1/2 -right-20 w-80 h-80 rounded-full bg-secondary-fixed/25 blur-[130px] pointer-events-none"></div>
+
+  <!-- Background Decorative Watermark (Sacred Chakra & Coordinates) -->
+  <div class="absolute inset-0 opacity-[0.035] pointer-events-none flex items-center justify-center">
+    <svg class="w-[900px] h-[900px]" fill="none" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="96" stroke="#142940" stroke-dasharray="4 3" stroke-width="1.5"></circle>
+      <circle cx="100" cy="100" r="76" stroke="#d4af37" stroke-width="1"></circle>
+      <circle cx="100" cy="100" r="56" stroke="#a73a00" stroke-width="0.8"></circle>
+      <path d="M100 4 L100 196 M4 100 L196 100 M32 32 L168 168 M32 168 L168 32" stroke="#142940" stroke-width="0.5"></path>
+    </svg>
+  </div>
+
+  <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
+    <!-- 1. Official Emblem Logo -->
+    <a href="index.html" class="inline-flex items-center gap-2 group transition-transform hover:scale-105" title="स्वर्णिम भारत उदयघोष">
+      <img src="assets/logo-emblem.png" alt="स्वर्णिम भारत उदयघोष" class="h-20 sm:h-24 w-auto max-w-[200px] object-contain drop-shadow-sm"/>
+    </a>
+
+    <!-- 2. National Mission Badge Pill -->
+    <div class="mt-4 inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-[#d4af37]/50 shadow-xs max-w-[92vw]">
+      <span class="w-2 h-2 rounded-full bg-[#a73a00] animate-pulse flex-shrink-0"></span>
+      <span class="font-label-sm text-[11px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest text-[#142940] truncate">राष्ट्र निर्माण महा-अभियान • 1947 — 2047</span>
+      <span class="text-[#d4af37] hidden sm:inline">•</span>
+      <span class="font-label-sm text-[11px] sm:text-xs font-semibold text-[#a73a00] hidden sm:inline">The Sacred Journey</span>
+    </div>
+
+    <!-- 3. Headline with Royal Serif Accent -->
+    <h1 class="font-headline-xl text-3xl sm:text-5xl md:text-6xl text-[#142940] tracking-tight leading-tight font-bold mt-3">
+      The Sacred Journey <span class="text-[#b58d3d] font-serif font-bold italic">राष्ट्र-पथ</span>
+    </h1>
+
+    <!-- 4. Hindi Subtitle -->
+    <p class="font-headline-sm text-base sm:text-xl md:text-2xl text-[#1b3b5f] font-bold mt-2 sm:mt-3 tracking-wide">
+      1947 के प्रथम संकल्प से 2047 के स्वर्णिम भारत तक — <span class="text-[#a73a00]">ऐतिहासिक महा-प्रवास</span>
+    </p>
+
+    <!-- 5. Editorial Narrative -->
+    <p class="font-body-md text-sm md:text-base text-on-surface-variant mt-3 max-w-3xl leading-relaxed">
+      10,800 किलोमीटर की अखंड पदयात्रा, 766 प्रशासनिक जिलों का जन-जागरण और 140 करोड़ नागरिकों का सामूहिक संकल्प। कन्याकुमारी के पवित्र तट से नई दिल्ली के राष्ट्रीय युद्ध स्मारक तक, विकसित भारत 2047 के निर्माण की ऐतिहासिक सोपान-यात्रा।
+    </p>
+
+    <!-- 6. Sovereign Ribbon Divider -->
+    <div class="mt-4 flex items-center gap-3 w-full max-w-md mx-auto justify-center">
+      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#d4af37]/70"></span>
+      <span class="font-label-sm text-[10px] sm:text-xs text-[#8c6b12] uppercase font-bold tracking-widest px-1">एक पदयात्रा • 766 जिले • अखंड भारत</span>
+      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#d4af37]/70"></span>
+    </div>
+
+    <!-- 7. Key Stat Pillars Bar (Responsive Grid) -->
+    <div class="mt-7 w-full max-w-3xl grid grid-cols-2 sm:grid-cols-4 gap-y-3 sm:gap-y-0 sm:divide-x divide-outline-variant/60 border-t border-b border-outline-variant/60 py-4 bg-white/60 backdrop-blur-sm rounded-2xl shadow-xs">
+      <div class="flex flex-col items-center px-2 py-1 sm:py-0 border-r sm:border-r-0 border-outline-variant/40">
+        <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">10,800 km</span>
+        <span class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-0.5">Sacred Torch Yatra</span>
+      </div>
+      <div class="flex flex-col items-center px-2 py-1 sm:py-0">
+        <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">766</span>
+        <span class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-0.5">Districts Reached</span>
+      </div>
+      <div class="flex flex-col items-center px-2 py-1 sm:py-0 border-r sm:border-r-0 border-outline-variant/40 border-t sm:border-t-0 pt-2 sm:pt-0">
+        <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">28 &amp; 8</span>
+        <span class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-0.5">States &amp; UTs</span>
+      </div>
+      <div class="flex flex-col items-center px-2 py-1 sm:py-0 border-t sm:border-t-0 pt-2 sm:pt-0">
+        <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">100 Yrs</span>
+        <span class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-0.5">1947 to 2047</span>
+      </div>
+    </div>
+
+    <!-- 8. Interactive Action Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-3.5 mt-7">
+      <a href="#timeline-awakening" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#142940] to-[#1b3b5f] text-white font-label-md text-sm font-bold shadow-md hover:shadow-xl hover:scale-105 transition-all">
+        <span class="material-symbols-outlined text-[18px] text-[#e9c349]">timeline</span>
+        <span>कालक्रम देखें / Explore 1947–2047</span>
+      </a>
+      <a href="route-and-milestones.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#142940] border border-[#d4af37]/60 font-label-md text-sm font-bold shadow-xs hover:border-[#d4af37] hover:scale-105 transition-all">
+        <span class="material-symbols-outlined text-[18px] text-[#a73a00]">map</span>
+        <span>रूट व पड़ाव / Route &amp; Milestones</span>
+      </a>
+      <a href="take-pledge-and-scanner.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#d4af37] text-[#241a00] font-label-md text-sm font-bold shadow-md hover:bg-[#ffe088] hover:scale-105 transition-all">
+        <span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+        <span>संकल्प लें / Take Pledge</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Interactive Timeline: 100 Years Chronology of Awakening (1947 — 2047) -->
+<section class="w-full bg-surface-container-low py-space-xl md:py-space-xxl px-gutter scroll-mt-20" id="timeline-awakening">
 <div class="max-w-[1320px] mx-auto">
 <div class="text-center max-w-3xl mx-auto mb-space-xl md:mb-space-xxl space-y-space-xs">
 <div class="inline-flex items-center gap-space-xs px-4 py-1.5 rounded-full bg-surface shadow-xs mb-space-sm border border-outline-variant/40">
 <span class="material-symbols-outlined text-[18px] text-tertiary">history_edu</span>
 <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-bold">
-  राष्ट्र निर्माण महा-अभियान • 1947 — 2047
+  100 Years Timeline • ऐतिहासिक कालक्रम
 </span>
 </div>
-<h1 class="font-headline-xl text-headline-xl text-on-surface font-serif tracking-tight leading-tight">
-  Chronology of Awakening • <span class="italic text-primary font-normal">ऐतिहासिक सोपान</span>
-</h1>
-<p class="font-headline-sm text-headline-sm text-tertiary font-serif mt-1">
-  From 1947 Awakening to 2047 Centenary Dawn
+<h2 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-serif tracking-tight leading-tight font-bold">
+  1947 स्वतंत्रता से <span class="italic text-primary font-normal">2047 शताब्दी प्रभात</span>
+</h2>
+<p class="font-headline-sm text-lg sm:text-xl text-tertiary font-serif mt-1">
+  Milestones of Resilience, Civic Awakening &amp; Centennial Realization
 </p>
-<p class="font-body-lg text-body-lg text-on-surface-variant mt-2 max-w-2xl mx-auto leading-relaxed">
-  Follow the milestones of national resilience, from independence at midnight to the upcoming 21-year journey of Swarnim Bharat.
+<p class="font-body-md text-sm sm:text-base text-on-surface-variant mt-2 max-w-2xl mx-auto leading-relaxed">
+  15 अगस्त 1947 के प्रथम स्वतंत्रता दिवस से लेकर 2047 के विकसित भारत शताब्दी उत्सव तक के 5 युगांतकारी सोपान।
 </p>
 </div>
 <!-- Timeline Structure -->
