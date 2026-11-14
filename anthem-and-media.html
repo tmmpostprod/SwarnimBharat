@@ -138,67 +138,105 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 </div>
 <!-- Lyric Viewer Container -->
-<div class="space-y-space-md max-h-[500px] overflow-y-auto pr-space-xs text-on-surface" id="lyric-content-pane">
-<!-- Stanza 1 (Active Karaoke Highlight) -->
-<div class="p-space-md rounded-lg bg-surface-container-high transition-all">
-<div class="flex items-center justify-between mb-1">
-<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-widest uppercase">ध्रुवपद • Chorus (00:00 — 00:48)</span>
-<span class="material-symbols-outlined text-[16px] text-tertiary">music_note</span>
-</div>
-<p class="font-headline-sm text-headline-sm text-primary font-bold leading-relaxed">
-                  मैं भी भारत, तुम भी भारत,<br/>
-                  मेरा देश, मेरी ज़िम्मेदारी।
-                </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 italic">
-                  Main bhi Bharat, tum bhi Bharat,<br/>
-                  Mera Desh, Meri Zimmedari.
-                </p>
-</div>
-<!-- Stanza 2 -->
-<div class="p-space-md rounded-lg bg-surface-container-low transition-all">
-<span class="font-label-sm text-label-sm text-secondary font-bold tracking-widest uppercase block mb-1">पद 1 • Kanyakumari to Himalaya (00:49 — 01:35)</span>
-<p class="font-headline-sm text-title-lg text-on-surface leading-loose">
-                  सागर तट से तुंग शिखर तक,<br/>
-                  गूंज उठा स्वर्णिम जयघोष।<br/>
-                  कर्मठ हाथों का पौरुष ही,<br/>
-                  रचेगा भारत नव आलोक।
-                </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 italic">
-                  Sagar tat se tung shikhar tak, goonj utha swarnim jayghosh;<br/>
-                  Karmath haathon ka paurush hi, rachega Bharat nav aalok.
-                </p>
-</div>
-<!-- Stanza 3 -->
-<div class="p-space-md rounded-lg bg-surface-container-low transition-all">
-<span class="font-label-sm text-label-sm text-secondary font-bold tracking-widest uppercase block mb-1">पद 2 • The Century of Viksit Bharat (01:36 — 02:45)</span>
-<p class="font-headline-sm text-title-lg text-on-surface leading-loose">
-                  न रुकेंगे अब पग हमारे,<br/>
-                  एक लक्ष्य, संवत् सैंतालीस।<br/>
-                  सत्य, सनातन, विज्ञान संबल,<br/>
-                  विश्व पटल पर नत हर शीश।
-                </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 italic">
-                  Na rukenge ab pag hamare, Ek lakshya, Samvat Saintalis;<br/>
-                  Satya, Sanatan, Vigyan sambal, Vishwa patal par nat har sheesh.
-                </p>
-</div>
-<!-- Stanza 4 -->
-<div class="p-space-md rounded-lg bg-surface-container-low transition-all">
-<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-widest uppercase block mb-1">महा-उदयघोष • Grand Finale (02:46 — 03:47)</span>
-<p class="font-headline-sm text-title-lg text-primary font-bold leading-loose">
-                  वंदे मातरम्! जयति भारतम्!<br/>
-                  विकसित भारत, स्वर्णिम भारत!
-                </p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 italic">
-                  Vande Mataram! Jayati Bharatam!<br/>
-                  Viksit Bharat, Swarnim Bharat!
-                </p>
-</div>
+<div class="space-y-space-md max-h-[520px] overflow-y-auto pr-space-xs text-on-surface scrollbar-thin" id="lyric-content-pane">
+  <!-- Stanza 1: मुखड़ा व जागरण -->
+  <div class="p-space-md rounded-xl bg-surface-container-high/70 border border-outline-variant/30 transition-all hover:bg-surface-container-high">
+    <div class="flex items-center justify-between mb-1.5">
+      <span class="font-label-sm text-[11px] text-tertiary font-bold tracking-widest uppercase">प्रारंभ • आह्वान व जागरण / Opening Call</span>
+      <span class="material-symbols-outlined text-[16px] text-tertiary">music_note</span>
+    </div>
+    <p class="font-headline-sm text-title-md text-on-surface leading-relaxed font-semibold">
+      चलो चलें, चलो चलें<br/>
+      सोने के दो पंख लेकर चल पड़ी ये दास्तां है<br/>
+      इस जहां की हर बुलंदी से तो अपना वास्ता है<br/>
+      <span class="text-[#a73a00]">हो... तू जाग जाग जाग बन्दे, हो...</span>
+    </p>
+  </div>
+
+  <!-- Stanza 2: अंतरा १ -->
+  <div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/20 transition-all hover:bg-surface-container">
+    <div class="flex items-center justify-between mb-1.5">
+      <span class="font-label-sm text-[11px] text-secondary font-bold tracking-widest uppercase">अंतरा १ • जन-गीत व रोशनी / Symphony of Resolve</span>
+      <span class="material-symbols-outlined text-[16px] text-secondary">flare</span>
+    </div>
+    <p class="font-headline-sm text-title-md text-on-surface leading-relaxed font-semibold">
+      गीत अपने गुनगुना ले, संग सबके सुर मिला ले<br/>
+      इस जहां को रोशनी दे, ओ सितारे झिलमिला ले<br/>
+      <span class="text-[#a73a00]">हो... तू आग आग आग बन्दे, हो...</span>
+    </p>
+  </div>
+
+  <!-- Stanza 3: मुख्य ध्रुवपद (Golden Highlight Card) -->
+  <div class="p-space-md rounded-xl bg-gradient-to-br from-primary-container/20 to-surface-container-high border-2 border-[#d4af37]/60 shadow-sm transition-all hover:shadow-md">
+    <div class="flex items-center justify-between mb-1.5">
+      <span class="font-label-sm text-[11px] text-[#8c6b12] font-bold tracking-widest uppercase flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
+        ध्रुवपद • राष्ट्रीय महा-संकल्प / The National Chorus
+      </span>
+      <span class="material-symbols-outlined text-[18px] text-[#b58d3d]">military_tech</span>
+    </div>
+    <p class="font-headline-sm text-xl sm:text-2xl text-[#142940] font-bold leading-relaxed">
+      मैं भी भारत हूँ, तुम भी भारत हो<br/>
+      हम सब में ही तो भारत है, ओ...<br/>
+      <span class="text-[#b58d3d] font-serif italic">मैं भी भारत हूँ, तुम भी भारत हो<br/>
+      हम सब में ही तो भारत है...</span>
+    </p>
+  </div>
+
+  <!-- Stanza 4: अंतरा २ (पराक्रम व तिरंगा) -->
+  <div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/20 transition-all hover:bg-surface-container">
+    <div class="flex items-center justify-between mb-1.5">
+      <span class="font-label-sm text-[11px] text-secondary font-bold tracking-widest uppercase">अंतरा २ • पराक्रम, तिरंगा व नव-उड़ान / Valor &amp; Centennial Leap</span>
+      <span class="material-symbols-outlined text-[16px] text-secondary">flag</span>
+    </div>
+    <p class="font-headline-sm text-title-md text-on-surface leading-relaxed font-semibold">
+      अपनी तो जुर्रत पे दुनिया को हैरत है, अंदाज़ अपना निराला रे<br/>
+      दुनिया जहानों में, सौ आसमानों में, भारत का होगा उजाला रे<br/>
+      <span class="text-tertiary font-bold tracking-wider">(जय हो! हे! जय हो! हे!)</span><br/>
+      हाँ डंका बजेगा, तिरंगा सजेगा, सदा इसपे अब है निशाना रे<br/>
+      जो ना हुआ है वो होके रहेगा, ये दुनिया को करके दिखाना<br/>
+      <span class="text-primary font-bold">नई उड़ानें भरने को तैयार हैं<br/>
+      नए ठिकानों पे कदम बढ़ने लगे...</span>
+    </p>
+  </div>
+
+  <!-- Stanza 5: ध्रुवपद पुनरावृत्ति -->
+  <div class="p-space-md rounded-xl bg-surface-container-high/60 border border-outline-variant/30 transition-all hover:bg-surface-container-high">
+    <div class="flex items-center justify-between mb-1.5">
+      <span class="font-label-sm text-[11px] text-tertiary font-bold tracking-widest uppercase">ध्रुवपद पुनरावृत्ति • Chorus Reprise</span>
+      <span class="material-symbols-outlined text-[16px] text-tertiary">repeat</span>
+    </div>
+    <p class="font-headline-sm text-title-lg text-[#142940] font-bold leading-relaxed">
+      मैं भी भारत हूँ, तुम भी भारत हो<br/>
+      हम सब में ही तो भारत है...<br/>
+      मैं भी भारत हूँ, तुम भी भारत हो<br/>
+      हम सब में ही तो भारत है...
+    </p>
+  </div>
+
+  <!-- Stanza 6: महा-उदयघोष व क्लाइमेक्स -->
+  <div class="p-space-md rounded-xl bg-gradient-to-r from-[#142940] to-[#1b3b5f] text-white shadow-md border border-[#d4af37]/40 transition-all">
+    <div class="flex items-center justify-between mb-1.5">
+      <span class="font-label-sm text-[11px] text-[#e9c349] font-bold tracking-widest uppercase flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-[16px]">campaign</span>
+        महा-उदयघोष • Grand Sovereign Climax
+      </span>
+      <span class="font-label-sm text-[10px] text-[#ffe088] uppercase px-2 py-0.5 rounded-full bg-white/10">शताब्दी संकल्प</span>
+    </div>
+    <p class="font-headline-sm text-title-lg text-[#fff] font-bold leading-relaxed">
+      उदय... उदय... उदयघोष है<br/>
+      स्वर्णिम भारत का उदयघोष है, ओ...<br/>
+      उदय... उदय... उदयघोष है<br/>
+      स्वर्णिम भारत का उदयघोष है, ओ...<br/>
+      <span class="text-[#e9c349] tracking-wider font-extrabold">तू जाग, जाग, जाग, जाग, हाँ...<br/>
+      तू जाग, जाग, जाग, जाग, हाँ...</span>
+    </p>
+  </div>
 </div>
 <!-- Bottom utility -->
 <div class="pt-space-xs flex items-center justify-between text-outline">
 <span class="font-label-sm text-label-sm">Authorized for public recitation • CC-BY-SA 4.0</span>
-<button class="text-primary hover:text-tertiary font-label-sm text-label-sm font-bold flex items-center gap-1" type="button">
+<button id="copyLyricsBtn" class="text-primary hover:text-tertiary font-label-sm text-label-sm font-bold flex items-center gap-1.5 transition-all" type="button">
 <span class="material-symbols-outlined text-[16px]">content_copy</span>
 <span>Copy Full Lyrics</span>
 </button>
@@ -813,27 +851,284 @@ button,a{-webkit-tap-highlight-color:transparent}
     }, 500);
   };
 
+  // Official Rashtra Sankalp Padya Data in 3 Language Scripts
+  const LYRICS_DATA = {
+    deva: {
+      raw: `चलो चलें, चलो चलें
+सोने के दो पंख लेकर चल पड़ी ये दास्तां है
+इस जहां की हर बुलंदी से तो अपना वास्ता है
+हो...
+तू जाग जाग जाग बन्दे, हो...
+गीत अपने गुनगुना ले, संग सबके सुर मिला ले
+इस जहां को रोशनी दे, ओ सितारे झिलमिला ले
+हो...
+तू आग आग आग बन्दे, हो...
+मैं भी भारत हूँ, तुम भी भारत हो
+हम सब में ही तो भारत है, ओ...
+मैं भी भारत हूँ, तुम भी भारत हो
+हम सब में ही तो भारत है...
+अपनी तो जुर्रत पे दुनिया को हैरत है, अंदाज़ अपना निराला रे
+दुनिया जहानों में, सौ आसमानों में, भारत का होगा उजाला रे
+(जय हो! हे! जय हो! हे!)
+हाँ डंका बजेगा, तिरंगा सजेगा, सदा इसपे अब है निशाना रे
+जो ना हुआ है वो होके रहेगा, ये दुनिया को करके दिखाना
+नई उड़ानें भरने को तैयार हैं
+नए ठिकानों पे कदम बढ़ने लगे...
+मैं भी भारत हूँ, तुम भी भारत हो
+हम सब में ही तो भारत है...
+मैं भी भारत हूँ, तुम भी भारत हो
+हम सब में ही तो भारत है...
+उदय... उदय... उदयघोष है
+स्वर्णिम भारत का उदयघोष है, ओ...
+उदय... उदय... उदयघोष है
+स्वर्णिम भारत का उदयघोष है, ओ...
+तू जाग, जाग, जाग, जाग, हाँ...
+तू जाग, जाग, जाग, जाग, हाँ...`,
+      cards: [
+        {
+          badge: "प्रारंभ • आह्वान व जागरण / Opening Call",
+          icon: "music_note",
+          cls: "bg-surface-container-high/70 border border-outline-variant/30",
+          text: `चलो चलें, चलो चलें<br/>सोने के दो पंख लेकर चल पड़ी ये दास्तां है<br/>इस जहां की हर बुलंदी से तो अपना वास्ता है<br/><span class="text-[#a73a00]">हो... तू जाग जाग जाग बन्दे, हो...</span>`
+        },
+        {
+          badge: "अंतरा १ • जन-गीत व रोशनी / Symphony of Resolve",
+          icon: "flare",
+          cls: "bg-surface-container-low border border-outline-variant/20",
+          text: `गीत अपने गुनगुना ले, संग सबके सुर मिला ले<br/>इस जहां को रोशनी दे, ओ सितारे झिलमिला ले<br/><span class="text-[#a73a00]">हो... तू आग आग आग बन्दे, हो...</span>`
+        },
+        {
+          badge: "ध्रुवपद • राष्ट्रीय महा-संकल्प / The National Chorus",
+          icon: "military_tech",
+          cls: "bg-gradient-to-br from-primary-container/20 to-surface-container-high border-2 border-[#d4af37]/60 shadow-sm",
+          pulse: true,
+          text: `<span class="text-xl sm:text-2xl text-[#142940] font-bold block">मैं भी भारत हूँ, तुम भी भारत हो<br/>हम सब में ही तो भारत है, ओ...</span><span class="text-[#b58d3d] font-serif italic text-lg sm:text-xl block mt-1">मैं भी भारत हूँ, तुम भी भारत हो<br/>हम सब में ही तो भारत है...</span>`
+        },
+        {
+          badge: "अंतरा २ • पराक्रम, तिरंगा व नव-उड़ान / Valor & Centennial Leap",
+          icon: "flag",
+          cls: "bg-surface-container-low border border-outline-variant/20",
+          text: `अपनी तो जुर्रत पे दुनिया को हैरत है, अंदाज़ अपना निराला रे<br/>दुनिया जहानों में, सौ आसमानों में, भारत का होगा उजाला रे<br/><span class="text-tertiary font-bold tracking-wider">(जय हो! हे! जय हो! हे!)</span><br/>हाँ डंका बजेगा, तिरंगा सजेगा, सदा इसपे अब है निशाना रे<br/>जो ना हुआ है वो होके रहेगा, ये दुनिया को करके दिखाना<br/><span class="text-primary font-bold">नई उड़ानें भरने को तैयार हैं<br/>नए ठिकानों पे कदम बढ़ने लगे...</span>`
+        },
+        {
+          badge: "ध्रुवपद पुनरावृत्ति • Chorus Reprise",
+          icon: "repeat",
+          cls: "bg-surface-container-high/60 border border-outline-variant/30",
+          text: `<span class="text-[#142940] font-bold">मैं भी भारत हूँ, तुम भी भारत हो<br/>हम सब में ही तो भारत है...<br/>मैं भी भारत हूँ, तुम भी भारत हो<br/>हम सब में ही तो भारत है...</span>`
+        },
+        {
+          badge: "महा-उदयघोष • Grand Sovereign Climax",
+          icon: "campaign",
+          cls: "bg-gradient-to-r from-[#142940] to-[#1b3b5f] text-white shadow-md border border-[#d4af37]/40",
+          text: `उदय... उदय... उदयघोष है<br/>स्वर्णिम भारत का उदयघोष है, ओ...<br/>उदय... उदय... उदयघोष है<br/>स्वर्णिम भारत का उदयघोष है, ओ...<br/><span class="text-[#e9c349] tracking-wider font-extrabold">तू जाग, जाग, जाग, जाग, हाँ...<br/>तू जाग, जाग, जाग, जाग, हाँ...</span>`
+        }
+      ]
+    },
+    translit: {
+      raw: `Chalo chalein, chalo chalein
+Sone ke do pankh lekar chal padi yeh daastaan hai
+Is jahan ki har bulandi se toh apna waasta hai
+Ho...
+Tu jaag jaag jaag bande, ho...
+Geet apne gunguna le, sang sabke sur mila le
+Is jahan ko roshni de, o sitare jhilmila le
+Ho...
+Tu aag aag aag bande, ho...
+Main bhi Bharat hoon, tum bhi Bharat ho
+Hum sab mein hi toh Bharat hai, o...
+Main bhi Bharat hoon, tum bhi Bharat ho
+Hum sab mein hi toh Bharat hai...
+Apni toh jurrat pe duniya ko hairat hai, andaaz apna niraala re
+Duniya jahanon mein, sau aasmaanon mein, Bharat ka hoga ujaala re
+(Jai Ho! Hey! Jai Ho! Hey!)
+Haan danka bajega, tiranga sajega, sada ispe ab hai nishaana re
+Jo na hua hai woh hoke rahega, yeh duniya ko karke dikhana
+Nayi udaanein bharne ko taiyaar hain
+Naye thikaanon pe kadam badhne lage...
+Main bhi Bharat hoon, tum bhi Bharat ho
+Hum sab mein hi toh Bharat hai...
+Main bhi Bharat hoon, tum bhi Bharat ho
+Hum sab mein hi toh Bharat hai...
+Uday... uday... udayghosh hai
+Swarnim Bharat ka udayghosh hai, o...
+Uday... uday... udayghosh hai
+Swarnim Bharat ka udayghosh hai, o...
+Tu jaag, jaag, jaag, jaag, haan...
+Tu jaag, jaag, jaag, jaag, haan...`,
+      cards: [
+        {
+          badge: "Opening Call & Awakening",
+          icon: "music_note",
+          cls: "bg-surface-container-high/70 border border-outline-variant/30",
+          text: `Chalo chalein, chalo chalein<br/>Sone ke do pankh lekar chal padi yeh daastaan hai<br/>Is jahan ki har bulandi se toh apna waasta hai<br/><span class="text-[#a73a00]">Ho... Tu jaag jaag jaag bande, ho...</span>`
+        },
+        {
+          badge: "Symphony of Resolve",
+          icon: "flare",
+          cls: "bg-surface-container-low border border-outline-variant/20",
+          text: `Geet apne gunguna le, sang sabke sur mila le<br/>Is jahan ko roshni de, o sitare jhilmila le<br/><span class="text-[#a73a00]">Ho... Tu aag aag aag bande, ho...</span>`
+        },
+        {
+          badge: "National Anthem Chorus",
+          icon: "military_tech",
+          cls: "bg-gradient-to-br from-primary-container/20 to-surface-container-high border-2 border-[#d4af37]/60 shadow-sm",
+          pulse: true,
+          text: `<span class="text-xl sm:text-2xl text-[#142940] font-bold block">Main bhi Bharat hoon, tum bhi Bharat ho<br/>Hum sab mein hi toh Bharat hai, o...</span><span class="text-[#b58d3d] font-serif italic text-lg sm:text-xl block mt-1">Main bhi Bharat hoon, tum bhi Bharat ho<br/>Hum sab mein hi toh Bharat hai...</span>`
+        },
+        {
+          badge: "Valor & Centennial Leap",
+          icon: "flag",
+          cls: "bg-surface-container-low border border-outline-variant/20",
+          text: `Apni toh jurrat pe duniya ko hairat hai, andaaz apna niraala re<br/>Duniya jahanon mein, sau aasmaanon mein, Bharat ka hoga ujaala re<br/><span class="text-tertiary font-bold tracking-wider">(Jai Ho! Hey! Jai Ho! Hey!)</span><br/>Haan danka bajega, tiranga sajega, sada ispe ab hai nishaana re<br/>Jo na hua hai woh hoke rahega, yeh duniya ko karke dikhana<br/><span class="text-primary font-bold">Nayi udaanein bharne ko taiyaar hain<br/>Naye thikaanon pe kadam badhne lage...</span>`
+        },
+        {
+          badge: "Chorus Reprise",
+          icon: "repeat",
+          cls: "bg-surface-container-high/60 border border-outline-variant/30",
+          text: `<span class="text-[#142940] font-bold">Main bhi Bharat hoon, tum bhi Bharat ho<br/>Hum sab mein hi toh Bharat hai...<br/>Main bhi Bharat hoon, tum bhi Bharat ho<br/>Hum sab mein hi toh Bharat hai...</span>`
+        },
+        {
+          badge: "Grand Sovereign Climax",
+          icon: "campaign",
+          cls: "bg-gradient-to-r from-[#142940] to-[#1b3b5f] text-white shadow-md border border-[#d4af37]/40",
+          text: `Uday... uday... udayghosh hai<br/>Swarnim Bharat ka udayghosh hai, o...<br/>Uday... uday... udayghosh hai<br/>Swarnim Bharat ka udayghosh hai, o...<br/><span class="text-[#e9c349] tracking-wider font-extrabold">Tu jaag, jaag, jaag, jaag, haan...<br/>Tu jaag, jaag, jaag, jaag, haan...</span>`
+        }
+      ]
+    },
+    english: {
+      raw: `Let us march forward, let us march forward
+With golden wings, this historic saga has taken flight
+Our sovereign destiny is linked with every height in this world
+Oh... Awaken, awaken, awaken, O citizen, oh...
+Sing your sacred tune, unite your voice in harmony with all
+Bring radiance to this world, shine bright like eternal stars
+Oh... Be the blazing fire of resolve, O citizen, oh...
+I am Bharat, you are Bharat
+Within every one of us lives the spirit of Bharat, oh...
+I am Bharat, you are Bharat
+Within every one of us lives the spirit of Bharat...
+The world stands in awe of our daring courage, unique is our sovereign spirit
+Across all horizons and under a hundred skies, Bharat's radiance shall shine
+(Victory be to Bharat! Jai Ho! Hey!)
+The triumph drum shall resound, the sacred Tricolor shall soar high forever
+What was never achieved before shall now be accomplished before the world
+We are ready to embark on historic new flights
+Our footsteps advance towards grand new horizons...
+I am Bharat, you are Bharat
+Within every one of us lives the spirit of Bharat...
+I am Bharat, you are Bharat
+Within every one of us lives the spirit of Bharat...
+The dawn... the dawn... the clarion proclamation is here!
+It is the sovereign dawn of Swarnim Bharat, oh...
+The dawn... the dawn... the clarion proclamation is here!
+It is the sovereign dawn of Swarnim Bharat, oh...
+Awaken, awaken, awaken, awaken, yes!
+Awaken, awaken, awaken, awaken, yes!`,
+      cards: [
+        {
+          badge: "Opening Call & Awakening",
+          icon: "music_note",
+          cls: "bg-surface-container-high/70 border border-outline-variant/30",
+          text: `Let us march forward, let us march forward<br/>With golden wings, this historic saga has taken flight<br/>Our sovereign destiny is linked with every height in this world<br/><span class="text-[#a73a00]">Oh... Awaken, awaken, awaken, O citizen, oh...</span>`
+        },
+        {
+          badge: "Symphony of Light & Harmony",
+          icon: "flare",
+          cls: "bg-surface-container-low border border-outline-variant/20",
+          text: `Sing your sacred tune, unite your voice in harmony with all<br/>Bring radiance to this world, shine bright like eternal stars<br/><span class="text-[#a73a00]">Oh... Be the blazing fire of resolve, O citizen, oh...</span>`
+        },
+        {
+          badge: "The National Pledge Chorus",
+          icon: "military_tech",
+          cls: "bg-gradient-to-br from-primary-container/20 to-surface-container-high border-2 border-[#d4af37]/60 shadow-sm",
+          pulse: true,
+          text: `<span class="text-xl sm:text-2xl text-[#142940] font-bold block">I am Bharat, you are Bharat<br/>Within every one of us lives the spirit of Bharat, oh...</span><span class="text-[#b58d3d] font-serif italic text-lg sm:text-xl block mt-1">I am Bharat, you are Bharat<br/>Within every one of us lives the spirit of Bharat...</span>`
+        },
+        {
+          badge: "Civilizational Valor & The Tricolor",
+          icon: "flag",
+          cls: "bg-surface-container-low border border-outline-variant/20",
+          text: `The world stands in awe of our daring courage, unique is our sovereign spirit<br/>Across all horizons and under a hundred skies, Bharat's radiance shall shine<br/><span class="text-tertiary font-bold tracking-wider">(Victory be to Bharat! Jai Ho! Hey!)</span><br/>The triumph drum shall resound, the sacred Tricolor shall soar high forever<br/>What was never achieved before shall now be accomplished before the world<br/><span class="text-primary font-bold">We are ready to embark on historic new flights<br/>Our footsteps advance towards grand new horizons...</span>`
+        },
+        {
+          badge: "Chorus Reprise",
+          icon: "repeat",
+          cls: "bg-surface-container-high/60 border border-outline-variant/30",
+          text: `<span class="text-[#142940] font-bold">I am Bharat, you are Bharat<br/>Within every one of us lives the spirit of Bharat...<br/>I am Bharat, you are Bharat<br/>Within every one of us lives the spirit of Bharat...</span>`
+        },
+        {
+          badge: "The Clarion Call of Swarnim Bharat",
+          icon: "campaign",
+          cls: "bg-gradient-to-r from-[#142940] to-[#1b3b5f] text-white shadow-md border border-[#d4af37]/40",
+          text: `The dawn... the dawn... the clarion proclamation is here!<br/>It is the sovereign dawn of Swarnim Bharat, oh...<br/>The dawn... the dawn... the clarion proclamation is here!<br/>It is the sovereign dawn of Swarnim Bharat, oh...<br/><span class="text-[#e9c349] tracking-wider font-extrabold">Awaken, awaken, awaken, awaken, yes!<br/>Awaken, awaken, awaken, awaken, yes!</span>`
+        }
+      ]
+    }
+  };
+
   document.addEventListener('DOMContentLoaded', function() {
-    // Lyric script toggle simulation
+    let currentScript = 'deva';
     const tabDeva = document.getElementById('tab-devanagari');
     const tabTrans = document.getElementById('tab-translit');
     const tabEng = document.getElementById('tab-english');
-    const allTabs = [tabDeva, tabTrans, tabEng];
+    const lyricPane = document.getElementById('lyric-content-pane');
+    const copyBtn = document.getElementById('copyLyricsBtn');
 
-    function selectTab(selected) {
-      allTabs.forEach(t => {
-        if (!t) return;
-        if (t === selected) {
-          t.className = "px-3 py-1 rounded-full bg-surface-container-lowest text-primary font-bold shadow-sm";
-        } else {
-          t.className = "px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-medium transition-colors";
-        }
-      });
+    function renderLyrics(key) {
+      currentScript = key;
+      const data = LYRICS_DATA[key];
+      if (!data || !lyricPane) return;
+      
+      lyricPane.innerHTML = data.cards.map(c => `
+        <div class="p-space-md rounded-xl ${c.cls} transition-all">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-label-sm text-[11px] text-tertiary font-bold tracking-widest uppercase flex items-center gap-1.5">
+              ${c.pulse ? '<span class="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>' : ''}
+              ${c.badge}
+            </span>
+            <span class="material-symbols-outlined text-[16px] text-tertiary">${c.icon}</span>
+          </div>
+          <p class="font-headline-sm text-title-md leading-relaxed font-semibold">
+            ${c.text}
+          </p>
+        </div>
+      `).join('');
     }
 
-    if (tabDeva) tabDeva.addEventListener('click', () => selectTab(tabDeva));
-    if (tabTrans) tabTrans.addEventListener('click', () => selectTab(tabTrans));
-    if (tabEng) tabEng.addEventListener('click', () => selectTab(tabEng));
+    function selectTab(key, btn) {
+      [tabDeva, tabTrans, tabEng].forEach(t => {
+        if (!t) return;
+        t.className = "px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-medium transition-colors";
+      });
+      if (btn) {
+        btn.className = "px-3 py-1 rounded-full bg-surface-container-lowest text-primary font-bold shadow-sm";
+      }
+      renderLyrics(key);
+    }
+
+    if (tabDeva) tabDeva.addEventListener('click', () => selectTab('deva', tabDeva));
+    if (tabTrans) tabTrans.addEventListener('click', () => selectTab('translit', tabTrans));
+    if (tabEng) tabEng.addEventListener('click', () => selectTab('english', tabEng));
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function() {
+        const textToCopy = LYRICS_DATA[currentScript]?.raw || '';
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          copyBtn.innerHTML = `
+            <span class="material-symbols-outlined text-[16px] text-emerald-600">check_circle</span>
+            <span class="text-emerald-700 font-bold">कॉपीड! / Copied!</span>
+          `;
+          setTimeout(() => {
+            copyBtn.innerHTML = `
+              <span class="material-symbols-outlined text-[16px]">content_copy</span>
+              <span>Copy Full Lyrics</span>
+            `;
+          }, 2500);
+        }).catch(err => {
+          console.error('Clipboard copy failed:', err);
+        });
+      });
+    }
   });
 </script></main><footer class="w-full bg-surface-container-low text-on-surface mt-space-xxl"><div class="h-1.5 w-full bg-gradient-to-r from-tertiary via-surface-container-lowest to-secondary"></div><div class="max-w-[1320px] mx-auto px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter"><div class="lg:col-span-4 space-y-space-md"><div class="flex items-center gap-space-sm"><img src="assets/logo-emblem.png" alt="स्वर्णिम भारत उदयघोष" class="h-12 w-auto max-w-[80px] object-contain drop-shadow-sm"/><div><span class="font-headline-sm text-title-md text-primary font-bold block leading-tight">स्वर्णिम भारत उदयघोष</span><span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-semibold">Viksit Bharat 2047</span></div></div><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">राष्ट्र निर्माण का महा-संकल्प: 140 करोड़ नागरिकों का सामूहिक पराक्रम, समर्पण और कर्तव्यनिष्ठा। विकसित भारत 2047 की ऐतिहासिक यात्रा में प्रत्येक भारतीय की भागीदारी ही हमारी शक्ति है।</p><div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container rounded-full text-secondary font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px] text-tertiary">flag</span><span>Rashtriya Sankalp Pariyojana</span></div></div><div class="lg:col-span-3 space-y-space-sm"><h3 class="font-headline-sm text-title-sm text-primary font-bold uppercase tracking-wider">Civic Architecture</h3><ul class="space-y-space-xs font-body-sm text-body-sm"><li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-primary">explore</span><span>Pravas Marg &amp; Yatras</span></li><li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-primary">group</span><span>Yuva Citizen Volunteers</span></li><li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-primary">workspace_premium</span><span>Rashtriya Samarpan Patra</span></li><li class="flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[14px] text-primary">hub</span><span>Gram &amp; Nagar Kendra</span></li></ul></div><div class="lg:col-span-2 space-y-space-sm"><h3 class="font-headline-sm text-title-sm text-primary font-bold uppercase tracking-wider">Navigation</h3><ul class="space-y-space-xs font-body-sm text-body-sm"><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="the-journey" href="the-journey.html">The Journey</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="3-pillars" href="three-pillars.html">3 Pillars</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="route-and-milestones" href="route-and-milestones.html">Route &amp; Milestones</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="take-pledge-and-scanner" href="take-pledge-and-scanner.html">Take Pledge</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="anthem-and-media" href="anthem-and-media.html">Anthem &amp; Media</a></li><li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="our-team" href="our-team.html">Our Core Team</a></li></ul></div><div class="lg:col-span-3 space-y-space-md"><div class="p-space-md bg-surface-container rounded-lg space-y-space-xs"><span class="font-label-md text-label-md text-primary uppercase font-bold block">Secretariat Helpline</span><p class="font-body-sm text-body-sm text-on-surface-variant">Toll-Free Civic Support Desk:<br/><span class="font-headline-sm text-title-md text-on-surface font-bold">1800-2047-BHARAT</span></p><p class="font-label-sm text-label-sm text-outline">Operational 24x7 across all official languages</p></div><div class="text-center md:text-left"><span class="font-headline-sm text-title-sm text-tertiary italic tracking-wider block">"सत्यमेव जयते | Truth Alone Triumphs"</span></div></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-outline"><p>© 2047 स्वर्णिम भारत उदयघोष. All Sovereign Rights Reserved.</p><div class="flex items-center gap-space-md"><span>National Portal of India</span><span>Civic Trust Protocol</span><span>Constitution of India</span></div></div></div></footer>
 <script id="swarnim-site-navigation">
