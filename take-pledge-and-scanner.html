@@ -786,7 +786,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 <span class="font-label-sm text-label-sm text-tertiary uppercase font-bold tracking-widest block">Live Citizen Affirmation Ticker</span>
 <div class="flex items-baseline gap-2">
 <span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight" id="pledgeCounter">
-  125
+  133
 </span>
 <span class="font-label-md text-label-md text-primary font-bold">100+ Live Verified</span>
 </div>
@@ -1032,15 +1032,36 @@ button,a{-webkit-tap-highlight-color:transparent}
       }, 40);
     })();
 
-    // 2. Real-Time Counter Control (Only increments on real pledge submit)
+    // 2. Real-Time Counter Control: Auto-increments every 5 minutes (हर 5 मिनट में +1)
+    const FIVE_MIN_MS = 5 * 60 * 1000;
+    const BASELINE_PLEDGE_COUNT = 133;
+
     function getPledgeCount() {
-      const stored = localStorage.getItem('swarnim_pledge_count');
-      const parsed = stored ? parseInt(stored, 10) : 125;
-      if (parsed > 10000 || parsed < 125) {
-        localStorage.setItem('swarnim_pledge_count', 125);
-        return 125;
+      const now = Date.now();
+      let count = parseInt(localStorage.getItem('swarnim_pledge_count'), 10);
+      let lastTick = parseInt(localStorage.getItem('swarnim_pledge_last_tick'), 10);
+
+      if (isNaN(count) || count < BASELINE_PLEDGE_COUNT || count > 500000) {
+        count = BASELINE_PLEDGE_COUNT;
+        lastTick = now;
+        localStorage.setItem('swarnim_pledge_count', count);
+        localStorage.setItem('swarnim_pledge_last_tick', lastTick);
       }
-      return parsed;
+
+      if (!lastTick || isNaN(lastTick)) {
+        lastTick = now;
+        localStorage.setItem('swarnim_pledge_last_tick', lastTick);
+      }
+
+      const elapsedTicks = Math.floor((now - lastTick) / FIVE_MIN_MS);
+      if (elapsedTicks > 0) {
+        count += elapsedTicks;
+        lastTick += elapsedTicks * FIVE_MIN_MS;
+        localStorage.setItem('swarnim_pledge_count', count);
+        localStorage.setItem('swarnim_pledge_last_tick', lastTick);
+      }
+
+      return count;
     }
 
     function setPledgeCount(val) {
@@ -1048,7 +1069,29 @@ button,a{-webkit-tap-highlight-color:transparent}
       if (counterEl) counterEl.innerText = val.toLocaleString('en-IN');
     }
 
+    function tickFiveMinScannerPage() {
+      let count = getPledgeCount() + 1;
+      const now = Date.now();
+      localStorage.setItem('swarnim_pledge_count', count);
+      localStorage.setItem('swarnim_pledge_last_tick', now);
+      setPledgeCount(count);
+    }
+
     setPledgeCount(getPledgeCount());
+
+    const lastTickTime = parseInt(localStorage.getItem('swarnim_pledge_last_tick'), 10) || Date.now();
+    const msUntilNextTick = Math.max(1000, FIVE_MIN_MS - ((Date.now() - lastTickTime) % FIVE_MIN_MS));
+    setTimeout(() => {
+      tickFiveMinScannerPage();
+      setInterval(tickFiveMinScannerPage, FIVE_MIN_MS);
+    }, msUntilNextTick);
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'swarnim_pledge_count' && e.newValue) {
+        const val = parseInt(e.newValue, 10);
+        if (!isNaN(val)) setPledgeCount(val);
+      }
+    });
 
     // Auto-scroll and focus if opened from QR code scan
     window.addEventListener('DOMContentLoaded', () => {
@@ -1197,6 +1240,7 @@ button,a{-webkit-tap-highlight-color:transparent}
       // Increment count ONLY upon real form submission/affirmation
       const nextCount = getPledgeCount() + 1;
       localStorage.setItem('swarnim_pledge_count', nextCount);
+      localStorage.setItem('swarnim_pledge_last_tick', Date.now());
       setPledgeCount(nextCount);
 
       // Generate clean sequential registry hash
