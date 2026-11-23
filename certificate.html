@@ -635,6 +635,9 @@
                 const urlName = urlParams.get('name');
                 const urlState = urlParams.get('state');
                 const urlVow = urlParams.get('vow');
+                const urlId = urlParams.get('id') || urlParams.get('pledgeId');
+                const urlPhone = urlParams.get('phone');
+                const urlEmail = urlParams.get('email');
 
                 const stored = sessionStorage.getItem('swarnim_cert_data');
                 let certData = stored ? JSON.parse(stored) : {};
@@ -643,6 +646,9 @@
                 if (urlState) certData.state = urlState;
                 if (urlVow) certData.vow = urlVow;
                 if (urlLang) certData.language = urlLang;
+                if (urlId) certData.pledgeId = urlId;
+                if (urlPhone) certData.phone = urlPhone;
+                if (urlEmail) certData.email = urlEmail;
 
                 if (certData.name) {
                     inputName.value = certData.name.toUpperCase();

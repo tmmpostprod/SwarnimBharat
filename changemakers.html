@@ -28,7 +28,9 @@ header nav[data-active-classes] a.active{background:#d4af37;color:#241a00;border
 img,video,iframe{max-width:100%}
 button,a{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid #a73a00;outline-offset:3px}
-</style></head>
+</style>
+<script src="assets/track-pledge.js"></script>
+</head>
 <body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
 
 <!-- Sovereign Site Header -->
@@ -53,6 +55,10 @@ button,a{-webkit-tap-highlight-color:transparent}
     </nav>
 
     <div class="flex items-center gap-3">
+      <button onclick="window.openTrackPledgeModal()" type="button" class="inline-flex items-center justify-center px-3 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface hover:text-primary transition-all font-label-md text-label-md border border-outline-variant/40 shadow-xs cursor-pointer">
+        <span class="material-symbols-outlined text-[18px] mr-1 text-tertiary">search</span>
+        <span class="hidden sm:inline">Track Pledge / </span><span>सर्टिफिकेट खोजें</span>
+      </button>
       <a class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-all font-label-md text-label-md shadow-[0_2px_8px_rgba(0,0,0,0.12)]" data-path="take-pledge-and-scanner" href="take-pledge-and-scanner.html">
         <span class="material-symbols-outlined text-[18px] mr-1.5 text-primary-fixed">assignment_turned_in</span>
         <span>संकल्प लें / Pledge</span>

@@ -157,9 +157,72 @@ function doPost(e) {
 function doGet(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var rowCount = Math.max(0, sheet.getLastRow() - 1);
+    var lastRow = sheet.getLastRow();
+    var rowCount = Math.max(0, lastRow - 1);
     var baseCount = 125;
     var totalCount = baseCount + rowCount;
+    
+    // Check if search query is provided (Search by Mobile Number or Pledge ID)
+    var query = (e && e.parameter && (e.parameter.query || e.parameter.search || e.parameter.q)) ? 
+                (e.parameter.query || e.parameter.search || e.parameter.q).toString().trim().toLowerCase() : '';
+
+    if (query && lastRow > 1) {
+      var data = sheet.getRange(2, 1, lastRow - 1, sheet.getLastColumn()).getValues();
+      var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(function(h) {
+        return h ? h.toString().toLowerCase().trim() : '';
+      });
+
+      // Find column indices
+      var colName = -1, colPhone = -1, colState = -1, colVow = -1, colEmail = -1, colPhoto = -1, colId = -1, colDate = 0;
+      for (var c = 0; c < headers.length; c++) {
+        var hc = headers[c];
+        if (hc.indexOf('name') !== -1 || hc.indexOf('नाम') !== -1) colName = c;
+        else if (hc.indexOf('phone') !== -1 || hc.indexOf('mobile') !== -1 || hc.indexOf('फ़ोन') !== -1 || hc.indexOf('फोन') !== -1) colPhone = c;
+        else if (hc.indexOf('state') !== -1 || hc.indexOf('राज्य') !== -1) colState = c;
+        else if (hc.indexOf('vow') !== -1 || hc.indexOf('focus') !== -1 || hc.indexOf('संकल्प') !== -1) colVow = c;
+        else if (hc.indexOf('email') !== -1 || hc.indexOf('ईमेल') !== -1) colEmail = c;
+        else if (hc.indexOf('photo') !== -1 || hc.indexOf('फोटो') !== -1) colPhoto = c;
+        else if (hc.indexOf('registry') !== -1 || hc.indexOf('id') !== -1 || hc.indexOf('hash') !== -1) colId = c;
+      }
+
+      // Search matching row (from newest to oldest)
+      for (var r = data.length - 1; r >= 0; r--) {
+        var row = data[r];
+        var rowPhone = (colPhone >= 0 && row[colPhone]) ? row[colPhone].toString().replace(/[^0-9]/g, '') : '';
+        var rowId = (colId >= 0 && row[colId]) ? row[colId].toString().toLowerCase() : ('sb-2047-' + (baseCount + r + 1));
+        var cleanQueryNum = query.replace(/[^0-9]/g, '');
+
+        var matched = false;
+        if (cleanQueryNum.length >= 6 && rowPhone.indexOf(cleanQueryNum) !== -1) {
+          matched = true;
+        } else if (rowId.indexOf(query) !== -1) {
+          matched = true;
+        }
+
+        if (matched) {
+          return ContentService
+            .createTextOutput(JSON.stringify({
+              status: "success",
+              found: true,
+              record: {
+                fullName: colName >= 0 ? row[colName] : '',
+                phone: colPhone >= 0 ? row[colPhone] : '',
+                state: colState >= 0 ? row[colState] : '',
+                vow: colVow >= 0 ? row[colVow] : '',
+                email: colEmail >= 0 ? row[colEmail] : '',
+                photoUrl: colPhoto >= 0 ? row[colPhoto] : '',
+                pledgeId: colId >= 0 ? row[colId] : ('SB-2047-' + (baseCount + r + 1)),
+                timestamp: row[colDate] ? row[colDate].toString() : ''
+              }
+            }))
+            .setMimeType(ContentService.MimeType.JSON);
+        }
+      }
+
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: "success", found: false, message: "No matching pledge found" }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
     
     return ContentService
       .createTextOutput(JSON.stringify({ 
