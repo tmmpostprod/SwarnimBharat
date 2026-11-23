@@ -29,6 +29,7 @@ img,video,iframe{max-width:100%}
 button,a{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid #a73a00;outline-offset:3px}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Sans+Oriya:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet"/><script src="assets/certificate-languages.js"></script>
 </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1320px] mx-auto px-margin-mobile md:px-space-lg lg:px-margin flex items-center justify-between"><a class="flex items-center gap-space-sm group text-left" href="index.html"><img src="assets/logo-emblem.png" alt="स्वर्णिम भारत उदयघोष" class="h-12 w-auto max-w-[80px] object-contain drop-shadow-sm transition-transform group-hover:scale-105"/><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface leading-none tracking-tight group-hover:text-primary transition-colors">स्वर्णिम भारत उदयघोष</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mt-0.5">Mera Desh, Meri Zimmedari</span></div></a><nav class="site-nav" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a data-site-nav="the-journey.html" href="the-journey.html">The Journey</a><a data-site-nav="three-pillars.html" href="three-pillars.html">3 Pillars</a><a data-site-nav="route-and-milestones.html" href="route-and-milestones.html">Route &amp; Milestones</a><a data-site-nav="changemakers.html" href="changemakers.html">Changemakers</a><a data-site-nav="take-pledge-and-scanner.html" href="take-pledge-and-scanner.html">Take Pledge &amp; Scanner</a><a data-site-nav="anthem-and-media.html" href="anthem-and-media.html">Anthem &amp; Media</a><a data-site-nav="our-team.html" href="our-team.html">Our Core Team</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-all font-label-md text-label-md shadow-[0_2px_8px_rgba(0,0,0,0.12)]" data-path="take-pledge-and-scanner" href="take-pledge-and-scanner.html"><span class="material-symbols-outlined text-[18px] mr-1.5 text-primary-fixed">assignment_turned_in</span><span>संकल्प लें / Pledge</span></a></div></div></header><main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
 <!-- Top Sovereign Tricolor Micro-Ribbon -->
 <div class="w-full h-1.5 bg-gradient-to-r from-tertiary via-surface-container-lowest to-secondary"></div>
@@ -423,6 +424,45 @@ button,a{-webkit-tap-highlight-color:transparent}
         <option value="Uttarakhand"></option>
         <option value="West Bengal"></option>
       </datalist>
+    </div>
+  </div>
+
+  <!-- Row 2.5: Certificate Language -->
+  <div class="grid grid-cols-1 gap-space-sm">
+    <!-- Certificate Language Selector (22 Scheduled Languages + English) -->
+    <div>
+      <label class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold flex items-center gap-1">
+        <span class="material-symbols-outlined text-[16px] text-primary">translate</span>
+        प्रमाण पत्र की भाषा (Certificate Language) <span class="text-tertiary">*</span>
+      </label>
+      <div class="relative mt-1">
+        <select class="w-full pl-3 pr-8 py-2.5 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm outline-none border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary transition-all cursor-pointer font-medium" id="cert_language" required>
+          <option value="hi" selected>हिन्दी (Hindi)</option>
+<option value="en">English</option>
+<option value="bn">বাংলা (Bengali)</option>
+<option value="te">తెలుగు (Telugu)</option>
+<option value="mr">मराठी (Marathi)</option>
+<option value="ta">தமிழ் (Tamil)</option>
+<option value="gu">ગુજરાતી (Gujarati)</option>
+<option value="ur">اردو (Urdu)</option>
+<option value="kn">ಕನ್ನಡ (Kannada)</option>
+<option value="or">ଓଡ଼ିଆ (Odia)</option>
+<option value="ml">മലയാളം (Malayalam)</option>
+<option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+<option value="as">অসমীয়া (Assamese)</option>
+<option value="sa">संस्कृतम् (Sanskrit)</option>
+<option value="mai">मैथिली (Maithili)</option>
+<option value="sat">संताली (Santali)</option>
+<option value="ks">कॉशुर / کٲشُر (Kashmiri)</option>
+<option value="ne">नेपाली (Nepali)</option>
+<option value="kok">कोंकणी (Konkani)</option>
+<option value="sd">सिन्धी / سنڌي (Sindhi)</option>
+<option value="doi">डोगरी (Dogri)</option>
+<option value="brx">बर' (Bodo)</option>
+<option value="mni">মৈতৈলোন্ (Manipuri)</option>
+        </select>
+        <span class="material-symbols-outlined text-[18px] text-outline absolute right-2.5 top-2.5 pointer-events-none">expand_more</span>
+      </div>
     </div>
   </div>
 
@@ -1241,10 +1281,12 @@ button,a{-webkit-tap-highlight-color:transparent}
       const pledgeId = 'SB-2047-0' + nextCount;
 
       // Construct Certificate Data and store in sessionStorage for the new tab
+      const certLanguage = document.getElementById('cert_language') ? document.getElementById('cert_language').value : 'hi';
       const certData = {
         name: fullName,
         state: state,
         vow: vowFocus,
+        language: certLanguage,
         pledgeId: pledgeId,
         photoBase64: photoBase64,
         timestamp: (new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase() + ' • IST')
@@ -1477,6 +1519,17 @@ button,a{-webkit-tap-highlight-color:transparent}
       if (!isNaN(val)) setCounterText(val);
     }
   });
+
+    // Real-time language listener for on-page preview card
+  const certLangSelect = document.getElementById('cert_language');
+  if (certLangSelect) {
+    certLangSelect.addEventListener('change', function() {
+      const card = document.getElementById('blankCertCard');
+      if (card && window.applyCertificateLanguageToDOM) {
+        window.applyCertificateLanguageToDOM(this.value, card);
+      }
+    });
+  }
 
   // 4. प्रमाण पत्र डाउनलोड फंक्शन (Personalized Certificate PNG)
   window.downloadCertificateImage = function() {

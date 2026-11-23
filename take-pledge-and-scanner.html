@@ -302,6 +302,7 @@ button,a{-webkit-tap-highlight-color:transparent}
   }
 }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Sans+Oriya:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet"/><script src="assets/certificate-languages.js"></script>
 </head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1320px] mx-auto px-gutter flex items-center justify-between gap-space-md"><a class="flex items-center gap-space-sm group text-left" href="index.html"><img src="assets/logo-emblem.png" alt="स्वर्णिम भारत उदयघोष" class="h-12 w-auto max-w-[80px] object-contain drop-shadow-sm transition-transform group-hover:scale-105"/><div class="flex flex-col"><span class="font-headline-sm text-title-md text-primary tracking-tight font-bold leading-tight group-hover:text-primary transition-colors">स्वर्णिम भारत उदयघोष</span><span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-semibold">Mera Desh, Meri Zimmedari</span></div></a><nav class="site-nav" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a data-site-nav="the-journey.html" href="the-journey.html">The Journey</a><a data-site-nav="three-pillars.html" href="three-pillars.html">3 Pillars</a><a data-site-nav="route-and-milestones.html" href="route-and-milestones.html">Route &amp; Milestones</a><a data-site-nav="changemakers.html" href="changemakers.html">Changemakers</a><a data-site-nav="take-pledge-and-scanner.html" href="take-pledge-and-scanner.html">Take Pledge &amp; Scanner</a><a data-site-nav="anthem-and-media.html" href="anthem-and-media.html">Anthem &amp; Media</a><a data-site-nav="our-team.html" href="our-team.html">Our Core Team</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-all font-label-md text-label-md shadow-[0_2px_8px_rgba(0,0,0,0.12)]" data-path="take-pledge-and-scanner" href="take-pledge-and-scanner.html"><span class="material-symbols-outlined text-[18px] mr-1.5 text-primary-fixed">assignment_turned_in</span><span>संकल्प लें / Pledge</span></a></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
 <!-- Top Sovereign Tricolor Ribbon -->
 <div class="w-full h-1 bg-gradient-to-r from-tertiary via-surface-container-lowest to-secondary"></div>
@@ -416,7 +417,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 </div>
 <!-- The Pledging Form -->
 <form class="space-y-space-md" id="pledgeForm" onsubmit="event.preventDefault(); window.affirmPledge();">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
 <!-- Citizen Full Name -->
 <div class="flex flex-col space-y-1">
 <label class="font-label-md text-label-md text-on-surface font-bold" for="fullName">
@@ -453,6 +454,41 @@ button,a{-webkit-tap-highlight-color:transparent}
 <option value="Jammu &amp; Kashmir">Jammu &amp; Kashmir</option>
 <option value="Ladakh">Ladakh</option>
 <option value="Other States/UTs">Other State / Overseas Citizen</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Certificate Language Selection (22 Scheduled Languages) -->
+<div class="flex flex-col space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-bold" for="pledgeCertLanguage">
+  Certificate Language / प्रमाण पत्र की भाषा <span class="text-tertiary">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[20px]">translate</span>
+<select class="w-full pl-10 pr-8 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner appearance-none cursor-pointer" id="pledgeCertLanguage" required="">
+  <option value="hi" selected>हिन्दी (Hindi)</option>
+  <option value="en">English</option>
+  <option value="bn">বাংলা (Bengali)</option>
+  <option value="te">తెలుగు (Telugu)</option>
+  <option value="mr">मराठी (Marathi)</option>
+  <option value="ta">தமிழ் (Tamil)</option>
+  <option value="gu">ગુજરાતી (Gujarati)</option>
+  <option value="ur">اردو (Urdu)</option>
+  <option value="kn">ಕನ್ನಡ (Kannada)</option>
+  <option value="or">ଓଡ଼ିଆ (Odia)</option>
+  <option value="ml">മലയാളം (Malayalam)</option>
+  <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+  <option value="as">অসমীয়া (Assamese)</option>
+  <option value="sa">संस्कृतम् (Sanskrit)</option>
+  <option value="mai">मैथिली (Maithili)</option>
+  <option value="sat">संताली (Santali)</option>
+  <option value="ks">कॉशुर / کٲشُر (Kashmiri)</option>
+  <option value="ne">नेपाली (Nepali)</option>
+  <option value="kok">कोंकणी (Konkani)</option>
+  <option value="sd">सिन्धी / سنڌي (Sindhi)</option>
+  <option value="doi">डोगरी (Dogri)</option>
+  <option value="brx">बर' (Bodo)</option>
+  <option value="mni">মৈতৈলোন্ (Manipuri)</option>
 </select>
 <span class="material-symbols-outlined absolute right-3 top-3 text-outline pointer-events-none text-[20px]">expand_more</span>
 </div>
@@ -1093,6 +1129,17 @@ button,a{-webkit-tap-highlight-color:transparent}
       }
     });
 
+        // Multi-lingual Certificate Handling (22 Scheduled Languages)
+    const pledgeCertLanguageEl = document.getElementById('pledgeCertLanguage');
+    if (pledgeCertLanguageEl) {
+      pledgeCertLanguageEl.addEventListener('change', function() {
+        const certCard = document.getElementById('mainCertificateCard');
+        if (certCard && window.applyCertificateLanguageToDOM) {
+          window.applyCertificateLanguageToDOM(this.value, certCard);
+        }
+      });
+    }
+
     // Auto-scroll and focus if opened from QR code scan
     window.addEventListener('DOMContentLoaded', () => {
       if (window.location.hash === '#pledgeForm' || window.location.search.includes('source=qr')) {
@@ -1224,6 +1271,11 @@ button,a{-webkit-tap-highlight-color:transparent}
         pillarDisplay = `🇮🇳 ${pillar}`;
       }
       document.getElementById('certPillarName').innerText = pillarDisplay;
+      const chosenLang = document.getElementById('pledgeCertLanguage') ? document.getElementById('pledgeCertLanguage').value : 'hi';
+      const certCard = document.getElementById('mainCertificateCard');
+      if (certCard && window.applyCertificateLanguageToDOM) {
+        window.applyCertificateLanguageToDOM(chosenLang, certCard);
+      }
 
       // Update Certificate Photo
       const certPhoto = document.getElementById('certPhotoDisplay');
@@ -1275,6 +1327,7 @@ button,a{-webkit-tap-highlight-color:transparent}
         email: email,
         state: state,
         vow: pillar,
+        language: chosenLang,
         pledgeId: newHash,
         photoBase64: userUploadedPhotoBase64,
         timestamp: fullTimestamp
@@ -1590,6 +1643,7 @@ button,a{-webkit-tap-highlight-color:transparent}
       const state = document.getElementById('certState') ? document.getElementById('certState').innerText.trim() : 'Bharat';
       let pillar = document.getElementById('certPillarName') ? document.getElementById('certPillarName').innerText.trim() : 'Viksit Bharat';
       pillar = pillar.replace(/^[🇮🇳🌿⚖️🛕]\s*/, '');
+      const chosenLang = document.getElementById('pledgeCertLanguage') ? document.getElementById('pledgeCertLanguage').value : 'hi';
       const regId = document.getElementById('certHash') ? document.getElementById('certHash').innerText.trim() : 'SB-2047-0125';
       const mobile = document.getElementById('contactMobile') ? document.getElementById('contactMobile').value.trim() : '';
       const email = document.getElementById('contactEmail') ? document.getElementById('contactEmail').value.trim() : '';
@@ -1600,6 +1654,7 @@ button,a{-webkit-tap-highlight-color:transparent}
         email: email,
         state: state,
         vow: pillar,
+        language: chosenLang,
         pledgeId: regId,
         photoBase64: userUploadedPhotoBase64,
         timestamp: dateStr

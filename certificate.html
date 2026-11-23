@@ -336,6 +336,7 @@
             }
         }
     </style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Gujarati:wght@400;600;700&family=Noto+Sans+Gurmukhi:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Sans+Oriya:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet"/><script src="assets/certificate-languages.js"></script>
 </head>
 <body class="text-gray-800 font-sans">
 
@@ -410,6 +411,40 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">State / Province (राज्य) *</label>
                     <input type="text" id="input-state" value="State" placeholder="Enter state/UT" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition font-semibold">
+                </div>
+
+                                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">
+                        <span class="inline-flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[16px] text-goldDark">translate</span>
+                            Certificate Language (प्रमाण पत्र की भाषा) *
+                        </span>
+                    </label>
+                    <select id="input-language" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition bg-white font-medium">
+                        <option value="hi" selected>हिन्दी (Hindi)</option>
+<option value="en">English</option>
+<option value="bn">বাংলা (Bengali)</option>
+<option value="te">తెలుగు (Telugu)</option>
+<option value="mr">मराठी (Marathi)</option>
+<option value="ta">தமிழ் (Tamil)</option>
+<option value="gu">ગુજરાતી (Gujarati)</option>
+<option value="ur">اردو (Urdu)</option>
+<option value="kn">ಕನ್ನಡ (Kannada)</option>
+<option value="or">ଓଡ଼ିଆ (Odia)</option>
+<option value="ml">മലയാളം (Malayalam)</option>
+<option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+<option value="as">অসমীয়া (Assamese)</option>
+<option value="sa">संस्कृतम् (Sanskrit)</option>
+<option value="mai">मैथिली (Maithili)</option>
+<option value="sat">संताली (Santali)</option>
+<option value="ks">कॉशुर / کٲشُر (Kashmiri)</option>
+<option value="ne">नेपाली (Nepali)</option>
+<option value="kok">कोंकणी (Konkani)</option>
+<option value="sd">सिन्धी / سنڌي (Sindhi)</option>
+<option value="doi">डोगरी (Dogri)</option>
+<option value="brx">बर' (Bodo)</option>
+<option value="mni">মৈতৈলোন্ (Manipuri)</option>
+                    </select>
                 </div>
 
                 <div>
@@ -583,6 +618,7 @@
             const inputPhoto = document.getElementById('input-photo');
             const inputPhotoFile = document.getElementById('input-photo-file');
             const inputHash = document.getElementById('input-hash');
+            const inputLanguage = document.getElementById('input-language');
 
             const certName = document.getElementById('cert-name');
             const certState = document.getElementById('cert-state');
@@ -592,61 +628,77 @@
             const randomIdEl = document.getElementById('random-id');
             const currentDateEl = document.getElementById('current-date');
             
-            // Auto-populate from sessionStorage if redirected from pledge submission
+            // Auto-populate from URL params or sessionStorage if redirected from pledge submission
             try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+                const urlName = urlParams.get('name');
+                const urlState = urlParams.get('state');
+                const urlVow = urlParams.get('vow');
+
                 const stored = sessionStorage.getItem('swarnim_cert_data');
-                if (stored) {
-                    const certData = JSON.parse(stored);
-                    if (certData.name) {
-                        inputName.value = certData.name.toUpperCase();
-                        certName.textContent = certData.name.toUpperCase();
-                    }
-                    if (certData.phone && inputPhone) {
-                        inputPhone.value = certData.phone;
-                    }
-                    if (certData.email && inputEmail) {
-                        inputEmail.value = certData.email;
-                    }
-                    if (certData.state) {
-                        inputState.value = certData.state;
-                        certState.textContent = certData.state;
-                    }
-                    if (certData.vow) {
-                        let matched = false;
-                        for (let i = 0; i < inputPledge.options.length; i++) {
-                            if (inputPledge.options[i].value.includes(certData.vow)) {
-                                inputPledge.selectedIndex = i;
-                                certPledge.textContent = inputPledge.options[i].value;
-                                matched = true;
-                                break;
-                            }
-                        }
-                        if (!matched) {
-                            inputPledge.value = 'custom';
-                            customPledgeContainer.classList.remove('hidden');
-                            inputCustomPledge.value = certData.vow;
-                            certPledge.textContent = certData.vow;
+                let certData = stored ? JSON.parse(stored) : {};
+
+                if (urlName) certData.name = urlName;
+                if (urlState) certData.state = urlState;
+                if (urlVow) certData.vow = urlVow;
+                if (urlLang) certData.language = urlLang;
+
+                if (certData.name) {
+                    inputName.value = certData.name.toUpperCase();
+                    certName.textContent = certData.name.toUpperCase();
+                }
+                if (certData.phone && inputPhone) {
+                    inputPhone.value = certData.phone;
+                }
+                if (certData.email && inputEmail) {
+                    inputEmail.value = certData.email;
+                }
+                if (certData.state) {
+                    inputState.value = certData.state;
+                    certState.textContent = certData.state;
+                }
+                if (certData.vow) {
+                    let matched = false;
+                    for (let i = 0; i < inputPledge.options.length; i++) {
+                        if (inputPledge.options[i].value.includes(certData.vow)) {
+                            inputPledge.selectedIndex = i;
+                            certPledge.textContent = inputPledge.options[i].value;
+                            matched = true;
+                            break;
                         }
                     }
-                    if (certData.pledgeId) {
-                        const cleanId = certData.pledgeId.replace(/^SB-2047-/, '');
-                        randomIdEl.textContent = cleanId;
-                        inputHash.value = certData.pledgeId;
+                    if (!matched) {
+                        inputPledge.value = 'custom';
+                        customPledgeContainer.classList.remove('hidden');
+                        inputCustomPledge.value = certData.vow;
+                        certPledge.textContent = certData.vow;
                     }
-                    if (certData.photoBase64) {
-                        certPhoto.src = certData.photoBase64;
-                        certPhoto.style.objectFit = 'cover';
-                        certPhoto.style.padding = '0';
-                    }
-                    if (certData.timestamp) {
-                        currentDateEl.textContent = certData.timestamp;
-                    }
+                }
+                if (certData.pledgeId) {
+                    const cleanId = certData.pledgeId.replace(/^SB-2047-/, '');
+                    randomIdEl.textContent = cleanId;
+                    inputHash.value = certData.pledgeId;
+                }
+                if (certData.photoBase64) {
+                    certPhoto.src = certData.photoBase64;
+                    certPhoto.style.objectFit = 'cover';
+                    certPhoto.style.padding = '0';
+                }
+                if (certData.timestamp) {
+                    currentDateEl.textContent = certData.timestamp;
                 } else {
                     const dateStr = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
                     currentDateEl.textContent = `${dateStr} • IST`;
                     const storedCount = localStorage.getItem('swarnim_pledge_count') || '0129';
                     randomIdEl.textContent = storedCount.padStart ? storedCount.padStart(4, '0') : storedCount;
                     inputHash.value = `SB-2047-${storedCount}`;
+                }
+                if (certData.language && inputLanguage) {
+                    inputLanguage.value = certData.language;
+                }
+                if (window.applyCertificateLanguageToDOM) {
+                    window.applyCertificateLanguageToDOM(certData.language || 'hi');
                 }
             } catch (err) {
                 console.warn('Session data read error:', err);
@@ -665,6 +717,20 @@
             }
             if (inputPhone) inputPhone.addEventListener('input', syncContactToSession);
             if (inputEmail) inputEmail.addEventListener('input', syncContactToSession);
+            if (inputLanguage) {
+                inputLanguage.addEventListener('change', function() {
+                    if (window.applyCertificateLanguageToDOM) {
+                        window.applyCertificateLanguageToDOM(this.value);
+                    }
+                    try {
+                        let certData = {};
+                        const stored = sessionStorage.getItem('swarnim_cert_data');
+                        if (stored) certData = JSON.parse(stored);
+                        certData.language = this.value;
+                        sessionStorage.setItem('swarnim_cert_data', JSON.stringify(certData));
+                    } catch (e) {}
+                });
+            }
 
             // Update Certificate Functions
             function updateName() {
