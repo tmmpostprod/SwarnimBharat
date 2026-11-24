@@ -37,7 +37,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "title": "National Sovereign Pledge Certificate",
     "subtitle": "Amrit Kaal to Centennial Dawn • 1947 — 2047",
     "citation": "This is to solemnly certify that proud citizen",
-    "pledgeLead": "has solemnly undertaken the Sacred Sovereign Pledge, dedicating personal duty, civic resolve, and unwavering dedication towards realizing Viksit Bharat 2047:",
+    "pledgeLead": "has solemnly undertaken the Sacred Sovereign Pledge, dedicating personal duty, civic resolve, and unwavering dedication towards realizing Swarnim Bharat 2047:",
     "pledgeQuote": "“Main Bhi Bharat, Tum Bhi Bharat — Together We Forge 2047”",
     "pillars": {
       "kartavya": "⚖️ Kartavya & Civic Duty",
