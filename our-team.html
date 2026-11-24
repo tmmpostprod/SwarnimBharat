@@ -133,7 +133,7 @@ button,a{-webkit-tap-highlight-color:transparent}
     <div class="flex items-center gap-2 overflow-x-auto scrollbar-none py-1 flex-1 min-w-0" id="categoryPills" role="tablist" aria-label="Team categories"></div>
     <div class="relative w-full sm:w-72 md:w-80 flex-shrink-0">
       <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
-      <input type="text" id="teamSearchInput" autocomplete="off" placeholder="नाम, पद या ईमेल से खोजें / Search" aria-label="Search team" class="w-full pl-10 pr-9 py-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60 focus:border-primary focus:outline-none font-body-sm text-sm text-on-surface placeholder:text-outline/80"/>
+      <input type="text" id="teamSearchInput" autocomplete="off" placeholder="नाम या पद से खोजें / Search" aria-label="Search team" class="w-full pl-10 pr-9 py-2.5 bg-surface-container-lowest rounded-lg border border-outline-variant/60 focus:border-primary focus:outline-none font-body-sm text-sm text-on-surface placeholder:text-outline/80"/>
       <button id="clearSearchBtn" aria-label="Clear search" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-surface-container text-outline hover:text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-[14px]">close</span></button>
     </div>
   </div>
@@ -201,6 +201,7 @@ const CATS = [
 ];
 
 let activeCat = 'all';
+const SHOW_TEAM_EMAIL = false; // Set to true whenever emails should be visible in future
 
 function esc(s){
   return (s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -218,7 +219,7 @@ function card(m, idx) {
         </div>
       </div>
 
-      <!-- 2. Details Stack: Designation English -> Name HINDI ONLY -> Email ONLY -->
+      <!-- 2. Details Stack: Designation English -> Name HINDI ONLY -> Email (Hidden by default) -->
       <div class="space-y-1 w-full max-w-[260px]">
         <!-- Designation in English (Top line) -->
         <span class="font-label-sm text-[11px] sm:text-xs uppercase tracking-wider text-[#a73a00] font-bold block min-h-[26px] flex items-center justify-center leading-tight">
@@ -230,11 +231,12 @@ function card(m, idx) {
           ${esc(m.h)}
         </h3>
 
-        <!-- Email ONLY (Bottom line, Clickable Mailto with small icon) -->
+        <!-- Email ONLY (Hidden by default; can be enabled anytime by setting SHOW_TEAM_EMAIL = true) -->
+        ${SHOW_TEAM_EMAIL && m.e ? `
         <a href="mailto:${esc(m.e)}" class="inline-flex items-center gap-1.5 font-label-md text-xs sm:text-sm font-medium text-[#1b3b5f]/75 hover:text-[#a73a00] hover:underline transition-colors mt-2 py-0.5 px-2.5 rounded-full hover:bg-surface-container-high" title="${esc(m.e)}">
           <span class="material-symbols-outlined text-[15px] text-[#a73a00]">mail</span>
           <span class="truncate max-w-[190px]">${esc(m.e)}</span>
-        </a>
+        </a>` : ''}
       </div>
     </div>
   `;
