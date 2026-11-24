@@ -22,10 +22,10 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "पंजीकरण संख्या",
       "date": "दिनांक व समय",
-      "secretariat": "राष्ट्रीय सचिवालय",
+      "secretariat": "समन्वय समिति (Coordination Desk)",
       "delhi": "नई दिल्ली (New Delhi)",
-      "seal": "संप्रभु मुहर",
-      "authority": "अधिकृत संप्रभु हस्ताक्षर"
+      "seal": "नागरिक मुहर",
+      "authority": "अधिकृत हस्ताक्षर"
     }
   },
   "en": {
@@ -34,10 +34,10 @@ const SWARNIM_CERT_LANGUAGES = {
     "font": "'Playfair Display', 'Noto Sans', serif",
     "org": "SWARNIM BHARAT UDAYGHOSH",
     "motto": "MERA DESH, MERI ZIMMEDARI",
-    "title": "National Sovereign Pledge Certificate",
+    "title": "National Citizen Pledge Certificate",
     "subtitle": "Amrit Kaal to Centennial Dawn • 1947 — 2047",
     "citation": "This is to solemnly certify that proud citizen",
-    "pledgeLead": "has solemnly undertaken the Sacred Sovereign Pledge, dedicating personal duty, civic resolve, and unwavering dedication towards realizing Swarnim Bharat 2047:",
+    "pledgeLead": "has solemnly undertaken the National Citizen Pledge, dedicating personal duty, civic resolve, and unwavering dedication towards realizing Swarnim Bharat 2047:",
     "pledgeQuote": "“Main Bhi Bharat, Tum Bhi Bharat — Together We Forge 2047”",
     "pillars": {
       "kartavya": "⚖️ Kartavya & Civic Duty",
@@ -48,9 +48,9 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "REGISTRY IDENTIFIER",
       "date": "DATE & TIMESTAMP",
-      "secretariat": "NATIONAL SECRETARIAT",
+      "secretariat": "COORDINATION DESK",
       "delhi": "New Delhi, Bharat",
-      "seal": "SOVEREIGN SEAL",
+      "seal": "CITIZEN SEAL",
       "authority": "AUTHORIZED SIGNATORY"
     }
   },
@@ -74,7 +74,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "নিবন্ধন ক্রমিক",
       "date": "তারিখ ও সময়",
-      "secretariat": "জাতীয় সচিবালয়",
+      "secretariat": "সমন্বয় ডেস্ক (Coordination Desk)",
       "delhi": "নতুন দিল্লি",
       "seal": "সার্বভৌম সিলমোহর",
       "authority": "অনুমোদিত স্বাক্ষরকারী"
@@ -100,7 +100,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "రిజిస్ట్రీ సంఖ్య",
       "date": "తేదీ & సమయం",
-      "secretariat": "జాతీయ సచివాలయం",
+      "secretariat": "సమన్వయ డెస్క్ (Coordination Desk)",
       "delhi": "న్యూ ఢిల్లీ",
       "seal": "సార్వభౌమ ముద్ర",
       "authority": "అధీకృత సంతకం"
@@ -126,7 +126,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "नोंदणी क्रमांक",
       "date": "दिनांक व वेळ",
-      "secretariat": "राष्ट्रीय सचिवालय",
+      "secretariat": "समन्वय समिति (Coordination Desk)",
       "delhi": "नवी दिल्ली",
       "seal": "सार्वभौम मुद्रा",
       "authority": "अधिकृत स्वाक्षरी"
@@ -152,7 +152,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "பதிவு எண்",
       "date": "தேதி & நேரம்",
-      "secretariat": "தேசிய செயலகம்",
+      "secretariat": "ஒருங்கிணைப்பு மையம் (Coordination Desk)",
       "delhi": "புது தில்லி",
       "seal": "இறையாண்மை முத்திரை",
       "authority": "அங்கீகரிக்கப்பட்ட கையொப்பம்"
@@ -178,7 +178,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "નોંધણી ક્રમાંક",
       "date": "તારીખ અને સમય",
-      "secretariat": "રાષ્ટ્રીય સચિવાલય",
+      "secretariat": "સંકલન ડેસ્ક (Coordination Desk)",
       "delhi": "નવી દિલ્હી",
       "seal": "સાર્વભૌમ મુદ્રા",
       "authority": "અધિકૃત હસ્તાક્ષર"
@@ -204,7 +204,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "ನೋಂದಣಿ ಸಂಖ್ಯೆ",
       "date": "ದಿನಾಂಕ & ಸಮಯ",
-      "secretariat": "ರಾಷ್ಟ್ರೀಯ ಸಚಿವಾಲಯ",
+      "secretariat": "ಸಮನ್ವಯ ಡೆಸ್ಕ್ (Coordination Desk)",
       "delhi": "ನವದೆಹಲಿ",
       "seal": "ಸಾರ್ವಭೌಮ ಮುದ್ರೆ",
       "authority": "ಅಧಿಕೃತ ಸಹಿದಾರರು"
@@ -230,7 +230,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "രജിസ്ട്രി നമ്പർ",
       "date": "തീയതി & സമയം",
-      "secretariat": "ദേശീയ സെക്രട്ടേറിയറ്റ്",
+      "secretariat": "കോർഡിനേഷൻ ഡെസ്ക് (Coordination Desk)",
       "delhi": "ന്യൂഡൽഹി",
       "seal": "പരമാധികാര മുദ്ര",
       "authority": "അധികൃത ഒപ്പ്"
@@ -256,7 +256,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "ਰਜਿਸਟਰੀ ਨੰਬਰ",
       "date": "ਮਿਤੀ ਅਤੇ ਸਮਾਂ",
-      "secretariat": "ਰਾਸ਼ਟਰੀ ਸਕੱਤਰੇਤ",
+      "secretariat": "ਤਾਲਮੇਲ ਡੈਸਕ (Coordination Desk)",
       "delhi": "ਨਵੀਂ ਦਿੱਲੀ",
       "seal": "ਪ੍ਰਭੂਸੱਤਾ ਮੋਹਰ",
       "authority": "ਅਧਿਕਾਰਤ ਦਸਤਖਤ"
@@ -282,7 +282,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "ପଞ୍ଜୀକରଣ କ୍ରମାଙ୍କ",
       "date": "ତାରିଖ ଓ ସମୟ",
-      "secretariat": "ଜାତୀୟ ସଚିବାଳୟ",
+      "secretariat": "ସମନ୍ୱୟ ଡେସ୍କ (Coordination Desk)",
       "delhi": "ନୂଆଦିଲ୍ଲୀ",
       "seal": "ସାର୍ବଭୌମ ମୋହର",
       "authority": "ଅଧିକୃତ ସ୍ୱାକ୍ଷରକାରୀ"
@@ -308,7 +308,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "পঞ্জীয়ন নম্বৰ",
       "date": "তাৰিখ আৰু সময়",
-      "secretariat": "ৰাষ্ট্ৰীয় সচিবালয়",
+      "secretariat": "সমন্বয় ডেস্ক (Coordination Desk)",
       "delhi": "নতুন দিল্লী",
       "seal": "সাৰ্বভৌম ছীলমোহৰ",
       "authority": "অনুমোদিত স্বাক্ষৰকাৰী"
@@ -335,7 +335,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "رجسٹریشن نمبر",
       "date": "تاریخ و وقت",
-      "secretariat": "قومی سیکرٹریٹ",
+      "secretariat": "کوآرڈینیشن ڈیسک (Coordination Desk)",
       "delhi": "نئی دہلی",
       "seal": "خود مختار مہر",
       "authority": "مجاز دستخط کنندہ"
@@ -361,7 +361,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "पञ्जीकरणक्रमाङ्कः",
       "date": "दिनाङ्कः समयश्च",
-      "secretariat": "राष्ट्रियसचिवालयः",
+      "secretariat": "समन्वय-केन्द्रम् (Coordination Desk)",
       "delhi": "नवदेहली",
       "seal": "सार्वभौमिकमुद्रा",
       "authority": "अधिकृतहस्ताक्षरम्"
@@ -387,9 +387,9 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "पंजीकरण संख्या",
       "date": "दिनांक व समय",
-      "secretariat": "राष्ट्रीय सचिवालय",
+      "secretariat": "समन्वय समिति (Coordination Desk)",
       "delhi": "नबका दिल्ली",
-      "seal": "संप्रभु मुहर",
+      "seal": "नागरिक मुहर",
       "authority": "अधिकृत हस्ताक्षर"
     }
   },
@@ -413,7 +413,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "ᱨᱮᱡᱤᱥᱴᱨᱤ ᱮᱞ",
       "date": "ᱢᱟᱹᱦᱤᱛ ᱟᱨ ᱚᱠᱛᱚ",
-      "secretariat": "ᱫᱤᱥᱚᱢ ᱥᱩᱛᱨᱮᱛ ᱚᱲᱟᱜ",
+      "secretariat": "ᱡᱚᱲᱟᱣ ᱰᱮᱥᱠ (Coordination Desk)",
       "delhi": "ᱱᱟᱣᱟ ᱫᱤᱞᱞᱤ",
       "seal": "ᱥᱟᱨᱵᱚᱵᱷᱳᱣᱢ ᱪᱷᱟᱯ",
       "authority": "ᱟᱹᱭᱫᱟᱹᱨᱤ ᱥᱩᱦᱤ"
@@ -439,7 +439,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "رجسٹریشن نمبر",
       "date": "تاریخ تہٕ وقت",
-      "secretariat": "قومی سیکرٹریٹ",
+      "secretariat": "کوآرڈینیشن ڈیسک (Coordination Desk)",
       "delhi": "نئی دہلی",
       "seal": "سرکاری مہر",
       "authority": "دستخط"
@@ -465,7 +465,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "दर्ता नम्बर",
       "date": "मिति र समय",
-      "secretariat": "राष्ट्रिय सचिवालय",
+      "secretariat": "समन्वय डेस्क (Coordination Desk)",
       "delhi": "नयाँ दिल्ली",
       "seal": "सार्वभौम छाप",
       "authority": "अधिकृत हस्ताक्षर"
@@ -491,7 +491,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "नोंदणी क्रमांक",
       "date": "तारीख आनी वेळ",
-      "secretariat": "राष्ट्रीय सचिवालय",
+      "secretariat": "समन्वय समिति (Coordination Desk)",
       "delhi": "नवी दिल्ली",
       "seal": "सार्वभौम मुद्रा",
       "authority": "अधिकृत सही"
@@ -517,7 +517,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "رجسٽريشن نمبر",
       "date": "تاريخ ۽ وقت",
-      "secretariat": "قومي سيڪريٽريٽ",
+      "secretariat": "ڪوآرڊينيشن ڊيسڪ (Coordination Desk)",
       "delhi": "نئين دهلي",
       "seal": "خودمختيار مهر",
       "authority": "مجاز صحيح"
@@ -543,9 +543,9 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "पंजीकरण नंबर",
       "date": "तरीक ते समां",
-      "secretariat": "राष्ट्रीय सचिवालय",
+      "secretariat": "समन्वय समिति (Coordination Desk)",
       "delhi": "नमीं दिल्ली",
-      "seal": "संप्रभु मुहर",
+      "seal": "नागरिक मुहर",
       "authority": "अधिकृत दस्तखत"
     }
   },
@@ -569,7 +569,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "रेजिष्ट्रेसन अनजिमा",
       "date": "सान आरो अक्ट'",
-      "secretariat": "हादरआरि सेक्रेटेरियेट",
+      "secretariat": "समनवय डेस्क (Coordination Desk)",
       "delhi": "गोदान दिल्ली",
       "seal": "राजआरि मोहर",
       "authority": "गोनायथि साखि"
@@ -595,7 +595,7 @@ const SWARNIM_CERT_LANGUAGES = {
     "labels": {
       "registry": "রেজিষ্ট্রেশন নম্বর",
       "date": "তারিখ অমসুং মতম",
-      "secretariat": "লৈবাক্কী সেক্রেটারিয়েট",
+      "secretariat": "কোওর্ডিনেশন দেস্ক (Coordination Desk)",
       "delhi": "অনৌবা দিল্লী",
       "seal": "অফিসিয়েল শীল",
       "authority": "অথোরাইজড খুৎয়েক"

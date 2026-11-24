@@ -2,8 +2,8 @@
  * ========================================================
  * 🇮🇳 Swarnim Bharat - Pledge Tracking & Verification System
  * ========================================================
- * Allows citizens to find, verify, and re-download their sovereign
- * certificate using their Mobile Number or National Registry ID (SB-2047-XXXX).
+ * Allows citizens to find, verify, and re-download their citizen
+ * commitment certificate using their Mobile Number or Pledge ID (SB-2047-XXXX).
  */
 
 (function() {
@@ -70,7 +70,7 @@
             
             <!-- Instructions -->
             <p class="text-xs text-gray-600 leading-relaxed">
-              संकल्प लेते समय दर्ज किया गया अपना <strong>मोबाइल नंबर</strong> या <strong>Registry ID (उदा. SB-2047-0129)</strong> दर्ज करें:
+              संकल्प लेते समय दर्ज किया गया अपना <strong>मोबाइल नंबर</strong> या <strong>Pledge ID (उदा. SB-2047-0129)</strong> दर्ज करें:
             </p>
 
             <!-- Search Input Box -->
@@ -295,7 +295,7 @@
               state: 'Bharat',
               vow: 'Viksit Bharat 2047',
               pledgeId: formattedId,
-              timestamp: 'VERIFIED REGISTRY • IST'
+              timestamp: 'VERIFIED PLEDGE • IST'
             };
             renderResultCard(fallbackRecord);
           } else {
@@ -404,7 +404,7 @@
 
     document.getElementById('viewCertBtn').onclick = () => window.openFoundCertificate(safeRecord);
     document.getElementById('shareCertBtn').onclick = () => {
-      const text = encodeURIComponent(`🇮🇳 मैंने स्वर्णिम भारत 2047 संकल्प लिया है! मेरा Registry ID: ${pledgeId}। आप भी अपना संकल्प लें और प्रमाण पत्र प्राप्त करें: ${window.location.origin}`);
+      const text = encodeURIComponent(`🇮🇳 मैंने स्वर्णिम भारत 2047 संकल्प लिया है! मेरा संकल्प ID: ${pledgeId}। आप भी अपना संकल्प लें और प्रमाण पत्र प्राप्त करें: ${window.location.origin}`);
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     };
 

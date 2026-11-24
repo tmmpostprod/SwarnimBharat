@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>राष्ट्रीय संकल्प समर्पण पत्र • Sovereign Commitment Certificate</title>
+    <title>राष्ट्रीय संकल्प समर्पण पत्र • Citizen Commitment Certificate</title>
     <link rel="icon" type="image/png" href="assets/logo-shield.png"/>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -347,7 +347,7 @@
                 <img src="assets/logo-shield.png" alt="Swarnim Bharat" class="h-9 w-auto object-contain" />
                 <div>
                     <h1 class="font-bold text-gray-900 text-sm sm:text-base leading-tight">स्वर्णिम भारत उदयघोष</h1>
-                    <p class="text-[11px] text-goldDark font-semibold uppercase tracking-wider">A4 Sovereign Commitment Certificate</p>
+                    <p class="text-[11px] text-goldDark font-semibold uppercase tracking-wider">A4 Citizen Commitment Certificate</p>
                 </div>
             </div>
             <div class="flex items-center gap-2">
@@ -540,7 +540,7 @@
                                     स्वर्णिम भारत उदयघोष
                                 </h1>
                                 <h2 class="cert-subtitle">
-                                    राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF SOVEREIGN COMMITMENT
+                                    राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF CITIZEN COMMITMENT
                                 </h2>
                                 <div class="cert-divider-top"></div>
                             </div>
@@ -571,11 +571,11 @@
                                 </div>
                             </div>
 
-                            <!-- Bottom Section: Official Secretariat & Verification Strip -->
+                            <!-- Bottom Section: Coordination & Verification Strip -->
                             <div class="cert-bottom-section">
                                 <!-- Left: Registry ID & Timestamp -->
                                 <div class="text-left space-y-0.5">
-                                    <p class="text-gray-500 font-semibold tracking-wider text-[11px]">NATIONAL REGISTRY ID</p>
+                                    <p class="text-gray-500 font-semibold tracking-wider text-[11px]">CITIZEN PLEDGE ID</p>
                                     <p class="text-goldDark font-bold text-lg font-mono">SB-2047-<span id="random-id">0129</span></p>
                                     <p class="text-gray-500 text-[11px]" id="current-date">12 NOV 2026 • IST</p>
                                 </div>
@@ -588,11 +588,11 @@
                                     </div>
                                 </div>
 
-                                <!-- Right: Secretariat Swarnim Bharat -->
+                                <!-- Right: Coordination Desk -->
                                 <div class="text-right space-y-0.5">
-                                    <p class="text-gray-500 font-semibold tracking-wider text-[11px]">NATIONAL MISSION CELL</p>
-                                    <p class="text-gray-900 font-bold text-base leading-tight">Secretariat</p>
-                                    <p class="text-maroon font-bold text-xs uppercase tracking-wider">Swarnim Bharat</p>
+                                    <p class="text-gray-500 font-semibold tracking-wider text-[11px]">COORDINATION DESK</p>
+                                    <p class="text-gray-900 font-bold text-base leading-tight">Swarnim Bharat</p>
+                                    <p class="text-maroon font-bold text-xs uppercase tracking-wider">Citizen Initiative</p>
                                 </div>
                             </div>
                         </div>
@@ -750,7 +750,7 @@
             function updatePledge() {
                 if (inputPledge.value === 'custom') {
                     customPledgeContainer.classList.remove('hidden');
-                    certPledge.textContent = inputCustomPledge.value.trim() || 'My Sovereign Pledge';
+                    certPledge.textContent = inputCustomPledge.value.trim() || 'My Citizen Pledge';
                 } else {
                     customPledgeContainer.classList.add('hidden');
                     certPledge.textContent = inputPledge.value;
@@ -987,7 +987,7 @@
 
                     // Download image
                     const link = document.createElement('a');
-                    link.download = `Swarnim_Bharat_Sovereign_Certificate_${citizenName}.png`;
+                    link.download = `Swarnim_Bharat_Citizen_Certificate_${citizenName}.png`;
                     link.href = canvas.toDataURL('image/png', 1.0);
                     link.click();
 
