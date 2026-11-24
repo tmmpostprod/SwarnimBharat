@@ -1,895 +1,1377 @@
 <!DOCTYPE html>
-<html lang="hi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link rel="icon" type="image/png" href="assets/logo-shield.png"/><title>Route &amp; Milestones | स्वर्णिम भारत उदयघोष</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;family=Work+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"inverse-on-surface":"#f3f0ea","surface-bright":"#fcf9f2","background":"#fcf9f2","error-container":"#ffdad6","surface-container-lowest":"#ffffff","surface-container-low":"#f6f3ec","tertiary":"#a73a00","primary-fixed":"#ffe088","inverse-primary":"#e9c349","surface-variant":"#e5e2db","outline-variant":"#d0c5af","on-tertiary-fixed":"#370e00","surface-container-highest":"#e5e2db","primary":"#735c00","outline":"#7f7663","on-error-container":"#93000a","secondary-fixed":"#d6e4f9","on-tertiary-fixed-variant":"#7f2b00","on-secondary-fixed":"#0f1c2c","surface-container":"#f0eee7","on-surface":"#1c1c18","surface":"#fcf9f2","on-secondary-container":"#566475","on-secondary-fixed-variant":"#3a4859","tertiary-fixed":"#ffdbce","on-background":"#1c1c18","surface-tint":"#735c00","surface-dim":"#dcdad3","secondary-container":"#d3e1f6","surface-container-high":"#ebe8e1","error":"#ba1a1a","on-primary":"#ffffff","tertiary-fixed-dim":"#ffb599","primary-fixed-dim":"#e9c349","tertiary-container":"#ff986f","on-tertiary-container":"#7c2900","on-surface-variant":"#4d4635","on-primary-fixed-variant":"#574500","on-tertiary":"#ffffff","on-primary-container":"#554300","on-secondary":"#ffffff","primary-container":"#d4af37","secondary-fixed-dim":"#bac8dc","inverse-surface":"#31312c","secondary":"#525f71","on-primary-fixed":"#241a00","on-error":"#ffffff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-xxl":"4rem","space-sm":"0.5rem","space-md":"1rem","gutter":"1.5rem","margin":"3rem","space-lg":"1.5rem","margin-mobile":"1.25rem","space-xs":"0.25rem","space-xl":"2.5rem","gutter-sm":"1rem"},fontFamily:{"label-lg":["Work Sans"],"headline-lg":["Playfair Display"],"label-md":["Work Sans"],"label-sm":["Work Sans"],"headline-xl":["Playfair Display"],"headline-sm":["Playfair Display"],"title-sm":["Noto Sans"],"body-sm":["Noto Sans"],"title-md":["Noto Sans"],"headline-lg-mobile":["Playfair Display"],"title-lg":["Playfair Display"],"headline-md":["Playfair Display"],"body-lg":["Noto Sans"],"headline-xl-mobile":["Playfair Display"],"body-md":["Noto Sans"]},fontSize:{"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.1em","fontWeight":"500"}],"headline-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["22px",{"lineHeight":"28px","fontWeight":"600"}],"title-sm":["14px",{"lineHeight":"20px","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"title-md":["16px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"600"}],"title-lg":["20px",{"lineHeight":"26px","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"headline-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}]}}}};</script>
-<style id="swarnim-site-fixes">
-html{scroll-behavior:smooth;scroll-padding-top:112px}body{overflow-x:hidden}
-header{z-index:100}
-header nav[data-active-classes]{display:flex;align-items:center;gap:clamp(8px,1.1vw,18px);white-space:nowrap}
-header nav[data-active-classes] a{font-size:11px;line-height:1.3;text-decoration:none}
-header nav[data-active-classes] a.active{background:#d4af37;color:#241a00;border-radius:8px;padding:9px 11px}
-@media(max-width:1279px){
- header{height:auto!important}
- header>div{height:auto!important;min-height:76px;max-width:100%!important;padding:12px 16px!important;display:flex;flex-wrap:wrap;row-gap:8px}
- header nav[data-active-classes]{display:flex!important;order:3;width:100%;overflow-x:auto;gap:8px;padding:4px 0 8px;scrollbar-width:thin}
- header nav[data-active-classes] a{flex:0 0 auto;padding:8px 10px!important;background:rgba(0,0,0,.035);border-radius:8px}
- header nav[data-active-classes] a.active{background:#d4af37!important}
- main{padding-top:122px!important}
-}
-@media(max-width:640px){
- header>div{column-gap:8px}
- header>div>div:first-child{min-width:0;flex:1}
- header>div>div:first-child span:first-child{font-size:14px}
- header>div>div:last-child{gap:6px}
- header>div>div:last-child>div:first-child{display:none!important}
- header>div>div:last-child>div:last-child{display:none!important}
- header nav[data-active-classes] a{font-size:10px!important}
- main{padding-top:128px!important}
-}
-img,video,iframe{max-width:100%}
-button,a{-webkit-tap-highlight-color:transparent}
-:focus-visible{outline:3px solid #a73a00;outline-offset:3px}
-.leaflet-pane{z-index:10!important}
-.leaflet-top,.leaflet-bottom{z-index:20!important}
-.leaflet-popup-content-wrapper{border-radius:14px;box-shadow:0 10px 25px -5px rgba(0,0,0,0.15);border:1px solid #d4af37;padding:4px}
-.leaflet-popup-content{margin:8px 12px}
-</style>
-<script src="assets/track-pledge.js"></script>
-</head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1320px] mx-auto px-gutter flex items-center justify-between gap-space-md"><a class="flex items-center gap-space-sm group text-left" href="index.html"><img src="assets/logo-emblem.png" alt="स्वर्णिम भारत उदयघोष" class="h-12 w-auto max-w-[80px] object-contain drop-shadow-sm transition-transform group-hover:scale-105"/><div class="flex flex-col"><span class="font-headline-sm text-title-md text-primary tracking-tight font-bold leading-tight group-hover:text-primary transition-colors">स्वर्णिम भारत उदयघोष</span><span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-semibold">Mera Desh, Meri Zimmedari</span></div></a><nav class="site-nav" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a data-site-nav="the-journey.html" href="the-journey.html">The Journey</a><a data-site-nav="three-pillars.html" href="three-pillars.html">3 Pillars</a><a data-site-nav="route-and-milestones.html" href="route-and-milestones.html">Route &amp; Milestones</a><a data-site-nav="changemakers.html" href="changemakers.html">Changemakers</a><a data-site-nav="take-pledge-and-scanner.html" href="take-pledge-and-scanner.html">Take Pledge &amp; Scanner</a><a data-site-nav="anthem-and-media.html" href="anthem-and-media.html">Anthem &amp; Media</a><a data-site-nav="our-team.html" href="our-team.html">Our Core Team</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-all font-label-md text-label-md shadow-[0_2px_8px_rgba(0,0,0,0.12)]" data-path="take-pledge-and-scanner" href="take-pledge-and-scanner.html"><span class="material-symbols-outlined text-[18px] mr-1.5 text-primary-fixed">assignment_turned_in</span><span>संकल्प लें / Pledge</span></a></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<html lang="hi">
 
-<!-- Top Sovereign Ornamental Ribbon -->
-<div class="w-full h-1.5 bg-gradient-to-r from-tertiary via-primary-container to-secondary"></div>
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <link rel="icon" type="image/png" href="assets/logo-shield.png" />
+  <title>Route &amp; Milestones | स्वर्णिम भारत उदयघोष</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;family=Work+Sans:wght@500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <style>
+    @layer base {
 
-<!-- ========================================================================= -->
-<!-- 1. SOVEREIGN POWERFUL HERO SECTION: ONE JOURNEY ACROSS BHARAT -->
-<!-- ========================================================================= -->
-<section class="relative w-full overflow-hidden bg-gradient-to-b from-[#e3edf6] via-[#f7f3ed] to-surface pt-10 pb-12 md:pb-16 border-b border-outline-variant/30">
-  <!-- Subtle Sovereign Ambient Glow -->
-  <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[1200px] h-[450px] rounded-full bg-primary-fixed/20 blur-[160px] pointer-events-none"></div>
-  <div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-tertiary-fixed/25 blur-[130px] pointer-events-none"></div>
-  <div class="absolute top-1/2 -right-20 w-80 h-80 rounded-full bg-secondary-fixed/25 blur-[130px] pointer-events-none"></div>
-
-  <!-- Background Decorative Watermark (Sacred Chakra & Coordinates) -->
-  <div class="absolute inset-0 opacity-[0.035] pointer-events-none flex items-center justify-center">
-    <svg class="w-[900px] h-[900px]" fill="none" viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="96" stroke="#142940" stroke-dasharray="4 3" stroke-width="1.5"></circle>
-      <circle cx="100" cy="100" r="76" stroke="#d4af37" stroke-width="1"></circle>
-      <circle cx="100" cy="100" r="56" stroke="#a73a00" stroke-width="0.8"></circle>
-      <path d="M100 4 L100 196 M4 100 L196 100 M32 32 L168 168 M32 168 L168 32" stroke="#142940" stroke-width="0.5"></path>
-    </svg>
-  </div>
-
-  <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
-    <!-- National Mission Badge Pill -->
-    <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-[#d4af37]/50 shadow-xs max-w-[92vw]">
-      <span class="w-2 h-2 rounded-full bg-[#a73a00] animate-pulse flex-shrink-0"></span>
-      <span class="font-label-sm text-[11px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest text-[#142940] truncate">राष्ट्र निर्माण महा-मार्ग • 13000+ KM संपूर्ण भारत भ्रमण</span>
-      <span class="text-[#d4af37] hidden sm:inline">•</span>
-      <span class="font-label-sm text-[11px] sm:text-xs font-semibold text-[#a73a00] hidden sm:inline">Starting Soon • Fleet Ready</span>
-    </div>
-
-    <!-- Monumental Headline with Royal Golden Italic Serif Accent -->
-    <h1 class="font-headline-xl text-3xl sm:text-5xl md:text-6xl text-[#142940] tracking-tight leading-tight font-bold mt-4">
-      One Journey Across <span class="text-[#b58d3d] font-serif font-bold italic">Bharat</span> <span class="text-[#b58d3d] font-serif font-bold italic">अखंड राष्ट्र-मार्ग</span>
-    </h1>
-
-    <!-- Hindi Subtitle -->
-    <p class="font-headline-sm text-base sm:text-xl md:text-2xl text-[#1b3b5f] font-bold mt-2 sm:mt-3 tracking-wide">
-      कन्याकुमारी के संगम से नई दिल्ली के अमर चक्र तक — <span class="text-[#a73a00]">13000+ किमी का संपूर्ण भारत भ्रमण (हर राज्य उत्सव)</span>
-    </p>
-
-    <!-- Punchy Narrative (Trimmed & Crisp) -->
-    <p class="font-body-md text-sm md:text-base text-on-surface-variant mt-3 max-w-3xl leading-relaxed">
-      28 राज्य, 8 केंद्र शासित प्रदेश और 766 जिलों को एकता के सूत्र में पिरोती 13000+ किलोमीटर का संपूर्ण भारत भ्रमण (हर राज्य उत्सव)। 140 करोड़ नागरिकों के संकल्पों का राष्ट्र निर्माण महा-अभियान।
-    </p>
-
-    <!-- Sovereign Ribbon Divider -->
-    <div class="mt-4 flex items-center gap-3 w-full max-w-md mx-auto justify-center">
-      <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#d4af37]/70"></span>
-      <span class="font-label-sm text-[10px] sm:text-xs text-[#8c6b12] uppercase font-bold tracking-widest px-1">एक पदयात्रा • 766 जिले • अखंड भारत</span>
-      <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#d4af37]/70"></span>
-    </div>
-
-    <!-- 4 Key Stat Pillars Bar (Visual & Responsive) -->
-    <div class="mt-7 w-full max-w-4xl sm:max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-y-3 sm:gap-y-0 sm:divide-x divide-outline-variant/60 border-t border-b border-outline-variant/60 py-4 sm:py-5 px-3 sm:px-6 bg-white/75 backdrop-blur-sm rounded-2xl shadow-xs">
-      <div class="flex flex-col items-center px-3 sm:px-5 py-1 sm:py-0 border-r sm:border-r-0 border-outline-variant/40">
-        <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">13000+ km</span>
-        <span class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-1 text-center leading-tight">Sampurn Bharat Bhraman:<br class="hidden sm:inline" /> Har Rajya Utsav</span>
-      </div>
-      <div class="flex flex-col items-center px-3 sm:px-5 py-1 sm:py-0">
-        <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">766</span>
-        <span class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-1">Districts Reached</span>
-      </div>
-      <div class="flex flex-col items-center px-3 sm:px-5 py-1 sm:py-0 border-r sm:border-r-0 border-outline-variant/40 border-t sm:border-t-0 pt-2 sm:pt-0">
-        <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">28 &amp; 8</span>
-        <span class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-1">States &amp; UTs</span>
-      </div>
-      <div class="flex flex-col items-center px-3 sm:px-5 py-1 sm:py-0 border-t sm:border-t-0 pt-2 sm:pt-0">
-        <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">31</span>
-        <span class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-1">Relay Cities</span>
-      </div>
-    </div>
-
-    <!-- Interactive Quick Action Buttons -->
-    <div class="flex flex-wrap items-center justify-center gap-3.5 mt-7">
-      <a href="#milestone-timeline" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#142940] to-[#1b3b5f] text-white font-label-md text-sm font-bold shadow-md hover:shadow-xl hover:scale-105 transition-all">
-        <span class="material-symbols-outlined text-[18px] text-[#e9c349]">flag</span>
-        <span>यात्रा पड़ाव / Planned Itinerary</span>
-      </a>
-      <a href="#live-tracker" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#142940] border border-[#d4af37]/60 font-label-md text-sm font-bold shadow-xs hover:border-[#d4af37] hover:scale-105 transition-all">
-        <span class="material-symbols-outlined text-[18px] text-[#a73a00]">radar</span>
-        <span>मशाल व ट्रॉफी लाइव ट्रैकिंग / Live Tracker</span>
-      </a>
-      <a href="take-pledge-and-scanner.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#d4af37] text-[#241a00] font-label-md text-sm font-bold shadow-md hover:bg-[#ffe088] hover:scale-105 transition-all">
-        <span class="material-symbols-outlined text-[18px]">how_to_reg</span>
-        <span>संकल्प लें / Take Pledge</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================================================= -->
-<!-- 2. REFERENCE IMAGE SECTION: PLANNED ITINERARY & MILESTONE TIMELINE -->
-<!-- PLACED RIGHT AT THE STARTING AS REQUESTED -->
-<!-- ========================================================================= -->
-<section class="max-w-[1320px] w-full mx-auto px-gutter pt-space-xl pb-space-lg scroll-mt-24" id="milestone-timeline">
-  <!-- Header matching the Reference Image -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm border-b border-outline-variant/30 pb-4">
-    <div class="min-w-0">
-      <span class="font-label-sm text-xs uppercase tracking-widest text-[#a73a00] font-bold block mb-1">PLANNED ITINERARY</span>
-      <h2 class="font-headline-lg text-xl sm:text-3xl md:text-4xl text-[#142940] font-serif font-bold tracking-tight leading-tight">Milestone Timeline &amp; Assemblies</h2>
-    </div>
-    <!-- Status Legend -->
-    <div class="flex items-center gap-2.5 sm:gap-4 font-label-md text-xs sm:text-sm flex-wrap pt-2 md:pt-0">
-      <span class="inline-flex items-center gap-1.5 text-[#a73a00] font-bold">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#a73a00] animate-pulse"></span> Starting Soon (शीघ्र शुभारंभ)
-      </span>
-      <span class="inline-flex items-center gap-1.5 text-outline font-semibold">
-        <span class="w-2.5 h-2.5 rounded-full bg-outline-variant"></span> Date Reveal Ahead (तारीख जल्द घोषित)
-      </span>
-      <span class="inline-flex items-center gap-1.5 text-[#735c00] font-bold">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#d4af37]"></span> Grand Finale (भव्य समापन)
-      </span>
-    </div>
-  </div>
-
-  <!-- Timeline Cards Stack (Replicating Reference Image Pixel-for-Pixel) -->
-  <div class="space-y-3.5">
-    <!-- Card 1: Phase 01 · Milestone A (Starting Soon) -->
-    <div class="p-4 sm:p-5 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-md hover:border-[#d4af37]/50 group">
-      <div class="flex items-center gap-4 min-w-[240px]">
-        <div class="w-14 h-14 rounded-xl bg-surface-container flex flex-col items-center justify-center text-primary flex-shrink-0 border border-outline-variant/40 shadow-inner group-hover:border-[#a73a00]/40 transition-colors">
-          <span class="font-label-sm text-[11px] font-bold uppercase tracking-widest text-outline">XX</span>
-          <span class="font-headline-sm text-xl font-serif font-bold leading-none text-[#a73a00]">XX</span>
-        </div>
-        <div>
-          <span class="font-label-sm text-[11px] text-[#a73a00] uppercase font-bold tracking-wider block">Phase 01 · Milestone A</span>
-          <h3 class="font-title-md text-base sm:text-lg text-on-surface font-bold leading-snug">Kanyakumari Consecration</h3>
-        </div>
-      </div>
-      <div class="flex-1 md:px-4">
-        <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-          Ceremonial flame kindling by 75 youth scholars at Vivekananda Rock Memorial. Digital citizen pledge registration opens on National Ledger upon grand flag-off.
-        </p>
-      </div>
-      <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
-        <span class="px-3.5 py-1.5 bg-[#ffdbce]/60 text-[#a73a00] font-label-sm text-xs font-bold rounded-full flex items-center gap-1.5 border border-[#ff986f]/50">
-          <span class="w-2 h-2 rounded-full bg-[#a73a00] animate-pulse"></span> Starting Soon
-        </span>
-        <div class="w-8 h-8 rounded-full bg-surface-container text-[#a73a00] flex items-center justify-center border border-outline-variant/30">
-          <span class="material-symbols-outlined text-[17px]">lock_clock</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 2: Phase 01 · Milestone B (Date Reveal Ahead) -->
-    <div class="p-4 sm:p-5 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-md hover:border-[#d4af37]/50 group">
-      <div class="flex items-center gap-4 min-w-[240px]">
-        <div class="w-14 h-14 rounded-xl bg-surface-container flex flex-col items-center justify-center text-outline flex-shrink-0 border border-outline-variant/40 shadow-inner">
-          <span class="font-label-sm text-[11px] font-bold uppercase tracking-widest text-outline">XX</span>
-          <span class="font-headline-sm text-xl font-serif font-bold leading-none text-outline">XX</span>
-        </div>
-        <div>
-          <span class="font-label-sm text-[11px] text-outline uppercase font-semibold tracking-wider block">Phase 01 · Milestone B</span>
-          <h3 class="font-title-md text-base sm:text-lg text-on-surface font-bold leading-snug">Bengaluru Innovation Conclave</h3>
-        </div>
-      </div>
-      <div class="flex-1 md:px-4">
-        <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-          Torch handoff at Vidhana Soudha. Over 120 tech startups to sign the Viksit Bharat Digital Governance charter. Citizen mobilization via QR scanner booths.
-        </p>
-      </div>
-      <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
-        <span class="px-3.5 py-1.5 bg-surface-container text-outline font-label-sm text-xs font-semibold rounded-full border border-outline-variant/40">
-          Date Reveal Ahead
-        </span>
-        <div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center border border-outline-variant/30">
-          <span class="material-symbols-outlined text-[17px]">event</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 3: Phase 02 · Milestone C (Date Reveal Ahead) -->
-    <div class="p-4 sm:p-5 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-md hover:border-[#d4af37]/50 group">
-      <div class="flex items-center gap-4 min-w-[240px]">
-        <div class="w-14 h-14 rounded-xl bg-surface-container flex flex-col items-center justify-center text-outline flex-shrink-0 border border-outline-variant/40 shadow-inner">
-          <span class="font-label-sm text-[11px] font-bold uppercase tracking-widest text-outline">XX</span>
-          <span class="font-headline-sm text-xl font-serif font-bold leading-none text-outline">XX</span>
-        </div>
-        <div>
-          <span class="font-label-sm text-[11px] text-outline uppercase font-semibold tracking-wider block">Phase 02 · Milestone C</span>
-          <h3 class="font-title-md text-base sm:text-lg text-on-surface font-bold leading-snug">Mumbai Marine Drive March</h3>
-        </div>
-      </div>
-      <div class="flex-1 md:px-4">
-        <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-          Sandesh Bharti outreach bus stationed at Nariman Point. Civic town hall on maritime commerce and sustainability. Ambassador torch relay handover to Western Command.
-        </p>
-      </div>
-      <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
-        <span class="px-3.5 py-1.5 bg-surface-container text-outline font-label-sm text-xs font-semibold rounded-full border border-outline-variant/40">
-          Date Reveal Ahead
-        </span>
-        <div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center border border-outline-variant/30">
-          <span class="material-symbols-outlined text-[17px]">event</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 4: Phase 02 · Milestone D (Date Reveal Ahead) -->
-    <div class="p-4 sm:p-5 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-md hover:border-[#d4af37]/50 group">
-      <div class="flex items-center gap-4 min-w-[240px]">
-        <div class="w-14 h-14 rounded-xl bg-surface-container flex flex-col items-center justify-center text-outline flex-shrink-0 border border-outline-variant/40 shadow-inner">
-          <span class="font-label-sm text-[11px] font-bold uppercase tracking-widest text-outline">XX</span>
-          <span class="font-headline-sm text-xl font-serif font-bold leading-none text-outline">XX</span>
-        </div>
-        <div>
-          <span class="font-label-sm text-[11px] text-outline uppercase font-semibold tracking-wider block">Phase 02 · Milestone D</span>
-          <h3 class="font-title-md text-base sm:text-lg text-on-surface font-bold leading-snug">Kolkata Renaissance Assembly</h3>
-        </div>
-      </div>
-      <div class="flex-1 md:px-4">
-        <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-          Civic congregation at Victoria Memorial gardens. Integration of the 8 North-Eastern state torchbearers before the central march to Bihar and Uttar Pradesh.
-        </p>
-      </div>
-      <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
-        <span class="px-3.5 py-1.5 bg-surface-container text-outline font-label-sm text-xs font-semibold rounded-full border border-outline-variant/40">
-          Date Reveal Ahead
-        </span>
-        <div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center border border-outline-variant/30">
-          <span class="material-symbols-outlined text-[17px]">schedule</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card 5: Grand Sovereign Climax (National War Memorial, Delhi) -->
-    <div class="p-4 sm:p-5 bg-gradient-to-r from-[#142940] via-[#1a3350] to-[#142940] text-inverse-on-surface rounded-2xl shadow-md border border-[#d4af37]/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-xl">
-      <div class="flex items-center gap-4 min-w-[240px]">
-        <div class="w-14 h-14 rounded-xl bg-[#d4af37] text-[#241a00] flex flex-col items-center justify-center flex-shrink-0 shadow-sm border border-[#ffe088]">
-          <span class="font-label-sm text-[10px] font-bold uppercase tracking-widest opacity-80">FINAL</span>
-          <span class="font-headline-sm text-xl font-serif font-bold leading-none">2047</span>
-        </div>
-        <div>
-          <span class="font-label-sm text-[11px] text-[#e9c349] uppercase font-bold tracking-wider block">The Grand Yatra Finale</span>
-          <h3 class="font-title-md text-base sm:text-lg text-white font-bold leading-snug">National War Memorial, Delhi</h3>
-        </div>
-      </div>
-      <div class="flex-1 md:px-4">
-        <p class="font-body-sm text-xs sm:text-sm text-white/80 leading-relaxed">
-          The culminating national tribute where soil and sacred resolves from all 766 administrative districts are consecrated forever before the eternal flame.
-        </p>
-      </div>
-      <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
-        <span class="px-4 py-1.5 bg-[#d4af37] text-[#241a00] font-label-sm text-xs font-bold rounded-full tracking-wider uppercase shadow-xs">
-          Grand Finale · Date TBA
-        </span>
-        <div class="w-8 h-8 rounded-full bg-white/10 text-[#e9c349] flex items-center justify-center border border-white/20">
-          <span class="material-symbols-outlined text-[17px]">military_tech</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================================================= -->
-<!-- 3. LIVE GPS MAP TRACKER: SACRED TORCH & TROPHY (मशाल व ट्रॉफी लाइव ट्रैकिंग) -->
-<!-- ========================================================================= -->
-<section class="max-w-[1320px] w-full mx-auto px-gutter py-space-xl scroll-mt-24" id="live-tracker">
-  <div class="bg-surface-container-lowest rounded-3xl p-4 sm:p-6 lg:p-8 shadow-sm border-2 border-[#d4af37]/40 relative overflow-hidden">
-    <!-- Ambient Indian Tricolor / Golden Glows -->
-    <div class="absolute -top-16 -right-16 w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-tertiary-fixed/25 rounded-full blur-3xl pointer-events-none"></div>
-
-    <!-- Header & Mission Telemetry HUD -->
-    <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-5 border-b border-outline-variant/30">
-      <div class="space-y-1">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#142940] text-white rounded-full font-label-sm text-xs font-bold uppercase tracking-wider shadow-xs">
-          <span class="w-2.5 h-2.5 rounded-full bg-[#e9c349] animate-ping"></span>
-          <span>LIVE SATELLITE GPS TELEMETRY • ISRO NavIC UPLINK</span>
-        </div>
-        <h2 class="font-headline-lg text-2xl sm:text-3xl md:text-4xl text-[#142940] font-serif font-bold tracking-tight pt-1">
-          Live Torch &amp; Trophy Tracker • <span class="text-[#b58d3d] font-serif font-bold italic">मशाल व ट्रॉफी लाइव ट्रैकिंग</span>
-        </h2>
-        <p class="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-2xl leading-relaxed">
-          13000+ किमी के अखंड राष्ट्र-मार्ग पर <strong>स्वर्णिम भारत अमर ज्योति (मशाल)</strong> एवं <strong>संदेश भारती (ट्रॉफी)</strong> का 24x7 सजीव उपग्रह स्थान निर्धारण।
-        </p>
-      </div>
-
-      <!-- Quick Action Controls -->
-      <div class="flex flex-wrap items-center gap-2.5 flex-shrink-0">
-        <button id="btn-focus-convoy" onclick="focusConvoy()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#a73a00] to-[#d4af37] text-white font-label-md text-xs font-bold shadow-xs hover:shadow-md hover:scale-105 transition-all" type="button">
-          <span class="material-symbols-outlined text-[18px]">my_location</span>
-          <span>मशाल व ट्रॉफी पर जाएं</span>
-        </button>
-        <button id="btn-fit-route" onclick="fitFullRoute()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container text-[#142940] border border-outline-variant/40 font-label-md text-xs font-bold hover:bg-surface-container-high transition-all" type="button">
-          <span class="material-symbols-outlined text-[18px]">polyline</span>
-          <span>सम्पूर्ण 13000+ KM मार्ग</span>
-        </button>
-        <button id="btn-toggle-tiles" onclick="toggleMapTiles()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container text-[#142940] border border-outline-variant/40 font-label-md text-xs font-bold hover:bg-surface-container-high transition-all" type="button">
-          <span class="material-symbols-outlined text-[18px]" id="tile-icon">satellite_alt</span>
-          <span id="tile-label">Satellite View</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Live Telemetry KPI Bar -->
-    <div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 my-4">
-      <!-- KPI 1: Active Station -->
-      <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-[#a73a00]/10 text-[#a73a00] flex items-center justify-center flex-shrink-0 font-bold">
-          <span class="material-symbols-outlined text-[22px]">local_fire_department</span>
-        </div>
-        <div class="min-w-0">
-          <span class="text-[10px] uppercase font-bold text-outline block truncate">Current Station (वर्तमान पड़ाव)</span>
-          <span class="text-xs sm:text-sm font-bold text-on-surface block truncate" id="telemetry-city">Kanyakumari, Tamil Nadu</span>
-          <span class="text-[10px] text-tertiary font-semibold">Vivekananda Rock Memorial</span>
-        </div>
-      </div>
-
-      <!-- KPI 2: Live Coordinates -->
-      <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-[#d4af37]/15 text-primary flex items-center justify-center flex-shrink-0 font-bold">
-          <span class="material-symbols-outlined text-[22px]">explore</span>
-        </div>
-        <div class="min-w-0">
-          <span class="text-[10px] uppercase font-bold text-outline block truncate">Live GPS Coordinates</span>
-          <span class="text-xs sm:text-sm font-bold text-on-surface block font-mono" id="telemetry-coords">8.0780° N, 77.5550° E</span>
-          <span class="text-[10px] text-primary font-semibold">NavIC Dual-Band Lock</span>
-        </div>
-      </div>
-
-      <!-- KPI 3: Status & Flame -->
-      <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-[#142940]/10 text-[#142940] flex items-center justify-center flex-shrink-0 font-bold">
-          <span class="material-symbols-outlined text-[22px]">military_tech</span>
-        </div>
-        <div class="min-w-0">
-          <span class="text-[10px] uppercase font-bold text-outline block truncate">Flame &amp; Trophy Status</span>
-          <span class="text-xs sm:text-sm font-bold text-on-surface block truncate">अखंड ज्योति प्रज्वलित</span>
-          <span class="text-[10px] text-emerald-700 font-semibold flex items-center gap-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> 100% Secured Escort
-          </span>
-        </div>
-      </div>
-
-      <!-- KPI 4: Next Target Milestone -->
-      <div class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-[#525f71]/10 text-[#525f71] flex items-center justify-center flex-shrink-0 font-bold">
-          <span class="material-symbols-outlined text-[22px]">near_me</span>
-        </div>
-        <div class="min-w-0">
-          <span class="text-[10px] uppercase font-bold text-outline block truncate">Next Milestone (आगामी पड़ाव)</span>
-          <span class="text-xs sm:text-sm font-bold text-on-surface block truncate">Madurai Meenakshi Corridor</span>
-          <span class="text-[10px] text-outline font-semibold">242 KM • In Queue</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- The Interactive Map Canvas -->
-    <div class="relative w-full rounded-2xl overflow-hidden border border-outline-variant/40 shadow-inner bg-surface-container">
-      <div id="live-convoy-map" class="w-full h-[460px] sm:h-[540px] z-10"></div>
-
-      <!-- Floating Map Legend & Control Overlay -->
-      <div class="absolute bottom-4 left-4 right-4 sm:right-auto z-20 pointer-events-auto">
-        <div class="bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-lg border border-outline-variant/40 flex flex-wrap items-center gap-3 text-xs">
-          <div class="flex items-center gap-1.5 font-bold text-[#142940]">
-            <span class="w-3 h-3 rounded-full bg-[#d4af37] border-2 border-[#a73a00] animate-pulse"></span>
-            <span>अमर ज्योति (मशाल) व ट्रॉफी</span>
-          </div>
-          <div class="flex items-center gap-1.5 text-on-surface-variant font-medium">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#142940]"></span>
-            <span>प्रमुख रिले पड़ाव</span>
-          </div>
-          <div class="flex items-center gap-1.5 text-on-surface-variant font-medium">
-            <span class="w-4 h-1 bg-[#d4af37] rounded-full"></span>
-            <span>13000+ KM राष्ट्र-पथ</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick Corridor City Selector Ribbon -->
-    <div class="relative z-10 mt-4 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
-      <span class="text-[11px] font-bold uppercase tracking-wider text-outline flex-shrink-0 mr-1">त्वरित पड़ाव देखें:</span>
-      <button onclick="panToCity(8.0780, 77.5550, 'कन्याकुमारी')" class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-bold border border-outline-variant/30 flex items-center gap-1" type="button">
-        <span class="material-symbols-outlined text-[14px] text-tertiary">flag</span>
-        <span>कन्याकुमारी (प्रस्थान)</span>
-      </button>
-      <button onclick="panToCity(9.9252, 78.1198, 'मदुरै')" class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30" type="button">
-        मदुरै
-      </button>
-      <button onclick="panToCity(12.9716, 77.5946, 'बेंगलुरु')" class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30" type="button">
-        बेंगलुरु
-      </button>
-      <button onclick="panToCity(18.9220, 72.8347, 'मुंबई')" class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30" type="button">
-        मुंबई
-      </button>
-      <button onclick="panToCity(22.5726, 88.3639, 'कोलकाता')" class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30" type="button">
-        कोलकाता
-      </button>
-      <button onclick="panToCity(26.1445, 91.7362, 'गुवाहाटी')" class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30" type="button">
-        गुवाहाटी
-      </button>
-      <button onclick="panToCity(28.6129, 77.2295, 'नई दिल्ली')" class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-[#142940] text-white hover:bg-primary font-label-md text-xs font-bold border border-[#d4af37]/50 flex items-center gap-1" type="button">
-        <span class="material-symbols-outlined text-[14px] text-[#e9c349]">military_tech</span>
-        <span>नई दिल्ली (अमर चक्र)</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================================================= -->
-<!-- 4. FIVE REGIONAL ZONES OF BHARAT (VISUAL & INTERACTIVE TABS) -->
-<!-- ========================================================================= -->
-<section class="max-w-[1320px] w-full mx-auto px-gutter py-space-xl">
-  <div class="space-y-space-xs mb-space-lg text-center max-w-2xl mx-auto">
-    <div class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container rounded-full text-xs font-bold text-tertiary uppercase tracking-wider mb-1">
-      <span class="material-symbols-outlined text-[15px]">explore</span>
-      <span>5 GEOGRAPHIC ENCLAVES</span>
-    </div>
-    <h2 class="font-headline-lg text-2xl sm:text-4xl text-on-surface font-bold">Five Regional Zones of Bharat</h2>
-    <p class="font-body-md text-xs sm:text-sm text-on-surface-variant">
-      Click a regional zone to explore route distance, major host cities, and scheduled civic milestones:
-    </p>
-  </div>
-
-  <!-- Zone Selector Navigation Strip -->
-  <div class="bg-inverse-surface rounded-2xl p-2 shadow-md max-w-4xl mx-auto">
-    <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 text-center" id="zone-tab-group">
-      <button class="py-2.5 px-2 rounded-xl bg-surface-container-lowest/15 text-inverse-on-surface font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center" id="tab-south" onclick="switchZone('south')" type="button">
-        <span>South</span>
-        <span class="font-label-sm text-[10px] sm:text-xs text-primary-fixed uppercase tracking-wider mt-0.5">2,420 KM</span>
-      </button>
-      <button class="py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center" id="tab-west" onclick="switchZone('west')" type="button">
-        <span>West</span>
-        <span class="font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5">1,840 KM</span>
-      </button>
-      <button class="py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center" id="tab-central" onclick="switchZone('central')" type="button">
-        <span>Central</span>
-        <span class="font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5">1,320 KM</span>
-      </button>
-      <button class="py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center" id="tab-east" onclick="switchZone('east')" type="button">
-        <span>East &amp; NE</span>
-        <span class="font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5">3,110 KM</span>
-      </button>
-      <button class="col-span-2 sm:col-span-1 py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center" id="tab-north" onclick="switchZone('north')" type="button">
-        <span>North Apex</span>
-        <span class="font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5">2,110 KM</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Zone Panels Container -->
-  <div class="mt-space-lg">
-    <!-- Active Zone Panel: South -->
-    <div class="zone-content bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30" id="zone-panel-south">
-      <div class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
-        <div>
-          <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Alpha · Launch Pad</span>
-          <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">Southern Regional Corridors</h3>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">5 States &amp; 1 UT</span>
-          <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total: 2,420 KM</span>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 pt-space-md">
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">01</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Kanyakumari</h4>
-          <span class="font-label-sm text-[10px] text-tertiary font-bold uppercase block">Tamil Nadu</span>
-          <p class="font-body-sm text-[11px] text-outline">Rock Memorial ceremonial torch consecration.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">02</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Madurai</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Tamil Nadu</span>
-          <p class="font-body-sm text-[11px] text-outline">Heritage perimeter walk &amp; Tamil literary assembly.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">03</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Bengaluru</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Karnataka</span>
-          <p class="font-body-sm text-[11px] text-outline">Tech startup pledge convergence at Vidhana Soudha.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">04</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Hyderabad</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Telangana</span>
-          <p class="font-body-sm text-[11px] text-outline">Charminar to HITEC City torch handoff with scholars.</p>
-        </div>
-        <div class="col-span-2 md:col-span-1 p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">05</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Chennai</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Tamil Nadu</span>
-          <p class="font-body-sm text-[11px] text-outline">Marina Beach honors parade &amp; coastal youth council.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Active Zone Panel: West -->
-    <div class="zone-content hidden bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30" id="zone-panel-west">
-      <div class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
-        <div>
-          <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Beta · Industrial &amp; Maritime</span>
-          <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">Western Regional Corridors</h3>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">3 States &amp; 1 UT</span>
-          <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total: 1,840 KM</span>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-space-md">
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">01</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Mumbai</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Maharashtra</span>
-          <p class="font-body-sm text-[11px] text-outline">Gateway of India torch march &amp; maritime summit.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">02</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Pune</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Maharashtra</span>
-          <p class="font-body-sm text-[11px] text-outline">Shaniwar Wada history dialogue &amp; academic assemblies.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">03</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Surat</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Gujarat</span>
-          <p class="font-body-sm text-[11px] text-outline">Artisan collective endorsement of Atmanirbhar Bharat.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">04</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Ahmedabad</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Gujarat</span>
-          <p class="font-body-sm text-[11px] text-outline">Sabarmati Ashram prayer &amp; youth sustainability oath.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Active Zone Panel: Central -->
-    <div class="zone-content hidden bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30" id="zone-panel-central">
-      <div class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
-        <div>
-          <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Gamma · The Heartland</span>
-          <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">Central Regional Corridors</h3>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">2 States</span>
-          <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total: 1,320 KM</span>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-space-md">
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">01</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Indore</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Madhya Pradesh</span>
-          <p class="font-body-sm text-[11px] text-outline">Swachh Bharat benchmark city volunteer conclave.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">02</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Bhopal</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Madhya Pradesh</span>
-          <p class="font-body-sm text-[11px] text-outline">Bhojtal lakefront rally &amp; tribal heritage preservation.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">03</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Raipur</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Chhattisgarh</span>
-          <p class="font-body-sm text-[11px] text-outline">Forest conservator councils and indigenous partnership.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Active Zone Panel: East + NE -->
-    <div class="zone-content hidden bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30" id="zone-panel-east">
-      <div class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
-        <div>
-          <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Delta · Eastern &amp; Ashta Lakshmi Frontier</span>
-          <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">East &amp; North-East Corridors</h3>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">12 States &amp; 1 UT</span>
-          <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total: 3,110 KM</span>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-space-md">
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">01</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Bhubaneswar</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Odisha</span>
-          <p class="font-body-sm text-[11px] text-outline">Temple city architectural honors &amp; youth parade.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">02</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Kolkata</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">West Bengal</span>
-          <p class="font-body-sm text-[11px] text-outline">Howrah Bridge illuminated march &amp; civic assembly.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">03</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Patna</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Bihar</span>
-          <p class="font-body-sm text-[11px] text-outline">Nalanda heritage remembrance and youth education launch.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">04</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Guwahati</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Assam</span>
-          <p class="font-body-sm text-[11px] text-outline">Brahmaputra riverfront torch convergence for 8 NE states.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Active Zone Panel: North -->
-    <div class="zone-content hidden bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30" id="zone-panel-north">
-      <div class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
-        <div>
-          <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Epsilon · Northern Apex</span>
-          <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">Northern Corridors &amp; Grand Finale</h3>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">6 States &amp; 1 UT</span>
-          <span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total: 2,110 KM</span>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 pt-space-md">
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">01</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Jaipur</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Rajasthan</span>
-          <p class="font-body-sm text-[11px] text-outline">Heritage fort relay and ecological conservation vow.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">02</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Lucknow</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Uttar Pradesh</span>
-          <p class="font-body-sm text-[11px] text-outline">Gomti riverfront youth rally with 25,000 delegates.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">03</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Dehradun</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Uttarakhand</span>
-          <p class="font-body-sm text-[11px] text-outline">Himalayan ecological balance commitment &amp; youth brigade.</p>
-        </div>
-        <div class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
-          <div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">04</div>
-          <h4 class="font-title-md text-sm font-bold text-on-surface">Chandigarh</h4>
-          <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Punjab &amp; Haryana</span>
-          <p class="font-body-sm text-[11px] text-outline">Sukhna Lake handoff, agrarian &amp; athlete councils.</p>
-        </div>
-        <div class="col-span-2 md:col-span-1 p-3.5 bg-[#142940] text-white rounded-xl space-y-1 border border-[#d4af37]/40 shadow-xs">
-          <div class="w-7 h-7 rounded-full bg-[#d4af37] text-[#241a00] flex items-center justify-center font-bold text-xs font-label-sm">05</div>
-          <h4 class="font-title-md text-sm font-bold text-[#e9c349]">New Delhi</h4>
-          <span class="font-label-sm text-[10px] text-white/80 font-bold uppercase block">National Finale</span>
-          <p class="font-body-sm text-[11px] text-white/70">Grand culmination at the National War Memorial.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================================================= -->
-<!-- 6. STREAMLINED DISTRICT WELCOME ACTION CARD -->
-<!-- ========================================================================= -->
-<section class="max-w-[1320px] w-full mx-auto px-gutter py-space-xl">
-  <div class="bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-low rounded-2xl p-space-md sm:p-space-xl shadow-xs border border-outline-variant/30">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
-      <!-- Left info column -->
-      <div class="lg:col-span-6 space-y-space-xs">
-        <div class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow-xs">
-          <span class="material-symbols-outlined text-[26px]">local_fire_department</span>
-        </div>
-        <span class="font-label-sm text-xs uppercase tracking-widest text-tertiary font-bold block pt-1">Civic Participation Action</span>
-        <h3 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-bold">
-          Host the Torch in Your District • <span class="text-[#b58d3d] font-serif font-bold italic">नगर व जिला स्वागत</span>
-        </h3>
-        <p class="font-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-          Register your local educational campus, youth volunteer council, or municipality to formally welcome the Sandesh Bharti convoy as it crosses your district corridor.
-        </p>
-        <div class="grid grid-cols-2 gap-2 pt-2 text-xs font-semibold text-outline">
-          <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> 766 Districts Network</div>
-          <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> QR Scanner Setup</div>
-          <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Youth Town Hall Stage</div>
-          <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Official Certificate</div>
-        </div>
-      </div>
-
-      <!-- Right compact form -->
-      <div class="lg:col-span-6 bg-surface-container-lowest p-space-md sm:p-space-lg rounded-xl shadow-xs border border-outline-variant/30">
-        <form class="space-y-3" onsubmit="event.preventDefault(); alert('धन्यवाद! आपका जिला स्वागत अनुरोध दर्ज कर लिया गया है। सचिवालय टीम आपसे शीघ्र संपर्क करेगी।');">
-          <div>
-            <label class="block font-label-sm text-xs uppercase font-bold text-outline mb-1">Full Name &amp; Designation / पूरा नाम व पद</label>
-            <input class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-xs sm:text-sm placeholder:text-outline border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-[#d4af37]" placeholder="e.g. Dr. Ramesh Verma, Campus Director" required="" type="text"/>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block font-label-sm text-xs uppercase font-bold text-outline mb-1">State / राज्य</label>
-              <select class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-xs sm:text-sm border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-[#d4af37]">
-                <option>Tamil Nadu</option>
-                <option>Karnataka</option>
-                <option>Maharashtra</option>
-                <option>Madhya Pradesh</option>
-                <option>Uttar Pradesh</option>
-                <option>Gujarat</option>
-                <option>West Bengal</option>
-                <option>Other States / UT</option>
-              </select>
-            </div>
-            <div>
-              <label class="block font-label-sm text-xs uppercase font-bold text-outline mb-1">Target District / जिला</label>
-              <input class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-xs sm:text-sm placeholder:text-outline border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-[#d4af37]" placeholder="e.g. Madurai / Varanasi" required="" type="text"/>
-            </div>
-          </div>
-          <div>
-            <label class="block font-label-sm text-xs uppercase font-bold text-outline mb-1">WhatsApp / Contact Phone</label>
-            <input class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-xs sm:text-sm placeholder:text-outline border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-[#d4af37]" placeholder="+91 98765 43210" required="" type="tel"/>
-          </div>
-          <button class="w-full py-2.5 px-4 rounded-xl bg-inverse-surface text-inverse-on-surface hover:bg-primary font-headline-sm text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md flex items-center justify-center gap-2" type="submit">
-            <span class="material-symbols-outlined text-[18px] text-primary-fixed">app_registration</span>
-            <span>Submit District Welcome Request</span>
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Interactive JavaScript for Tab Switching & Live Map Tracking -->
-<script>
-  function switchZone(zoneKey) {
-    const panels = document.querySelectorAll('.zone-content');
-    panels.forEach(p => p.classList.add('hidden'));
-
-    const targetPanel = document.getElementById('zone-panel-' + zoneKey);
-    if (targetPanel) {
-      targetPanel.classList.remove('hidden');
-    }
-
-    const tabs = document.querySelectorAll('#zone-tab-group button');
-    tabs.forEach(t => {
-      t.className = 'py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center';
-      const spanSub = t.querySelector('span:last-child');
-      if (spanSub) {
-        spanSub.className = 'font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5';
+      html,
+      body {
+        margin: 0;
+        padding: 0;
       }
-    });
 
-    const activeTab = document.getElementById('tab-' + zoneKey);
-    if (activeTab) {
-      activeTab.className = 'py-2.5 px-2 rounded-xl bg-surface-container-lowest/15 text-inverse-on-surface font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center';
-      const activeSub = activeTab.querySelector('span:last-child');
-      if (activeSub) {
-        activeSub.className = 'font-label-sm text-[10px] sm:text-xs text-primary-fixed uppercase tracking-wider mt-0.5';
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
       }
     }
-  }
 
-  // ==========================================
-  // LIVE GPS CONVOY & SACRED TORCH TRACKER
-  // ==========================================
-  let trackingMap = null;
-  let convoyMarker = null;
-  let polylineRoute = null;
-  let currentTileLayer = null;
-  let isSatelliteMode = false;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "inverse-on-surface": "#f3f0ea", "surface-bright": "#fcf9f2", "background": "#fcf9f2", "error-container": "#ffdad6", "surface-container-lowest": "#ffffff", "surface-container-low": "#f6f3ec", "tertiary": "#a73a00", "primary-fixed": "#ffe088", "inverse-primary": "#e9c349", "surface-variant": "#e5e2db", "outline-variant": "#d0c5af", "on-tertiary-fixed": "#370e00", "surface-container-highest": "#e5e2db", "primary": "#735c00", "outline": "#7f7663", "on-error-container": "#93000a", "secondary-fixed": "#d6e4f9", "on-tertiary-fixed-variant": "#7f2b00", "on-secondary-fixed": "#0f1c2c", "surface-container": "#f0eee7", "on-surface": "#1c1c18", "surface": "#fcf9f2", "on-secondary-container": "#566475", "on-secondary-fixed-variant": "#3a4859", "tertiary-fixed": "#ffdbce", "on-background": "#1c1c18", "surface-tint": "#735c00", "surface-dim": "#dcdad3", "secondary-container": "#d3e1f6", "surface-container-high": "#ebe8e1", "error": "#ba1a1a", "on-primary": "#ffffff", "tertiary-fixed-dim": "#ffb599", "primary-fixed-dim": "#e9c349", "tertiary-container": "#ff986f", "on-tertiary-container": "#7c2900", "on-surface-variant": "#4d4635", "on-primary-fixed-variant": "#574500", "on-tertiary": "#ffffff", "on-primary-container": "#554300", "on-secondary": "#ffffff", "primary-container": "#d4af37", "secondary-fixed-dim": "#bac8dc", "inverse-surface": "#31312c", "secondary": "#525f71", "on-primary-fixed": "#241a00", "on-error": "#ffffff" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-xxl": "4rem", "space-sm": "0.5rem", "space-md": "1rem", "gutter": "1.5rem", "margin": "3rem", "space-lg": "1.5rem", "margin-mobile": "1.25rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "gutter-sm": "1rem" }, fontFamily: { "label-lg": ["Work Sans"], "headline-lg": ["Playfair Display"], "label-md": ["Work Sans"], "label-sm": ["Work Sans"], "headline-xl": ["Playfair Display"], "headline-sm": ["Playfair Display"], "title-sm": ["Noto Sans"], "body-sm": ["Noto Sans"], "title-md": ["Noto Sans"], "headline-lg-mobile": ["Playfair Display"], "title-lg": ["Playfair Display"], "headline-md": ["Playfair Display"], "body-lg": ["Noto Sans"], "headline-xl-mobile": ["Playfair Display"], "body-md": ["Noto Sans"] }, fontSize: { "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "500" }], "headline-xl": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0em", "fontWeight": "600" }], "title-lg": ["20px", { "lineHeight": "26px", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-xl-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }] } } } };</script>
+  <style id="swarnim-site-fixes">
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 112px
+    }
 
-  const KANYAKUMARI_POS = [8.0780, 77.5550];
+    body {
+      overflow-x: hidden
+    }
 
-  const yatraRouteCoords = [
-    [8.0780, 77.5550],  // Kanyakumari
-    [9.9252, 78.1198],  // Madurai
-    [12.9716, 77.5946], // Bengaluru
-    [17.3850, 78.4867], // Hyderabad
-    [18.9220, 72.8347], // Mumbai
-    [18.5204, 73.8567], // Pune
-    [21.1702, 72.8311], // Surat
-    [23.0225, 72.5714], // Ahmedabad
-    [22.7196, 75.8577], // Indore
-    [23.2599, 77.4126], // Bhopal
-    [21.2514, 81.6296], // Raipur
-    [20.2961, 85.8245], // Bhubaneswar
-    [22.5726, 88.3639], // Kolkata
-    [25.5941, 85.1376], // Patna
-    [26.1445, 91.7362], // Guwahati
-    [26.8467, 80.9462], // Lucknow
-    [26.9124, 75.7873], // Jaipur
-    [30.3165, 78.0322], // Dehradun
-    [30.7333, 76.7794], // Chandigarh
-    [28.6129, 77.2295]  // New Delhi National War Memorial
-  ];
+    header {
+      z-index: 100
+    }
 
-  const milestonePins = [
-    { name: "कन्याकुमारी (प्रस्थान एवं संकल्प)", coords: [8.0780, 77.5550], phase: "Phase 01 · Milestone A", desc: "विवेकानंद रॉक मेमोरियल — दीप प्रज्वलन एवं शुभारंभ" },
-    { name: "मदुरै (मीनाक्षी मंदिर परिक्रमा)", coords: [9.9252, 78.1198], phase: "Phase 01 · Milestone B", desc: "ऐतिहासिक मंदिर परिक्रमा व सांस्कृतिक सभा" },
-    { name: "बेंगलुरु (विधान सौध)", coords: [12.9716, 77.5946], phase: "Phase 01 · Milestone C", desc: "टेक स्टार्टअप एवं नवाचार संकल्प सम्मेलन" },
-    { name: "मुंबई (गेटवे ऑफ़ इंडिया)", coords: [18.9220, 72.8347], phase: "Phase 02 · Milestone D", desc: "वित्तीय राजधानी एवं मरीन ड्राइव नागरिक मार्च" },
-    { name: "अहमदाबाद (साबरमती आश्रम)", coords: [23.0225, 72.5714], phase: "Phase 02 · Milestone E", desc: "साबरमती प्रार्थना व आत्मनिर्भर भारत शपथ" },
-    { name: "भोपाल (भोजताल तट)", coords: [23.2599, 77.4126], phase: "Phase 03 · Milestone F", desc: "मध्य भारत जन-आंदोलन एवं सांस्कृतिक संगम" },
-    { name: "कोलकाता (विक्टोरिया मेमोरियल)", coords: [22.5726, 88.3639], phase: "Phase 04 · Milestone G", desc: "हावड़ा ब्रिज पदयात्रा व पूर्वोत्तर महा-संगम" },
-    { name: "गुवाहाटी (ब्रह्मपुत्र तट)", coords: [26.1445, 91.7362], phase: "Phase 04 · Milestone H", desc: "अष्टलक्ष्मी 8 पूर्वोत्तर राज्यों का भव्य मिलन" },
-    { name: "जयपुर (आमेर फोर्ट)", coords: [26.9124, 75.7873], phase: "Phase 05 · Milestone I", desc: "मरुधरा विरासत रिले एवं पर्यावरण संकल्प" },
-    { name: "नई दिल्ली (राष्ट्रीय युद्ध स्मारक)", coords: [28.6129, 77.2295], phase: "Phase 05 · Grand Yatra Finale", desc: "अमर जवान ज्योति — 766 जिलों की पावन माटी व संकल्प समर्पण" }
-  ];
+    header nav[data-active-classes] {
+      display: flex;
+      align-items: center;
+      gap: clamp(8px, 1.1vw, 18px);
+      white-space: nowrap
+    }
 
-  function initTrackingMap() {
-    const mapElement = document.getElementById('live-convoy-map');
-    if (!mapElement || typeof L === 'undefined') return;
+    header nav[data-active-classes] a {
+      font-size: 11px;
+      line-height: 1.3;
+      text-decoration: none
+    }
 
-    // Initialize Map with Google Maps tile layer
-    trackingMap = L.map('live-convoy-map', {
-      center: [21.5, 78.5],
-      zoom: 5,
-      minZoom: 4,
-      maxZoom: 18,
-      zoomControl: true,
-      scrollWheelZoom: false
-    });
+    header nav[data-active-classes] a.active {
+      background: #d4af37;
+      color: #241a00;
+      border-radius: 8px;
+      padding: 9px 11px
+    }
 
-    // Google Maps Standard Layer
-    currentTileLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-      attribution: '&copy; Google Maps',
-      maxZoom: 20
-    }).addTo(trackingMap);
+    @media(max-width:1279px) {
+      header {
+        height: auto !important
+      }
 
-    // Draw 10,800 KM Route Path (Glow effect + Golden Line)
-    L.polyline(yatraRouteCoords, {
-      color: '#a73a00',
-      weight: 7,
-      opacity: 0.35,
-      lineCap: 'round',
-      lineJoin: 'round'
-    }).addTo(trackingMap);
+      header>div {
+        height: auto !important;
+        min-height: 76px;
+        max-width: 100% !important;
+        padding: 12px 16px !important;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 8px
+      }
 
-    polylineRoute = L.polyline(yatraRouteCoords, {
-      color: '#d4af37',
-      weight: 4,
-      opacity: 0.95,
-      dashArray: '8, 6',
-      lineCap: 'round',
-      lineJoin: 'round'
-    }).addTo(trackingMap);
+      header nav[data-active-classes] {
+        display: flex !important;
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        gap: 8px;
+        padding: 4px 0 8px;
+        scrollbar-width: thin
+      }
 
-    // Add Milestone Pins along route
-    milestonePins.forEach((item, index) => {
-      const isApex = index === milestonePins.length - 1;
-      const isOrigin = index === 0;
+      header nav[data-active-classes] a {
+        flex: 0 0 auto;
+        padding: 8px 10px !important;
+        background: rgba(0, 0, 0, .035);
+        border-radius: 8px
+      }
 
-      const pinHtml = `
+      header nav[data-active-classes] a.active {
+        background: #d4af37 !important
+      }
+
+      main {
+        padding-top: 122px !important
+      }
+    }
+
+    @media(max-width:640px) {
+      header>div {
+        column-gap: 8px
+      }
+
+      header>div>div:first-child {
+        min-width: 0;
+        flex: 1
+      }
+
+      header>div>div:first-child span:first-child {
+        font-size: 14px
+      }
+
+      header>div>div:last-child {
+        gap: 6px
+      }
+
+      header>div>div:last-child>div:first-child {
+        display: none !important
+      }
+
+      header>div>div:last-child>div:last-child {
+        display: none !important
+      }
+
+      header nav[data-active-classes] a {
+        font-size: 10px !important
+      }
+
+      main {
+        padding-top: 128px !important
+      }
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent
+    }
+
+    :focus-visible {
+      outline: 3px solid #a73a00;
+      outline-offset: 3px
+    }
+
+    .leaflet-pane {
+      z-index: 10 !important
+    }
+
+    .leaflet-top,
+    .leaflet-bottom {
+      z-index: 20 !important
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+      border: 1px solid #d4af37;
+      padding: 4px
+    }
+
+    .leaflet-popup-content {
+      margin: 8px 12px
+    }
+  </style>
+  <script src="assets/track-pledge.js"></script>
+</head>
+
+<body class="bg-background font-body-md text-on-surface antialiased">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-20 max-w-[1320px] mx-auto px-gutter flex items-center justify-between gap-space-md"><a
+        class="flex items-center gap-space-sm group text-left" href="index.html"><img src="assets/logo-emblem.png"
+          alt="स्वर्णिम भारत उदयघोष"
+          class="h-12 w-auto max-w-[80px] object-contain drop-shadow-sm transition-transform group-hover:scale-105" />
+        <div class="flex flex-col"><span
+            class="font-headline-sm text-title-md text-primary tracking-tight font-bold leading-tight group-hover:text-primary transition-colors">स्वर्णिम
+            भारत उदयघोष</span><span
+            class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-semibold">Mera Desh, Meri
+            Zimmedari</span></div>
+      </a>
+      <nav class="site-nav"
+        data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a
+          data-site-nav="the-journey.html" href="the-journey.html">The Journey</a><a data-site-nav="three-pillars.html"
+          href="three-pillars.html">3 Pillars</a><a data-site-nav="route-and-milestones.html"
+          href="route-and-milestones.html">Route &amp; Milestones</a><a data-site-nav="changemakers.html"
+          href="changemakers.html">Changemakers</a><a data-site-nav="take-pledge-and-scanner.html"
+          href="take-pledge-and-scanner.html">Take Pledge &amp; Scanner</a><a data-site-nav="anthem-and-media.html"
+          href="anthem-and-media.html">Anthem &amp; Media</a><a data-site-nav="our-team.html" href="our-team.html">Our
+          Core Team</a></nav>
+      <div class="flex items-center gap-space-sm"><a
+          class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-all font-label-md text-label-md shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
+          data-path="take-pledge-and-scanner" href="take-pledge-and-scanner.html"><span
+            class="material-symbols-outlined text-[18px] mr-1.5 text-primary-fixed">assignment_turned_in</span><span>संकल्प
+            लें / Pledge</span></a></div>
+    </div>
+  </header>
+  <main class="w-full pt-20 bg-background min-h-screen">
+    <div class="flex flex-col w-full">
+
+      <!-- Top Sovereign Ornamental Ribbon -->
+      <div class="w-full h-1.5 bg-gradient-to-r from-tertiary via-primary-container to-secondary"></div>
+
+      <!-- ========================================================================= -->
+      <!-- 1. SOVEREIGN POWERFUL HERO SECTION: ONE JOURNEY ACROSS BHARAT -->
+      <!-- ========================================================================= -->
+      <section
+        class="relative w-full overflow-hidden bg-gradient-to-b from-[#e3edf6] via-[#f7f3ed] to-surface pt-10 pb-12 md:pb-16 border-b border-outline-variant/30">
+        <!-- Subtle Sovereign Ambient Glow -->
+        <div
+          class="absolute -top-24 left-1/2 -translate-x-1/2 w-[1200px] h-[450px] rounded-full bg-primary-fixed/20 blur-[160px] pointer-events-none">
+        </div>
+        <div
+          class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-tertiary-fixed/25 blur-[130px] pointer-events-none">
+        </div>
+        <div
+          class="absolute top-1/2 -right-20 w-80 h-80 rounded-full bg-secondary-fixed/25 blur-[130px] pointer-events-none">
+        </div>
+
+        <!-- Background Decorative Watermark (Sacred Chakra & Coordinates) -->
+        <div class="absolute inset-0 opacity-[0.035] pointer-events-none flex items-center justify-center">
+          <svg class="w-[900px] h-[900px]" fill="none" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="96" stroke="#142940" stroke-dasharray="4 3" stroke-width="1.5"></circle>
+            <circle cx="100" cy="100" r="76" stroke="#d4af37" stroke-width="1"></circle>
+            <circle cx="100" cy="100" r="56" stroke="#a73a00" stroke-width="0.8"></circle>
+            <path d="M100 4 L100 196 M4 100 L196 100 M32 32 L168 168 M32 168 L168 32" stroke="#142940"
+              stroke-width="0.5"></path>
+          </svg>
+        </div>
+
+        <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
+          <!-- National Mission Badge Pill -->
+          <div
+            class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-[#d4af37]/50 shadow-xs max-w-[92vw]">
+            <span class="w-2 h-2 rounded-full bg-[#a73a00] animate-pulse flex-shrink-0"></span>
+            <span
+              class="font-label-sm text-[11px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest text-[#142940] truncate">राष्ट्र
+              निर्माण महा-मार्ग • 13000+ KM संपूर्ण भारत भ्रमण</span>
+            <span class="text-[#d4af37] hidden sm:inline">•</span>
+            <span class="font-label-sm text-[11px] sm:text-xs font-semibold text-[#a73a00] hidden sm:inline">Starting
+              Soon • Fleet Ready</span>
+          </div>
+
+          <!-- Monumental Headline with Royal Golden Italic Serif Accent -->
+          <h1
+            class="font-headline-xl text-3xl sm:text-5xl md:text-6xl text-[#142940] tracking-tight leading-tight font-bold mt-4">
+            One Journey Across <span class="text-[#b58d3d] font-serif font-bold italic">Bharat</span> <span
+              class="text-[#b58d3d] font-serif font-bold italic">अखंड राष्ट्र-मार्ग</span>
+          </h1>
+
+          <!-- Hindi Subtitle -->
+          <p
+            class="font-headline-sm text-base sm:text-xl md:text-2xl text-[#1b3b5f] font-bold mt-2 sm:mt-3 tracking-wide">
+            कन्याकुमारी के संगम से नई दिल्ली के अमर चक्र तक — <span class="text-[#a73a00]">13000+ किमी का संपूर्ण भारत
+              भ्रमण (हर राज्य उत्सव)</span>
+          </p>
+
+          <!-- Punchy Narrative (Trimmed & Crisp) -->
+          <p class="font-body-md text-sm md:text-base text-on-surface-variant mt-3 max-w-3xl leading-relaxed">
+            28 राज्य, 8 केंद्र शासित प्रदेश और 766 जिलों को एकता के सूत्र में पिरोती 13000+ किलोमीटर का संपूर्ण भारत
+            भ्रमण (हर राज्य उत्सव)। 140 करोड़ नागरिकों के संकल्पों का राष्ट्र निर्माण महा-अभियान।
+          </p>
+
+          <!-- Sovereign Ribbon Divider -->
+          <div class="mt-4 flex items-center gap-3 w-full max-w-md mx-auto justify-center">
+            <span class="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#d4af37]/70"></span>
+            <span
+              class="font-label-sm text-[10px] sm:text-xs text-[#8c6b12] uppercase font-bold tracking-widest px-1">एक
+              पदयात्रा • 766 जिले • अखंड भारत</span>
+            <span class="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#d4af37]/70"></span>
+          </div>
+
+          <!-- 4 Key Stat Pillars Bar (Visual & Responsive) -->
+          <div
+            class="mt-7 w-full max-w-4xl sm:max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-y-3 sm:gap-y-0 sm:divide-x divide-outline-variant/60 border-t border-b border-outline-variant/60 py-4 sm:py-5 px-3 sm:px-6 bg-white/75 backdrop-blur-sm rounded-2xl shadow-xs">
+            <div
+              class="flex flex-col items-center px-3 sm:px-5 py-1 sm:py-0 border-r sm:border-r-0 border-outline-variant/40">
+              <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">13000+ km</span>
+              <span
+                class="font-label-sm text-[11px] sm:text-xs uppercase tracking-wider text-on-surface font-bold mt-1 text-center leading-tight">Sampurn
+                Bharat Bhraman: Har Rajya Utsav</span>
+            </div>
+            <div class="flex flex-col items-center px-3 sm:px-5 py-1 sm:py-0">
+              <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">766</span>
+              <span
+                class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-1">Districts
+                Reached</span>
+            </div>
+            <div
+              class="flex flex-col items-center px-3 sm:px-5 py-1 sm:py-0 border-r sm:border-r-0 border-outline-variant/40 border-t sm:border-t-0 pt-2 sm:pt-0">
+              <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">28 &amp; 8</span>
+              <span
+                class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-1">States
+                &amp; UTs</span>
+            </div>
+            <div class="flex flex-col items-center px-3 sm:px-5 py-1 sm:py-0 border-t sm:border-t-0 pt-2 sm:pt-0">
+              <span class="font-headline-md text-2xl sm:text-3xl font-serif text-[#b58d3d] font-bold">31</span>
+              <span
+                class="font-label-sm text-[10px] sm:text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold mt-1">Relay
+                Cities</span>
+            </div>
+          </div>
+
+          <!-- Interactive Quick Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center gap-3.5 mt-7">
+            <a href="#milestone-timeline"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#142940] to-[#1b3b5f] text-white font-label-md text-sm font-bold shadow-md hover:shadow-xl hover:scale-105 transition-all">
+              <span class="material-symbols-outlined text-[18px] text-[#e9c349]">flag</span>
+              <span>यात्रा पड़ाव / Planned Itinerary</span>
+            </a>
+            <a href="#live-tracker"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-[#142940] border border-[#d4af37]/60 font-label-md text-sm font-bold shadow-xs hover:border-[#d4af37] hover:scale-105 transition-all">
+              <span class="material-symbols-outlined text-[18px] text-[#a73a00]">radar</span>
+              <span>मशाल व ट्रॉफी लाइव ट्रैकिंग / Live Tracker</span>
+            </a>
+            <a href="take-pledge-and-scanner.html"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#d4af37] text-[#241a00] font-label-md text-sm font-bold shadow-md hover:bg-[#ffe088] hover:scale-105 transition-all">
+              <span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+              <span>संकल्प लें / Take Pledge</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- 2. REFERENCE IMAGE SECTION: PLANNED ITINERARY & MILESTONE TIMELINE -->
+      <!-- PLACED RIGHT AT THE STARTING AS REQUESTED -->
+      <!-- ========================================================================= -->
+      <section class="max-w-[1320px] w-full mx-auto px-gutter pt-space-xl pb-space-lg scroll-mt-24"
+        id="milestone-timeline">
+        <!-- Header matching the Reference Image -->
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm border-b border-outline-variant/30 pb-4">
+          <div class="min-w-0">
+            <span class="font-label-sm text-xs uppercase tracking-widest text-[#a73a00] font-bold block mb-1">PLANNED
+              ITINERARY</span>
+            <h2
+              class="font-headline-lg text-xl sm:text-3xl md:text-4xl text-[#142940] font-serif font-bold tracking-tight leading-tight">
+              Milestone Timeline &amp; Assemblies</h2>
+          </div>
+          <!-- Status Legend -->
+          <div class="flex items-center gap-2.5 sm:gap-4 font-label-md text-xs sm:text-sm flex-wrap pt-2 md:pt-0">
+            <span class="inline-flex items-center gap-1.5 text-[#a73a00] font-bold">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#a73a00] animate-pulse"></span> Starting Soon (शीघ्र शुभारंभ)
+            </span>
+            <span class="inline-flex items-center gap-1.5 text-outline font-semibold">
+              <span class="w-2.5 h-2.5 rounded-full bg-outline-variant"></span> Date Reveal Ahead (तारीख जल्द घोषित)
+            </span>
+            <span class="inline-flex items-center gap-1.5 text-[#735c00] font-bold">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#d4af37]"></span> Grand Finale (भव्य समापन)
+            </span>
+          </div>
+        </div>
+
+        <!-- Timeline Cards Stack (Replicating Reference Image Pixel-for-Pixel) -->
+        <div class="space-y-3.5">
+          <!-- Card 1: Phase 01 · Milestone A (Starting Soon) -->
+          <div
+            class="p-4 sm:p-5 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-md hover:border-[#d4af37]/50 group">
+            <div class="flex items-center gap-4 min-w-[240px]">
+              <div
+                class="w-14 h-14 rounded-xl bg-surface-container flex flex-col items-center justify-center text-primary flex-shrink-0 border border-outline-variant/40 shadow-inner group-hover:border-[#a73a00]/40 transition-colors">
+                <span class="font-label-sm text-[11px] font-bold uppercase tracking-widest text-outline">XX</span>
+                <span class="font-headline-sm text-xl font-serif font-bold leading-none text-[#a73a00]">XX</span>
+              </div>
+              <div>
+                <span class="font-label-sm text-[11px] text-[#a73a00] uppercase font-bold tracking-wider block">Phase 01
+                  · Milestone A</span>
+                <h3 class="font-title-md text-base sm:text-lg text-on-surface font-bold leading-snug">Kanyakumari
+                  Consecration</h3>
+              </div>
+            </div>
+            <div class="flex-1 md:px-4">
+              <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Ceremonial flame kindling by 75 youth scholars at Vivekananda Rock Memorial. Digital citizen pledge
+                registration opens on National Ledger upon grand flag-off.
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
+              <span
+                class="px-3.5 py-1.5 bg-[#ffdbce]/60 text-[#a73a00] font-label-sm text-xs font-bold rounded-full flex items-center gap-1.5 border border-[#ff986f]/50">
+                <span class="w-2 h-2 rounded-full bg-[#a73a00] animate-pulse"></span> Starting Soon
+              </span>
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container text-[#a73a00] flex items-center justify-center border border-outline-variant/30">
+                <span class="material-symbols-outlined text-[17px]">lock_clock</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Phase 01 · Milestone B (Date Reveal Ahead) -->
+          <div
+            class="p-4 sm:p-5 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-md hover:border-[#d4af37]/50 group">
+            <div class="flex items-center gap-4 min-w-[240px]">
+              <div
+                class="w-14 h-14 rounded-xl bg-surface-container flex flex-col items-center justify-center text-outline flex-shrink-0 border border-outline-variant/40 shadow-inner">
+                <span class="font-label-sm text-[11px] font-bold uppercase tracking-widest text-outline">XX</span>
+                <span class="font-headline-sm text-xl font-serif font-bold leading-none text-outline">XX</span>
+              </div>
+              <div>
+                <span class="font-label-sm text-[11px] text-outline uppercase font-semibold tracking-wider block">Phase
+                  01 · Milestone B</span>
+                <h3 class="font-title-md text-base sm:text-lg text-on-surface font-bold leading-snug">Bengaluru
+                  Innovation Conclave</h3>
+              </div>
+            </div>
+            <div class="flex-1 md:px-4">
+              <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Torch handoff at Vidhana Soudha. Over 120 tech startups to sign the Viksit Bharat Digital Governance
+                charter. Citizen mobilization via QR scanner booths.
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
+              <span
+                class="px-3.5 py-1.5 bg-surface-container text-outline font-label-sm text-xs font-semibold rounded-full border border-outline-variant/40">
+                Date Reveal Ahead
+              </span>
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center border border-outline-variant/30">
+                <span class="material-symbols-outlined text-[17px]">event</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Phase 02 · Milestone C (Date Reveal Ahead) -->
+          <div
+            class="p-4 sm:p-5 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-md hover:border-[#d4af37]/50 group">
+            <div class="flex items-center gap-4 min-w-[240px]">
+              <div
+                class="w-14 h-14 rounded-xl bg-surface-container flex flex-col items-center justify-center text-outline flex-shrink-0 border border-outline-variant/40 shadow-inner">
+                <span class="font-label-sm text-[11px] font-bold uppercase tracking-widest text-outline">XX</span>
+                <span class="font-headline-sm text-xl font-serif font-bold leading-none text-outline">XX</span>
+              </div>
+              <div>
+                <span class="font-label-sm text-[11px] text-outline uppercase font-semibold tracking-wider block">Phase
+                  02 · Milestone C</span>
+                <h3 class="font-title-md text-base sm:text-lg text-on-surface font-bold leading-snug">Mumbai Marine
+                  Drive March</h3>
+              </div>
+            </div>
+            <div class="flex-1 md:px-4">
+              <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Sandesh Bharti outreach bus stationed at Nariman Point. Civic town hall on maritime commerce and
+                sustainability. Ambassador torch relay handover to Western Command.
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
+              <span
+                class="px-3.5 py-1.5 bg-surface-container text-outline font-label-sm text-xs font-semibold rounded-full border border-outline-variant/40">
+                Date Reveal Ahead
+              </span>
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center border border-outline-variant/30">
+                <span class="material-symbols-outlined text-[17px]">event</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Phase 02 · Milestone D (Date Reveal Ahead) -->
+          <div
+            class="p-4 sm:p-5 bg-surface-container-lowest rounded-2xl shadow-xs border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-md hover:border-[#d4af37]/50 group">
+            <div class="flex items-center gap-4 min-w-[240px]">
+              <div
+                class="w-14 h-14 rounded-xl bg-surface-container flex flex-col items-center justify-center text-outline flex-shrink-0 border border-outline-variant/40 shadow-inner">
+                <span class="font-label-sm text-[11px] font-bold uppercase tracking-widest text-outline">XX</span>
+                <span class="font-headline-sm text-xl font-serif font-bold leading-none text-outline">XX</span>
+              </div>
+              <div>
+                <span class="font-label-sm text-[11px] text-outline uppercase font-semibold tracking-wider block">Phase
+                  02 · Milestone D</span>
+                <h3 class="font-title-md text-base sm:text-lg text-on-surface font-bold leading-snug">Kolkata
+                  Renaissance Assembly</h3>
+              </div>
+            </div>
+            <div class="flex-1 md:px-4">
+              <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Civic congregation at Victoria Memorial gardens. Integration of the 8 North-Eastern state torchbearers
+                before the central march to Bihar and Uttar Pradesh.
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
+              <span
+                class="px-3.5 py-1.5 bg-surface-container text-outline font-label-sm text-xs font-semibold rounded-full border border-outline-variant/40">
+                Date Reveal Ahead
+              </span>
+              <div
+                class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center border border-outline-variant/30">
+                <span class="material-symbols-outlined text-[17px]">schedule</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Grand Grand Yatra Finale (National War Memorial, Delhi) -->
+          <div
+            class="p-4 sm:p-5 bg-gradient-to-r from-[#142940] via-[#1a3350] to-[#142940] text-inverse-on-surface rounded-2xl shadow-md border border-[#d4af37]/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all hover:shadow-xl">
+            <div class="flex items-center gap-4 min-w-[240px]">
+              <div
+                class="w-14 h-14 rounded-xl bg-[#d4af37] text-[#241a00] flex flex-col items-center justify-center flex-shrink-0 shadow-sm border border-[#ffe088]">
+                <span class="font-label-sm text-[10px] font-bold uppercase tracking-widest opacity-80">FINAL</span>
+                <span class="font-headline-sm text-xl font-serif font-bold leading-none">2047</span>
+              </div>
+              <div>
+                <span class="font-label-sm text-[11px] text-[#e9c349] uppercase font-bold tracking-wider block">The
+                  Grand Yatra Finale</span>
+                <h3 class="font-title-md text-base sm:text-lg text-white font-bold leading-snug">National War Memorial,
+                  Delhi</h3>
+              </div>
+            </div>
+            <div class="flex-1 md:px-4">
+              <p class="font-body-sm text-xs sm:text-sm text-white/80 leading-relaxed">
+                The culminating national tribute where soil and sacred resolves from all 766 administrative districts
+                are consecrated forever before the eternal flame.
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-end flex-shrink-0">
+              <span
+                class="px-4 py-1.5 bg-[#d4af37] text-[#241a00] font-label-sm text-xs font-bold rounded-full tracking-wider uppercase shadow-xs">
+                Grand Finale · Date TBA
+              </span>
+              <div
+                class="w-8 h-8 rounded-full bg-white/10 text-[#e9c349] flex items-center justify-center border border-white/20">
+                <span class="material-symbols-outlined text-[17px]">military_tech</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- 3. LIVE GPS MAP TRACKER: SACRED TORCH & TROPHY (मशाल व ट्रॉफी लाइव ट्रैकिंग) -->
+      <!-- ========================================================================= -->
+      <section class="max-w-[1320px] w-full mx-auto px-gutter py-space-xl scroll-mt-24" id="live-tracker">
+        <div
+          class="bg-surface-container-lowest rounded-3xl p-4 sm:p-6 lg:p-8 shadow-sm border-2 border-[#d4af37]/40 relative overflow-hidden">
+          <!-- Ambient Indian Tricolor / Golden Glows -->
+          <div
+            class="absolute -top-16 -right-16 w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none">
+          </div>
+          <div
+            class="absolute -bottom-16 -left-16 w-64 h-64 bg-tertiary-fixed/25 rounded-full blur-3xl pointer-events-none">
+          </div>
+
+          <!-- Header & Mission Telemetry HUD -->
+          <div
+            class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-4 pb-5 border-b border-outline-variant/30">
+            <div class="space-y-1">
+              <div
+                class="inline-flex items-center gap-2 px-3 py-1 bg-[#142940] text-white rounded-full font-label-sm text-xs font-bold uppercase tracking-wider shadow-xs">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#e9c349] animate-ping"></span>
+                <span>LIVE SATELLITE GPS TELEMETRY • ISRO NavIC UPLINK</span>
+              </div>
+              <h2
+                class="font-headline-lg text-2xl sm:text-3xl md:text-4xl text-[#142940] font-serif font-bold tracking-tight pt-1">
+                Live Torch &amp; Trophy Tracker • <span class="text-[#b58d3d] font-serif font-bold italic">मशाल व ट्रॉफी
+                  लाइव ट्रैकिंग</span>
+              </h2>
+              <p class="font-body-md text-xs sm:text-sm text-on-surface-variant max-w-2xl leading-relaxed">
+                13000+ किमी के अखंड राष्ट्र-मार्ग पर <strong>स्वर्णिम भारत अमर ज्योति (मशाल)</strong> एवं <strong>संदेश
+                  भारती (ट्रॉफी)</strong> का 24x7 सजीव उपग्रह स्थान निर्धारण।
+              </p>
+            </div>
+
+            <!-- Quick Action Controls -->
+            <div class="flex flex-wrap items-center gap-2.5 flex-shrink-0">
+              <button id="btn-focus-convoy" onclick="focusConvoy()"
+                class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#a73a00] to-[#d4af37] text-white font-label-md text-xs font-bold shadow-xs hover:shadow-md hover:scale-105 transition-all"
+                type="button">
+                <span class="material-symbols-outlined text-[18px]">my_location</span>
+                <span>मशाल व ट्रॉफी पर जाएं</span>
+              </button>
+              <button id="btn-fit-route" onclick="fitFullRoute()"
+                class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container text-[#142940] border border-outline-variant/40 font-label-md text-xs font-bold hover:bg-surface-container-high transition-all"
+                type="button">
+                <span class="material-symbols-outlined text-[18px]">polyline</span>
+                <span>सम्पूर्ण 13000+ KM मार्ग</span>
+              </button>
+              <button id="btn-toggle-tiles" onclick="toggleMapTiles()"
+                class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container text-[#142940] border border-outline-variant/40 font-label-md text-xs font-bold hover:bg-surface-container-high transition-all"
+                type="button">
+                <span class="material-symbols-outlined text-[18px]" id="tile-icon">satellite_alt</span>
+                <span id="tile-label">Satellite View</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Telemetry KPI Bar -->
+          <div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 my-4">
+            <!-- KPI 1: Active Station -->
+            <div
+              class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#a73a00]/10 text-[#a73a00] flex items-center justify-center flex-shrink-0 font-bold">
+                <span class="material-symbols-outlined text-[22px]">local_fire_department</span>
+              </div>
+              <div class="min-w-0">
+                <span class="text-[10px] uppercase font-bold text-outline block truncate">Current Station (वर्तमान
+                  पड़ाव)</span>
+                <span class="text-xs sm:text-sm font-bold text-on-surface block truncate"
+                  id="telemetry-city">Kanyakumari, Tamil Nadu</span>
+                <span class="text-[10px] text-tertiary font-semibold">Vivekananda Rock Memorial</span>
+              </div>
+            </div>
+
+            <!-- KPI 2: Live Coordinates -->
+            <div
+              class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#d4af37]/15 text-primary flex items-center justify-center flex-shrink-0 font-bold">
+                <span class="material-symbols-outlined text-[22px]">explore</span>
+              </div>
+              <div class="min-w-0">
+                <span class="text-[10px] uppercase font-bold text-outline block truncate">Live GPS Coordinates</span>
+                <span class="text-xs sm:text-sm font-bold text-on-surface block font-mono" id="telemetry-coords">8.0780°
+                  N, 77.5550° E</span>
+                <span class="text-[10px] text-primary font-semibold">NavIC Dual-Band Lock</span>
+              </div>
+            </div>
+
+            <!-- KPI 3: Status & Flame -->
+            <div
+              class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#142940]/10 text-[#142940] flex items-center justify-center flex-shrink-0 font-bold">
+                <span class="material-symbols-outlined text-[22px]">military_tech</span>
+              </div>
+              <div class="min-w-0">
+                <span class="text-[10px] uppercase font-bold text-outline block truncate">Flame &amp; Trophy
+                  Status</span>
+                <span class="text-xs sm:text-sm font-bold text-on-surface block truncate">अखंड ज्योति प्रज्वलित</span>
+                <span class="text-[10px] text-emerald-700 font-semibold flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> 100% Secured Escort
+                </span>
+              </div>
+            </div>
+
+            <!-- KPI 4: Next Target Milestone -->
+            <div
+              class="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-lg bg-[#525f71]/10 text-[#525f71] flex items-center justify-center flex-shrink-0 font-bold">
+                <span class="material-symbols-outlined text-[22px]">near_me</span>
+              </div>
+              <div class="min-w-0">
+                <span class="text-[10px] uppercase font-bold text-outline block truncate">Next Milestone (आगामी
+                  पड़ाव)</span>
+                <span class="text-xs sm:text-sm font-bold text-on-surface block truncate">Madurai Meenakshi
+                  Corridor</span>
+                <span class="text-[10px] text-outline font-semibold">242 KM • In Queue</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- The Interactive Map Canvas -->
+          <div
+            class="relative w-full rounded-2xl overflow-hidden border border-outline-variant/40 shadow-inner bg-surface-container">
+            <div id="live-convoy-map" class="w-full h-[460px] sm:h-[540px] z-10"></div>
+
+            <!-- Floating Map Legend & Control Overlay -->
+            <div class="absolute bottom-4 left-4 right-4 sm:right-auto z-20 pointer-events-auto">
+              <div
+                class="bg-white/95 backdrop-blur-md p-3 rounded-xl shadow-lg border border-outline-variant/40 flex flex-wrap items-center gap-3 text-xs">
+                <div class="flex items-center gap-1.5 font-bold text-[#142940]">
+                  <span class="w-3 h-3 rounded-full bg-[#d4af37] border-2 border-[#a73a00] animate-pulse"></span>
+                  <span>अमर ज्योति (मशाल) व ट्रॉफी</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-on-surface-variant font-medium">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#142940]"></span>
+                  <span>प्रमुख रिले पड़ाव</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-on-surface-variant font-medium">
+                  <span class="w-4 h-1 bg-[#d4af37] rounded-full"></span>
+                  <span>13000+ KM राष्ट्र-पथ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Corridor City Selector Ribbon -->
+          <div class="relative z-10 mt-4 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-thin">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-outline flex-shrink-0 mr-1">त्वरित पड़ाव
+              देखें:</span>
+            <button onclick="panToCity(8.0780, 77.5550, 'कन्याकुमारी')"
+              class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-bold border border-outline-variant/30 flex items-center gap-1"
+              type="button">
+              <span class="material-symbols-outlined text-[14px] text-tertiary">flag</span>
+              <span>कन्याकुमारी (प्रस्थान)</span>
+            </button>
+            <button onclick="panToCity(9.9252, 78.1198, 'मदुरै')"
+              class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30"
+              type="button">
+              मदुरै
+            </button>
+            <button onclick="panToCity(12.9716, 77.5946, 'बेंगलुरु')"
+              class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30"
+              type="button">
+              बेंगलुरु
+            </button>
+            <button onclick="panToCity(18.9220, 72.8347, 'मुंबई')"
+              class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30"
+              type="button">
+              मुंबई
+            </button>
+            <button onclick="panToCity(22.5726, 88.3639, 'कोलकाता')"
+              class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30"
+              type="button">
+              कोलकाता
+            </button>
+            <button onclick="panToCity(26.1445, 91.7362, 'गुवाहाटी')"
+              class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-[#d4af37]/20 text-on-surface font-label-md text-xs font-semibold border border-outline-variant/30"
+              type="button">
+              गुवाहाटी
+            </button>
+            <button onclick="panToCity(28.6129, 77.2295, 'नई दिल्ली')"
+              class="flex-shrink-0 px-3 py-1.5 rounded-lg bg-[#142940] text-white hover:bg-primary font-label-md text-xs font-bold border border-[#d4af37]/50 flex items-center gap-1"
+              type="button">
+              <span class="material-symbols-outlined text-[14px] text-[#e9c349]">military_tech</span>
+              <span>नई दिल्ली (अमर चक्र)</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- 4. FIVE REGIONAL ZONES OF BHARAT (VISUAL & INTERACTIVE TABS) -->
+      <!-- ========================================================================= -->
+      <section class="max-w-[1320px] w-full mx-auto px-gutter py-space-xl">
+        <div class="space-y-space-xs mb-space-lg text-center max-w-2xl mx-auto">
+          <div
+            class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container rounded-full text-xs font-bold text-tertiary uppercase tracking-wider mb-1">
+            <span class="material-symbols-outlined text-[15px]">explore</span>
+            <span>5 GEOGRAPHIC ENCLAVES</span>
+          </div>
+          <h2 class="font-headline-lg text-2xl sm:text-4xl text-on-surface font-bold">Five Regional Zones of Bharat</h2>
+          <p class="font-body-md text-xs sm:text-sm text-on-surface-variant">
+            Click a regional zone to explore route distance, major host cities, and scheduled civic milestones:
+          </p>
+        </div>
+
+        <!-- Zone Selector Navigation Strip -->
+        <div class="bg-inverse-surface rounded-2xl p-2 shadow-md max-w-4xl mx-auto">
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 text-center" id="zone-tab-group">
+            <button
+              class="py-2.5 px-2 rounded-xl bg-surface-container-lowest/15 text-inverse-on-surface font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center"
+              id="tab-south" onclick="switchZone('south')" type="button">
+              <span>South</span>
+              <span
+                class="font-label-sm text-[10px] sm:text-xs text-primary-fixed uppercase tracking-wider mt-0.5">2,420
+                KM</span>
+            </button>
+            <button
+              class="py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center"
+              id="tab-west" onclick="switchZone('west')" type="button">
+              <span>West</span>
+              <span
+                class="font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5">1,840
+                KM</span>
+            </button>
+            <button
+              class="py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center"
+              id="tab-central" onclick="switchZone('central')" type="button">
+              <span>Central</span>
+              <span
+                class="font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5">1,320
+                KM</span>
+            </button>
+            <button
+              class="py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center"
+              id="tab-east" onclick="switchZone('east')" type="button">
+              <span>East &amp; NE</span>
+              <span
+                class="font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5">3,110
+                KM</span>
+            </button>
+            <button
+              class="col-span-2 sm:col-span-1 py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center"
+              id="tab-north" onclick="switchZone('north')" type="button">
+              <span>North Apex</span>
+              <span
+                class="font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5">2,110
+                KM</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Zone Panels Container -->
+        <div class="mt-space-lg">
+          <!-- Active Zone Panel: South -->
+          <div
+            class="zone-content bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30"
+            id="zone-panel-south">
+            <div
+              class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
+              <div>
+                <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Alpha · Launch Pad</span>
+                <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">Southern Regional Corridors
+                </h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">5
+                  States &amp; 1 UT</span>
+                <span
+                  class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total:
+                  2,420 KM</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 pt-space-md">
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  01</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Kanyakumari</h4>
+                <span class="font-label-sm text-[10px] text-tertiary font-bold uppercase block">Tamil Nadu</span>
+                <p class="font-body-sm text-[11px] text-outline">Rock Memorial ceremonial torch consecration.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  02</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Madurai</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Tamil Nadu</span>
+                <p class="font-body-sm text-[11px] text-outline">Heritage perimeter walk &amp; Tamil literary assembly.
+                </p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  03</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Bengaluru</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Karnataka</span>
+                <p class="font-body-sm text-[11px] text-outline">Tech startup pledge convergence at Vidhana Soudha.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  04</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Hyderabad</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Telangana</span>
+                <p class="font-body-sm text-[11px] text-outline">Charminar to HITEC City torch handoff with scholars.
+                </p>
+              </div>
+              <div
+                class="col-span-2 md:col-span-1 p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  05</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Chennai</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Tamil Nadu</span>
+                <p class="font-body-sm text-[11px] text-outline">Marina Beach honors parade &amp; coastal youth council.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Zone Panel: West -->
+          <div
+            class="zone-content hidden bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30"
+            id="zone-panel-west">
+            <div
+              class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
+              <div>
+                <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Beta · Industrial &amp;
+                  Maritime</span>
+                <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">Western Regional Corridors
+                </h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">3
+                  States &amp; 1 UT</span>
+                <span
+                  class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total:
+                  1,840 KM</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-space-md">
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  01</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Mumbai</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Maharashtra</span>
+                <p class="font-body-sm text-[11px] text-outline">Gateway of India torch march &amp; maritime summit.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  02</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Pune</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Maharashtra</span>
+                <p class="font-body-sm text-[11px] text-outline">Shaniwar Wada history dialogue &amp; academic
+                  assemblies.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  03</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Surat</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Gujarat</span>
+                <p class="font-body-sm text-[11px] text-outline">Artisan collective endorsement of Atmanirbhar Bharat.
+                </p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  04</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Ahmedabad</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Gujarat</span>
+                <p class="font-body-sm text-[11px] text-outline">Sabarmati Ashram prayer &amp; youth sustainability
+                  oath.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Zone Panel: Central -->
+          <div
+            class="zone-content hidden bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30"
+            id="zone-panel-central">
+            <div
+              class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
+              <div>
+                <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Gamma · The Heartland</span>
+                <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">Central Regional Corridors
+                </h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">2
+                  States</span>
+                <span
+                  class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total:
+                  1,320 KM</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-space-md">
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  01</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Indore</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Madhya Pradesh</span>
+                <p class="font-body-sm text-[11px] text-outline">Swachh Bharat benchmark city volunteer conclave.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  02</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Bhopal</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Madhya Pradesh</span>
+                <p class="font-body-sm text-[11px] text-outline">Bhojtal lakefront rally &amp; tribal heritage
+                  preservation.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  03</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Raipur</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Chhattisgarh</span>
+                <p class="font-body-sm text-[11px] text-outline">Forest conservator councils and indigenous partnership.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Zone Panel: East + NE -->
+          <div
+            class="zone-content hidden bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30"
+            id="zone-panel-east">
+            <div
+              class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
+              <div>
+                <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Delta · Eastern &amp; Ashta
+                  Lakshmi Frontier</span>
+                <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">East &amp; North-East
+                  Corridors</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span
+                  class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">12
+                  States &amp; 1 UT</span>
+                <span
+                  class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total:
+                  3,110 KM</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-space-md">
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  01</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Bhubaneswar</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Odisha</span>
+                <p class="font-body-sm text-[11px] text-outline">Temple city architectural honors &amp; youth parade.
+                </p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  02</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Kolkata</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">West Bengal</span>
+                <p class="font-body-sm text-[11px] text-outline">Howrah Bridge illuminated march &amp; civic assembly.
+                </p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  03</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Patna</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Bihar</span>
+                <p class="font-body-sm text-[11px] text-outline">Nalanda heritage remembrance and youth education
+                  launch.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  04</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Guwahati</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Assam</span>
+                <p class="font-body-sm text-[11px] text-outline">Brahmaputra riverfront torch convergence for 8 NE
+                  states.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Zone Panel: North -->
+          <div
+            class="zone-content hidden bg-surface-container-lowest rounded-2xl p-space-md sm:p-space-lg shadow-xs border border-outline-variant/30"
+            id="zone-panel-north">
+            <div
+              class="flex flex-wrap items-center justify-between pb-space-sm border-b border-outline-variant/30 gap-space-sm">
+              <div>
+                <span class="font-label-sm text-xs uppercase font-bold text-tertiary">Zone Epsilon · Northern
+                  Apex</span>
+                <h3 class="font-headline-md text-xl sm:text-2xl text-on-surface font-bold">Northern Corridors &amp;
+                  Grand Finale</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 bg-surface-container text-primary font-label-md text-xs rounded-full font-bold">6
+                  States &amp; 1 UT</span>
+                <span
+                  class="px-3 py-1 bg-primary-fixed text-on-primary-fixed font-label-md text-xs rounded-full font-bold">Total:
+                  2,110 KM</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 pt-space-md">
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  01</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Jaipur</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Rajasthan</span>
+                <p class="font-body-sm text-[11px] text-outline">Heritage fort relay and ecological conservation vow.
+                </p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  02</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Lucknow</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Uttar Pradesh</span>
+                <p class="font-body-sm text-[11px] text-outline">Gomti riverfront youth rally with 25,000 delegates.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  03</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Dehradun</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Uttarakhand</span>
+                <p class="font-body-sm text-[11px] text-outline">Himalayan ecological balance commitment &amp; youth
+                  brigade.</p>
+              </div>
+              <div
+                class="p-3.5 bg-surface-container-low rounded-xl space-y-1 border border-outline-variant/20 hover:border-[#d4af37] transition-all">
+                <div
+                  class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs font-label-sm">
+                  04</div>
+                <h4 class="font-title-md text-sm font-bold text-on-surface">Chandigarh</h4>
+                <span class="font-label-sm text-[10px] text-primary font-bold uppercase block">Punjab &amp;
+                  Haryana</span>
+                <p class="font-body-sm text-[11px] text-outline">Sukhna Lake handoff, agrarian &amp; athlete councils.
+                </p>
+              </div>
+              <div
+                class="col-span-2 md:col-span-1 p-3.5 bg-[#142940] text-white rounded-xl space-y-1 border border-[#d4af37]/40 shadow-xs">
+                <div
+                  class="w-7 h-7 rounded-full bg-[#d4af37] text-[#241a00] flex items-center justify-center font-bold text-xs font-label-sm">
+                  05</div>
+                <h4 class="font-title-md text-sm font-bold text-[#e9c349]">New Delhi</h4>
+                <span class="font-label-sm text-[10px] text-white/80 font-bold uppercase block">National Finale</span>
+                <p class="font-body-sm text-[11px] text-white/70">Grand culmination at the National War Memorial.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================================= -->
+      <!-- 6. STREAMLINED DISTRICT WELCOME ACTION CARD -->
+      <!-- ========================================================================= -->
+      <section class="max-w-[1320px] w-full mx-auto px-gutter py-space-xl">
+        <div
+          class="bg-gradient-to-r from-surface-container-high via-surface-container to-surface-container-low rounded-2xl p-space-md sm:p-space-xl shadow-xs border border-outline-variant/30">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+            <!-- Left info column -->
+            <div class="lg:col-span-6 space-y-space-xs">
+              <div
+                class="w-12 h-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow-xs">
+                <span class="material-symbols-outlined text-[26px]">local_fire_department</span>
+              </div>
+              <span class="font-label-sm text-xs uppercase tracking-widest text-tertiary font-bold block pt-1">Civic
+                Participation Action</span>
+              <h3 class="font-headline-lg text-2xl sm:text-3xl text-on-surface font-bold">
+                Host the Torch in Your District • <span class="text-[#b58d3d] font-serif font-bold italic">नगर व जिला
+                  स्वागत</span>
+              </h3>
+              <p class="font-body-md text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                Register your local educational campus, youth volunteer council, or municipality to formally welcome the
+                Sandesh Bharti convoy as it crosses your district corridor.
+              </p>
+              <div class="grid grid-cols-2 gap-2 pt-2 text-xs font-semibold text-outline">
+                <div class="flex items-center gap-1.5"><span
+                    class="material-symbols-outlined text-primary text-[16px]">check_circle</span> 766 Districts Network
+                </div>
+                <div class="flex items-center gap-1.5"><span
+                    class="material-symbols-outlined text-primary text-[16px]">check_circle</span> QR Scanner Setup
+                </div>
+                <div class="flex items-center gap-1.5"><span
+                    class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Youth Town Hall Stage
+                </div>
+                <div class="flex items-center gap-1.5"><span
+                    class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Citizen Certificate
+                </div>
+              </div>
+            </div>
+
+            <!-- Right compact form -->
+            <div
+              class="lg:col-span-6 bg-surface-container-lowest p-space-md sm:p-space-lg rounded-xl shadow-xs border border-outline-variant/30">
+              <form class="space-y-3"
+                onsubmit="event.preventDefault(); alert('धन्यवाद! आपका जिला स्वागत अनुरोध दर्ज कर लिया गया है। केंद्रीय समन्वय टीम आपसे शीघ्र संपर्क करेगी।');">
+                <div>
+                  <label class="block font-label-sm text-xs uppercase font-bold text-outline mb-1">Full Name &amp;
+                    Designation / पूरा नाम व पद</label>
+                  <input
+                    class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-xs sm:text-sm placeholder:text-outline border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                    placeholder="e.g. Dr. Ramesh Verma, Campus Director" required="" type="text" />
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-label-sm text-xs uppercase font-bold text-outline mb-1">State /
+                      राज्य</label>
+                    <select
+                      class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-xs sm:text-sm border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-[#d4af37]">
+                      <option>Tamil Nadu</option>
+                      <option>Karnataka</option>
+                      <option>Maharashtra</option>
+                      <option>Madhya Pradesh</option>
+                      <option>Uttar Pradesh</option>
+                      <option>Gujarat</option>
+                      <option>West Bengal</option>
+                      <option>Other States / UT</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block font-label-sm text-xs uppercase font-bold text-outline mb-1">Target District /
+                      जिला</label>
+                    <input
+                      class="w-full px-3 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-xs sm:text-sm placeholder:text-outline border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                      placeholder="e.g. Madurai / Varanasi" required="" type="text" />
+                  </div>
+                </div>
+                <div>
+                  <label class="block font-label-sm text-xs uppercase font-bold text-outline mb-1">WhatsApp / Contact
+                    Phone</label>
+                  <input
+                    class="w-full px-3.5 py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-xs sm:text-sm placeholder:text-outline border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-[#d4af37]"
+                    placeholder="+91 98765 43210" required="" type="tel" />
+                </div>
+                <button
+                  class="w-full py-2.5 px-4 rounded-xl bg-inverse-surface text-inverse-on-surface hover:bg-primary font-headline-sm text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
+                  type="submit">
+                  <span class="material-symbols-outlined text-[18px] text-primary-fixed">app_registration</span>
+                  <span>Submit District Welcome Request</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive JavaScript for Tab Switching & Live Map Tracking -->
+      <script>
+        function switchZone(zoneKey) {
+          const panels = document.querySelectorAll('.zone-content');
+          panels.forEach(p => p.classList.add('hidden'));
+
+          const targetPanel = document.getElementById('zone-panel-' + zoneKey);
+          if (targetPanel) {
+            targetPanel.classList.remove('hidden');
+          }
+
+          const tabs = document.querySelectorAll('#zone-tab-group button');
+          tabs.forEach(t => {
+            t.className = 'py-2.5 px-2 rounded-xl text-surface-variant hover:text-inverse-on-surface hover:bg-surface-container-lowest/10 font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center';
+            const spanSub = t.querySelector('span:last-child');
+            if (spanSub) {
+              spanSub.className = 'font-label-sm text-[10px] sm:text-xs text-outline-variant uppercase tracking-wider mt-0.5';
+            }
+          });
+
+          const activeTab = document.getElementById('tab-' + zoneKey);
+          if (activeTab) {
+            activeTab.className = 'py-2.5 px-2 rounded-xl bg-surface-container-lowest/15 text-inverse-on-surface font-headline-sm text-sm sm:text-base font-bold transition-all flex flex-col items-center';
+            const activeSub = activeTab.querySelector('span:last-child');
+            if (activeSub) {
+              activeSub.className = 'font-label-sm text-[10px] sm:text-xs text-primary-fixed uppercase tracking-wider mt-0.5';
+            }
+          }
+        }
+
+        // ==========================================
+        // LIVE GPS CONVOY & SACRED TORCH TRACKER
+        // ==========================================
+        let trackingMap = null;
+        let convoyMarker = null;
+        let polylineRoute = null;
+        let currentTileLayer = null;
+        let isSatelliteMode = false;
+
+        const KANYAKUMARI_POS = [8.0780, 77.5550];
+
+        const yatraRouteCoords = [
+          [8.0780, 77.5550],  // Kanyakumari
+          [9.9252, 78.1198],  // Madurai
+          [12.9716, 77.5946], // Bengaluru
+          [17.3850, 78.4867], // Hyderabad
+          [18.9220, 72.8347], // Mumbai
+          [18.5204, 73.8567], // Pune
+          [21.1702, 72.8311], // Surat
+          [23.0225, 72.5714], // Ahmedabad
+          [22.7196, 75.8577], // Indore
+          [23.2599, 77.4126], // Bhopal
+          [21.2514, 81.6296], // Raipur
+          [20.2961, 85.8245], // Bhubaneswar
+          [22.5726, 88.3639], // Kolkata
+          [25.5941, 85.1376], // Patna
+          [26.1445, 91.7362], // Guwahati
+          [26.8467, 80.9462], // Lucknow
+          [26.9124, 75.7873], // Jaipur
+          [30.3165, 78.0322], // Dehradun
+          [30.7333, 76.7794], // Chandigarh
+          [28.6129, 77.2295]  // New Delhi National War Memorial
+        ];
+
+        const milestonePins = [
+          { name: "कन्याकुमारी (प्रस्थान एवं संकल्प)", coords: [8.0780, 77.5550], phase: "Phase 01 · Milestone A", desc: "विवेकानंद रॉक मेमोरियल — दीप प्रज्वलन एवं शुभारंभ" },
+          { name: "मदुरै (मीनाक्षी मंदिर परिक्रमा)", coords: [9.9252, 78.1198], phase: "Phase 01 · Milestone B", desc: "ऐतिहासिक मंदिर परिक्रमा व सांस्कृतिक सभा" },
+          { name: "बेंगलुरु (विधान सौध)", coords: [12.9716, 77.5946], phase: "Phase 01 · Milestone C", desc: "टेक स्टार्टअप एवं नवाचार संकल्प सम्मेलन" },
+          { name: "मुंबई (गेटवे ऑफ़ इंडिया)", coords: [18.9220, 72.8347], phase: "Phase 02 · Milestone D", desc: "वित्तीय राजधानी एवं मरीन ड्राइव नागरिक मार्च" },
+          { name: "अहमदाबाद (साबरमती आश्रम)", coords: [23.0225, 72.5714], phase: "Phase 02 · Milestone E", desc: "साबरमती प्रार्थना व आत्मनिर्भर भारत शपथ" },
+          { name: "भोपाल (भोजताल तट)", coords: [23.2599, 77.4126], phase: "Phase 03 · Milestone F", desc: "मध्य भारत जन-आंदोलन एवं सांस्कृतिक संगम" },
+          { name: "कोलकाता (विक्टोरिया मेमोरियल)", coords: [22.5726, 88.3639], phase: "Phase 04 · Milestone G", desc: "हावड़ा ब्रिज पदयात्रा व पूर्वोत्तर महा-संगम" },
+          { name: "गुवाहाटी (ब्रह्मपुत्र तट)", coords: [26.1445, 91.7362], phase: "Phase 04 · Milestone H", desc: "अष्टलक्ष्मी 8 पूर्वोत्तर राज्यों का भव्य मिलन" },
+          { name: "जयपुर (आमेर फोर्ट)", coords: [26.9124, 75.7873], phase: "Phase 05 · Milestone I", desc: "मरुधरा विरासत रिले एवं पर्यावरण संकल्प" },
+          { name: "नई दिल्ली (राष्ट्रीय युद्ध स्मारक)", coords: [28.6129, 77.2295], phase: "Phase 05 · Grand Yatra Finale", desc: "अमर जवान ज्योति — 766 जिलों की पावन माटी व संकल्प समर्पण" }
+        ];
+
+        function initTrackingMap() {
+          const mapElement = document.getElementById('live-convoy-map');
+          if (!mapElement || typeof L === 'undefined') return;
+
+          // Initialize Map with Google Maps tile layer
+          trackingMap = L.map('live-convoy-map', {
+            center: [21.5, 78.5],
+            zoom: 5,
+            minZoom: 4,
+            maxZoom: 18,
+            zoomControl: true,
+            scrollWheelZoom: false
+          });
+
+          // Google Maps Standard Layer
+          currentTileLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            attribution: '&copy; Google Maps',
+            maxZoom: 20
+          }).addTo(trackingMap);
+
+          // Draw 10,800 KM Route Path (Glow effect + Golden Line)
+          L.polyline(yatraRouteCoords, {
+            color: '#a73a00',
+            weight: 7,
+            opacity: 0.35,
+            lineCap: 'round',
+            lineJoin: 'round'
+          }).addTo(trackingMap);
+
+          polylineRoute = L.polyline(yatraRouteCoords, {
+            color: '#d4af37',
+            weight: 4,
+            opacity: 0.95,
+            dashArray: '8, 6',
+            lineCap: 'round',
+            lineJoin: 'round'
+          }).addTo(trackingMap);
+
+          // Add Milestone Pins along route
+          milestonePins.forEach((item, index) => {
+            const isApex = index === milestonePins.length - 1;
+            const isOrigin = index === 0;
+
+            const pinHtml = `
         <div style="width: 24px; height: 24px; border-radius: 50%; background: ${isApex ? '#142940' : (isOrigin ? '#a73a00' : '#ffffff')}; border: 2px solid ${isApex ? '#d4af37' : (isOrigin ? '#ff986f' : '#735c00')}; box-shadow: 0 2px 6px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: ${isApex || isOrigin ? '#ffffff' : '#142940'};">
           ${isApex ? '★' : (index + 1)}
         </div>
       `;
 
-      const icon = L.divIcon({
-        html: pinHtml,
-        className: 'custom-milestone-pin',
-        iconSize: [24, 24],
-        iconAnchor: [12, 12]
-      });
+            const icon = L.divIcon({
+              html: pinHtml,
+              className: 'custom-milestone-pin',
+              iconSize: [24, 24],
+              iconAnchor: [12, 12]
+            });
 
-      const marker = L.marker(item.coords, { icon: icon }).addTo(trackingMap);
-      marker.bindPopup(`
+            const marker = L.marker(item.coords, { icon: icon }).addTo(trackingMap);
+            marker.bindPopup(`
         <div style="font-family: 'Noto Sans', sans-serif; min-width: 200px; padding: 2px;">
           <span style="font-size: 10px; font-weight: 700; color: #a73a00; text-transform: uppercase;">${item.phase}</span>
           <h4 style="font-size: 13px; font-weight: 700; color: #142940; margin: 2px 0 4px 0;">${item.name}</h4>
@@ -899,10 +1381,10 @@ button,a{-webkit-tap-highlight-color:transparent}
           </div>
         </div>
       `);
-    });
+          });
 
-    // Custom Animated Live Convoy Beacon for Sacred Torch & Trophy!
-    const liveBeaconHtml = `
+          // Custom Animated Live Convoy Beacon for Sacred Torch & Trophy!
+          const liveBeaconHtml = `
       <div style="position: relative; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;">
         <div style="position: absolute; width: 44px; height: 44px; border-radius: 50%; background: rgba(212, 175, 55, 0.45); animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></div>
         <div style="position: absolute; width: 32px; height: 32px; border-radius: 50%; background: rgba(167, 58, 0, 0.35); animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"></div>
@@ -918,16 +1400,16 @@ button,a{-webkit-tap-highlight-color:transparent}
       </div>
     `;
 
-    const convoyIcon = L.divIcon({
-      html: liveBeaconHtml,
-      className: 'live-convoy-beacon',
-      iconSize: [44, 44],
-      iconAnchor: [22, 22]
-    });
+          const convoyIcon = L.divIcon({
+            html: liveBeaconHtml,
+            className: 'live-convoy-beacon',
+            iconSize: [44, 44],
+            iconAnchor: [22, 22]
+          });
 
-    convoyMarker = L.marker(KANYAKUMARI_POS, { icon: convoyIcon, zIndexOffset: 1000 }).addTo(trackingMap);
-    
-    const popupContent = `
+          convoyMarker = L.marker(KANYAKUMARI_POS, { icon: convoyIcon, zIndexOffset: 1000 }).addTo(trackingMap);
+
+          const popupContent = `
       <div style="font-family: 'Noto Sans', sans-serif; min-width: 240px; padding: 4px;">
         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
           <img src="assets/trophy-front-view.jpg" style="width: 44px; height: 44px; object-fit: cover; border-radius: 10px; border: 1.5px solid #d4af37; box-shadow: 0 2px 6px rgba(0,0,0,0.15);" alt="Trophy"/>
@@ -949,74 +1431,75 @@ button,a{-webkit-tap-highlight-color:transparent}
       </div>
     `;
 
-    convoyMarker.bindPopup(popupContent);
-    
-    // Set initial view centered on Bharat so user sees the full route & pulsing beacon
-    trackingMap.setView([21.5, 79.5], 5);
-    setTimeout(() => {
-      convoyMarker.openPopup();
-    }, 1000);
-  }
+          convoyMarker.bindPopup(popupContent);
 
-  function focusConvoy() {
-    if (!trackingMap || !convoyMarker) return;
-    trackingMap.flyTo(KANYAKUMARI_POS, 12, { duration: 1.5 });
-    setTimeout(() => {
-      convoyMarker.openPopup();
-    }, 1500);
-  }
-
-  function fitFullRoute() {
-    if (!trackingMap || !polylineRoute) return;
-    trackingMap.flyTo([21.5, 79.5], 5, { duration: 1.2 });
-  }
-
-  function toggleMapTiles() {
-    if (!trackingMap) return;
-    isSatelliteMode = !isSatelliteMode;
-    
-    trackingMap.removeLayer(currentTileLayer);
-    
-    if (isSatelliteMode) {
-      currentTileLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
-        attribution: '&copy; Google Satellite Maps',
-        maxZoom: 20
-      }).addTo(trackingMap);
-      document.getElementById('tile-icon').innerText = 'map';
-      document.getElementById('tile-label').innerText = 'Roadmap View';
-    } else {
-      currentTileLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-        attribution: '&copy; Google Maps',
-        maxZoom: 20
-      }).addTo(trackingMap);
-      document.getElementById('tile-icon').innerText = 'satellite_alt';
-      document.getElementById('tile-label').innerText = 'Satellite View';
-    }
-  }
-
-  function panToCity(lat, lng, cityName) {
-    if (!trackingMap) return;
-    trackingMap.flyTo([lat, lng], 10, { duration: 1.2 });
-    trackingMap.eachLayer((layer) => {
-      if (layer instanceof L.Marker && layer !== convoyMarker) {
-        const pos = layer.getLatLng();
-        if (Math.abs(pos.lat - lat) < 0.05 && Math.abs(pos.lng - lng) < 0.05) {
-          setTimeout(() => layer.openPopup(), 1200);
+          // Set initial view centered on Bharat so user sees the full route & pulsing beacon
+          trackingMap.setView([21.5, 79.5], 5);
+          setTimeout(() => {
+            convoyMarker.openPopup();
+          }, 1000);
         }
-      }
-    });
-  }
 
-  // Initialize tracking map on window load
-  window.addEventListener('load', () => {
-    initTrackingMap();
-  });
-</script>
+        function focusConvoy() {
+          if (!trackingMap || !convoyMarker) return;
+          trackingMap.flyTo(KANYAKUMARI_POS, 12, { duration: 1.5 });
+          setTimeout(() => {
+            convoyMarker.openPopup();
+          }, 1500);
+        }
 
-</div></main>
+        function fitFullRoute() {
+          if (!trackingMap || !polylineRoute) return;
+          trackingMap.flyTo([21.5, 79.5], 5, { duration: 1.2 });
+        }
 
-<!-- Unified Sovereign Footer -->
-<footer class="w-full bg-surface-container-low text-on-surface mt-space-xxl">
+        function toggleMapTiles() {
+          if (!trackingMap) return;
+          isSatelliteMode = !isSatelliteMode;
+
+          trackingMap.removeLayer(currentTileLayer);
+
+          if (isSatelliteMode) {
+            currentTileLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+              attribution: '&copy; Google Satellite Maps',
+              maxZoom: 20
+            }).addTo(trackingMap);
+            document.getElementById('tile-icon').innerText = 'map';
+            document.getElementById('tile-label').innerText = 'Roadmap View';
+          } else {
+            currentTileLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+              attribution: '&copy; Google Maps',
+              maxZoom: 20
+            }).addTo(trackingMap);
+            document.getElementById('tile-icon').innerText = 'satellite_alt';
+            document.getElementById('tile-label').innerText = 'Satellite View';
+          }
+        }
+
+        function panToCity(lat, lng, cityName) {
+          if (!trackingMap) return;
+          trackingMap.flyTo([lat, lng], 10, { duration: 1.2 });
+          trackingMap.eachLayer((layer) => {
+            if (layer instanceof L.Marker && layer !== convoyMarker) {
+              const pos = layer.getLatLng();
+              if (Math.abs(pos.lat - lat) < 0.05 && Math.abs(pos.lng - lng) < 0.05) {
+                setTimeout(() => layer.openPopup(), 1200);
+              }
+            }
+          });
+        }
+
+        // Initialize tracking map on window load
+        window.addEventListener('load', () => {
+          initTrackingMap();
+        });
+      </script>
+
+    </div>
+  </main>
+
+  <!-- Unified Sovereign Footer -->
+  <footer class="w-full bg-surface-container-low text-on-surface mt-space-xxl">
   <div class="h-1.5 w-full bg-gradient-to-r from-tertiary via-surface-container-lowest to-secondary"></div>
   <div class="max-w-[1320px] mx-auto px-gutter py-space-xl">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter">
@@ -1033,7 +1516,7 @@ button,a{-webkit-tap-highlight-color:transparent}
         </p>
         <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container rounded-full text-secondary font-label-sm text-label-sm">
           <span class="material-symbols-outlined text-[16px] text-tertiary">flag</span>
-          <span>Rashtriya Sankalp Pariyojana</span>
+          <span>Rashtriya Sankalp Jan Abhiyan</span>
         </div>
       </div>
       <div class="lg:col-span-3 space-y-space-sm">
@@ -1053,7 +1536,7 @@ button,a{-webkit-tap-highlight-color:transparent}
           <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="route-and-milestones" href="route-and-milestones.html">Route &amp; Milestones</a></li>
           <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="take-pledge-and-scanner" href="take-pledge-and-scanner.html">Take Pledge</a></li>
           <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="anthem-and-media" href="anthem-and-media.html">Anthem &amp; Media</a></li>
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="changemakers":"changemakers.html","our-team" href="our-team.html">Our Core Team</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="our-team" href="our-team.html">Our Core Team</a></li>
         </ul>
       </div>
       <div class="lg:col-span-3 space-y-space-md">
@@ -1063,11 +1546,12 @@ button,a{-webkit-tap-highlight-color:transparent}
           <p class="font-label-sm text-label-sm text-outline">Operational across all major Indian languages</p>
         </div>
         <div class="text-center md:text-left">
-          <span class="font-headline-sm text-title-sm text-tertiary italic tracking-wider block">"सत्यमेव जयते | Truth Alone Triumphs"</span>
+          <span class="font-headline-sm text-title-sm text-tertiary italic tracking-wider block">"मैं भी भारत, तुम भी भारत"</span>
         </div>
       </div>
     </div>
-        <!-- Independent Citizen Movement Legal Disclaimer -->
+
+    <!-- Independent Citizen Movement Legal Disclaimer -->
     <div class="mt-8 pt-6 border-t border-outline-variant/30 text-center">
       <div class="p-4 rounded-xl bg-surface-container/60 border border-outline-variant/40 max-w-4xl mx-auto">
         <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
@@ -1076,7 +1560,7 @@ button,a{-webkit-tap-highlight-color:transparent}
       </div>
     </div>
 
-    <div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-outline">
+    <div class="mt-space-lg pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-outline">
       <p>© 2026–2047 स्वर्णिम भारत उदयघोष. All Rights Reserved • A Citizen Initiative.</p>
       <div class="flex items-center gap-space-md text-xs">
         <span>स्वतंत्र नागरिक पहल</span>
@@ -1089,21 +1573,23 @@ button,a{-webkit-tap-highlight-color:transparent}
   </div>
 </footer>
 
-<script id="swarnim-site-navigation">
-document.addEventListener('DOMContentLoaded',function(){
- const current=location.pathname.split('/').pop()||'index.html';
- document.querySelectorAll('header nav a[data-site-nav]').forEach(a=>{
-  if(a.getAttribute('href')===current){a.classList.add('active');a.setAttribute('aria-current','page');}
- });
- const routeMap={
-  'the-journey':'the-journey.html','3-pillars':'three-pillars.html',
-  'three-pillars':'three-pillars.html','route-and-milestones':'route-and-milestones.html','changemakers':'changemakers.html','our-team':'our-team.html',
-  'take-pledge-and-scanner':'take-pledge-and-scanner.html',
-  'anthem-and-media':'anthem-and-media.html','citizen-honor-roll':'citizen-honor-roll.html'
- };
- document.querySelectorAll('[data-path]').forEach(el=>{
-  const key=el.getAttribute('data-path');if(routeMap[key])el.setAttribute('href',routeMap[key]);
- });
-});
-</script>
-</body></html>
+  <script id="swarnim-site-navigation">
+    document.addEventListener('DOMContentLoaded', function () {
+      const current = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('header nav a[data-site-nav]').forEach(a => {
+        if (a.getAttribute('href') === current) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
+      });
+      const routeMap = {
+        'the-journey': 'the-journey.html', '3-pillars': 'three-pillars.html',
+        'three-pillars': 'three-pillars.html', 'route-and-milestones': 'route-and-milestones.html', 'changemakers': 'changemakers.html', 'our-team': 'our-team.html',
+        'take-pledge-and-scanner': 'take-pledge-and-scanner.html',
+        'anthem-and-media': 'anthem-and-media.html', 'citizen-honor-roll': 'citizen-honor-roll.html'
+      };
+      document.querySelectorAll('[data-path]').forEach(el => {
+        const key = el.getAttribute('data-path'); if (routeMap[key]) el.setAttribute('href', routeMap[key]);
+      });
+    });
+  </script>
+</body>
+
+</html>
