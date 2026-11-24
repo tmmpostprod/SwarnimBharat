@@ -347,7 +347,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 <div class="flex flex-col gap-space-xs">
 <h3 class="font-title-lg text-title-lg text-on-surface font-bold">Enter Your Civic Vow / संकल्प पत्र</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant">
-  अपना संकल्प लें, अपनी फोटो (वैकल्पिक) जोड़ें और तुरंत अपना डिजिटल प्रमाण पत्र प्राप्त करें।
+  Take your pledge, attach your photo, and instantly receive your digital certificate.
 </p>
 </div>
 
@@ -474,8 +474,8 @@ button,a{-webkit-tap-highlight-color:transparent}
         <img alt="Citizen Photo Preview" class="w-full h-full object-cover hidden" id="photo-preview-img"/>
       </div>
       <div>
-        <label class="font-label-sm text-label-sm text-on-surface font-bold block" for="photo">अपनी फोटो लें या अपलोड करें (Citizen Photo): <span class="text-tertiary font-bold">* (अनिवार्य / Mandatory)</span></label>
-        <span class="font-label-sm text-[11px] text-on-surface-variant block">Selfie लें या Gallery से फोटो जोड़ें • <strong class="text-tertiary">केवल JPG या PNG (No Video)</strong></span>
+        <label class="font-label-sm text-label-sm text-on-surface font-bold block" for="photo">Upload Photo or Take Selfie <span class="text-tertiary font-bold">*</span></label>
+        <span class="font-label-sm text-[11px] text-on-surface-variant block">Attach a photo or selfie • <strong class="text-tertiary font-semibold">JPG or PNG (No video)</strong></span>
       </div>
     </div>
     <div class="w-full sm:w-auto flex-shrink-0">
@@ -1177,7 +1177,7 @@ button,a{-webkit-tap-highlight-color:transparent}
         const file = this.files[0];
         // Strictly allow only JPEG and PNG, reject videos or other formats
         if (!file.type.match('image/jpeg') && !file.type.match('image/png') && !file.type.match('image/jpg')) {
-          alert('कृपया केवल JPG या PNG फॉर्मेट की फोटो अपलोड करें (वीडियो या अन्य फाइलें मान्य नहीं हैं)।');
+          alert('Please upload a photo in JPG or PNG format only (video files are not accepted).');
           this.value = '';
           resetPhotoPreview();
           return;
@@ -1225,7 +1225,7 @@ button,a{-webkit-tap-highlight-color:transparent}
       if (photoEl && photoEl.files.length > 0) {
         const file = photoEl.files[0];
         if (!file.type.match('image/jpeg') && !file.type.match('image/png') && !file.type.match('image/jpg')) {
-          alert('कृपया केवल JPG या PNG फॉर्मेट की फोटो अपलोड करें (वीडियो या अन्य फाइलें मान्य नहीं हैं)।');
+          alert('Please upload a photo in JPG or PNG format only (video files are not accepted).');
           photoEl.value = '';
           resetPhotoPreview();
           if (submitBtnText) submitBtnText.innerText = "Affirm & Generate Citizen Certificate";
@@ -1241,7 +1241,7 @@ button,a{-webkit-tap-highlight-color:transparent}
       }
 
       if (!photoBase64) {
-        alert('⚠️ कृपया अपनी फ़ोटो अपलोड करें — प्रमाण पत्र बनाने के लिए फोटो अनिवार्य है (Citizen Photo is mandatory).');
+        alert('⚠️ Please upload your photo or take a selfie to generate your certificate.');
         if (photoEl) {
           photoEl.focus();
           photoEl.scrollIntoView({ behavior: 'smooth', block: 'center' });

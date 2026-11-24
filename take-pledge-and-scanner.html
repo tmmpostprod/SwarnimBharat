@@ -594,12 +594,12 @@ button,a{-webkit-tap-highlight-color:transparent}
     </div>
     <div class="flex flex-col">
       <label class="font-label-md text-label-md text-on-surface font-bold cursor-pointer" for="citizenPhoto">
-        अपनी फोटो लें / अपलोड करें (Citizen Photo) <span class="text-tertiary font-bold">* (अनिवार्य / Mandatory)</span>
+        Upload Photo or Take Selfie <span class="text-tertiary font-bold">*</span>
       </label>
       <span class="font-body-sm text-[11px] text-on-surface-variant">
-        Selfie लें या Gallery से फोटो जोड़ें • <strong class="text-tertiary font-semibold">केवल JPG या PNG (No Video)</strong>
+        Attach a photo or selfie • <strong class="text-tertiary font-semibold">JPG or PNG (No video)</strong>
       </span>
-      <span id="photoRequiredWarning" class="text-tertiary font-bold text-[11px] mt-0.5 hidden">⚠️ कृपया अपनी फ़ोटो अपलोड करें — यह प्रमाण पत्र के लिए अनिवार्य है।</span>
+      <span id="photoRequiredWarning" class="text-tertiary font-bold text-[11px] mt-0.5 hidden">⚠️ Please upload your photo — required for certificate.</span>
     </div>
   </div>
   <div class="w-full sm:w-auto flex-shrink-0">
@@ -1183,7 +1183,7 @@ button,a{-webkit-tap-highlight-color:transparent}
           const file = this.files[0];
           // Ensure file is JPEG/PNG
           if (!file.type.match('image/jpeg') && !file.type.match('image/png') && !file.type.match('image/jpg')) {
-            alert('कृपया केवल JPG या PNG फॉर्मेट की फोटो अपलोड करें (वीडियो या अन्य फाइलें मान्य नहीं हैं)।');
+            alert('Please upload a photo in JPG or PNG format only (video files are not accepted).');
             this.value = '';
             return;
           }
@@ -1272,7 +1272,7 @@ button,a{-webkit-tap-highlight-color:transparent}
       }
       const activePhoto = userUploadedPhotoBase64 || window.userUploadedPhotoBase64;
       if (!activePhoto) {
-        alert('⚠️ कृपया अपनी फ़ोटो अपलोड करें — प्रमाण पत्र बनाने के लिए फोटो अनिवार्य है (Photo upload is mandatory).');
+        alert('⚠️ Please upload your photo or take a selfie to generate your certificate.');
         if (photoInput) {
           photoInput.focus();
           photoInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
