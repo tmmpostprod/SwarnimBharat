@@ -568,20 +568,20 @@ button,a{-webkit-tap-highlight-color:transparent}
 <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
 <div class="flex flex-col space-y-1">
 <label class="font-label-md text-label-md text-on-surface font-bold" for="contactMobile">
-                  Mobile / Aadhar Linked (Google Sheet में सुरक्षित) <span class="text-tertiary">*</span>
-                </label>
+  Mobile / Phone Number <span class="text-tertiary text-xs font-normal lowercase">(Optional)</span>
+</label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[20px]">phone_iphone</span>
-<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner" id="contactMobile" placeholder="+91 98765 43210" required="" type="tel"/>
+<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner" id="contactMobile" placeholder="+91 98765 43210" type="tel"/>
 </div>
 </div>
 <div class="flex flex-col space-y-1">
 <label class="font-label-md text-label-md text-on-surface font-bold" for="contactEmail">
-                  Email ID (For High-Res Certificate PDF) <span class="text-tertiary">*</span>
+  Email ID <span class="text-tertiary text-xs font-normal lowercase">(Optional)</span>
 </label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-3 top-3 text-outline text-[20px]">mail</span>
-<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner" id="contactEmail" placeholder="citizen@domain.gov.in" required="" type="email"/>
+<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container rounded-lg font-body-md text-on-surface focus:outline-none focus:bg-surface-bright shadow-inner" id="contactEmail" placeholder="name@example.com" type="email"/>
 </div>
 </div>
 </div>
@@ -1258,16 +1258,6 @@ button,a{-webkit-tap-highlight-color:transparent}
       if (!state) {
         alert('कृपया अपना राज्य अथवा केंद्र शासित प्रदेश चुनें (State/UT is mandatory).');
         if (stateInput) stateInput.focus();
-        return;
-      }
-      if (!mobile) {
-        alert('कृपया अपना मोबाइल नंबर दर्ज करें (Mobile number is mandatory).');
-        if (mobileInput) mobileInput.focus();
-        return;
-      }
-      if (!email) {
-        alert('कृपया अपनी ईमेल आईडी दर्ज करें (Email ID is mandatory).');
-        if (emailInput) emailInput.focus();
         return;
       }
       const activePhoto = userUploadedPhotoBase64 || window.userUploadedPhotoBase64;
