@@ -1,32 +1,6 @@
 [
   {
-    "id": 2,
-    "name": "Dr. Tessy Thomas",
-    "epithet": "Missile Woman of India",
-    "designation": "Aerospace scientist · Vice-Chancellor, NICHE, Kanyakumari",
-    "category": "INNOVATORS · DEFENCE SCIENTIST",
-    "zone": "South Zone",
-    "location": "Alappuzha, Kerala",
-    "description": "The first woman to head a major Indian missile project, she led the Agni-IV and Agni-V programmes at DRDO after early mentorship from Dr. A.P.J. Abdul Kalam, and rose to Director General of Aeronautical Systems. She is a leading inspiration for girls in science.",
-    "stats": [
-      {
-        "value": "1st",
-        "label": "woman to lead an Indian missile project"
-      },
-      {
-        "value": "Agni-V",
-        "label": "India’s long-range missile, as project director"
-      },
-      {
-        "value": "14",
-        "label": "honorary doctorates, incl. IIT Kharagpur"
-      }
-    ],
-    "recognition": "Padma Shri (2017) · Lal Bahadur Shastri National Award (2012) · APJ Abdul Kalam Award (2018) · Kerala Sasthra Puraskaram (2024)",
-    "image": "assets/changemakers/changemaker_2.jpg"
-  },
-  {
-    "id": 3,
+    "id": 1,
     "name": "Arunachalam Muruganantham",
     "epithet": "Padman of India",
     "designation": "Inventor & social entrepreneur · Jayaashree Industries",
@@ -49,6 +23,64 @@
       }
     ],
     "recognition": "Padma Shri (2016) · TIME 100 Most Influential (2014) · National Innovation Award (2009) · Nobel Peace Prize nominee (2026)",
+    "data_zone": "south-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "U. Sagayam",
+    "epithet": "The uncompromising IAS officer",
+    "designation": "Retired IAS officer · founder, Makkal Pathai reform trust",
+    "category": "SERVERS · PUBLIC SERVICE",
+    "location": "Pudukkottai, Tamil Nadu",
+    "zone": "South Zone",
+    "description": "A farmer’s son from Perunchunai village whose office door read “Reject bribes, hold your head high.” Transferred again and again for confronting powerful interests, he became “the common man’s collector” and a case study in clean administration for civil-service aspirants.",
+    "stats": [
+      {
+        "value": "₹16,000 cr+",
+        "label": "illegal granite mining scam exposed, Madurai"
+      },
+      {
+        "value": "20+",
+        "label": "transfers in about 29 years of service"
+      },
+      {
+        "value": "5,000+",
+        "label": "villagers protested one of his transfers"
+      }
+    ],
+    "recognition": "Chief Election Commissioner commendation (2011) · Gfiles Award for Good Governance (2018) · Champion of Democracy Award (2024) · AICU Centenary Award (2026)",
+    "data_zone": "south-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Supriya Sahu",
+    "epithet": "UN Champion of the Earth, 2025",
+    "designation": "IAS officer & environmentalist · Commissioner, EDII Tamil Nadu",
+    "category": "SERVERS · PUBLIC SERVICE",
+    "zone": "South Zone",
+    "location": "Chennai, Tamil Nadu",
+    "description": "Her years leading Tamil Nadu’s environment portfolio became a national model: new reserve forests and sanctuaries, the “Meendum Manjapai” cloth-bag campaign against plastic, and the Cool Roof Project that cools school classrooms by 5–8°C.",
+    "stats": [
+      {
+        "value": "100 million+",
+        "label": "trees planted; mangrove cover doubled"
+      },
+      {
+        "value": "1 →20",
+        "label": "Ramsar wetland sites in Tamil Nadu"
+      },
+      {
+        "value": "12 million",
+        "label": "people helped by climate-resilience work"
+      }
+    ],
+    "recognition": "UNEP Champions of the Earth (2025) · Guinness World Record — 42,182 trees planted in one day, Nilgiris · Planning Commission & UNDP best practice",
+    "data_zone": "south-zone",
+    "data_cat": "servers",
     "image": "assets/changemakers/changemaker_3.jpg"
   },
   {
@@ -59,7 +91,7 @@
     "category": "SERVERS · HEALTHCARE PIONEER",
     "zone": "South Zone",
     "location": "Thanjavur, Tamil Nadu",
-    "description": "Raised in a farming family in Melamangalam village, he spent four decades turning traditional plant remedies into scientifically validated, low-cost livestock treatments — cutting antibiotic use and protecting small farmers’ incomes. He founded India’s first PG diploma in ethno - veterinary medicine.",
+    "description": "Raised in a farming family in Melamangalam village, he spent four decades turning traditional plant remedies into scientifically validated, low-cost livestock treatments — cutting antibiotic use and protecting small farmers’ incomes. He founded India’s first PG diploma in ethno-veterinary medicine.",
     "stats": [
       {
         "value": "15 lakh+",
@@ -67,14 +99,16 @@
       },
       {
         "value": "5.6 lakh+",
-        "label": "animal cases treated,"
+        "label": "animal cases treated, 81– 92% success"
       },
       {
-        "value": "81– 92% success",
-        "label": "70–75% lower cost of treating mastitis"
+        "value": "70–75%",
+        "label": "lower cost of treating mastitis"
       }
     ],
     "recognition": "Padma Shri (2026) · VCI Lifetime Achievement Award (2019) · Tamil Nadu Scientist Award (2013 · Emeritus Professor, TDU",
+    "data_zone": "south-zone",
+    "data_cat": "servers",
     "image": "assets/changemakers/changemaker_4.jpg"
   },
   {
@@ -82,10 +116,10 @@
     "name": "Dr. Rajagopalan Vasudevan",
     "epithet": "The Plastic Road Man of India",
     "designation": "Dean & Professor of Chemistry · Thiagarajar College of Engineering",
-    "category": "INNOVATORS · CLEAN - TECH PIONEER",
+    "category": "INNOVATORS · CLEAN-TECH PIONEER",
     "zone": "South Zone",
     "location": "Madurai, Tamil Nadu",
-    "description": "Found a simple way to coat hot stone aggregate with shredded waste plastic before adding bitumen — giving roads that are stronger, water- resistant and pothole-free. He patented the method in 2006 and gave it to the Government of India free of royalty.",
+    "description": "Found a simple way to coat hot stone aggregate with shredded waste plastic before adding bitumen — giving roads that are stronger, water-resistant and pothole-free. He patented the method in 2006 and gave it to the Government of India free of royalty.",
     "stats": [
       {
         "value": "1,00,000+ km",
@@ -101,6 +135,8 @@
       }
     ],
     "recognition": "Padma Shri (2018) · Asian Scientist 100 (2019) · Dr. A.P.J. Abdul Kalam Memorial Award · praised in Mann Ki Baat",
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
     "image": "assets/changemakers/changemaker_5.jpg"
   },
   {
@@ -111,10 +147,10 @@
     "category": "INNOVATORS · SPACE SCIENTIST",
     "zone": "South Zone",
     "location": "Kothavadi, Tamil Nadu",
-    "description": "Born in Kothavadi village, Coimbatore district, and trained at Government College of Technology and PSG College of Technology, he spent about 36 years at ISRO. He was project director of Chandrayaan - 1, programme director of the Mars Orbiter Mission and later led the ISRO Satellite Centre, Bengaluru. He also writes popular -science books in Tamil.",
+    "description": "Born in Kothavadi village, Coimbatore district, and trained at Government College of Technology and PSG College of Technology, he spent about 36 years at ISRO. He was project director of Chandrayaan-1, programme director of the Mars Orbiter Mission and later led the ISRO Satellite Centre, Bengaluru. He also writes popular-science books in Tamil.",
     "stats": [
       {
-        "value": "Chandrayaan -1",
+        "value": "Chandrayaan-1",
         "label": "project director of India's first Moon mission (2004-2009)"
       },
       {
@@ -127,6 +163,8 @@
       }
     ],
     "recognition": "Padma Shri (2016) · Vikram Sarabhai Research Award (2004) · National Aeronautical Award (2008) · AIAA Space Systems Award (2009) · 100+ awards in all",
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
     "image": "assets/changemakers/changemaker_6.jpg"
   },
   {
@@ -153,10 +191,68 @@
       }
     ],
     "recognition": "Titled “Healthiest MasterChef of India” · Featured on HistoryTV18 (OMG! Yeh Hai Mera India) · Doctorate in naturopathy & complementary medicine",
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
     "image": "assets/changemakers/changemaker_7.jpg"
   },
   {
     "id": 8,
+    "name": "S. Damodaran",
+    "epithet": "The sanitation pioneer",
+    "designation": "Founder · Gramalaya NGO",
+    "category": "SERVERS · SOCIAL ENTREPRENEUR",
+    "zone": "South Zone",
+    "location": "Tiruchirappalli, Tamil Nadu",
+    "description": "Shaken in his youth by children forced to relieve themselves in the open, he founded Gramalaya in Tiruchirappalli in 1987. His community-led water and sanitation model made Thandavampatti India’s first 100% open-defecation-free village in 2003, long before Swachh Bharat.",
+    "stats": [
+      {
+        "value": "30 lakh+",
+        "label": "lives improved across South India"
+      },
+      {
+        "value": "600+",
+        "label": "villages declared open-defecation free"
+      },
+      {
+        "value": "2 lakh+",
+        "label": "students trained in hygiene practices"
+      }
+    ],
+    "recognition": "Padma Shri (2022) · Toilet Titan Award (2017) · National Urban Sanitation Award · National Key Resource Centre, Ministry of Jal Shakti",
+    "data_zone": "south-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Dr. Tessy Thomas",
+    "epithet": "Missile Woman of India",
+    "designation": "Aerospace scientist · Vice-Chancellor, NICHE, Kanyakumari",
+    "category": "INNOVATORS · DEFENCE SCIENTIST",
+    "zone": "South Zone",
+    "location": "Alappuzha, Kerala",
+    "description": "The first woman to head a major Indian missile project, she led the Agni-IV and Agni-V programmes at DRDO after early mentorship from Dr. A.P.J. Abdul Kalam, and rose to Director General of Aeronautical Systems. She is a leading inspiration for girls in science.",
+    "stats": [
+      {
+        "value": "1st",
+        "label": "woman to lead an Indian missile project"
+      },
+      {
+        "value": "Agni-V",
+        "label": "India’s long-range missile, as project director"
+      },
+      {
+        "value": "14",
+        "label": "honorary doctorates, incl. IIT Kharagpur"
+      }
+    ],
+    "recognition": "Padma Shri (2017) · Lal Bahadur Shastri National Award (2012) · APJ Abdul Kalam Award (2018) · Kerala Sasthra Puraskaram (2024)",
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_9.jpg"
+  },
+  {
+    "id": 10,
     "name": "Dr. Ar. G. Shankar",
     "epithet": "The People’s Architect",
     "designation": "Founder, Habitat Technology Group · UN consultant",
@@ -179,14 +275,16 @@
       }
     ],
     "recognition": "Padma Shri (2011) · National Award for Slum Upgradation (2004) · HUDCO Award for Best Eco- City Design (2014)",
-    "image": "assets/changemakers/changemaker_8.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_10.jpg"
   },
   {
-    "id": 9,
+    "id": 11,
     "name": "Meenakshi Amma Gurukkal",
     "epithet": "Kerala's grand old dame of Kalaripayattu",
     "designation": "Kalaripayattu master · Kadathanadan Kalari Sangham, Vadakara",
-    "category": "PRESERVERS · MARTIAL - ART GUARDIAN",
+    "category": "PRESERVERS · MARTIAL-ART GUARDIAN",
     "zone": "South Zone",
     "location": "Vadakara, Kerala",
     "description": "Trained in Kalaripayattu from childhood, she took over the Vadakara kalari her husband founded in 1949 after his death in 2007. She teaches the northern style, from the stick to the urumi, with free classes and a place for girls.",
@@ -205,58 +303,8 @@
       }
     ],
     "recognition": "Padma Shri (2017) · Widely described as Kerala's oldest woman Kalaripayattu practitioner · More than a third of her students are girls",
-    "image": "assets/changemakers/changemaker_9.jpg"
-  },
-  {
-    "id": 10,
-    "name": "Dr. E. Sreedharan",
-    "epithet": "The Metro Man of India",
-    "designation": "Former Managing Director, DMRC and Konkan Railway",
-    "category": "BUILDERS · ENGINEER",
-    "zone": "South Zone",
-    "location": "Pattambi, Kerala",
-    "description": "Civil engineer who restored the cyclone-shattered Pamban Bridge in 46 days, led the 760-km Konkan Railway through rugged Western Ghat terrain, and built the world-class Delhi Metro ahead of schedule and within budget, setting a national benchmark for integrity and project execution.",
-    "stats": [
-      {
-        "value": "46 days",
-        "label": "to restore Pamban Bridge after 1964 cyclone"
-      },
-      {
-        "value": "7 years",
-        "label": "to complete Konkan Railway project"
-      },
-      {
-        "value": "DMRC",
-        "label": "Managing Director who built Delhi Metro"
-      }
-    ],
-    "recognition": "Padma Shri (2001) · Padma Vibhushan (2008) · Chevalier, Legion d'Honneur, France (2005)",
-    "image": "assets/changemakers/changemaker_10.jpg"
-  },
-  {
-    "id": 11,
-    "name": "Dr. S. Nambi Narayanan",
-    "epithet": "Pioneer of India’s liquid fuel rocket engines",
-    "designation": "Aerospace engineer · former ISRO scientist",
-    "category": "INNOVATORS · ROCKET SCIENTIST",
-    "zone": "South Zone",
-    "location": "Thiruvananthapuram, Kerala",
-    "description": "He joined India’s Thumba rocket station in 1966 and, after a NASA fellowship at Princeton, persuaded ISRO to adopt liquid propulsion. His work led to the Vikas engine that powers the PSLV, GSLV and LVM3 launchers behind missions from Mangalyaan to Chandrayaan.",
-    "stats": [
-      {
-        "value": "1966",
-        "label": "joined the Thumba rocket station"
-      },
-      {
-        "value": "10 months",
-        "label": "for a Princeton rocket- propulsion master’s"
-      },
-      {
-        "value": "50+",
-        "label": "PSLV flights powered by the Vikas engine"
-      }
-    ],
-    "recognition": "Padma Bhushan (2019) · NASA Fellowship, Princeton (1969) · Honorary D.Sc., Hindustan Institute of Technology and Science (2024)",
+    "data_zone": "south-zone",
+    "data_cat": "culture",
     "image": "assets/changemakers/changemaker_11.jpg"
   },
   {
@@ -283,12 +331,42 @@
       }
     ],
     "recognition": "Padma Shri (2024) · Plant Genome Saviour Farmer Reward, PPVFRA (2018–19) · Karshaka Ratna and state farmer honours",
+    "data_zone": "south-zone",
+    "data_cat": "culture",
     "image": "assets/changemakers/changemaker_12.jpg"
   },
   {
     "id": 13,
+    "name": "Rupesh Kumar K.",
+    "epithet": "Tourism that pays the village",
+    "designation": "CEO · Kerala Responsible Tourism Mission Society",
+    "category": "SUSTAINABILITY LEADERS · RESPONSIBLE TOURISM",
+    "location": "Thiruvananthapuram, Kerala",
+    "zone": "South Zone",
+    "description": "He built Kerala’s community-led Responsible Tourism model, with Village Life Experiences and the PEPPER and STREET projects, so that visitor spending flows straight to village households instead of large operators. It is now cited internationally as a benchmark.",
+    "stats": [
+      {
+        "value": "1.9 lakh+",
+        "label": "local families earning from tourism"
+      },
+      {
+        "value": "26,000+",
+        "label": "village micro-enterprises created"
+      },
+      {
+        "value": "18,000+",
+        "label": "of them run by women"
+      }
+    ],
+    "recognition": "UNWTO Ulysses Award (2020) · WTM Responsible Tourism Awards, London (2017, 2018) · 18+ national and international awards",
+    "data_zone": "south-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_13.jpg"
+  },
+  {
+    "id": 14,
     "name": "Dr. Sreeraj Gopi",
-    "epithet": "Global Top 2% Scientist",
+    "epithet": "From a Malayalam-medium school to the global top 2%",
     "designation": "Founder & MD · Molecules Biolabs",
     "category": "BUILDERS · BIOTECH SCIENTIST",
     "zone": "South Zone",
@@ -297,11 +375,11 @@
     "stats": [
       {
         "value": "6 times",
-        "label": "Stanford–Elsevier Top"
+        "label": "Stanford–Elsevier Top 2% scientist"
       },
       {
-        "value": "2% scientist",
-        "label": "₹ 100 cr biotech company built in rural Kerala"
+        "value": "₹ 100 cr",
+        "label": "biotech company built in rural Kerala"
       },
       {
         "value": "50+",
@@ -309,10 +387,12 @@
       }
     ],
     "recognition": "FRSC (UK) · FACN (USA) · FRSA (UK) · Chartered Chemist · Profiled by The Better India and Deccan Chronicle",
-    "image": "assets/changemakers/changemaker_13.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_14.jpg"
   },
   {
-    "id": 14,
+    "id": 15,
     "name": "Dr. Shubha Venkatesha Iyengar",
     "epithet": "Architect of Safer Flight",
     "designation": "Former Distinguished Scientist, CSIR-National Aerospace Laboratories",
@@ -335,10 +415,40 @@
       }
     ],
     "recognition": "Padma Shri (2026) — first woman CSIR scientist to receive it · first “Make in India” National Award (2015)",
-    "image": "assets/changemakers/changemaker_14.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_15.jpg"
   },
   {
-    "id": 15,
+    "id": 16,
+    "name": "Bezwada Wilson",
+    "epithet": "Leading the fight to end manual scavenging",
+    "designation": "National Convenor, Safai Karmachari Andolan",
+    "category": "SERVERS · SOCIAL REFORMER",
+    "location": "Kolar, Karnataka",
+    "zone": "South Zone",
+    "description": "Born in the Kolar Gold Fields into a community trapped in manual scavenging, he co-founded the Safai Karmachari Andolan in 1994 to end it. His 2003 petition led to the 2014 Supreme Court ruling on rehabilitation and compensation for sewer deaths.",
+    "stats": [
+      {
+        "value": "5,00,000+",
+        "label": "workers guided to other livelihoods"
+      },
+      {
+        "value": "1,000+",
+        "label": "sewer deaths documented for accountability"
+      },
+      {
+        "value": "500",
+        "label": "districts covered by the 125-day Bhim Yatra"
+      }
+    ],
+    "recognition": "Ramon Magsaysay Award (2016) · Forbes India Leadership Award (2017) · GQ India Man of the Year (2016) · Ashoka Senior Fellow",
+    "data_zone": "south-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_16.jpg"
+  },
+  {
+    "id": 17,
     "name": "Anand Malligavad",
     "epithet": "Lake Man of India",
     "designation": "Water conservationist · Founder, Malligavad Foundation",
@@ -361,10 +471,12 @@
       }
     ],
     "recognition": "Sony BBC Earth “Earth Champion” (2024) · RSSS Environment Award (2019) · profiled by The New York Times · author, A Life with Lakes (2023)",
-    "image": "assets/changemakers/changemaker_15.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_17.jpg"
   },
   {
-    "id": 16,
+    "id": 18,
     "name": "Dr. Devi Prasad Shetty",
     "epithet": "The heart surgeon who made care affordable",
     "designation": "Founder, Narayana Health",
@@ -387,17 +499,47 @@
       }
     ],
     "recognition": "Padma Shri (2004) · Padma Bhushan (2012) · The Wall Street Journal (2009) called him the 'Henry Ford of heart surgery'",
-    "image": "assets/changemakers/changemaker_16.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_18.jpg"
   },
   {
-    "id": 17,
+    "id": 19,
+    "name": "Harekala Hajabba",
+    "epithet": "The fruit seller who built a school",
+    "designation": "Founder, Hajabba School, Newpadapu, Dakshina Kannada",
+    "category": "LOCAL HEROES · EDUCATION",
+    "zone": "South Zone",
+    "location": "Harekala, Karnataka",
+    "description": "An orange seller from Harekala near Mangaluru who never went to school himself, he saved from his small earnings to start a school in his village of Newpadapu so that the children there could study. His quiet service drew national attention and a Padma Shri.",
+    "stats": [
+      {
+        "value": "1956",
+        "label": "born in Harekala, Mangaluru"
+      },
+      {
+        "value": "2012",
+        "label": "Rajyotsava Prashasti, Karnataka's state honour"
+      },
+      {
+        "value": "2020",
+        "label": "Padma Shri"
+      }
+    ],
+    "recognition": "Padma Shri (2020) · Rajyotsava Prashasti (2012) · Real Heroes Award, CNN IBN and Reliance Foundation · Person of the Year, Kannada Prabha",
+    "data_zone": "south-zone",
+    "data_cat": "local-heroes",
+    "image": "assets/changemakers/changemaker_19.jpg"
+  },
+  {
+    "id": 20,
     "name": "Dr. Geetha Manjunath",
-    "epithet": "AI Against Breast Cancer",
+    "epithet": "AI against breast cancer",
     "designation": "Founder & CEO · NIRAMAI Health Analytix",
     "category": "SERVERS · PREVENTIVE ONCOLOGY",
     "zone": "South Zone",
     "location": "Bengaluru, Karnataka",
-    "description": "A computer scientist with a PhD from IISc (CSI Gold Medal) and 25+ years at Xerox and HP Labs, she founded NIRAMAI to make early breast-cancer screening radiation-free, non- invasive and affordable using artificial intelligence and thermal imaging.",
+    "description": "A computer scientist with a PhD from IISc (CSI Gold Medal) and 25+ years at Xerox and HP Labs, she founded NIRAMAI to make early breast-cancer screening radiation-free, non-invasive and affordable using artificial intelligence and thermal imaging.",
     "stats": [
       {
         "value": "100,000+",
@@ -413,17 +555,19 @@
       }
     ],
     "recognition": "Forbes India Top 20 Self-Made Women (2020) · BIRAC WinER Award (2018) · BioSpectrum Women Entrepreneur of the Year (2020)",
-    "image": "assets/changemakers/changemaker_17.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_20.jpg"
   },
   {
-    "id": 18,
+    "id": 21,
     "name": "Capt. G. R. Gopinath",
     "epithet": "Making flying affordable for every Indian",
     "designation": "Founder · Air Deccan · Author, Simply Fly",
     "category": "BUILDERS · AVIATION PIONEER",
     "zone": "South Zone",
     "location": "Bengaluru, Karnataka",
-    "description": "Born in Gorur, Hassan district, he served in the Indian Army and retired as a Captain at 28, then became a farmer and entrepreneur. In 2003 he launched Air Deccan, India’s first low- cost airline, and put air travel within reach of first-time flyers.",
+    "description": "Born in Gorur, Hassan district, he served in the Indian Army and retired as a Captain at 28, then became a farmer and entrepreneur. In 2003 he launched Air Deccan, India’s first low-cost airline, and put air travel within reach of first-time flyers.",
     "stats": [
       {
         "value": "2003",
@@ -439,14 +583,16 @@
       }
     ],
     "recognition": "Rolex Awards for Enterprise (1996) · Karnataka Rajyotsava Award (2005) · Chevalier de la Légion d’honneur, France · Author of Simply Fly: A Deccan Odyssey",
-    "image": "assets/changemakers/changemaker_18.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_21.jpg"
   },
   {
-    "id": 19,
+    "id": 22,
     "name": "Pawan Kumar Chandana",
     "epithet": "India’s Elon Musk",
     "designation": "Co-founder & CEO, Skyroot Aerospace",
-    "category": "BUILDERS · SPACE - TECH FOUNDER",
+    "category": "BUILDERS · SPACE-TECH FOUNDER",
     "zone": "South Zone",
     "location": "Hyderabad, Telangana",
     "description": "An IIT Kharagpur graduate and former ISRO scientist who worked on the GSLV Mk-III, he left in 2018 to co-found Skyroot. In November 2022 its Vikram-S became India’s first privately built rocket to reach space, opening the country’s launch sector to private firms.",
@@ -465,43 +611,19 @@
       }
     ],
     "recognition": "Forbes 30 Under 30 Asia (2021) · National Startup Award (2020) · EY Entrepreneur of the Year – Startup (2023)",
-    "image": "assets/changemakers/changemaker_19.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_22.jpg"
   },
   {
-    "id": 20,
-    "name": "Pullela Gopichand",
-    "epithet": "The Coach Behind India's Olympic Medals",
-    "designation": "Chief National Coach · Founder, Gopichand Badminton Academy",
-    "category": "CHAMPIONS · BADMINTON COACH",
-    "zone": "South Zone",
-    "location": "Hyderabad, Telangana",
-    "description": "Born near Chirala in Prakasam district, he won the All England Open in 2001. He founded the Gopichand Badminton Academy in Hyderabad in 2008, which has produced Olympic medallists Saina Nehwal (bronze, London 2012) and P. V. Sindhu (silver, Rio 2016; bronze, Tokyo 2020).",
-    "stats": [
-      {
-        "value": "2001",
-        "label": "All England Open champion"
-      },
-      {
-        "value": "2008",
-        "label": "Gopichand Badminton Academy founded"
-      },
-      {
-        "value": "3",
-        "label": "Olympic medals won by his trainees"
-      }
-    ],
-    "recognition": "Padma Shri (2005) · Dronacharya Award (2009) · Padma Bhushan (2014)",
-    "image": "assets/changemakers/changemaker_20.jpg"
-  },
-  {
-    "id": 21,
+    "id": 23,
     "name": "Mithali Raj",
-    "epithet": "The Run-Machine Who Led India's Women",
+    "epithet": "The run-machine who led India's women for 18 years",
     "designation": "Former India captain",
     "category": "CHAMPIONS · CRICKET",
     "zone": "South Zone",
     "location": "Hyderabad, Telangana",
-    "description": "Born in Jodhpur and based in Hyderabad, she captained India from 2004 to 2022. In July 2021 she passed Charlotte Edwards' record to become the highest run -scorer in women's international cricket, with 10,868 runs. She led India to the World Cup final in 2005 and 2017 and retired on 8 June 2022.",
+    "description": "Born in Jodhpur and based in Hyderabad, she captained India from 2004 to 2022. In July 2021 she passed Charlotte Edwards' record to become the highest run-scorer in women's international cricket, with 10,868 runs. She led India to the World Cup final in 2005 and 2017 and retired on 8 June 2022.",
     "stats": [
       {
         "value": "10,868",
@@ -517,10 +639,12 @@
       }
     ],
     "recognition": "Arjuna Award (2003) · Padma Shri (2015) · Major Dhyan Chand Khel Ratna (2021)",
-    "image": "assets/changemakers/changemaker_21.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_23.jpg"
   },
   {
-    "id": 22,
+    "id": 24,
     "name": "Dr. D. Nageshwar Reddy",
     "epithet": "Pioneer of advanced endoscopy in India",
     "designation": "Founder & Chairman, AIG Hospitals, Hyderabad",
@@ -543,14 +667,16 @@
       }
     ],
     "recognition": "Padma Shri (2002) · Padma Bhushan (2016) · Padma Vibhushan (2025) · ASGE Master Endoscopist (2009) · WEO Lifetime Achievement (2021)",
-    "image": "assets/changemakers/changemaker_22.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_24.jpg"
   },
   {
-    "id": 23,
+    "id": 25,
     "name": "Chintakindi Mallesham",
-    "epithet": "The Weaver Who Invented the Laxmi ASU Machine",
+    "epithet": "The weaver who invented the Laxmi ASU machine",
     "designation": "Inventor, Pochampally handloom · Subject of the film Mallesham (2019)",
-    "category": "INNOVATORS · WEAVER - INVENTOR",
+    "category": "INNOVATORS · WEAVER-INVENTOR",
     "zone": "South Zone",
     "location": "Sharajpet, Telangana",
     "description": "Born in Sharajpet village, a weaver from the Pochampally belt, he invented the Laxmi ASU machine to spare weavers, mostly women, the tiring manual winding of silk threads. The machine cut the cycle time from around six hours to about 90 minutes. His story was told in the 2019 film Mallesham.",
@@ -569,12 +695,14 @@
       }
     ],
     "recognition": "Padma Shri (2017) · The film Mallesham (2019) brought his work to a wide audience · Eased the work of Pochampally weavers",
-    "image": "assets/changemakers/changemaker_23.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_25.jpg"
   },
   {
-    "id": 24,
+    "id": 26,
     "name": "Nikhat Zareen",
-    "epithet": "Two-Time World Boxing Champion",
+    "epithet": "Two-time World Boxing Champion",
     "designation": "Boxer · Nizamabad, Telangana",
     "category": "CHAMPIONS · BOXING",
     "zone": "South Zone",
@@ -595,12 +723,14 @@
       }
     ],
     "recognition": "Arjuna Award (2022) · World Champion (2022, 2023) · Commonwealth Games gold (2022) · Asian Games bronze, Hangzhou",
-    "image": "assets/changemakers/changemaker_24.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_26.jpg"
   },
   {
-    "id": 25,
+    "id": 27,
     "name": "Karnam Malleswari",
-    "epithet": "India's First Woman Olympic Medallist",
+    "epithet": "India's first woman Olympic medallist",
     "designation": "Sydney 2000 bronze medallist · Vice-Chancellor, Delhi Sports University",
     "category": "CHAMPIONS · WEIGHTLIFTING",
     "zone": "South Zone",
@@ -621,43 +751,19 @@
       }
     ],
     "recognition": "Arjuna Award (1994) · Rajiv Gandhi Khel Ratna (1999) · Padma Shri (1999)",
-    "image": "assets/changemakers/changemaker_25.jpg"
+    "data_zone": "south-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_27.jpg"
   },
   {
-    "id": 26,
-    "name": "Jyothi Yarraji",
-    "epithet": "India's Fastest Woman in 100m Hurdles",
-    "designation": "India's fastest woman in 100m Hurdles",
-    "category": "CHAMPIONS · ATHLETICS",
-    "zone": "South Zone",
-    "location": "Visakhapatnam, Andhra Pradesh",
-    "description": "National record holder, 100 m hurdles Born in Visakhapatnam in 1999, she holds the national record of 12.78 seconds in the 100 m hurdles. She won gold at the Asian Championships in 2023 in Bangkok and again in 2025 in Gumi, plus silver in the 100 m hurdles at the Hangzhou Asian Games. She represented India at the Paris 2024 Olympics.",
-    "stats": [
-      {
-        "value": "12.78 s",
-        "label": "national record, 100 m hurdles"
-      },
-      {
-        "value": "2",
-        "label": "Asian Championships golds: 2023 and 2025 Silver"
-      },
-      {
-        "value": "100 m hurdles,",
-        "label": "Hangzhou Asian Games"
-      }
-    ],
-    "recognition": "Asian Championships gold (2023, 2025) · Asian Games silver, Hangzhou · Competed at the Paris 2024 Olympics",
-    "image": "assets/changemakers/changemaker_26.jpg"
-  },
-  {
-    "id": 27,
+    "id": 28,
     "name": "C. V. Raju",
-    "epithet": "Revived Etikoppaka Lacquer Toys with Natural Dyes",
+    "epithet": "Revived Etikoppaka lacquer toys with natural dyes",
     "designation": "Artisan-innovator, Etikoppaka, Anakapalle district",
     "category": "PRESERVERS · CRAFT REVIVALIST",
     "zone": "South Zone",
     "location": "Etikoppaka, Andhra Pradesh",
-    "description": "Born in Jonnavalsa village in Vizianagaram district, he revived the Etikoppaka toy craft in 1988 after its popularity declined. He developed more than 12 vegetable -based dyes and methods to extend their shelf life. He started Padmavati Associates, an artisans' cooperative, and now 160 artisans make the toys.",
+    "description": "Born in Jonnavalsa village in Vizianagaram district, he revived the Etikoppaka toy craft in 1988 after its popularity declined. He developed more than 12 vegetable-based dyes and methods to extend their shelf life. He started Padmavati Associates, an artisans' cooperative, and now 160 artisans make the toys.",
     "stats": [
       {
         "value": "1988",
@@ -673,69 +779,243 @@
       }
     ],
     "recognition": "Padma Shri (2023) · UNESCO Seal of Excellence for Handicrafts · NIF-India award (2003) · INTACH Lifetime Achievement Award",
-    "image": "assets/changemakers/changemaker_27.jpg"
-  },
-  {
-    "id": 28,
-    "name": "Anand Kumar",
-    "epithet": "Founder of Super 30",
-    "designation": "Founder of Super 30",
-    "category": "SERVERS · EDUCATOR & SOCIAL ENTREPRENEUR",
-    "zone": "East Zone",
-    "location": "Patna, Bihar",
-    "description": "Ramanujan School of Mathematics Mathematician from a postal clerk’s family who turned a ₹300- a-month classroom into Super 30, a free programme that coaches underprivileged students for IIT-JEE.",
-    "stats": [
-      {
-        "value": "550+",
-        "label": "IIT entrants from 600+ trained"
-      },
-      {
-        "value": "24+ yrs",
-        "label": "of free residential mentorship"
-      },
-      {
-        "value": "1992",
-        "label": "Ramanujan School founded"
-      }
-    ],
-    "recognition": "Padma Shri (2023) · Maulana Abul Kalam Azad Shiksha Puraskar (2010) · TIME ‘Best of Asia’ (2010)",
+    "data_zone": "south-zone",
+    "data_cat": "culture",
     "image": "assets/changemakers/changemaker_28.jpg"
   },
   {
     "id": 29,
-    "name": "Mahavir Singh Phogat",
-    "epithet": "The Coach Behind Dangal",
-    "designation": "Dronacharya Awardee · Wrestling coach, Balali akhara",
-    "category": "CHAMPIONS · WRESTLING COACH",
-    "zone": "North Zone",
-    "location": "Balali, Charkhi Dadri, Haryana",
-    "description": "Former wrestler who left his job to train daughters Geeta and Babita, and nieces Vinesh and Priyanka, transforming women’s wrestling; the film Dangal tells his story.",
+    "name": "Dr. Jayshree Vencatesan",
+    "epithet": "The Wetland Saviour",
+    "designation": "Ecologist · Co-founder, Care Earth Trust",
+    "category": "SUSTAINABILITY LEADERS · WETLAND CONSERVATIONIST",
+    "zone": "South Zone",
+    "location": "Rajahmundry, Andhra Pradesh",
+    "description": "Raised on the Godavari in Rajahmundry, she began her wetland work with a ₹ 32,000 grant and mapped Chennai’s Pallikaranai Marsh by moped and compass. Her field data helped win reserve-forest status for the marsh, and in 2025 she became the first Indian to receive the Ramsar Wetland Wise Use Award.",
     "stats": [
       {
-        "value": "6",
-        "label": "Phogat sisters trained in wrestling by him"
+        "value": "2000",
+        "label": "Care Earth Trust co- founded"
       },
       {
-        "value": "2010",
-        "label": "Geeta’s gold, India’s first in women’s wrestling at CWG"
+        "value": "1st Indian",
+        "label": "to win the Ramsar Wetland Wise Use Award"
       },
       {
-        "value": "2016",
-        "label": "Dangal, starring Aamir Khan, released"
+        "value": "₹ 32,000",
+        "label": "starting grant for her wetland work"
       }
     ],
-    "recognition": "Dronacharya Award · Subject of the film Dangal (2016) · Authorised biography ‘Akhada’",
+    "recognition": "Ramsar Wetland Wise Use Award (2025) · Named among 12 women wetland changemakers worldwide by the Ramsar Secretariat",
+    "data_zone": "south-zone",
+    "data_cat": "sustainability",
     "image": "assets/changemakers/changemaker_29.jpg"
   },
   {
     "id": 30,
+    "name": "S. D. Shibulal",
+    "epithet": "Infosys co-founder who rose to lead it",
+    "designation": "Co-founder, Infosys · Co-founder, Axilor Ventures",
+    "category": "BUILDERS · TECHNOLOGY FOUNDER",
+    "zone": "South Zone",
+    "location": "Alappuzha, Kerala",
+    "description": "Born in Alappuzha and educated at Maharaja's College, Ernakulam, he was one of the seven founders of Infosys in 1981. He served as CEO and Managing Director from 2011 to 2014, then co-founded Axilor Ventures to back young Indian startups.",
+    "stats": [
+      {
+        "value": "1981",
+        "label": "Infosys founded; he is one of seven co- founders"
+      },
+      {
+        "value": "2011-14",
+        "label": "CEO and Managing Director of Infosys"
+      },
+      {
+        "value": "2014",
+        "label": "co-founded Axilor Ventures for early- stage startups"
+      }
+    ],
+    "recognition": "Trustee, Infosys Science Foundation · Chair, Kerala's High Power Digital Advisory Committee (per 2021 profile) · Wife Kumari Shibulal leads education philanthropy through SFPI",
+    "data_zone": "south-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_30.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Dr. R. V. Ramani",
+    "epithet": "The Man Who Brought Light to Millions",
+    "designation": "Founder & Managing Trustee · Sankara Eye Foundation India",
+    "category": "SERVERS · HEALTHCARE PIONEER",
+    "zone": "South Zone",
+    "location": "Coimbatore, Tamil Nadu",
+    "description": "In 1977 he and his wife, Dr. Radha Ramani, opened a small low-cost clinic in Coimbatore. In 1985 they made eye care their mission and began the Sankara Movement, whose 80:20 model — paying patients fund free surgery for the poor — grew into one of the world’s largest free eye-surgery programmes.",
+    "stats": [
+      {
+        "value": "3M+",
+        "label": "free eye surgeries"
+      },
+      {
+        "value": "8.6M",
+        "label": "school children screened (Rainbow)"
+      },
+      {
+        "value": "80:20",
+        "label": "self-sustaining care model"
+      }
+    ],
+    "recognition": "Padma Shri (2019) · Healthcare Icon of the Year, The Economic Times (2022) · Quality Champion Platinum Award, QCI (2022) · IAPB Regional Achievement Award (2016) · Board of Governors, Medical Council of India (2019)",
+    "data_zone": "south-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_31.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Dr. S. Nambi Narayanan",
+    "epithet": "Pioneer of India’s liquid fuel rocket engines",
+    "designation": "Aerospace engineer · former ISRO scientist",
+    "category": "INNOVATORS · ROCKET SCIENTIST",
+    "zone": "South Zone",
+    "location": "Nagercoil, Tamil Nadu",
+    "description": "He joined India’s Thumba rocket station in 1966 and, after a NASA fellowship at Princeton, persuaded ISRO to adopt liquid propulsion. His work led to the Vikas engine that powers the PSLV, GSLV and LVM3 launchers behind missions from Mangalyaan to Chandrayaan.",
+    "stats": [
+      {
+        "value": "1966",
+        "label": "joined the Thumba rocket station"
+      },
+      {
+        "value": "10 months",
+        "label": "for a Princeton rocket- propulsion master’s"
+      },
+      {
+        "value": "50+",
+        "label": "PSLV flights powered by the Vikas engine"
+      }
+    ],
+    "recognition": "Padma Bhushan (2019) · NASA Fellowship, Princeton (1969) · Honorary D.Sc., Hindustan Institute of Technology and Science (2024)",
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_32.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Pullela Gopichand",
+    "epithet": "The coach behind India's Olympic badminton medals",
+    "designation": "Chief National Coach · Founder, Gopichand Badminton Academy",
+    "category": "CHAMPIONS · BADMINTON COACH",
+    "zone": "South Zone",
+    "location": "Hyderabad, Telangana",
+    "description": "Born near Chirala in Prakasam district, he won the All England Open in 2001. He founded the Gopichand Badminton Academy in Hyderabad in 2008, which has produced Olympic medallists Saina Nehwal (bronze, London 2012) and P. V. Sindhu (silver, Rio 2016; bronze, Tokyo 2020).",
+    "stats": [
+      {
+        "value": "2001",
+        "label": "All England Open champion"
+      },
+      {
+        "value": "2008",
+        "label": "Gopichand Badminton Academy founded"
+      },
+      {
+        "value": "3",
+        "label": "Olympic medals won by his trainees"
+      }
+    ],
+    "recognition": "Padma Shri (2005) · Dronacharya Award (2009) · Padma Bhushan (2014)",
+    "data_zone": "south-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_33.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Jyothi Yarraji",
+    "epithet": "India's fastest woman in 100m Hurdles",
+    "designation": "National record holder, 100 m hurdles",
+    "category": "CHAMPIONS · ATHLETICS",
+    "zone": "South Zone",
+    "location": "Visakhapatnam, Andhra Pradesh",
+    "description": "Born in Visakhapatnam in 1999, she holds the national record of 12.78 seconds in the 100 m hurdles. She won gold at the Asian Championships in 2023 in Bangkok and again in 2025 in Gumi, plus silver in the 100 m hurdles at the Hangzhou Asian Games. She represented India at the Paris 2024 Olympics.",
+    "stats": [
+      {
+        "value": "12.78 s",
+        "label": "national record, 100 m hurdles"
+      },
+      {
+        "value": "2",
+        "label": "Asian Championships golds: 2023 and 2025"
+      },
+      {
+        "value": "Silver",
+        "label": "100 m hurdles, Hangzhou Asian Games"
+      }
+    ],
+    "recognition": "Asian Championships gold (2023, 2025) · Asian Games silver, Hangzhou · Competed at the Paris 2024 Olympics",
+    "data_zone": "south-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_34.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Namratha Mohan",
+    "epithet": "India’s Temple Girl",
+    "designation": "Founder & digital heritage archivist · The Temple Girl",
+    "category": "PRESERVERS · HERITAGE STORYTELLER",
+    "zone": "South Zone",
+    "location": "Bengaluru, Karnataka",
+    "description": "A former finance leader at Amazon Prime Video, Disney and JP Morgan, she left corporate life in 2024 to document India’s temples. Her platform and Temple Girl Kids app turn architecture, ritual and sacred science into stories for young Indians.",
+    "stats": [
+      {
+        "value": "2.3 million+",
+        "label": "followers across digital platforms"
+      },
+      {
+        "value": "2024",
+        "label": "left Amazon to document temple heritage"
+      },
+      {
+        "value": "TEDx",
+        "label": "talk at Amity University, Noida (2026)"
+      }
+    ],
+    "recognition": "TEDxAmity University Noida (2026) · Top 25 Digital Content Creators in India, Qoruz (2026) · Profiled by The Times of India",
+    "data_zone": "south-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_35.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Komera Anka Rao",
+    "epithet": "The Andhra Forest Man",
+    "designation": "Conservationist · Special Advisor, Forest & Environment Department",
+    "category": "SUSTAINABILITY LEADERS · FOREST GUARDIAN",
+    "zone": "South Zone",
+    "location": "Karempudi, Andhra Pradesh",
+    "description": "A self-taught conservationist from Karempudi, Palnadu, he began entering the Nallamala forest as a teenager and has spent over two decades clearing tourist waste, fighting summer fires and teaching schoolchildren to protect the forest.",
+    "stats": [
+      {
+        "value": "20+ years",
+        "label": "protecting the Nallamala forest"
+      },
+      {
+        "value": "5,000+",
+        "label": "schools reached through his mentoring"
+      },
+      {
+        "value": "3+",
+        "label": "truckloads of forest waste cleared"
+      }
+    ],
+    "recognition": "Andhra Pradesh Green Ambassador Award (2026) · Special Advisor to the AP Forest & Environment Department · Featured by The Week and BBC Telugu",
+    "data_zone": "south-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_36.jpg"
+  },
+  {
+    "id": 37,
     "name": "Dr. R. A. Mashelkar",
     "epithet": "Patent King of India",
     "designation": "Chemical engineer & former Director-General, CSIR",
     "category": "INNOVATORS · SCIENTIST",
-    "zone": "West Zone",
+    "zone": "South Zone",
     "location": "Goa",
-    "description": "Born in Goa in 1943, he served as Director -General of the Council of Scientific and Industrial Research for over eleven years. Under him CSIR challenged the US patents on turmeric and basmati rice, and its share of US patents granted to India reached 40% in 2002. He chaired the National Innovation Foundation from 2000 to 2018.",
+    "description": "Born in Goa in 1943, he served as Director-General of the Council of Scientific and Industrial Research for over eleven years. Under him CSIR challenged the US patents on turmeric and basmati rice, and its share of US patents granted to India reached 40% in 2002. He chaired the National Innovation Foundation from 2000 to 2018.",
     "stats": [
       {
         "value": "11+ years",
@@ -751,224 +1031,74 @@
       }
     ],
     "recognition": "Padma Shri (1991) · Padma Bhushan (2000) · Padma Vibhushan (2014) · Fellow of the Royal Society (1998)",
-    "image": "assets/changemakers/changemaker_30.jpg"
-  },
-  {
-    "id": 31,
-    "name": "Bachendri Pal",
-    "epithet": "First Indian Woman on Mount Everest",
-    "designation": "Former Chief, Adventure Programmes, Tata Steel · Co-founder, WANI",
-    "category": "CHAMPIONS · MOUNTAINEER",
-    "zone": "North Zone",
-    "location": "Nakuri, Uttarkashi, Uttarakhand",
-    "description": "Villager from Nakuri who stood on Everest on 23 May 1984, then led the all-women 1993 Indo-Nepalese expedition that put seven women on the summit.",
-    "stats": [
-      {
-        "value": "1984",
-        "label": "first Indian woman on Everest’s summit"
-      },
-      {
-        "value": "7",
-        "label": "women on the summit in her 1993 expedition"
-      },
-      {
-        "value": "35 yrs",
-        "label": "leading Tata Steel adventure programmes"
-      }
-    ],
-    "recognition": "Padma Shri (1984) · Arjuna Award (1986) · National Adventure Award (1994) · Padma Bhushan (2019)",
-    "image": "assets/changemakers/changemaker_31.jpg"
-  },
-  {
-    "id": 32,
-    "name": "Bhaichung Bhutia",
-    "epithet": "The “Sikkimese Sniper",
-    "designation": "Former India Captain · Founder, Football Schools",
-    "category": "CHAMPIONS · FOOTBALLER",
-    "zone": "East Zone",
-    "location": "Tinkitam, South Sikkim",
-    "description": "Torchbearer of Indian football from Tinkitam, Sikkim, who led India to SAFF, Nehru Cup and AFC Challenge Cup titles and now builds young talent through football schools.",
-    "stats": [
-      {
-        "value": "100+",
-        "label": "India caps (100th in"
-      },
-      {
-        "value": "2009)",
-        "label": "3× SAFF Championship titles"
-      },
-      {
-        "value": "1st",
-        "label": "Indian to sign for a European club"
-      }
-    ],
-    "recognition": "Padma Shri (2008) · Arjuna Award (1999) · Asian Football Hall of Fame (2014) · AIFF Player of the Year",
-    "image": "assets/changemakers/changemaker_32.jpg"
-  },
-  {
-    "id": 33,
-    "name": "Santosh Yadav",
-    "epithet": "First Woman to Climb Everest Twice",
-    "designation": "Mountaineer · Former Officer, Indo-Tibetan Border Police",
-    "category": "CHAMPIONS · MOUNTAINEER",
-    "zone": "North Zone",
-    "location": "Joniyawas, Rewari, Haryana",
-    "description": "Rewari-born mountaineer who summited Everest in 1992 and again in 1993, becoming the first woman to do it twice, and later an environmental campaigner.",
-    "stats": [
-      {
-        "value": "2×",
-        "label": "Everest summits (1992, 1993)"
-      },
-      {
-        "value": "1992",
-        "label": "youngest woman on Everest then"
-      },
-      {
-        "value": "500 kg",
-        "label": "Himalayan waste cleared"
-      }
-    ],
-    "recognition": "Padma Shri (2000) · Tenzing Norgay National Adventure Award (1994) · first woman chief guest at the RSS Vijayadashami event, Nagpur (2022)",
-    "image": "assets/changemakers/changemaker_33.jpg"
-  },
-  {
-    "id": 34,
-    "name": "Dipa Karmakar",
-    "epithet": "Pioneer of Indian Gymnastics",
-    "designation": "Gymnastics Federation of India · Netaji Subhash Regional Coaching Centre",
-    "category": "CHAMPIONS · OLYMPIC GYMNAST",
-    "zone": "East Zone",
-    "location": "Agartala, Tripura",
-    "description": "India’s most celebrated artistic gymnast — the first Indian woman gymnast at the Olympics, who overcame flat feet and rudimentary facilities in Agartala to finish 4th in the Rio 2016 vault final.",
-    "stats": [
-      {
-        "value": "4th",
-        "label": "Rio 2016 vault final, by"
-      },
-      {
-        "value": "0.15 points",
-        "label": "77+ career medals, 67 of them gold"
-      },
-      {
-        "value": "1 of 5",
-        "label": "women worldwide to land the Produnova"
-      }
-    ],
-    "recognition": "Khel Ratna (2016) · Padma Shri (2017) · Arjuna Award (2015) · Forbes Asia 30 Under 30 (2017)",
-    "image": "assets/changemakers/changemaker_34.jpg"
-  },
-  {
-    "id": 35,
-    "name": "Manu Bhaker",
-    "epithet": "India’s Double Olympic Medallist",
-    "designation": "Pistol shooter · Indian Olympian",
-    "category": "CHAMPIONS · OLYMPIC SHOOTER",
-    "zone": "North Zone",
-    "location": "Jhajjar, Haryana",
-    "description": "Pistol ace who bounced back from a Tokyo 2020 malfunction to win two bronzes at Paris 2024, India’s first athlete with two medals at one Games since Independence.",
-    "stats": [
-      {
-        "value": "2",
-        "label": "Paris 2024 bronzes: 10 m air pistol and mixed team"
-      },
-      {
-        "value": "16",
-        "label": "age at first ISSF World Cup gold, 2018"
-      },
-      {
-        "value": "4th",
-        "label": "25 m pistol final, Paris"
-      }
-    ],
-    "recognition": "Khel Ratna (2024) · BBC Indian Sportswoman of the Year (2024) · Commonwealth & Asian Games gold",
-    "image": "assets/changemakers/changemaker_35.jpg"
-  },
-  {
-    "id": 36,
-    "name": "Uddhab Bharali",
-    "epithet": "Assam’s Real-Life Phunsukh Wangdu",
-    "designation": "Founder, UKB Innovations",
-    "category": "INNOVATORS · GRASSROOTS ENGINEER",
-    "zone": "East Zone",
-    "location": "North Lakhimpur, Assam",
-    "description": "Mechanical engineer who builds affordable machines for farmers, weavers and people with disabilities — from the world’s first pomegranate de-seeder to tea-leaf pluckers.",
-    "stats": [
-      {
-        "value": "160+",
-        "label": "low-cost machines invented"
-      },
-      {
-        "value": "39+",
-        "label": "patents held"
-      },
-      {
-        "value": "80%",
-        "label": "of earnings to 80+ families"
-      }
-    ],
-    "recognition": "Padma Shri (2019) · NASA Create the Future contest (2012) · Rashtrapati Bhavan Scholar-in-Residence",
-    "image": "assets/changemakers/changemaker_36.jpg"
-  },
-  {
-    "id": 37,
-    "name": "Tarundeep Rai",
-    "epithet": "4-Time Olympian from Sikkim",
-    "designation": "Subedar Major, Indian Army",
-    "category": "CHAMPIONS · OLYMPIC ARCHER",
-    "zone": "East Zone",
-    "location": "Namchi, South Sikkim",
-    "description": "Kirati archer from Namchi who put Sikkim on the global archery map, came back from a career-threatening shoulder injury and now mentors India’s next archers.",
-    "stats": [
-      {
-        "value": "4",
-        "label": "Olympics: 2004, 2012,"
-      },
-      {
-        "value": "2020, 2024",
-        "label": "2010 first Indian individual Asian Games archery silver"
-      },
-      {
-        "value": "2005",
-        "label": "first Indian world- championship semi- finalist"
-      }
-    ],
-    "recognition": "Padma Shri (2020) · Arjuna Award (2005) · Honorary Doctorate (2023)",
+    "data_zone": "south-zone",
+    "data_cat": "innovators",
     "image": "assets/changemakers/changemaker_37.jpg"
   },
   {
     "id": 38,
-    "name": "Dr. Arabinda Kumar Padhee",
-    "epithet": "The ‘Millet Man’ of Odisha",
-    "designation": "IAS · Additional Chief Secretary, Government of Odisha",
-    "category": "SERVERS · POLICY VISIONARY",
+    "name": "Jayanti Buruda",
+    "epithet": "India’s 1st Tribal Woman Journalist",
+    "designation": "Founder, Jungle Rani · Bada Didi Union",
+    "category": "CHAMPIONS · TRIBAL MEDIA PIONEER",
+    "location": "Malkangiri, Odisha",
     "zone": "East Zone",
-    "location": "Bhubaneswar, Odisha",
-    "description": "Architect of the Odisha Millets Mission, turning drought-prone tribal districts into a global model of climate-resilient, women- led, nutrition-first agriculture.",
+    "description": "Koya tribal journalist from Malkangiri who broke taboos to report from ground zero, founded the women-led digital platform Jungle Rani and is raising 15 abandoned girls as a single mother.",
     "stats": [
       {
-        "value": "5 lakh ha",
-        "label": "rice-fallow land reclaimed"
+        "value": "15",
+        "label": "adopted daughters raised"
       },
       {
-        "value": "1st",
-        "label": "Gender Responsive Cell in a state agri ministry"
+        "value": "100+",
+        "label": "women trained in media & rights"
       },
       {
-        "value": "Millets",
-        "label": "in PDS & midday meals"
+        "value": "2024",
+        "label": "Forbes India W-Power list"
       }
     ],
-    "recognition": "AIASA National Award · Best District Collector (2003–04) · NITI Aayog best-practice citation",
+    "recognition": "Forbes India W-Power 2024 · NWMI Fellowship (2017) · Indian Book of Records",
+    "data_zone": "east-zone",
+    "data_cat": "champions",
     "image": "assets/changemakers/changemaker_38.jpg"
   },
   {
     "id": 39,
+    "name": "Dr. Mahendra Kumar Mishra",
+    "epithet": "Visionary linguist, folklorist & educationist",
+    "designation": "Language and Learning Foundation · Former State Coordinator for MLE, Odisha",
+    "category": "PRESERVERS · LINGUIST & FOLKLORIST",
+    "location": "Sinapali, Nuapada, Odisha",
+    "zone": "East Zone",
+    "description": "Pioneered mother-tongue-based multilingual education in Odisha, building primers in 10 tribal languages and archiving oral epics, myths and songs of Vanvasi communities.",
+    "stats": [
+      {
+        "value": "10",
+        "label": "tribal languages brought into school"
+      },
+      {
+        "value": "25+",
+        "label": "books on oral traditions"
+      },
+      {
+        "value": "UNESCO",
+        "label": "Mother Language Award, 2003"
+      }
+    ],
+    "recognition": "Padma Shri (2026) · UNESCO Mother Language Award (2003) · Kalevala Award (2002)",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_39.jpg"
+  },
+  {
+    "id": 40,
     "name": "Madhusudan Dash (IAS)",
-    "epithet": "Architect of the Nuapada Model",
+    "epithet": "The collector who made Nuapada plastic-free",
     "designation": "IAS · Collector & District Magistrate, Nuapada",
     "category": "BUILDERS · ADMINISTRATIVE PIONEER",
-    "zone": "East Zone",
     "location": "Nuapada, Odisha",
+    "zone": "East Zone",
     "description": "Led Nuapada to become Odisha’s first single-use-plastic-free district through 700+ community drives, 3,200+ garbage points cleared and 500 green buffer zones.",
     "stats": [
       {
@@ -984,26 +1114,28 @@
         "label": "saplings planted"
       }
     ],
-    "recognition": "Commended by Ministry of Jal Shakti (SBM-G) · national- scale cleanliness & plantation drive",
-    "image": "assets/changemakers/changemaker_39.jpg"
+    "recognition": "Commended by Ministry of Jal Shakti (SBM-G) · national-scale cleanliness & plantation drive",
+    "data_zone": "east-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_40.jpg"
   },
   {
-    "id": 40,
+    "id": 41,
     "name": "Katulu Ravi Kumar",
     "epithet": "Commonwealth Games Gold Medallist",
     "designation": "DSP, Odisha Police · Secretary, Odisha Weightlifting Association",
     "category": "CHAMPIONS · OLYMPIAN & SPORTS ADMINISTRATOR",
-    "zone": "East Zone",
     "location": "Berhampur, Ganjam, Odisha",
+    "zone": "East Zone",
     "description": "From a rustic Berhampur akhada to Commonwealth gold in the 69 kg class and the London Olympics — now a police DSP mentoring young lifters across Odisha.",
     "stats": [
       {
         "value": "321 kg",
-        "label": "record total, Delhi"
+        "label": "record total, Delhi 2010 gold"
       },
       {
-        "value": "2010 gold",
-        "label": "2012 London Olympian"
+        "value": "2012",
+        "label": "London Olympian"
       },
       {
         "value": "15 yrs",
@@ -1011,140 +1143,40 @@
       }
     ],
     "recognition": "Arjuna Award (2011) · Ekalabya Puraskar (2010) · Biju Patnaik Sports Award",
-    "image": "assets/changemakers/changemaker_40.jpg"
-  },
-  {
-    "id": 41,
-    "name": "Tukaram Haribhau Mundhe",
-    "epithet": "The Fearless Civil Servant",
-    "designation": "IAS (2005 batch) · Commissioner, Food and Drug Administration",
-    "category": "SERVERS · PUBLIC - SERVICE REFORMER",
-    "zone": "West Zone",
-    "location": "Mumbai, Maharashtra",
-    "description": "All India Rank 20 officer with a zero-tolerance stance on corruption — 25 transfers in 21 years, each posting leaving behind water, health or transport reform.",
-    "stats": [
-      {
-        "value": "AIR 20",
-        "label": "Civil Services Examination"
-      },
-      {
-        "value": "25",
-        "label": "transfers in 21 years of service"
-      },
-      {
-        "value": "158",
-        "label": "absent bus drivers sacked in Pune"
-      }
-    ],
-    "recognition": "Best District Collector Award (2015–16) · Mahatma Phule Jalmitra Award · National ITMS Award (2017)",
+    "data_zone": "east-zone",
+    "data_cat": "champions",
     "image": "assets/changemakers/changemaker_41.jpg"
   },
   {
     "id": 42,
-    "name": "Dr. Binish Desai",
-    "epithet": "The Recycle Man of India",
-    "designation": "Founder, ReArtham Tech LLP",
-    "category": "INNOVATORS · SOCIAL ENTREPRENEUR",
-    "zone": "West Zone",
-    "location": "Valsad, Gujarat",
-    "description": "At 10–11 he imagined P-Block bricks from paper waste and chewing gum. Founded B-Dream in his teens and Eco Eclectic Technologies (now ReArtham). Known for Brick 2.0 from recycled PPE and Lantana eco-wood.",
+    "name": "Dr. Arabinda Kumar Padhee",
+    "epithet": "The ‘Millet Man’ of Odisha",
+    "designation": "IAS · Additional Chief Secretary, Government of Odisha",
+    "category": "SERVERS · POLICY VISIONARY",
+    "location": "Bhubaneswar, Odisha",
+    "zone": "East Zone",
+    "description": "Architect of the Odisha Millets Mission, turning drought-prone tribal districts into a global model of climate-resilient, women-led, nutrition-first agriculture.",
     "stats": [
       {
-        "value": "147",
-        "label": "inventions"
+        "value": "5 lakh ha",
+        "label": "rice-fallow land reclaimed"
       },
       {
-        "value": "19",
-        "label": "patents"
+        "value": "1st",
+        "label": "Gender Responsive Cell in a state agri ministry"
       },
       {
-        "value": "700+ t",
-        "label": "waste recycled, 190 waste types"
+        "value": "Millets",
+        "label": "in PDS & midday meals"
       }
     ],
-    "recognition": "Forbes 30 Under 30 Asia (2018) · Rotary International Alumni Humanitarian of the Year, South Asia (youngest recipient) · Social ChangeMaker of the Year, News 24 · Padma Shri nominee",
+    "recognition": "AIASA National Award · Best District Collector (2003–04) · NITI Aayog best-practice citation",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
     "image": "assets/changemakers/changemaker_42.jpg"
   },
   {
     "id": 43,
-    "name": "Rahul Jain",
-    "epithet": "Pioneer of business coaching in India",
-    "designation": "Founder Director · Business Coaching India LLP",
-    "category": "BUILDERS · BUSINESS COACH",
-    "zone": "North Zone",
-    "location": "New Delhi",
-    "description": "He started Business Coaching India in 2004 and introduced structured business coaching to the country. His programmes help entrepreneurs and MSME owners build systems-driven businesses that double profits while working just one day a week.",
-    "stats": [
-      {
-        "value": "2004",
-        "label": "founded Business Coaching India"
-      },
-      {
-        "value": "26,000+",
-        "label": "entrepreneurs and MSME owners coached"
-      },
-      {
-        "value": "2021",
-        "label": "IMBC Small Business Coach of the Year"
-      }
-    ],
-    "recognition": "IMBC Small Business Coach of the Year (2021) · Business Standard Top 10 Business Coaches in India (2022)",
-    "image": "assets/changemakers/changemaker_43.jpg"
-  },
-  {
-    "id": 44,
-    "name": "Dr. Ejaz Ali",
-    "epithet": "The ₹10 Doctor of Patna",
-    "designation": "General surgeon · Former Rajya Sabha MP, Patna",
-    "category": "HEALERS · SURGEON",
-    "zone": "East Zone",
-    "location": "Patna, Bihar",
-    "description": "A general surgeon who has practised in Patna since 1984, he has charged just Rs 10 for a consultation for about three decades. He sees over 100 patients a day, lets patients pay surgery fees in instalments and sometimes waives them. He also campaigns for Dalit Muslims.",
-    "stats": [
-      {
-        "value": "Rs 10",
-        "label": "consultation fee, held for ~30 years"
-      },
-      {
-        "value": "1984",
-        "label": "practising surgery in Patna since"
-      },
-      {
-        "value": "100+",
-        "label": "patients seen every day"
-      }
-    ],
-    "recognition": "Member of Rajya Sabha, Bihar (2008–2010) · National Convenor, All-India Backward Muslim Morcha (since 1994) · Chief Editor, Sangam Urdu daily (1998–2012)",
-    "image": "assets/changemakers/changemaker_44.jpg"
-  },
-  {
-    "id": 45,
-    "name": "Gaurav Anand",
-    "epithet": "Turning Weeds into Livelihoods",
-    "designation": "Environmental engineer · Founder, Swachhata Pukare Foundation",
-    "category": "BUILDERS · ECO - ENTREPRENEUR",
-    "zone": "East Zone",
-    "location": "Jamshedpur, Jharkhand",
-    "description": "After a 16-year corporate career, he founded the Swachhata Pukare Foundation in Jamshedpur in 2019 to restore rivers and lakes. His team turns invasive water hyacinth into handloom sarees, notebooks, bags and mats, creating income for rural and tribal women.",
-    "stats": [
-      {
-        "value": "450+",
-        "label": "rural and tribal women supported"
-      },
-      {
-        "value": "25 kg",
-        "label": "of water hyacinth goes into each saree"
-      },
-      {
-        "value": "2019",
-        "label": "foundation started in Jamshedpur"
-      }
-    ],
-    "recognition": "Founder, Swachhata Pukare Foundation (2019) · Work across Jharkhand, West Bengal, Chhattisgarh, Punjab and Delhi · Products reported to reach France and Italy",
-    "image": "assets/changemakers/changemaker_45.jpg"
-  },
-  {
-    "id": 46,
     "name": "Sudarsan Pattnaik",
     "epithet": "Master of Sand Art",
     "designation": "Sand artist · Founder, Sudarsan Sand Art Institute, Puri",
@@ -1167,10 +1199,1804 @@
       }
     ],
     "recognition": "Padma Shri (2014) · People’s Choice Award, Sand Sculpting World Cup (2014) · Guinness World Record (2017) · Italian Sand Art Award (2019) · Fred Darrington Sand Master Award (2025)",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_43.jpg"
+  },
+  {
+    "id": 44,
+    "name": "Prof. (Dr.) Satadal Saha",
+    "epithet": "Pioneer of the 3T Model",
+    "designation": "Founder & President, Foundation for Innovations in Health",
+    "category": "BUILDERS · HEALTHCARE INNOVATOR",
+    "location": "Kolkata, West Bengal",
+    "zone": "East Zone",
+    "description": "Surgeon-turned-social-entrepreneur whose Training–Technology–Task-shifting model turns village youth into frontline health workers and brings primary care to the doorstep.",
+    "stats": [
+      {
+        "value": "5,500+",
+        "label": "rural youth trained"
+      },
+      {
+        "value": "75%",
+        "label": "employed across 90+ hospitals"
+      },
+      {
+        "value": "40,000+",
+        "label": "screened every year"
+      }
+    ],
+    "recognition": "Stanford global social-innovation recognition (2025) · Professor, IIT Kharagpur",
+    "data_zone": "east-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_44.jpg"
+  },
+  {
+    "id": 45,
+    "name": "Gaurav Anand",
+    "epithet": "Turning Bengal’s “Terror” Weed into Handloom",
+    "designation": "Founder · Swachhata Pukary Foundation",
+    "category": "SUSTAINABILITY · ECO-TEXTILE PIONEER",
+    "location": "Nadia / North 24 Parganas, West Bengal",
+    "zone": "East Zone",
+    "description": "Left a corporate career to tackle the water hyacinth, creating hyacinth–cotton fusion sarees with Shantipur weavers and steady incomes for rural women artisans.",
+    "stats": [
+      {
+        "value": "450+",
+        "label": "rural artisans empowered"
+      },
+      {
+        "value": "35+",
+        "label": "water bodies cleared"
+      },
+      {
+        "value": "₹3–5K+",
+        "label": "monthly secondary income"
+      }
+    ],
+    "recognition": "Scroll.in Eco India series · recognised across environmental forums for linking ecological restoration with artisan livelihoods",
+    "data_zone": "east-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_45.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Umashankar Mandal",
+    "epithet": "The “Mangrove Man of Sundarbans",
+    "designation": "Primary School Geography Teacher · Satjelia Island, Gosaba",
+    "category": "LOCAL HEROES · MANGROVE CONSERVATIONIST",
+    "location": "Satjelia Island, Gosaba, Sundarbans, West Bengal",
+    "zone": "East Zone",
+    "description": "Built a community seed-to-sapling pipeline with local women and schoolchildren to plant mangrove bio-shields on cyclone-hit riverbanks of the Sundarbans.",
+    "stats": [
+      {
+        "value": "6.5 lakh+",
+        "label": "mangroves planted since 2009"
+      },
+      {
+        "value": "4",
+        "label": "native species restored"
+      },
+      {
+        "value": "Bio-shield",
+        "label": "mature thickets now in place"
+      }
+    ],
+    "recognition": "Widely known as the “Mangrove Man of Sundarbans” · profiled across national and regional media",
+    "data_zone": "east-zone",
+    "data_cat": "local-heroes",
     "image": "assets/changemakers/changemaker_46.jpg"
   },
   {
     "id": 47,
+    "name": "Tarundeep Rai",
+    "epithet": "4-Time Olympian from Sikkim",
+    "designation": "Subedar Major, Indian Army",
+    "category": "CHAMPIONS · OLYMPIC ARCHER",
+    "location": "Namchi, South Sikkim",
+    "zone": "East Zone",
+    "description": "Kirati archer from Namchi who put Sikkim on the global archery map, came back from a career-threatening shoulder injury and now mentors India’s next archers.",
+    "stats": [
+      {
+        "value": "4",
+        "label": "Olympics: 2004, 2012, 2020, 2024"
+      },
+      {
+        "value": "2010",
+        "label": "first Indian individual Asian Games archery silver"
+      },
+      {
+        "value": "2005",
+        "label": "first Indian world-championship semi-finalist"
+      }
+    ],
+    "recognition": "Padma Shri (2020) · Arjuna Award (2005) · Honorary Doctorate (2023)",
+    "data_zone": "east-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_47.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Bhaichung Bhutia",
+    "epithet": "The “Sikkimese Sniper",
+    "designation": "Former India Captain · Founder, Football Schools",
+    "category": "CHAMPIONS · FOOTBALLER",
+    "location": "Tinkitam, South Sikkim",
+    "zone": "East Zone",
+    "description": "Torchbearer of Indian football from Tinkitam, Sikkim, who led India to SAFF, Nehru Cup and AFC Challenge Cup titles and now builds young talent through football schools.",
+    "stats": [
+      {
+        "value": "100+",
+        "label": "India caps (100th in 2009)"
+      },
+      {
+        "value": "3×",
+        "label": "SAFF Championship titles"
+      },
+      {
+        "value": "1st",
+        "label": "Indian to sign for a European club"
+      }
+    ],
+    "recognition": "Padma Shri (2008) · Arjuna Award (1999) · Asian Football Hall of Fame (2014) · AIFF Player of the Year",
+    "data_zone": "east-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_48.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Dr. R. Ravi Kannan",
+    "epithet": "Ramon Magsaysay Awardee 2023",
+    "designation": "Director, Cachar Cancer Hospital & Research Centre",
+    "category": "SERVERS · SURGICAL ONCOLOGIST",
+    "location": "Silchar, Assam",
+    "zone": "East Zone",
+    "description": "Left a Chennai career in 2007 to rebuild a 20-bed clinic into a regional cancer centre with free food, lodging and pro-poor care so patients don’t drop out of treatment.",
+    "stats": [
+      {
+        "value": "70,000+",
+        "label": "cancer patients treated"
+      },
+      {
+        "value": "85%+",
+        "label": "treatment compliance"
+      },
+      {
+        "value": "146+",
+        "label": "beds, up from 20"
+      }
+    ],
+    "recognition": "Ramon Magsaysay Award (2023) · Padma Shri (2020) · Mahaveer Award in Medicine (2013)",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_49.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Purnima Devi Barman",
+    "epithet": "Hargila Baido ” — the Stork Sister",
+    "designation": "Wildlife Biologist, Aaranyak · Founder, Hargila Army",
+    "category": "PRESERVERS · WILDLIFE CONSERVATIONIST",
+    "location": "Guwahati, Assam",
+    "zone": "East Zone",
+    "description": "Wildlife biologist who turned a persecuted scavenger bird into a cultural icon, building an all-women army that quadrupled Assam’s greater adjutant stork population.",
+    "stats": [
+      {
+        "value": "20,000+",
+        "label": "women in the Hargila Army"
+      },
+      {
+        "value": "450→1,800+",
+        "label": "greater adjutant storks"
+      },
+      {
+        "value": "90%+",
+        "label": "chick survival rate"
+      }
+    ],
+    "recognition": "TIME Women of the Year (2025) · Whitley Gold Award (2024) · UNEP Champions of the Earth (2022)",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_50.jpg"
+  },
+  {
+    "id": 51,
+    "name": "Mahan Chandra Borah",
+    "epithet": "The Rice Library Creator",
+    "designation": "Founder, Annapurna Rice Library",
+    "category": "PRESERVERS · SEED CONSERVATIONIST",
+    "location": "Kathgaon, Jorhat, Assam",
+    "zone": "East Zone",
+    "description": "Organic farmer who turned ancestral land into a living seed bank, lending heirloom paddy — including flood-tolerant Bao dhan — free to smallholder farmers.",
+    "stats": [
+      {
+        "value": "500+",
+        "label": "indigenous rice varieties preserved"
+      },
+      {
+        "value": "2008",
+        "label": "Northeast’s first open seed library"
+      },
+      {
+        "value": "₹0",
+        "label": "cost to borrow seed"
+      }
+    ],
+    "recognition": "Plant Genome Saviour Farmer Recognition (PPV&FRA) · featured in The Hindu & The Better India",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_51.jpg"
+  },
+  {
+    "id": 52,
+    "name": "Jahnabi Goswami",
+    "epithet": "The Iron Lady of Public Health",
+    "designation": "Founder, Assam Network of Positive People (ANP+)",
+    "category": "SERVERS · HEALTH ACTIVIST",
+    "location": "Guwahati, Assam",
+    "zone": "East Zone",
+    "description": "Turned personal tragedy into a movement — founding ANP+ and the Kasturi Children Care Home to bring treatment, dignity and school access to people living with HIV.",
+    "stats": [
+      {
+        "value": "2000",
+        "label": "first woman in NE India to disclose HIV status"
+      },
+      {
+        "value": "1st",
+        "label": "woman President of INP+"
+      },
+      {
+        "value": "25+ yrs",
+        "label": "of frontline advocacy"
+      }
+    ],
+    "recognition": "IBN7 Zindagi LIVE Award (2011) · UNAIDS World AIDS Day citation (2008)",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_52.jpg"
+  },
+  {
+    "id": 53,
+    "name": "Rima Das",
+    "epithet": "The one-woman-army filmmaker",
+    "designation": "Founder, Flying River Films",
+    "category": "CREATORS · FILMMAKER",
+    "location": "Kalardiya, Chhaygaon, Assam",
+    "zone": "East Zone",
+    "description": "Self-taught independent filmmaker, writer, producer and cinematographer from Kalardiya village near Chhaygaon, Assam, with a Master’s in Sociology from Pune University.",
+    "stats": [
+      {
+        "value": "2018",
+        "label": "Village Rockstars, India’s Oscar entry"
+      },
+      {
+        "value": "70+",
+        "label": "national and international awards"
+      },
+      {
+        "value": "140+",
+        "label": "festivals screened at"
+      }
+    ],
+    "recognition": "National Film Awards (2018) · Kim Jiseok Award · NYWIFT Award · Honorary doctorate (D.Litt.)",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_53.jpg"
+  },
+  {
+    "id": 54,
+    "name": "Uddhab Bharali",
+    "epithet": "Assam’s Real-Life Phunsukh Wangdu",
+    "designation": "Founder, UKB Innovations",
+    "category": "INNOVATORS · GRASSROOTS ENGINEER",
+    "location": "North Lakhimpur, Assam",
+    "zone": "East Zone",
+    "description": "Mechanical engineer who builds affordable machines for farmers, weavers and people with disabilities — from the world’s first pomegranate de-seeder to tea-leaf pluckers.",
+    "stats": [
+      {
+        "value": "160+",
+        "label": "low-cost machines invented"
+      },
+      {
+        "value": "39+",
+        "label": "patents held"
+      },
+      {
+        "value": "80%",
+        "label": "of earnings to 80+ families"
+      }
+    ],
+    "recognition": "Padma Shri (2019) · NASA Create the Future contest (2012) · Rashtrapati Bhavan Scholar-in-Residence",
+    "data_zone": "east-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_54.jpg"
+  },
+  {
+    "id": 55,
+    "name": "Jahnabi Phookan",
+    "epithet": "Put Assam’s wild silks on the world stage",
+    "designation": "Founder, Lahé Looms · Jungle Travels India",
+    "category": "CREATORS · TEXTILE INNOVATOR",
+    "location": "Guwahati, Assam",
+    "zone": "East Zone",
+    "description": "For over three decades she has built enterprises rooted in the region’s rivers, forests and wild silks, refusing the narrative of geographic isolation.",
+    "stats": [
+      {
+        "value": "35+ yrs",
+        "label": "of enterprise building"
+      },
+      {
+        "value": "2008",
+        "label": "Lahé Looms founded"
+      },
+      {
+        "value": "2026",
+        "label": "Meaningful Business 100"
+      }
+    ],
+    "recognition": "Meaningful Business 100 honouree (2026) · FICCI FLO Outstanding Women Achievers Award (2013) · Honorary D.Litt.",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_55.jpg"
+  },
+  {
+    "id": 56,
+    "name": "L. Hangthing",
+    "epithet": "The Fruit Man of Noklak",
+    "designation": "Progressive farmer · Jungyam Nursery & Horticulture Farming Society",
+    "category": "INNOVATORS · AGRICULTURAL INNOVATOR",
+    "location": "Noklak, Nagaland",
+    "zone": "East Zone",
+    "description": "Progressive farmer from Noklak, Nagaland, who turned the rugged, high-altitude terrain of India’s easternmost border district into a thriving horticultural hub.",
+    "stats": [
+      {
+        "value": "1988",
+        "label": "first plantation nursery in Noklak"
+      },
+      {
+        "value": "15+",
+        "label": "organic products commercialised"
+      },
+      {
+        "value": "2025",
+        "label": "Padma Shri"
+      }
+    ],
+    "recognition": "Padma Shri (2025) · Best Fish Farmer Award (2021) · Felicitated by tribal councils and state leadership",
+    "data_zone": "east-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_56.jpg"
+  },
+  {
+    "id": 57,
+    "name": "Sathyanarayan Mundayoor",
+    "epithet": "‘Uncle Moosa ’, the library man of Lohit",
+    "designation": "Educationalist & literacy activist · Lohit Youth Library Network",
+    "category": "BUILDERS · EDUCATIONAL REFORMER",
+    "location": "Tezu, Lohit, Arunachal Pradesh",
+    "zone": "East Zone",
+    "description": "Kerala-born educationalist and literacy activist, fondly known across Northeast India as “Uncle Moosa”, who built the Lohit Youth Library Network.",
+    "stats": [
+      {
+        "value": "2007",
+        "label": "Lohit Youth Library Network founded"
+      },
+      {
+        "value": "13+",
+        "label": "community and mobile libraries"
+      },
+      {
+        "value": "45 yrs",
+        "label": "of service in the Northeast"
+      }
+    ],
+    "recognition": "Padma Shri (2020) · Mahaveer Award (2022) · Dakshina-Ravunni Menon Award (2021) · Civil Society Hall of Fame (2016)",
+    "data_zone": "east-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_57.jpg"
+  },
+  {
+    "id": 58,
+    "name": "Dipa Karmakar",
+    "epithet": "Pioneer of Indian Gymnastics",
+    "designation": "Gymnastics Federation of India · Netaji Subhash Regional Coaching Centre",
+    "category": "CHAMPIONS · OLYMPIC GYMNAST",
+    "location": "Agartala, Tripura",
+    "zone": "East Zone",
+    "description": "India’s most celebrated artistic gymnast — the first Indian woman gymnast at the Olympics, who overcame flat feet and rudimentary facilities in Agartala to finish 4th in the Rio 2016 vault final.",
+    "stats": [
+      {
+        "value": "4th",
+        "label": "Rio 2016 vault final, by 0.15 points"
+      },
+      {
+        "value": "77+",
+        "label": "career medals, 67 of them gold"
+      },
+      {
+        "value": "1 of 5",
+        "label": "women worldwide to land the Produnova"
+      }
+    ],
+    "recognition": "Khel Ratna (2016) · Padma Shri (2017) · Arjuna Award (2015) · Forbes Asia 30 Under 30 (2017)",
+    "data_zone": "east-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_58.jpg"
+  },
+  {
+    "id": 59,
+    "name": "Anand Kumar",
+    "epithet": "Founder of Super 30",
+    "designation": "Ramanujan School of Mathematics",
+    "category": "SERVERS · EDUCATOR & SOCIAL ENTREPRENEUR",
+    "location": "Patna, Bihar",
+    "zone": "East Zone",
+    "description": "Mathematician from a postal clerk’s family who turned a ₹300-a-month classroom into Super 30, a free programme that coaches underprivileged students for IIT-JEE.",
+    "stats": [
+      {
+        "value": "550+",
+        "label": "IIT entrants from 600+ trained"
+      },
+      {
+        "value": "24+ yrs",
+        "label": "of free residential mentorship"
+      },
+      {
+        "value": "1992",
+        "label": "Ramanujan School founded"
+      }
+    ],
+    "recognition": "Padma Shri (2023) · Maulana Abul Kalam Azad Shiksha Puraskar (2010) · TIME ‘Best of Asia’ (2010)",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_59.jpg"
+  },
+  {
+    "id": 60,
+    "name": "Tarun Kumar",
+    "epithet": "The “ Padman of Jharkhand",
+    "designation": "Founder & Director · Nischay Foundation",
+    "category": "SUSTAINABILITY · MENSTRUAL-HEALTH REFORMER",
+    "location": "East Singhbhum (Kolhan), Jharkhand",
+    "zone": "East Zone",
+    "description": "Works to end menstrual taboos and period poverty in the Kolhan region and turned Dhatkidih village into a menstrual-waste-free model.",
+    "stats": [
+      {
+        "value": "30,000+",
+        "label": "saplings planted"
+      },
+      {
+        "value": "100%",
+        "label": "menstrual-waste-free village"
+      },
+      {
+        "value": "2×",
+        "label": "Limca Book of Records"
+      }
+    ],
+    "recognition": "Limca Book of Records (two-time) · featured in NCERT-awarded documentary “TARUNI”",
+    "data_zone": "east-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_60.jpg"
+  },
+  {
+    "id": 61,
+    "name": "Deepak Nabam",
+    "epithet": "Founder of Deepak Nabam Living Home",
+    "designation": "Social Worker · Founder & Chairman, DNLH",
+    "category": "SERVERS · HUMANITARIAN",
+    "location": "Itanagar & Doimukh, Arunachal Pradesh",
+    "zone": "East Zone",
+    "description": "Since 2005 has run free rehabilitation homes at Itanagar and Doimukh for the mentally ill, disabled, elderly and destitute; praised by the Prime Minister in Mann Ki Baat.",
+    "stats": [
+      {
+        "value": "8,500+",
+        "label": "people rehabilitated"
+      },
+      {
+        "value": "220,000+",
+        "label": "citizens sensitised"
+      },
+      {
+        "value": "2",
+        "label": "free rehabilitation complexes"
+      }
+    ],
+    "recognition": "Vayoshreshtha Samman (2021) · Arunachal Pradesh State Gold Medal (2023) · praised in Mann Ki Baat",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_61.jpg"
+  },
+  {
+    "id": 62,
+    "name": "Santosh Yadav",
+    "epithet": "First Woman to Climb Everest Twice",
+    "designation": "Mountaineer · Former Officer, Indo-Tibetan Border Police",
+    "category": "CHAMPIONS · MOUNTAINEER",
+    "location": "Joniyawas, Rewari, Haryana",
+    "zone": "East Zone",
+    "description": "Rewari-born mountaineer who summited Everest in 1992 and again in 1993, becoming the first woman to do it twice, and later an environmental campaigner.",
+    "stats": [
+      {
+        "value": "2×",
+        "label": "Everest summits (1992, 1993)"
+      },
+      {
+        "value": "1992",
+        "label": "youngest woman on Everest then"
+      },
+      {
+        "value": "500 kg",
+        "label": "Himalayan waste cleared"
+      }
+    ],
+    "recognition": "Padma Shri (2000) · Tenzing Norgay National Adventure Award (1994) · first woman chief guest at the RSS Vijayadashami event, Nagpur (2022)",
+    "data_zone": "east-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_62.jpg"
+  },
+  {
+    "id": 63,
+    "name": "Dr. Manoj Kumar",
+    "epithet": "Bred India’s first makhana variety",
+    "designation": "Senior Scientist · ICAR–National Research Centre for Makhana, Darbhanga",
+    "category": "INNOVATORS · RURAL INNOVATOR",
+    "location": "Darbhanga, Bihar",
+    "zone": "East Zone",
+    "description": "Agricultural Research Service senior scientist at the ICAR-National Research Centre for Makhana, Darbhanga, who bred India’s first makhana variety.",
+    "stats": [
+      {
+        "value": "1st",
+        "label": "makhana variety, Swarna Vaidehi"
+      },
+      {
+        "value": "28–30 q/ha",
+        "label": "yield, a doubling"
+      },
+      {
+        "value": "₹2.5→5 lakh",
+        "label": "farmer income per season"
+      }
+    ],
+    "recognition": "The Better India Agri Changemaker Award (2025) · ICAR variety release recognition",
+    "data_zone": "east-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_63.jpg"
+  },
+  {
+    "id": 64,
+    "name": "Sushant Gaurav",
+    "epithet": "The collector behind Gumla’s Ragi Revolution",
+    "designation": "IAS (2014 batch) · Deputy Commissioner, Gumla",
+    "category": "SERVERS · TRANSFORMATIVE BUREAUCRAT",
+    "location": "Gumla, Jharkhand",
+    "zone": "East Zone",
+    "description": "2014-batch IAS officer of the Jharkhand cadre and BIT Mesra alumnus, who led Gumla’s ragi revolution as Deputy Commissioner.",
+    "stats": [
+      {
+        "value": "30,000+",
+        "label": "farmers shifted to ragi"
+      },
+      {
+        "value": "30,000+",
+        "label": "acres under ragi, up from 1,600"
+      },
+      {
+        "value": "₹43 lakh+",
+        "label": "FPO revenue generated"
+      }
+    ],
+    "recognition": "Prime Minister’s Award for Excellence in Public Administration · Harvard Business School case study",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_64.jpg"
+  },
+  {
+    "id": 65,
+    "name": "Dr. Ejaz Ali",
+    "epithet": "The Rs 10 Doctor",
+    "designation": "General surgeon · Former Rajya Sabha MP, Patna",
+    "category": "HEALERS · SURGEON",
+    "zone": "East Zone",
+    "location": "Patna, Bihar",
+    "description": "A general surgeon who has practised in Patna since 1984, he has charged just Rs 10 for a consultation for about three decades. He sees over 100 patients a day, lets patients pay surgery fees in instalments and sometimes waives them. He also campaigns for Dalit Muslims.",
+    "stats": [
+      {
+        "value": "Rs 10",
+        "label": "consultation fee, held for ~30 years"
+      },
+      {
+        "value": "1984",
+        "label": "practising surgery in Patna since"
+      },
+      {
+        "value": "100+",
+        "label": "patients seen every day"
+      }
+    ],
+    "recognition": "Member of Rajya Sabha, Bihar (2008–2010) · National Convenor, All-India Backward Muslim Morcha (since 1994) · Chief Editor, Sangam Urdu daily (1998–2012)",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_65.jpg"
+  },
+  {
+    "id": 66,
+    "name": "Kanika Talukdar",
+    "epithet": "The Vermicompost Queen",
+    "designation": "Founder, Jayatu Organic Products LLP",
+    "category": "LOCAL HEROES · AGRIPRENEUR",
+    "location": "Barjhar, Barama, Nalbari, Assam",
+    "zone": "East Zone",
+    "description": "Widowed with a four-month-old, she started a backyard vermicompost unit with ₹500 and built a GeM-listed organic enterprise that trains women across Assam.",
+    "stats": [
+      {
+        "value": "₹500",
+        "label": "starting capital"
+      },
+      {
+        "value": "100 t",
+        "label": "vermicompost a year"
+      },
+      {
+        "value": "₹75–85 L",
+        "label": "annual turnover"
+      }
+    ],
+    "recognition": "ICAR National Agricultural Award · Tata Social Enterprise Challenge (2025) · Lakhpati Didi icon",
+    "data_zone": "east-zone",
+    "data_cat": "local-heroes",
+    "image": "assets/changemakers/changemaker_66.jpg"
+  },
+  {
+    "id": 67,
+    "name": "Hare Ram Pandey",
+    "epithet": "The father of 35 abandoned daughters",
+    "designation": "Founder · Narayan Seva Ashram Trust, Deoghar",
+    "category": "SERVERS · CHILD WELFARE CHAMPIONS",
+    "zone": "East Zone",
+    "location": "Deoghar, Jharkhand",
+    "description": "A social worker from Deoghar who, after rescuing an abandoned newborn girl, resolved that no child in his town would be left to die. With his wife Bhavani Kumari he founded the Narayan Seva Ashram, which has raised, fed and educated more than 35 abandoned children as his own.",
+    "stats": [
+      {
+        "value": "35+",
+        "label": "abandoned children raised as his own"
+      },
+      {
+        "value": "2009",
+        "label": "Narayan Seva Ashram set up"
+      },
+      {
+        "value": "2023",
+        "label": "featured on Kaun Banega Crorepati"
+      }
+    ],
+    "recognition": "Featured on Kaun Banega Crorepati (October 2023) · Founder-guardian of the registered Narayan Seva Ashram Trust, Deoghar",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_67.jpg"
+  },
+  {
+    "id": 68,
+    "name": "Ashish Satyavrat Sahu",
+    "epithet": "Dressing Jharkhand’s tribal weaves for the world",
+    "designation": "Founder & Principal Designer · Johargram",
+    "category": "CREATORS · DESIGNERS",
+    "zone": "East Zone",
+    "location": "Ranchi, Jharkhand",
+    "description": "A fashion designer, social entrepreneur and cultural advocate known for reviving Jharkhand’s indigenous handloom traditions through contemporary, sustainable fashion — bringing Sohrai wall art and tribal weaves to modern wardrobes.",
+    "stats": [
+      {
+        "value": "200+",
+        "label": "rural artisans and weavers supported"
+      },
+      {
+        "value": "15",
+        "label": "core team members"
+      },
+      {
+        "value": "Sohrai",
+        "label": "wall art woven into designs"
+      }
+    ],
+    "recognition": "Commended in PM’s Mann Ki Baat · FDCI member · KVIC PMEGP approval",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_68.jpg"
+  },
+  {
+    "id": 69,
+    "name": "Pannalal Mahto",
+    "epithet": "The Birdman of Jharkhand",
+    "designation": "Farmer & self-taught ornithologist · Saraiya Kundru, Ramgarh",
+    "category": "SUSTAINABILITY LEADERS · WILDLIFE CONSERVATION",
+    "zone": "East Zone",
+    "location": "Saraiya Kundru, Ramgarh",
+    "description": "A farmer, self-taught ornithologist and wildlife conservationist from the village of Saraiya Kundru in Ramgarh district, he turned his village into a sparrow sanctuary and runs a one-man rescue service for injured birds.",
+    "stats": [
+      {
+        "value": "1",
+        "label": "village turned sparrow sanctuary"
+      },
+      {
+        "value": "24/7",
+        "label": "one-man bird rescue service"
+      },
+      {
+        "value": "1,000s",
+        "label": "of children taught about birds"
+      }
+    ],
+    "recognition": "State and ministerial honours · Forest Department felicitations",
+    "data_zone": "east-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_69.jpg"
+  },
+  {
+    "id": 70,
+    "name": "Prof. Sonajharia Minz",
+    "epithet": "India’s first tribal UNESCO Co-Chair",
+    "designation": "Professor, JNU · Former Vice-Chancellor, Sido Kanhu Murmu University",
+    "category": "SERVERS · ACADEMIA & INDIGENOUS RIGHTS",
+    "zone": "East Zone",
+    "location": "Ranchi, Jharkhand",
+    "description": "A mathematician, computer scientist and global indigenous-rights advocate from the Oraon Adivasi community of Gumla, Jharkhand. The eldest daughter of social thinker Dr. Nirmal Minz, she became the first tribal woman to serve as a university Vice-Chancellor.",
+    "stats": [
+      {
+        "value": "2025",
+        "label": "UNESCO Co-Chair appointed"
+      },
+      {
+        "value": "2020–23",
+        "label": "Vice-Chancellor, SKM University"
+      },
+      {
+        "value": "1st",
+        "label": "tribal woman Vice-Chancellor"
+      }
+    ],
+    "recognition": "UNESCO Co-Chair (2025) · Former President, JNU Teachers’ Association · Keynote invitations at global forums",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_70.jpg"
+  },
+  {
+    "id": 71,
+    "name": "Jamuna Tudu",
+    "epithet": "The Lady Tarzan of Jharkhand",
+    "designation": "Founder · Van Suraksha Samiti, Mutukuria",
+    "category": "PRESERVERS · ENVIRONMENTALISTS",
+    "zone": "East Zone",
+    "location": "Mutukuria, East Singhbhum",
+    "description": "A grassroots environmentalist and forest protector who earned the name “Lady Tarzan” for her fearless stand against timber mafias, poachers and land grabbers. Born into a tribal family in rural Odisha, she has mobilised tens of thousands of women to guard Jharkhand’s forests.",
+    "stats": [
+      {
+        "value": "30,000+",
+        "label": "women mobilised to protect forests"
+      },
+      {
+        "value": "2019",
+        "label": "Padma Shri"
+      },
+      {
+        "value": "2017",
+        "label": "NITI Aayog Women Transforming India"
+      }
+    ],
+    "recognition": "Padma Shri (2019) · NITI Aayog ‘Women Transforming India’ (2017) · Godfrey Phillips National Bravery Award (2014)",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_71.jpg"
+  },
+  {
+    "id": 72,
+    "name": "Anita Gupta",
+    "epithet": "The Silai School founder empowering rural women",
+    "designation": "Social entrepreneur · Silai Schools, Bhojpur",
+    "category": "BUILDERS · SOCIAL ENTREPRENEURS",
+    "zone": "East Zone",
+    "location": "Arrah, Bhojpur, Bihar",
+    "description": "A social entrepreneur from Bhojpur, Bihar who, after witnessing domestic violence, created a “Silai School” to give rural women skills and independence. Her sewing schools now run across Bihar and Jharkhand, training more than 50,000 women in sewing and handicrafts.",
+    "stats": [
+      {
+        "value": "50,000+",
+        "label": "rural women trained"
+      },
+      {
+        "value": "3,000+",
+        "label": "sewing schools across Bihar & Jharkhand"
+      },
+      {
+        "value": "2020",
+        "label": "Nari Shakti Puraskar"
+      }
+    ],
+    "recognition": "Nari Shakti Puraskar (2020), presented by the President of India in 2022",
+    "data_zone": "east-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_72.jpg"
+  },
+  {
+    "id": 73,
+    "name": "Yanung Jamoh Lego",
+    "epithet": "The Adi Queen of Herbs",
+    "designation": "Herbalist · Founder, Indigenous Herbal Heritage",
+    "category": "BUILDERS · TRADITIONAL HERBAL HEALERS",
+    "zone": "East Zone",
+    "location": "Sika Tode, East Siang",
+    "description": "A master herbalist and plant conservationist from the Adi tribe of East Siang, Arunachal Pradesh. Over nearly three decades she has treated lakhs of patients with traditional herbal medicine and trained lakhs more to grow and use medicinal plants.",
+    "stats": [
+      {
+        "value": "3 lakh+",
+        "label": "patients consulted over 29+ years"
+      },
+      {
+        "value": "1 lakh+",
+        "label": "people trained in herbal medicine"
+      },
+      {
+        "value": "2024",
+        "label": "Padma Shri"
+      }
+    ],
+    "recognition": "Padma Shri (2024) · Arunachal Pradesh State Award (2019) · Paramparika Vaidya Ratna (2013) · SRISTI Samman (2007)",
+    "data_zone": "east-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_73.jpg"
+  },
+  {
+    "id": 74,
+    "name": "Dr. Sangthankima",
+    "epithet": "Mizoram’s shelter for the outcast",
+    "designation": "Founder & Chairman · Thutak Nunpuitu Team (TNT)",
+    "category": "LOCAL HEROES · SOCIAL REFORMERS",
+    "zone": "East Zone",
+    "location": "Aizawl, Mizoram",
+    "description": "A humanitarian from Mizoram who has devoted his life to sheltering orphans, rescuing people from substance abuse and caring for the destitute and mentally ill. Born in 1960 in Tlangsam village near Champhai, he built TNT into the state’s largest shelter network.",
+    "stats": [
+      {
+        "value": "35+ yrs",
+        "label": "of community service"
+      },
+      {
+        "value": "2024",
+        "label": "Padma Shri"
+      },
+      {
+        "value": "2014",
+        "label": "Mizo Award"
+      }
+    ],
+    "recognition": "Padma Shri (2024) · Mizo Award (2014) · Mother Teresa Memorial International Award (2014) · Honorary doctorate (2008)",
+    "data_zone": "east-zone",
+    "data_cat": "local-heroes",
+    "image": "assets/changemakers/changemaker_74.jpg"
+  },
+  {
+    "id": 75,
+    "name": "Prof. Harjeet Nath",
+    "epithet": "The inventor of the suitcase water purifier",
+    "designation": "Assistant Professor · Tripura University",
+    "category": "INNOVATORS · ENGINEERS",
+    "zone": "East Zone",
+    "location": "Agartala, Tripura",
+    "description": "An innovator, chemical engineer and social entrepreneur born in 1989. After a B.Tech in Chennai and an M.Tech from NIT Rourkela, he joined Tripura University as a founding faculty member in Chemical & Polymer Engineering and built its first campus start-up.",
+    "stats": [
+      {
+        "value": "InstaWater",
+        "label": "portable ‘suitcase’ purifier"
+      },
+      {
+        "value": "HN Tech",
+        "label": "Tripura University’s first campus start-up"
+      },
+      {
+        "value": "2020",
+        "label": "built the Covid-19 ‘Warbot’"
+      }
+    ],
+    "recognition": "DPIIT Startup India recognition · MSME Idea Hackathon incubator grant (2021–23) · AICTE YUKTI 2.0 grant (2022–23)",
+    "data_zone": "east-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_75.jpg"
+  },
+  {
+    "id": 76,
+    "name": "Trinity Saioo",
+    "epithet": "The Turmeric Queen of the Northeast",
+    "designation": "Teacher & organic farmer · Founder, Leng Skhem Spice Society",
+    "category": "LOCAL HEROES · ORGANIC AGRICULTURE",
+    "zone": "East Zone",
+    "location": "West Jaintia Hills, Meghalaya",
+    "description": "A primary-school teacher, mother of six and agricultural reformer from the tribal village of Mulieh in West Jaintia Hills, Meghalaya. She organised over a thousand farmers to grow high-curcumin Lakadong turmeric, tripling incomes for smallholder tribal women.",
+    "stats": [
+      {
+        "value": "2018",
+        "label": "Mission Lakadong launched"
+      },
+      {
+        "value": "1,000+",
+        "label": "farmers trained and organised"
+      },
+      {
+        "value": "3×",
+        "label": "income for smallholder tribal women"
+      }
+    ],
+    "recognition": "Padma Shri (2020) · Excellence in Horticulture Award (2018) · Social Work Excellence Award (2021)",
+    "data_zone": "east-zone",
+    "data_cat": "local-heroes",
+    "image": "assets/changemakers/changemaker_76.jpg"
+  },
+  {
+    "id": 77,
+    "name": "Hally War",
+    "epithet": "Bah Hally, keeper of the living root bridges",
+    "designation": "Khasi farmer & bio-architect · Siej village, near Sohra",
+    "category": "SUSTAINABILITY · INDIGENOUS HERITAGE",
+    "zone": "East Zone",
+    "location": "Siej, near Sohra, Meghalaya",
+    "description": "An indigenous Khasi farmer, master bio-architect and environmentalist from Meghalaya who has spent over half a century growing, guiding and preserving Jingkieng Jri — the living root bridges that draw visitors from across the world.",
+    "stats": [
+      {
+        "value": "60+ yrs",
+        "label": "of weaving living root bridges"
+      },
+      {
+        "value": "10,000+",
+        "label": "visitors a year to Umkar bridge"
+      },
+      {
+        "value": "2026",
+        "label": "Padma Shri"
+      }
+    ],
+    "recognition": "Padma Shri (2026) · State civil recognition · National and international media acclaim",
+    "data_zone": "east-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_77.jpg"
+  },
+  {
+    "id": 78,
+    "name": "Ananya Paul Dodmani",
+    "epithet": "The tribal-rights educator who builds learning centres",
+    "designation": "Founder & Trustee · Tribal Connect",
+    "category": "SERVERS · TRIBAL RIGHTS ACTIVISTS",
+    "zone": "East Zone",
+    "location": "Lumding, Assam",
+    "description": "A tribal-rights activist, criminal psychologist and grassroots educator who has spent over two decades uplifting, educating and healing marginalised indigenous communities across India. She was born and raised in Lumding, a multi-ethnic tribal town in Assam.",
+    "stats": [
+      {
+        "value": "170+",
+        "label": "community learning centres"
+      },
+      {
+        "value": "91,000+",
+        "label": "beneficiaries reached"
+      },
+      {
+        "value": "22 yrs",
+        "label": "of continuous work"
+      }
+    ],
+    "recognition": "Rex Karmaveer Chakra (2019) · Kalki Gaurav Samman (2019) · Rashtriya Bal Samman (2018)",
+    "data_zone": "east-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_78.jpg"
+  },
+  {
+    "id": 79,
+    "name": "Dr. Jogesh Deuri",
+    "epithet": "The silk scientist of Assam",
+    "designation": "Sericulturist · Department of Sericulture, Government of Assam",
+    "category": "SUSTAINABILITY · FARMERS",
+    "zone": "East Zone",
+    "location": "Kokrajhar, Assam",
+    "description": "A pioneering sericulturist, silk scientist and public administrator who modernised Assam’s traditional sericulture, turning home-based silk farming into a structured, sustainable and thriving rural industry across more than 1,600 villages.",
+    "stats": [
+      {
+        "value": "1,600+",
+        "label": "villages connected to sericulture"
+      },
+      {
+        "value": "2013",
+        "label": "world’s first wild Muga sanctuary"
+      },
+      {
+        "value": "2026",
+        "label": "Padma Shri"
+      }
+    ],
+    "recognition": "Padma Shri (2026) · Assam Gaurav Award (2023) · Central Silk Board honours",
+    "data_zone": "east-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_79.jpg"
+  },
+  {
+    "id": 80,
+    "name": "Shital Tamang",
+    "epithet": "Tribal weaving in the national spotlight",
+    "designation": "Traditional handloom artisan · Upper Gom, South Sikkim",
+    "category": "PRESERVERS · INDIGENOUS WEAVERS",
+    "zone": "East Zone",
+    "location": "Upper Gom, Namchi, Sikkim",
+    "description": "A master traditional weaver from the hills of South Sikkim whose craftsmanship and dedication to indigenous art forms have earned national acclaim. From Upper Gom in Namchi district, she keeps Lepcha weaving, natural dyes and Himalayan motifs alive.",
+    "stats": [
+      {
+        "value": "National",
+        "label": "Handloom Award winner"
+      },
+      {
+        "value": "Lepcha",
+        "label": "daree weaving preserved"
+      },
+      {
+        "value": "Natural",
+        "label": "dyes and Himalayan motifs revived"
+      }
+    ],
+    "recognition": "National Handloom Award · State felicitation by the Sikkim government",
+    "data_zone": "east-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_80.jpg"
+  },
+  {
+    "id": 81,
+    "name": "Dr. Binish Desai",
+    "epithet": "Recycle Man of India",
+    "designation": "Founder & Chairman, Eco Eclectic Technologies · Valsad",
+    "category": "SUSTAINABILITY · WASTE-TO-WEALTH INNOVATOR",
+    "zone": "West Zone",
+    "location": "Valsad, Gujarat",
+    "description": "Environmental engineer who has turned 100+ waste streams into building materials — from cement-free P-Blocks to bricks made from recycled COVID masks.",
+    "stats": [
+      {
+        "value": "4,000+",
+        "label": "tonnes of waste recycled"
+      },
+      {
+        "value": "1,000+",
+        "label": "rural toilets & homes built"
+      },
+      {
+        "value": "6 million+",
+        "label": "masks & PPE kits diverted"
+      }
+    ],
+    "recognition": "Forbes 30 Under 30 Asia (2018) · Rotary Humanitarian Award · Green Hero Award (2019) · UN Young Champion nominee",
+    "data_zone": "west-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_81.jpg"
+  },
+  {
+    "id": 82,
+    "name": "Rahibai Soma Popere",
+    "epithet": "Beej Mata” — Seed Mother of India",
+    "designation": "Kalsubai Parisar Biyane Samvardhan Samiti · BAIF partner",
+    "category": "SUSTAINABILITY · SEED CONSERVATIONIST",
+    "zone": "West Zone",
+    "location": "Kombhalne Village, Akole, Ahmednagar",
+    "description": "An unlettered Mahadeo Koli farmer who turned her mud house into a living seed vault, saving native crops from hybrid-seed monopolies.",
+    "stats": [
+      {
+        "value": "122+",
+        "label": "native landraces saved"
+      },
+      {
+        "value": "32",
+        "label": "indigenous crops conserved"
+      },
+      {
+        "value": "3,500+",
+        "label": "farmers trained"
+      }
+    ],
+    "recognition": "Padma Shri (2020) · Nari Shakti Puraskar · BBC 100 Women (2018) · “Seed Mother” title by Dr. R. A. Mashelkar",
+    "data_zone": "west-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_82.jpg"
+  },
+  {
+    "id": 83,
+    "name": "Shakti Yadav",
+    "epithet": "Bombae Bhai",
+    "designation": "Buy Food with Plastic India Association · Bhandup, Mumbai",
+    "category": "LOCAL HEROES · PLASTIC-FOR-FOOD INNOVATOR",
+    "zone": "West Zone",
+    "location": "Bhandup, Mumbai, Maharashtra",
+    "description": "Raised in a Mumbai slum, he turned plastic bottles into currency — 20 bottles buy a hot meal, while the plastic is upcycled into products.",
+    "stats": [
+      {
+        "value": "45,000+",
+        "label": "hot meals served"
+      },
+      {
+        "value": "100,000+",
+        "label": "plastic items recovered"
+      },
+      {
+        "value": "20",
+        "label": "bottles buy one hot meal"
+      }
+    ],
+    "recognition": "CCP Fellowship, Germany (2023) · TEDxPowai (2023) · The Better India Changemaker feature (2026)",
+    "data_zone": "west-zone",
+    "data_cat": "local-heroes",
+    "image": "assets/changemakers/changemaker_83.jpg"
+  },
+  {
+    "id": 84,
+    "name": "Dr. Armida Fernandez",
+    "epithet": "Mother of Asia’s First Human Milk Bank",
+    "designation": "Founder Trustee, SNEHA · Former Dean, Sion Hospital",
+    "category": "BUILDERS · NEONATOLOGY & PUBLIC HEALTH PIONEER",
+    "zone": "West Zone",
+    "location": "Mumbai, Maharashtra",
+    "description": "Saw premature babies dying for want of milk and built Asia’s first human milk bank in 1989, then founded SNEHA to take maternal and child health into the slums.",
+    "stats": [
+      {
+        "value": "1989",
+        "label": "Asia’s first human milk bank"
+      },
+      {
+        "value": "125+",
+        "label": "milk banks across India today"
+      },
+      {
+        "value": "300,000+",
+        "label": "households reached by SNEHA"
+      }
+    ],
+    "recognition": "Padma Shri (2026) · Ashoka Fellow (2004) · Fellowship of Indian Academy of Pediatrics (2005)",
+    "data_zone": "west-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_84.jpg"
+  },
+  {
+    "id": 85,
+    "name": "Dr. Rani Bang",
+    "epithet": "Pioneer of Home-Based Newborn Care",
+    "designation": "Co-Founder & Director, SEARCH · Gadchiroli",
+    "category": "CHAMPIONS · COMMUNITY HEALTH PIONEER",
+    "zone": "West Zone",
+    "location": "Gadchiroli, Maharashtra",
+    "description": "Chose rural Gadchiroli over a city career; trained village women to treat newborn illness at home, a model that shaped India’s ASHA programme.",
+    "stats": [
+      {
+        "value": "121 → <30",
+        "label": "neonatal deaths per 1,000 births"
+      },
+      {
+        "value": "1986",
+        "label": "SEARCH co-founded"
+      },
+      {
+        "value": "100,000+",
+        "label": "tribal residents served"
+      }
+    ],
+    "recognition": "Padma Shri (2018) · Nari Shakti Puraskar (2005) · TIME Hero of Medicine (1997) · MacArthur Foundation Award",
+    "data_zone": "west-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_85.jpg"
+  },
+  {
+    "id": 86,
+    "name": "Neeru Yadav",
+    "epithet": "Hockey Wali Sarpanch",
+    "designation": "Sarpanch, Lambi Ahir village · Jhunjhunu district",
+    "category": "LOCAL HEROES · WOMEN-LED VILLAGE GOVERNANCE",
+    "zone": "West Zone",
+    "location": "Lambi Ahir, Jhunjhunu, Rajasthan",
+    "description": "M.Sc. Mathematics graduate and first woman sarpanch of Lambi Ahir (2020) — she funded a girls’ hockey team, a women’s farmer company and a plastic-free utensil bank.",
+    "stats": [
+      {
+        "value": "2020",
+        "label": "first woman sarpanch of her village"
+      },
+      {
+        "value": "2 yrs",
+        "label": "honorarium donated to girls’ sport"
+      },
+      {
+        "value": "2024",
+        "label": "represented India at UN, New York"
+      }
+    ],
+    "recognition": "Shiksha Shree Award (2022) · UNICEF & Panchayati Raj honour (2022) · Grassroots Leadership Award (2023)",
+    "data_zone": "west-zone",
+    "data_cat": "local-heroes",
+    "image": "assets/changemakers/changemaker_86.jpg"
+  },
+  {
+    "id": 87,
+    "name": "Rajendra Singh",
+    "epithet": "Waterman of India",
+    "designation": "Founder & Chairman, Tarun Bharat Sangh · Alwar",
+    "category": "SUSTAINABILITY · WATER CONSERVATIONIST",
+    "zone": "West Zone",
+    "location": "Alwar, Rajasthan",
+    "description": "Revived traditional johads and dead rivers across Rajasthan, bringing groundwater back and farmers home from the cities.",
+    "stats": [
+      {
+        "value": "14,800+",
+        "label": "johads built or restored"
+      },
+      {
+        "value": "7",
+        "label": "dried-up rivers revived"
+      },
+      {
+        "value": "8,600 km²",
+        "label": "brought under groundwater recharge"
+      }
+    ],
+    "recognition": "Stockholm Water Prize (2015) · Ramon Magsaysay Award (2001) · Jamnalal Bajaj Award (2005)",
+    "data_zone": "west-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_87.jpg"
+  },
+  {
+    "id": 88,
+    "name": "Lakshmi Murthy",
+    "epithet": "Inventor of the Uger Cloth Pad",
+    "designation": "Jatan Sansthan · Vikalp Design · Project Uger",
+    "category": "CREATORS · DESIGN FOR PUBLIC HEALTH",
+    "zone": "West Zone",
+    "location": "Udaipur, Rajasthan",
+    "description": "NID-trained designer who created a reusable cotton pad and deliberately left it patent-free, so village women’s groups can make and sell it.",
+    "stats": [
+      {
+        "value": "35+ yrs",
+        "label": "of grassroots health design"
+      },
+      {
+        "value": "800+",
+        "label": "ASHA workers trained"
+      },
+      {
+        "value": "2024",
+        "label": "Pride of NID award"
+      }
+    ],
+    "recognition": "Pride of NID Award (2024) · Women of Substance Award (2022) · Accor “Take Off Challenge” Award (2021)",
+    "data_zone": "west-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_88.jpg"
+  },
+  {
+    "id": 89,
+    "name": "Dr. Kriti Bharti",
+    "epithet": "India’s First Child Marriage Annuller",
+    "designation": "Founder & Managing Trustee, Saarthi Trust · Rehabilitation psychologist",
+    "category": "SERVERS · CHILD-RIGHTS ADVOCATE",
+    "zone": "West Zone",
+    "location": "Jaipur, Rajasthan",
+    "description": "Secured India’s first court annulment of a child marriage in 2012 and has since helped void dozens more while preventing many others.",
+    "stats": [
+      {
+        "value": "53+",
+        "label": "child marriages annulled in court"
+      },
+      {
+        "value": "1,400+",
+        "label": "child marriages prevented"
+      },
+      {
+        "value": "11,500+",
+        "label": "children & women rehabilitated"
+      }
+    ],
+    "recognition": "Asia Book of Records & Limca Book of Records · UK Government None-in-Three advisory committee",
+    "data_zone": "west-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_89.jpg"
+  },
+  {
+    "id": 90,
+    "name": "Mansukhbhai Prajapati",
+    "epithet": "The Clay Fridge Inventor",
+    "designation": "Founder & MD, Mitticool Clay Creation · Wankaner",
+    "category": "INNOVATORS · RURAL CLEAN-TECH INNOVATOR",
+    "zone": "West Zone",
+    "location": "Wankaner, Gujarat",
+    "description": "A potter’s son who, after the 2001 Bhuj earthquake, engineered Mitticool — a zero-electricity terracotta refrigerator — and turned a dying craft into India’s first ISO-certified grassroots enterprise.",
+    "stats": [
+      {
+        "value": "150+",
+        "label": "clay product varieties"
+      },
+      {
+        "value": "100+",
+        "label": "rural artisans employed"
+      },
+      {
+        "value": "20+",
+        "label": "countries exported to"
+      }
+    ],
+    "recognition": "Jamnalal Bajaj Award (2022) · National Grassroots Innovation Awards (2007, 2009) · National Geographic Net Geo Eco Hero (2010)",
+    "data_zone": "west-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_90.jpg"
+  },
+  {
+    "id": 91,
+    "name": "Mittal Patel",
+    "epithet": "Voice of the Nomadic Tribes",
+    "designation": "Founder & Managing Trustee, VSSM · Ahmedabad",
+    "category": "SERVERS · TRIBAL-RIGHTS ACTIVIST",
+    "zone": "West Zone",
+    "location": "Ahmedabad, Gujarat",
+    "description": "Gave up civil-services plans to found VSSM in 2006, securing identity, housing and schooling for 28+ nomadic and denotified tribes of Gujarat.",
+    "stats": [
+      {
+        "value": "100K+",
+        "label": "people enfranchised"
+      },
+      {
+        "value": "28+",
+        "label": "nomadic & denotified tribes"
+      },
+      {
+        "value": "87",
+        "label": "water bodies revived"
+      }
+    ],
+    "recognition": "Nari Shakti Puraskar (2018) · Better India Social Changemaker of the Year (2025) · Gujarat State Climate Change Award (2021–22)",
+    "data_zone": "west-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_91.jpg"
+  },
+  {
+    "id": 92,
+    "name": "Dr. Lata Desai",
+    "epithet": "Healer of Tribal Gujarat",
+    "designation": "Co-Founder & Trustee, SEWA Rural · Jhagadia",
+    "category": "BUILDERS · TRIBAL-HEALTHCARE PIONEER",
+    "zone": "West Zone",
+    "location": "Jhagadia, Bharuch, Gujarat",
+    "description": "A paediatrician who left a US career to co-found SEWA Rural in 1980, building a hospital network that cut maternal mortality by 75% across tribal villages.",
+    "stats": [
+      {
+        "value": "2.3M+",
+        "label": "patients treated"
+      },
+      {
+        "value": "125K+",
+        "label": "sight-restoring surgeries"
+      },
+      {
+        "value": "3,500+",
+        "label": "youth trained in trades"
+      }
+    ],
+    "recognition": "Padma Shri (2022) · WHO Public Health Champion (2015) · MacArthur Award (2007) · WHO Sasakawa Health Prize (1985)",
+    "data_zone": "west-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_92.jpg"
+  },
+  {
+    "id": 93,
+    "name": "Dr. Jayantkumar Maganlal Vyas",
+    "epithet": "Builder of a Forensic University",
+    "designation": "Vice-Chancellor, National Forensic Sciences University · Gandhinagar",
+    "category": "BUILDERS · FORENSIC-SCIENCE PIONEER",
+    "zone": "West Zone",
+    "location": "Gandhinagar, Gujarat",
+    "description": "Joined forensic science in 1973, turned Gujarat’s state lab into a world-class complex and founded the university now an Institution of National Importance.",
+    "stats": [
+      {
+        "value": "50+ yrs",
+        "label": "of service"
+      },
+      {
+        "value": "10+",
+        "label": "campuses across India"
+      },
+      {
+        "value": "80+",
+        "label": "countries trained personnel"
+      }
+    ],
+    "recognition": "Padma Shri (2022) · President’s Police Medal · World Records India: Longest-Serving Indian Forensic Scientist (2024)",
+    "data_zone": "west-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_93.jpg"
+  },
+  {
+    "id": 94,
+    "name": "Abdul Gafur Khatri",
+    "epithet": "Saviour of a 400-Year-Old Craft",
+    "designation": "Master Artisan, Traditional Rogan Art Studio · Nirona, Kutch",
+    "category": "PRESERVERS · ROGAN-ART MASTER",
+    "zone": "West Zone",
+    "location": "Nirona, Kutch, Gujarat",
+    "description": "From the last family practising Rogan painting, he rescued the Persian craft from extinction, won its GI tag and opened training to women in 2010.",
+    "stats": [
+      {
+        "value": "400+",
+        "label": "women trained"
+      },
+      {
+        "value": "580",
+        "label": "designs painted in 21 hours"
+      },
+      {
+        "value": "4",
+        "label": "canvases in Rashtrapati Bhavan"
+      }
+    ],
+    "recognition": "Padma Shri (2019) · National Handicrafts Award (1997) · Gujarat Tourism Excellence Award (2021) · World Book of Records",
+    "data_zone": "west-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_94.jpg"
+  },
+  {
+    "id": 95,
+    "name": "Nilesh Mandlewala",
+    "epithet": "Organ Man of India",
+    "designation": "Founder & President, Donate Life · Surat",
+    "category": "SERVERS · ORGAN-DONATION CHAMPION",
+    "zone": "West Zone",
+    "location": "Surat, Gujarat",
+    "description": "Built cadaveric organ-donation protocols across Gujarat’s hospitals, giving life and sight to more than 1,270 recipients.",
+    "stats": [
+      {
+        "value": "1,380+",
+        "label": "organs & tissues donated"
+      },
+      {
+        "value": "1,270+",
+        "label": "recipients helped"
+      },
+      {
+        "value": "2047",
+        "label": "goal: no death for want of organs"
+      }
+    ],
+    "recognition": "Padma Shri (2026) · Gujarat Garima Award (2022) · Letter of appreciation from PM Narendra Modi",
+    "data_zone": "west-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_95.jpg"
+  },
+  {
+    "id": 96,
+    "name": "Murlikant Petkar",
+    "epithet": "India’s First Paralympic Gold Medallist",
+    "designation": "Paralympic swimmer · Former Indian Army soldier",
+    "category": "CHAMPIONS · PARALYMPIC SWIMMER",
+    "zone": "West Zone",
+    "location": "Sangli, Maharashtra",
+    "description": "Wounded in the 1965 war while serving in the Indian Army, he turned to swimming and, in 1972 at Heidelberg, won India’s first-ever Paralympic gold in the 50 m freestyle with a world record. His story inspired the 2024 film Chandu Champion.",
+    "stats": [
+      {
+        "value": "1972",
+        "label": "India’s first Paralympic gold, Heidelberg"
+      },
+      {
+        "value": "37.33 s",
+        "label": "world record, 50 m freestyle"
+      },
+      {
+        "value": "2018",
+        "label": "Padma Shri conferred"
+      }
+    ],
+    "recognition": "Padma Shri (2018) · Arjuna Award for Lifetime Achievement (2024) · 1970 Commonwealth Paraplegic Games gold & world record · Subject of the film Chandu Champion (2024)",
+    "data_zone": "west-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_96.jpg"
+  },
+  {
+    "id": 97,
+    "name": "Dr. Asmita Prabhune",
+    "epithet": "Creator of ‘Sophab’ Produce Wash",
+    "designation": "Co-Founder & Director, Green Pyramid Biotech · Pune",
+    "category": "INNOVATORS · BIOTECH SCIENTIST",
+    "zone": "West Zone",
+    "location": "Pune, Maharashtra",
+    "description": "After 34 years as a CSIR-NCL scientist, she spent five years developing Sophab, a natural wash that removes pesticide residues from fruits and vegetables.",
+    "stats": [
+      {
+        "value": "34+ yrs",
+        "label": "as a CSIR-NCL scientist"
+      },
+      {
+        "value": "99%",
+        "label": "pesticide residue removed (up to)"
+      },
+      {
+        "value": "₹85",
+        "label": "per 100 ml bottle"
+      }
+    ],
+    "recognition": "BIRAC ‘75 Women Entrepreneurs in Biotechnology’ National Award (2022) · Green Enterprise Award (WE Entrepreneurs)",
+    "data_zone": "west-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_97.jpg"
+  },
+  {
+    "id": 98,
+    "name": "Prof. Deepak Dhar",
+    "epithet": "First Indian Boltzmann Medallist",
+    "designation": "Distinguished Emeritus Professor, IISER Pune",
+    "category": "INNOVATORS · THEORETICAL PHYSICIST",
+    "zone": "West Zone",
+    "location": "Pune, Maharashtra",
+    "description": "Solved the Abelian Sandpile Model in 1990, a cornerstone of self-organised criticality now used across physics, computing and economics.",
+    "stats": [
+      {
+        "value": "150+",
+        "label": "research papers"
+      },
+      {
+        "value": "45+ yrs",
+        "label": "of research"
+      },
+      {
+        "value": "2026",
+        "label": "ICTP Dirac Medal"
+      }
+    ],
+    "recognition": "Dirac Medal (2026) · Boltzmann Medal (2022) · Padma Bhushan (2023) · Shanti Swarup Bhatnagar Prize (1991)",
+    "data_zone": "west-zone",
+    "data_cat": "innovators",
+    "image": "assets/changemakers/changemaker_98.jpg"
+  },
+  {
+    "id": 99,
+    "name": "Dr. Abhay Bang",
+    "epithet": "Pioneer of Home-Based Newborn Care",
+    "designation": "Founder & Director, SEARCH · Gadchiroli",
+    "category": "BUILDERS · COMMUNITY-HEALTH PIONEER",
+    "zone": "West Zone",
+    "location": "Gadchiroli, Maharashtra",
+    "description": "With Dr. Rani Bang, he built a village-based newborn-care model that was adopted into India’s national health policy.",
+    "stats": [
+      {
+        "value": "~70%",
+        "label": "fall in neonatal mortality"
+      },
+      {
+        "value": "800K+",
+        "label": "ASHA workers trained"
+      },
+      {
+        "value": "150K+",
+        "label": "patients treated yearly"
+      }
+    ],
+    "recognition": "Padma Shri (2018) · Maharashtra Bhushan (2003) · TIME Global Health Heroes (2005) · Jamnalal Bajaj Award (2006)",
+    "data_zone": "west-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_99.jpg"
+  },
+  {
+    "id": 100,
+    "name": "D. R. Mehta",
+    "epithet": "Free Limbs for 2.5 Million+",
+    "designation": "Founder, BMVSS (Jaipur Foot) · Jaipur",
+    "category": "SERVERS · DISABILITY REHABILITATION",
+    "zone": "West Zone",
+    "location": "Jaipur, Rajasthan",
+    "description": "Founded BMVSS in 1975, growing it into the world’s largest provider of free artificial limbs and mobility aids, and co-developed the $20 Jaipur Knee.",
+    "stats": [
+      {
+        "value": "2.56M+",
+        "label": "people served"
+      },
+      {
+        "value": "40+",
+        "label": "countries reached"
+      },
+      {
+        "value": "3%",
+        "label": "administrative overhead"
+      }
+    ],
+    "recognition": "Padma Bhushan (2008) · Rajiv Gandhi National Sadbhavana Award (2012) · Tech Museum Innovation Award (2007)",
+    "data_zone": "west-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_100.jpg"
+  },
+  {
+    "id": 101,
+    "name": "Prof. Shyam Sunder Jyani",
+    "epithet": "Trees as Family Members",
+    "designation": "Associate Professor of Sociology, Dungar College · Bikaner",
+    "category": "SUSTAINABILITY · FAMILIAL-FORESTRY FOUNDER",
+    "zone": "West Zone",
+    "location": "Bikaner, Rajasthan",
+    "description": "Founded the ‘Familial Forestry’ movement, which treats trees as living members of the household and greens the desert one family at a time.",
+    "stats": [
+      {
+        "value": "4M+",
+        "label": "trees planted"
+      },
+      {
+        "value": "2M+",
+        "label": "families enrolled"
+      },
+      {
+        "value": "18,000+",
+        "label": "villages reached"
+      }
+    ],
+    "recognition": "UNCCD Land for Life Award (2021) · Special Guest Delegate, UNCCD COP15 (Abidjan) & COP16 (Riyadh)",
+    "data_zone": "west-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_101.jpg"
+  },
+  {
+    "id": 102,
+    "name": "Usha Chaumar",
+    "epithet": "From Scavenger to Sulabh President",
+    "designation": "President, Sulabh International Social Service Organisation",
+    "category": "SERVERS · ANTI-SCAVENGING CRUSADER",
+    "zone": "West Zone",
+    "location": "Alwar, Rajasthan",
+    "description": "Born into a family of manual scavengers, she left the work in 2003 and now leads Sulabh’s social service arm, helping other women escape it.",
+    "stats": [
+      {
+        "value": "2003",
+        "label": "left manual scavenging"
+      },
+      {
+        "value": "2007",
+        "label": "became SISSO president"
+      },
+      {
+        "value": "100s",
+        "label": "of women helped to dignified work"
+      }
+    ],
+    "recognition": "Padma Shri (2020) · Sat Paul Mittal National Award · Prime Minister’s Sanitation Honour (2015)",
+    "data_zone": "west-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_102.jpg"
+  },
+  {
+    "id": 103,
+    "name": "Gulabo Sapera",
+    "epithet": "Global Ambassador of Kalbelia",
+    "designation": "Folk Dancer & Cultural Ambassador · Pushkar, Jaipur",
+    "category": "PRESERVERS · KALBELIA FOLK ARTIST",
+    "zone": "West Zone",
+    "location": "Pushkar, Rajasthan",
+    "description": "Born into a nomadic snake-charmer community, she took Kalbelia dance from the Rajasthan desert to stages in more than 165 countries.",
+    "stats": [
+      {
+        "value": "165+",
+        "label": "countries performed in"
+      },
+      {
+        "value": "2010",
+        "label": "Kalbelia gets UNESCO heritage status"
+      },
+      {
+        "value": "2016",
+        "label": "Padma Shri conferred"
+      }
+    ],
+    "recognition": "Padma Shri (2016) · UNESCO Cultural Ambassador honours · Lok Nirmala Award (2020/21)",
+    "data_zone": "west-zone",
+    "data_cat": "culture",
+    "image": "assets/changemakers/changemaker_103.jpg"
+  },
+  {
+    "id": 104,
+    "name": "Mahavir Singh Phogat",
+    "epithet": "The Coach Behind Dangal",
+    "designation": "Dronacharya Awardee · Wrestling coach, Balali akhara",
+    "category": "CHAMPIONS · WRESTLING COACH",
+    "zone": "North Zone",
+    "location": "Balali, Charkhi Dadri, Haryana",
+    "description": "Former wrestler who left his job to train daughters Geeta and Babita, and nieces Vinesh and Priyanka, transforming women’s wrestling; the film Dangal tells his story.",
+    "stats": [
+      {
+        "value": "6",
+        "label": "Phogat sisters trained in wrestling by him"
+      },
+      {
+        "value": "2010",
+        "label": "Geeta’s gold, India’s first in women’s wrestling at CWG"
+      },
+      {
+        "value": "2016",
+        "label": "Dangal, starring Aamir Khan, released"
+      }
+    ],
+    "recognition": "Dronacharya Award · Subject of the film Dangal (2016) · Authorised biography ‘Akhada’",
+    "data_zone": "north-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_104.jpg"
+  },
+  {
+    "id": 105,
+    "name": "Bachendri Pal",
+    "epithet": "First Indian Woman on Mount Everest",
+    "designation": "Former Chief, Adventure Programmes, Tata Steel · Co-founder, WANI",
+    "category": "CHAMPIONS · MOUNTAINEER",
+    "zone": "North Zone",
+    "location": "Nakuri, Uttarkashi, Uttarakhand",
+    "description": "Villager from Nakuri who stood on Everest on 23 May 1984, then led the all-women 1993 Indo-Nepalese expedition that put seven women on the summit.",
+    "stats": [
+      {
+        "value": "1984",
+        "label": "first Indian woman on Everest’s summit"
+      },
+      {
+        "value": "7",
+        "label": "women on the summit in her 1993 expedition"
+      },
+      {
+        "value": "35 yrs",
+        "label": "leading Tata Steel adventure programmes"
+      }
+    ],
+    "recognition": "Padma Shri (1984) · Arjuna Award (1986) · National Adventure Award (1994) · Padma Bhushan (2019)",
+    "data_zone": "north-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_105.jpg"
+  },
+  {
+    "id": 106,
+    "name": "Manu Bhaker",
+    "epithet": "India’s Double Olympic Medallist",
+    "designation": "Pistol shooter · Indian Olympian",
+    "category": "CHAMPIONS · OLYMPIC SHOOTER",
+    "zone": "North Zone",
+    "location": "Jhajjar, Haryana",
+    "description": "Pistol ace who bounced back from a Tokyo 2020 malfunction to win two bronzes at Paris 2024, India’s first athlete with two medals at one Games since Independence.",
+    "stats": [
+      {
+        "value": "2",
+        "label": "Paris 2024 bronzes: 10 m air pistol and mixed team"
+      },
+      {
+        "value": "16",
+        "label": "age at first ISSF World Cup gold, 2018"
+      },
+      {
+        "value": "4th",
+        "label": "25 m pistol final, Paris 2024"
+      }
+    ],
+    "recognition": "Khel Ratna (2024) · BBC Indian Sportswoman of the Year (2024) · Commonwealth & Asian Games gold",
+    "data_zone": "north-zone",
+    "data_cat": "champions",
+    "image": "assets/changemakers/changemaker_106.jpg"
+  },
+  {
+    "id": 107,
+    "name": "Rahul Jain",
+    "epithet": "Pioneer of business coaching in India",
+    "designation": "Founder Director · Business Coaching India LLP",
+    "category": "BUILDERS · BUSINESS COACH",
+    "zone": "North Zone",
+    "location": "New Delhi",
+    "description": "He started Business Coaching India in 2004 and introduced structured business coaching to the country. His programmes help entrepreneurs and MSME owners build systems-driven businesses that double profits while working just one day a week.",
+    "stats": [
+      {
+        "value": "2004",
+        "label": "founded Business Coaching India"
+      },
+      {
+        "value": "26,000+",
+        "label": "entrepreneurs and MSME owners coached"
+      },
+      {
+        "value": "2021",
+        "label": "IMBC Small Business Coach of the Year"
+      }
+    ],
+    "recognition": "IMBC Small Business Coach of the Year (2021) · Business Standard Top 10 Business Coaches in India (2022)",
+    "data_zone": "north-zone",
+    "data_cat": "builders",
+    "image": "assets/changemakers/changemaker_107.jpg"
+  },
+  {
+    "id": 108,
     "name": "Abhishek Ray",
     "epithet": "Composer Who Rewilded a Hill",
     "designation": "Founder, Sitabani Wildlife Reserve · Music Composer",
@@ -1193,16 +3019,18 @@
       }
     ],
     "recognition": "Mirchi Music Award (2017) · Indian Telly Award for Best Music (2006) · Composer for Paan Singh Tomar and Saheb Biwi Aur Gangster",
-    "image": "assets/changemakers/changemaker_47.jpg"
+    "data_zone": "north-zone",
+    "data_cat": "sustainability",
+    "image": "assets/changemakers/changemaker_108.jpg"
   },
   {
-    "id": 48,
+    "id": 109,
     "name": "Dr. Chandrakant Sambhaji Pandav",
     "epithet": "The Iodine Man of India",
     "designation": "Former Professor & Head, Centre for Community Medicine · AIIMS, New Delhi",
     "category": "SERVERS · PUBLIC HEALTH PIONEER",
-    "zone": "North Zone",
     "location": "New Delhi",
+    "zone": "North Zone",
     "description": "A community-medicine physician who spent decades on a hidden hunger: iodine deficiency. As a WHO and UNICEF consultant and South Asia coordinator of the Iodine Global Network, he helped drive universal salt iodisation in India.",
     "stats": [
       {
@@ -1219,6 +3047,8 @@
       }
     ],
     "recognition": "Padma Shri (2021) · WHO Public Health Champion (2017) · Mother Teresa Memorial Award (2016) · ICMR Dr M.K. Seshadri Prize & Gold Medal (2000)",
-    "image": "assets/changemakers/changemaker_48.jpg"
+    "data_zone": "north-zone",
+    "data_cat": "servers",
+    "image": "assets/changemakers/changemaker_109.jpg"
   }
 ]
