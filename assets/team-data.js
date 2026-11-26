@@ -1,4 +1,4 @@
-// Swarnim Bharat Udayghosh - Governing Sarthi (Governing Council & State Heads) Data Source
+// Swarnim Bharat Udayghosh - Governing Council (Governing Council & State Heads) Data Source
 window.SWBU_TEAM = [
   {
     id: "mahavir-radha-jangra",
