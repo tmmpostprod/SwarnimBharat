@@ -836,10 +836,12 @@ const INLINE_TEAM = [
     
     // ==========================================
     // LIGHTBOX CONTROLLER (Hover & Click Support)
+    // Auto-closes whenever mouse cursor leaves the lightbox card!
     // ==========================================
     let hoverTimer = null;
     let closeTimer = null;
-    let isMouseInLightbox = false;
+    let isInsideCard = false;
+    let hasEnteredCard = false;
     let activeLightboxId = null;
 
     function renderLightbox(m) {
@@ -994,6 +996,8 @@ const INLINE_TEAM = [
         modal.classList.add('opacity-100');
         card.classList.remove('scale-95');
         card.classList.add('scale-100');
+        hasEnteredCard = false;
+        isInsideCard = false;
       }
     };
 
@@ -1009,25 +1013,27 @@ const INLINE_TEAM = [
       modal.classList.remove('opacity-100');
       modal.classList.add('opacity-0', 'pointer-events-none');
       activeLightboxId = null;
-      isMouseInLightbox = false;
+      isInsideCard = false;
+      hasEnteredCard = false;
     };
 
     window.onCardHover = function(id) {
       clearTimeout(closeTimer);
       clearTimeout(hoverTimer);
-      // Hover intent timer: opens smoothly after 180ms hover
+      // Hover intent timer: opens smoothly after 160ms hover
       hoverTimer = setTimeout(() => {
         openLightbox(id);
-      }, 180);
+      }, 160);
     };
 
     window.onCardLeave = function() {
       clearTimeout(hoverTimer);
+      // If mouse left the grid card and didn't enter the lightbox, close it
       closeTimer = setTimeout(() => {
-        if (!isMouseInLightbox) {
+        if (!isInsideCard) {
           closeLightbox();
         }
-      }, 300);
+      }, 350);
     };
 
     function renderPills() {
@@ -1116,25 +1122,40 @@ const INLINE_TEAM = [
       renderPills();
       render();
       
-      // Lightbox mouse enter/leave listeners
+      // Lightbox mouse enter/leave listeners - auto-close when cursor leaves the card
       const modal = document.getElementById('profileLightboxModal');
-      if (modal) {
-        modal.addEventListener('mouseenter', () => {
-          isMouseInLightbox = true;
+      const card = document.getElementById('profileLightboxCard');
+      if (modal && card) {
+        // When cursor enters the lightbox card
+        card.addEventListener('mouseenter', () => {
           clearTimeout(closeTimer);
+          isInsideCard = true;
+          hasEnteredCard = true;
         });
-        modal.addEventListener('mouseleave', () => {
-          isMouseInLightbox = false;
+
+        // When cursor LEAVES the lightbox card -> CLOSE IMMEDIATELY!
+        card.addEventListener('mouseleave', () => {
+          isInsideCard = false;
           closeTimer = setTimeout(() => {
             closeLightbox();
-          }, 350);
+          }, 120);
         });
+
+        // If cursor moves on backdrop outside the card, close immediately
+        modal.addEventListener('mousemove', (e) => {
+          if (e.target === modal && hasEnteredCard) {
+            closeLightbox();
+          }
+        });
+
+        // Click outside closes
         modal.addEventListener('click', (e) => {
           if (e.target === modal) {
             closeLightbox(true);
           }
         });
       }
+
       // Close on Escape
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
