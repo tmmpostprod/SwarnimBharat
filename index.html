@@ -1402,17 +1402,43 @@ button,a{-webkit-tap-highlight-color:transparent}
     return getStoredCountData().count;
   }
 
+  // Multi-tier Dynamic Milestones
+  const PLEDGE_MILESTONES = [
+    { goal: 500, label: 'Goal: 500 Pledges (Phase 1)' },
+    { goal: 2500, label: 'Goal: 2,500 Pledges (Phase 2)' },
+    { goal: 5000, label: 'Goal: 5,000 Pledges (Phase 3)' },
+    { goal: 10000, label: 'Goal: 10,000 Pledges (Phase 4)' },
+    { goal: 25000, label: 'Goal: 25,000 Pledges (Phase 5)' },
+    { goal: 50000, label: 'Goal: 50,000 Pledges (Phase 6)' },
+    { goal: 100000, label: 'Goal: 1,00,000 Pledges (Phase 7)' },
+    { goal: 500000, label: 'Goal: 5,00,000 Pledges (Phase 8)' },
+    { goal: 1000000, label: 'Goal: 10,00,000 Pledges (Phase 9)' }
+  ];
+
   function setCounterText(val) {
     const el = document.getElementById('live-pledge-counter') || document.getElementById('pledge-counter');
     if (el) el.innerText = val.toLocaleString('en-IN');
     const heroStat = document.getElementById('hero-pledge-stat');
-    if (heroStat) heroStat.innerText = `${val}+`;
+    if (heroStat) heroStat.innerText = `${val.toLocaleString('en-IN')}+`;
 
-    // Progress bar for Phase 1 (500 Goal)
+    // Dynamic Multi-tier Progress Bar & Milestone Scaling
     const bar = document.getElementById('pledge-progress-bar');
     const pct = document.getElementById('pledge-percent-label');
+    const goalLabel = document.getElementById('pledge-goal-label');
+
+    // Automatically find the active phase milestone
+    let activeMilestone = PLEDGE_MILESTONES.find(m => val < m.goal);
+    if (!activeMilestone) {
+      const nextGoal = Math.ceil((val + 1) / 100000) * 100000;
+      activeMilestone = { goal: nextGoal, label: `Goal: ${nextGoal.toLocaleString('en-IN')} Pledges` };
+    }
+
+    if (goalLabel) {
+      goalLabel.innerText = activeMilestone.label;
+    }
+
     if (bar && pct) {
-      const percentage = Math.min(100, Math.round((val / 500) * 100));
+      const percentage = Math.min(100, Math.round((val / activeMilestone.goal) * 100));
       bar.style.width = percentage + '%';
       pct.innerText = percentage + '% Completed';
     }
