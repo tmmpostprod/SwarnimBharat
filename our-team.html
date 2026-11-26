@@ -836,13 +836,15 @@ const INLINE_TEAM = [
     
     // ==========================================
     // LIGHTBOX CONTROLLER (Hover & Click Support)
-    // Auto-closes whenever mouse cursor leaves the lightbox card!
+    // Holds open for at least 3 seconds, then auto-closes if cursor is not inside the box!
     // ==========================================
     let hoverTimer = null;
     let closeTimer = null;
     let isInsideCard = false;
     let hasEnteredCard = false;
     let activeLightboxId = null;
+    let openTime = 0;
+    const MIN_HOLD_TIME_MS = 3000; // Hold at least 3 seconds
 
     function renderLightbox(m) {
       const content = document.getElementById('lightboxContent');
@@ -998,10 +1000,32 @@ const INLINE_TEAM = [
         card.classList.add('scale-100');
         hasEnteredCard = false;
         isInsideCard = false;
+        openTime = Date.now();
+
+        // Hold open for AT LEAST 3 SECONDS: then close if cursor is not inside the box!
+        closeTimer = setTimeout(() => {
+          if (!isInsideCard) {
+            closeLightbox();
+          }
+        }, MIN_HOLD_TIME_MS);
       }
     };
 
     window.closeLightbox = function(force) {
+      // If not forced (like close button ✕ click or Esc), guarantee 3 seconds minimum hold time
+      if (!force) {
+        const elapsed = Date.now() - openTime;
+        if (elapsed < MIN_HOLD_TIME_MS) {
+          clearTimeout(closeTimer);
+          closeTimer = setTimeout(() => {
+            if (!isInsideCard) {
+              closeLightbox();
+            }
+          }, MIN_HOLD_TIME_MS - elapsed);
+          return;
+        }
+      }
+
       clearTimeout(hoverTimer);
       clearTimeout(closeTimer);
       const modal = document.getElementById('profileLightboxModal');
@@ -1015,6 +1039,7 @@ const INLINE_TEAM = [
       activeLightboxId = null;
       isInsideCard = false;
       hasEnteredCard = false;
+      openTime = 0;
     };
 
     window.onCardHover = function(id) {
@@ -1028,12 +1053,15 @@ const INLINE_TEAM = [
 
     window.onCardLeave = function() {
       clearTimeout(hoverTimer);
-      // If mouse left the grid card and didn't enter the lightbox, close it
+      // Ensure at least 3 seconds hold time before auto-closing if cursor is not in the box
+      const elapsed = Date.now() - openTime;
+      const remaining = Math.max(MIN_HOLD_TIME_MS - elapsed, 350);
+      clearTimeout(closeTimer);
       closeTimer = setTimeout(() => {
         if (!isInsideCard) {
           closeLightbox();
         }
-      }, 350);
+      }, remaining);
     };
 
     function renderPills() {
@@ -1122,7 +1150,7 @@ const INLINE_TEAM = [
       renderPills();
       render();
       
-      // Lightbox mouse enter/leave listeners - auto-close when cursor leaves the card
+      // Lightbox mouse enter/leave listeners - holds at least 3 sec, closes when cursor is outside the box
       const modal = document.getElementById('profileLightboxModal');
       const card = document.getElementById('profileLightboxCard');
       if (modal && card) {
@@ -1133,22 +1161,30 @@ const INLINE_TEAM = [
           hasEnteredCard = true;
         });
 
-        // When cursor LEAVES the lightbox card -> CLOSE IMMEDIATELY!
+        // When cursor leaves the lightbox card: hold until 3 sec elapsed, then close if not inside
         card.addEventListener('mouseleave', () => {
           isInsideCard = false;
+          const elapsed = Date.now() - openTime;
+          const remaining = Math.max(MIN_HOLD_TIME_MS - elapsed, 300);
+          clearTimeout(closeTimer);
           closeTimer = setTimeout(() => {
-            closeLightbox();
-          }, 120);
+            if (!isInsideCard) {
+              closeLightbox();
+            }
+          }, remaining);
         });
 
-        // If cursor moves on backdrop outside the card, close immediately
+        // If cursor moves on darkened backdrop outside the card
         modal.addEventListener('mousemove', (e) => {
           if (e.target === modal && hasEnteredCard) {
-            closeLightbox();
+            const elapsed = Date.now() - openTime;
+            if (elapsed >= MIN_HOLD_TIME_MS) {
+              closeLightbox();
+            }
           }
         });
 
-        // Click outside closes
+        // Click outside closes immediately
         modal.addEventListener('click', (e) => {
           if (e.target === modal) {
             closeLightbox(true);
