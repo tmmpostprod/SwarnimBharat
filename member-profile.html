@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title id="pageTitle">विस्तृत प्रोफाइल | गवर्निंग सारथी | स्वर्णिम भारत उदयघोष</title>
+  <link rel="icon" type="image/png" href="assets/logo-shield.png" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Work+Sans:wght@500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#e5e2db",
+            "outline-variant": "#d0c5af",
+            "surface": "#fcf9f2",
+            "primary": "#735c00",
+            "primary-container": "#d4af37",
+            "on-primary-container": "#554300",
+            "tertiary": "#a73a00",
+            "inverse-surface": "#142940"
+          },
+          fontFamily: {
+            "headline": ["Playfair Display", "serif"],
+            "body": ["Noto Sans", "sans-serif"],
+            "label": ["Work Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-dossier {
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .ribbon-tail {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 12px), 0 100%);
+    }
+  </style>
+</head>
+
+<body class="bg-[#fcf9f2] text-[#1c1c18] font-body min-h-screen flex flex-col antialiased selection:bg-[#d4af37]/30 selection:text-[#142940]">
+
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-[#e8dfcf] shadow-xs">
+    <div class="h-20 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+      <a class="flex items-center gap-3 group text-left" href="index.html">
+        <img src="assets/logo-emblem.png" alt="स्वर्णिम भारत उदयघोष" class="h-12 w-auto object-contain drop-shadow-sm transition-transform group-hover:scale-105" />
+        <div class="flex flex-col">
+          <span class="font-headline text-lg sm:text-xl text-[#735c00] font-bold leading-tight">स्वर्णिम भारत उदयघोष</span>
+          <span class="font-label text-[10px] sm:text-xs text-[#a73a00] uppercase tracking-wider font-semibold">Mera Desh, Meri Zimmedari</span>
+        </div>
+      </a>
+      
+      <div class="flex items-center gap-3">
+        <a href="our-team.html" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#f0eee7] hover:bg-[#e4dec8] text-[#142940] text-xs font-bold transition-all border border-[#d0c5af]">
+          <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+          <span>गवर्निंग सारथी / Governing Sarthi</span>
+        </a>
+        <a href="take-pledge-and-scanner.html" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#142940] hover:bg-[#b58d3d] text-white text-xs font-bold transition-all shadow-sm">
+          <span class="material-symbols-outlined text-[16px] text-[#ffe088]">assignment_turned_in</span>
+          <span>संकल्प लें / Pledge</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="flex-1 w-full pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-[1320px] mx-auto">
+    
+    <!-- Breadcrumb & Back Action -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-3 text-xs text-[#7f7663]">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="hover:text-[#a73a00] transition-colors">होम</a>
+        <span>/</span>
+        <a href="our-team.html" class="hover:text-[#a73a00] transition-colors">गवर्निंग सारथी</a>
+        <span>/</span>
+        <span class="text-[#142940] font-bold" id="breadcrumbName">विस्तृत प्रोफाइल</span>
+      </div>
+      <a href="our-team.html" class="inline-flex items-center gap-1 text-[#a73a00] font-semibold hover:underline">
+        <span class="material-symbols-outlined text-[15px]">arrow_back</span>
+        <span>समस्त गवर्निंग सारथी सूची पर लौटें</span>
+      </a>
+    </div>
+
+    <!-- GRAND MASTER DOSSIER STAGE (Large Featured Card) -->
+    <div id="masterStageContainer" class="relative bg-[#fcfaf5] rounded-[32px] border-2 border-[#e6dbc6] shadow-[0_20px_50px_rgba(20,41,64,0.06)] overflow-hidden p-6 sm:p-10 lg:p-12 mb-14">
+      
+      <!-- Tricolor Ribbon on Left Edge (Adhering to uploaded user reference mockup) -->
+      <div class="absolute top-0 left-4 sm:left-7 flex gap-1.5 z-20 pointer-events-none">
+        <div class="w-3.5 h-36 bg-[#ea690b] ribbon-tail shadow-xs"></div>
+        <div class="w-3.5 h-44 bg-[#0f7b3c] ribbon-tail shadow-xs"></div>
+      </div>
+
+      <!-- Watermark Background Ornament -->
+      <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-[#d4af37]/5 blur-3xl pointer-events-none"></div>
+
+      <!-- Live Dynamic Dossier Render Area -->
+      <div id="activeDossier" class="animate-dossier">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+
+    <!-- SUGGESTIONS SECTION: Other Governing Sarthi Members -->
+    <section class="mt-8 border-t border-[#e2d7c0] pt-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[#f0eee7] text-[#735c00] border border-[#d0c5af] mb-1.5">
+            ✨ अन्य सदस्य / EXPLORE MORE
+          </span>
+          <h2 class="font-headline text-2xl sm:text-3xl font-bold text-[#142940]">
+            अन्य गवर्निंग सारथी / Other Members
+          </h2>
+          <p class="text-xs sm:text-sm text-[#7f7663] mt-1">
+            किसी भी सदस्य पर क्लिक करें — उनका विस्तृत विवरण ऊपर बड़ा होकर खुल जाएगा (Click any member below to expand their full profile above)
+          </p>
+        </div>
+        <span id="suggestionCountBadge" class="text-xs text-[#a73a00] font-bold uppercase tracking-wider bg-white px-3 py-1.5 rounded-lg border border-[#e8dfcf] shadow-2xs">
+          6 अन्य सदस्य
+        </span>
+      </div>
+
+      <!-- Compact Suggestion Cards Grid -->
+      <div id="suggestionGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Standard Footer -->
+  <footer class="bg-[#142940] text-[#fcf9f2] py-10 border-t border-[#d4af37]/30 mt-auto">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/70">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo-emblem.png" alt="Swarnim Bharat" class="h-8 w-auto brightness-200" />
+        <span>© 2026 स्वर्णिम भारत उदयघोष • Mera Desh, Meri Zimmedari</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="our-team.html" class="hover:text-[#ffe088] transition-colors">गवर्निंग सारथी</a>
+        <span>•</span>
+        <a href="take-pledge-and-scanner.html" class="hover:text-[#ffe088] transition-colors">संकल्प पत्र</a>
+        <span>•</span>
+        <a href="changemakers.html" class="hover:text-[#ffe088] transition-colors">Change Makers</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-[#142940] text-white px-4 py-2.5 rounded-xl shadow-2xl border border-[#d4af37] text-xs font-semibold opacity-0 translate-y-3 pointer-events-none transition-all duration-300 flex items-center gap-2">
+    <span class="material-symbols-outlined text-[16px] text-[#ffe088]">check_circle</span>
+    <span id="toastMsg">लिंक कॉपी हो गया!</span>
+  </div>
+
+  <!-- Shared Team Data Script -->
+  <script src="assets/team-data.js"></script>
+
+  <script>
+    // Escape helper
+    function esc(s) {
+      return (s || '').replace(/[&<>'"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]));
+    }
+
+    // Show toast helper
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      const m = document.getElementById('toastMsg');
+      m.textContent = msg;
+      t.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+      t.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        t.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+        t.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
+    }
+
+    // Copy profile link helper
+    window.copyProfileLink = function(id) {
+      const url = window.location.origin + window.location.pathname + '?id=' + encodeURIComponent(id);
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(() => showToast('प्रोफाइल लिंक कॉपी हो गया!'));
+      } else {
+        showToast('लिंक: ' + url);
+      }
+    };
+
+    // State
+    const ALL_MEMBERS = window.SWBU_TEAM || [];
+    let currentId = 'rajesh-dahiya'; // Default to Rajesh Dahiya (Card 3 as requested by user)
+
+    // Parse URL param ?id=...
+    function getUrlMemberId() {
+      const p = new URLSearchParams(window.location.search);
+      const qId = p.get('id');
+      if (qId && ALL_MEMBERS.some(m => m.id === qId)) {
+        return qId;
+      }
+      return 'rajesh-dahiya';
+    }
+
+    // Render active dossier inside Master Stage
+    function renderActiveDossier(m) {
+      document.getElementById('breadcrumbName').textContent = m.h + ' (' + m.n + ')';
+      document.getElementById('pageTitle').textContent = m.h + ' | ' + m.r + ' | स्वर्णिम भारत उदयघोष';
+
+      const container = document.getElementById('activeDossier');
+      container.className = 'animate-dossier';
+
+      container.innerHTML = `
+        <!-- Brand Header Line matching reference mockup -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#e6dbc6]/80 pl-10 sm:pl-16">
+          <div class="flex items-center gap-3.5">
+            <img src="assets/logo-shield.png" alt="Swarnim Bharat" class="h-16 w-auto object-contain drop-shadow-xs" />
+            <div>
+              <h1 class="font-headline text-lg sm:text-xl font-bold text-[#142940] leading-tight">Swarnim Bharat Udayghosh</h1>
+              <p class="font-label text-xs text-[#a73a00] font-semibold tracking-wider uppercase">मेरा देश, मेरी जिम्मेदारी</p>
+              <p class="text-[10px] text-[#7f7663] mt-0.5">एक पहल • एक संकल्प • स्वर्णिम भारत</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="copyProfileLink('${esc(m.id)}')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#d0c5af] text-[#142940] hover:border-[#d4af37] text-xs font-semibold transition-all shadow-2xs">
+              <span class="material-symbols-outlined text-[15px] text-[#a73a00]">share</span>
+              <span>शेयर करें / Share</span>
+            </button>
+            <a href="mailto:${esc(m.e)}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#142940] hover:bg-[#b58d3d] text-white text-xs font-semibold transition-all shadow-2xs">
+              <span class="material-symbols-outlined text-[15px] text-[#ffe088]">mail</span>
+              <span>ईमेल संपर्क</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Main Two-Column Dossier Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-8">
+          
+          <!-- LEFT COLUMN: Portrait, Badges & Verification -->
+          <div class="lg:col-span-5 xl:col-span-4 flex flex-col items-center text-center">
+            
+            <!-- Grand Squircle Portrait with Gold Bezel -->
+            <div class="relative w-64 h-64 sm:w-72 sm:h-72 mb-5">
+              <div class="absolute -inset-1.5 bg-gradient-to-tr from-[#d4af37]/45 via-transparent to-[#142940]/25 rounded-[32px] blur-[4px]"></div>
+              <div class="relative z-10 w-full h-full rounded-[28px] overflow-hidden border-2 border-[#d4af37] shadow-xl bg-[#faf6ee]">
+                <img src="${esc(m.i)}" alt="${esc(m.h)}" class="w-full h-full object-cover" />
+              </div>
+            </div>
+
+            <!-- Role / Category Badge -->
+            <div class="mb-3 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#d4af37]/20 text-[#142940] border border-[#d4af37]/60">
+              ${m.cat === 'leadership' ? 'राष्ट्रीय नेतृत्व परिषद सदस्य' : 'प्रांतीय एवं राज्य प्रमुख'}
+            </div>
+
+            <!-- Email & Direct Contacts -->
+            <div class="w-full max-w-xs bg-white rounded-2xl p-4 border border-[#e8dfcf] shadow-2xs space-y-2 text-left text-xs">
+              <div class="flex items-center justify-between text-[#7f7663] text-[11px]">
+                <span>आधिकारिक संपर्क / Email:</span>
+                <span class="material-symbols-outlined text-[14px] text-[#a73a00]">verified</span>
+              </div>
+              <a href="mailto:${esc(m.e)}" class="block font-mono font-medium text-[#142940] hover:text-[#a73a00] truncate">
+                ${esc(m.e)}
+              </a>
+              <div class="pt-2 border-t border-[#f0eee7] flex items-center justify-between text-[11px] text-[#7f7663]">
+                <span>अभियान क्षेत्र:</span>
+                <span class="font-bold text-[#142940]">${esc(m.r)}</span>
+              </div>
+            </div>
+
+            ${m.slide ? `
+            <!-- Original Slide Preview Link -->
+            <a href="${esc(m.slide)}" target="_blank" class="mt-4 inline-flex items-center gap-1.5 text-xs text-[#a73a00] font-semibold hover:underline">
+              <span class="material-symbols-outlined text-[15px]">image</span>
+              <span>मूल पोस्टर / Official Poster देखें</span>
+            </a>` : ''}
+          </div>
+
+          <!-- RIGHT COLUMN: Hindi Name, Designation, Overview, Role & Key Highlights -->
+          <div class="lg:col-span-7 xl:col-span-8 space-y-5 text-left">
+            
+            <!-- Name Stack exactly matching user reference mockup -->
+            <div>
+              <h2 class="font-headline text-3xl sm:text-4xl lg:text-5xl font-bold text-[#833816] leading-tight tracking-tight">
+                ${esc(m.h)}
+              </h2>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-lg sm:text-xl font-bold text-[#142940]">स्वर्णिम भारत उदयघोष</span>
+                <span class="text-xs text-white bg-[#a73a00] font-bold px-2 py-0.5 rounded-full">Sarthi</span>
+              </div>
+              <p class="font-label text-sm sm:text-base font-bold text-[#735c00] mt-1 uppercase tracking-wide">
+                ${esc(m.r)}
+              </p>
+            </div>
+
+            <!-- Ornamental Separator -->
+            <div class="flex items-center gap-3 text-xs text-[#d4af37]">
+              <div class="h-[1px] flex-1 bg-gradient-to-r from-[#d4af37] to-transparent"></div>
+              <span class="text-[11px] font-semibold tracking-wider text-[#7f7663]">एक पहल • एक संकल्प • स्वर्णिम भारत</span>
+              <div class="h-[1px] flex-1 bg-gradient-to-l from-[#d4af37] to-transparent"></div>
+            </div>
+
+            <!-- 1. Overview Paragraph -->
+            <div class="text-sm sm:text-base text-[#2d2a24] leading-relaxed font-medium">
+              ${esc(m.overview || m.bio)}
+            </div>
+
+            <!-- 2. Role Section -->
+            <div class="bg-white rounded-2xl p-5 border border-[#e8dfcf] shadow-2xs space-y-2">
+              <div class="text-[#a73a00] font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px]">verified_user</span>
+                <span>${esc(m.role_title || 'ROLE IN SWARNIM BHARAT')}</span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#4d4635] leading-relaxed">
+                ${esc(m.role_swbu || m.bio)}
+              </p>
+              ${m.role_quote ? `
+              <div class="mt-3 pt-2.5 border-t border-[#f0eee7] text-xs italic text-[#735c00] flex items-center gap-2">
+                <span class="material-symbols-outlined text-[16px] text-[#d4af37]">format_quote</span>
+                <span>"${esc(m.role_quote)}"</span>
+              </div>` : ''}
+            </div>
+
+            <!-- 3. Key Highlights Section -->
+            ${m.highlights && m.highlights.length ? `
+            <div class="space-y-3">
+              <div class="text-[#735c00] font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px] text-[#d4af37]">stars</span>
+                <span>${esc(m.highlights_title || 'KEY HIGHLIGHTS')}</span>
+              </div>
+              <div class="grid grid-cols-1 gap-2.5">
+                ${m.highlights.map(h => `
+                  <div class="bg-white rounded-xl p-3.5 border border-[#e8dfcf] flex items-start gap-3">
+                    <span class="w-2 h-2 rounded-full bg-[#d4af37] mt-1.5 shrink-0"></span>
+                    <div class="text-xs sm:text-sm text-[#3b362a] leading-relaxed">
+                      <strong class="text-[#142940] font-bold">${esc(h.title)}:</strong>
+                      <span>${esc(h.desc)}</span>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+            ` : ''}
+
+          </div>
+        </div>
+      `;
+    }
+
+    // Render other members in the suggestion grid
+    function renderSuggestions(activeMemberId) {
+      const others = ALL_MEMBERS.filter(m => m.id !== activeMemberId);
+      document.getElementById('suggestionCountBadge').textContent = others.length + ' अन्य सदस्य';
+      
+      const grid = document.getElementById('suggestionGrid');
+      grid.innerHTML = others.map(m => `
+        <div onclick="selectMember('${esc(m.id)}')" 
+             class="group cursor-pointer bg-white hover:bg-[#faf7f0] rounded-2xl p-4 border border-[#e8dfcf] hover:border-[#d4af37] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col items-center text-center transform hover:-translate-y-1">
+          
+          <!-- Avatar Thumbnail -->
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-[#d4af37]/60 group-hover:border-[#d4af37] mb-3 bg-[#faf6ee] shadow-xs transition-transform duration-300 group-hover:scale-105">
+            <img src="${esc(m.i)}" alt="${esc(m.h)}" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+
+          <!-- English Role -->
+          <span class="text-[10px] font-bold uppercase tracking-wider text-[#a73a00] mb-1 line-clamp-1">
+            ${esc(m.r)}
+          </span>
+
+          <!-- Hindi Name -->
+          <h3 class="font-headline text-base sm:text-lg font-bold text-[#142940] group-hover:text-[#b58d3d] transition-colors leading-tight">
+            ${esc(m.h)}
+          </h3>
+
+          <!-- English Subtitle -->
+          <p class="text-[11px] text-[#7f7663] line-clamp-1 mt-0.5">
+            ${esc(m.n)}
+          </p>
+
+          <!-- Interactive Click Button -->
+          <div class="mt-3 pt-2.5 border-t border-[#f0eee7] w-full flex items-center justify-center gap-1 text-[11px] font-bold text-[#142940] group-hover:text-[#a73a00]">
+            <span>विस्तार से देखें</span>
+            <span class="material-symbols-outlined text-[13px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Switch active member (smooth transition + pushState)
+    window.selectMember = function(memberId) {
+      const target = ALL_MEMBERS.find(m => m.id === memberId);
+      if (!target) return;
+      currentId = memberId;
+
+      // Update URL query param without reload
+      const newUrl = window.location.pathname + '?id=' + encodeURIComponent(memberId);
+      window.history.pushState({ id: memberId }, '', newUrl);
+
+      // Re-render master stage & suggestions
+      renderActiveDossier(target);
+      renderSuggestions(memberId);
+
+      // Smooth scroll to top of master stage
+      document.getElementById('masterStageContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const id = getUrlMemberId();
+      const target = ALL_MEMBERS.find(m => m.id === id) || ALL_MEMBERS[0];
+      if (target) {
+        currentId = target.id;
+        renderActiveDossier(target);
+        renderSuggestions(target.id);
+      }
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      currentId = getUrlMemberId();
+      const target = ALL_MEMBERS.find(m => m.id === currentId) || ALL_MEMBERS[0];
+      renderActiveDossier(target);
+      renderSuggestions(target.id);
+    });
+  </script>
+</body>
+</html>

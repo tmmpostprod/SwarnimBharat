@@ -507,128 +507,10 @@
       </div>
     </div>
   </footer>
+  <script src="assets/team-data.js"></script>
   <script id="team-script">
-    const TEAM = [
-      {
-        "n": "Mahavir Radha Jangra",
-        "h": "महावीर राधा जांगड़ा",
-        "r": "Founder & Convenor",
-        "e": "mj@swbu.in",
-        "i": "assets/team/mahavir-radha-jangra.jpg",
-        "cat": "leadership",
-        "bio": "स्वर्णिम भारत उदयघोष के मुख्य सूत्रधार। 140 करोड़ नागरिकों को 2047 के संकल्प से जोड़ने हेतु 766 जिलों की राष्ट्रव्यापी यात्रा के मुख्य संयोजक।",
-        "overview": "RAAJVEER KANORIA is a young entrepreneur driven by business development, leadership, and nation-building, blending traditional values with modern innovation for sustainable growth.",
-        "role_swbu": "Associated with the Swarnim Bharat movement in West Bengal, Raajveer works to turn his vision of a progressive, self-reliant India into meaningful action. He firmly believes that nurturing young leaders, promoting entrepreneurship, and encouraging innovation are key to building a globally competitive nation.",
-        "highlights": [
-          {
-            "title": "Hospitality & Brand Growth",
-            "desc": "Actively involved in the development and strategic expansion of Jalapeños, an established restaurant brand founded in 1998."
-          },
-          {
-            "title": "Youth Empowerment",
-            "desc": "Passionate about empowering young people, encouraging entrepreneurship, and creating platforms for emerging talent."
-          },
-          {
-            "title": "Employment & Impact",
-            "desc": "Aspires to build an ecosystem where ideas turn into enterprises, generating meaningful employment and collective transformation."
-          }
-        ]
-      },
-      {
-        "n": "Arvind Singhatia",
-        "h": "अरविन्द सिंघाटिया",
-        "r": "Legal Advisor, Governing Council",
-        "e": "as@swbu.in",
-        "i": "assets/team/arvind-singhatia.jpg",
-        "cat": "leadership",
-        "bio": "सर्वोच्च न्यायालय व संवैधानिक मामलों के वरिष्ठ विशेषज्ञ। अभियान की कानूनी नीतियों व प्रशासनिक पारदर्शिता के मुख्य मार्गदर्शक।",
-        "overview": "ARVIND SINGHATIYA is a Senior Supreme Court Advocate and Constitutional Strategist guiding institutional integrity, legal compliance, and nationwide policy for Swarnim Bharat.",
-        "role_swbu": "Associated with the Governing Council of Swarnim Bharat, Adv. Arvind Singhatia architects the statutory and ethical governance framework across 766 districts. He champions citizen-centric constitutional literacy and administrative transparency as fundamental pillars of a self-reliant India.",
-        "highlights": [
-          {
-            "title": "Constitutional Guidance",
-            "desc": "Formulating nationwide governance policies grounded in constitutional principles and civic participation."
-          },
-          {
-            "title": "Statutory Integrity",
-            "desc": "Ensuring comprehensive institutional compliance, legal protocols, and regulatory coordination across all 31 states and UTs."
-          },
-          {
-            "title": "Civic Rights & Policy",
-            "desc": "Empowering youth and community leaders with legal literacy, public ethics, and democratic accountability."
-          }
-        ]
-      },
-      {
-        "n": "Rajesh Dahiya",
-        "h": "राजेश दहिया",
-        "r": "National Head Planning",
-        "e": "rd@swbu.in",
-        "i": "assets/team/rajesh-dahiya.jpg",
-        "cat": "leadership",
-        "bio": "13000+ किमी संपूर्ण भारत भ्रमण, 31 रिले शहरों और 766 जिलों के रूट प्लान व लॉजिस्टिक्स के रणनीतिक योजनाकार।",
-        "overview": "RAJESH DAHIYA is the National Head of Planning & Logistics, spearheading route operations, district coordination, and ground mobilization across the nation.",
-        "role_swbu": "Managing end-to-end strategic planning and fleet execution for the 13,000+ km journey across 766 districts and 31 relay cities. He is committed to synchronizing civic enthusiasm with flawless logistical precision to make the national yatra a historic milestone.",
-        "highlights": [
-          {
-            "title": "Route & Convoy Planning",
-            "desc": "Architect of the 13,000+ km multi-state convoy route, scheduled stops, and inter-state logistics."
-          },
-          {
-            "title": "766 District Synchronization",
-            "desc": "Directing district reception hubs, local administrative liaisons, and ground volunteer networks."
-          },
-          {
-            "title": "Field Operations & Control",
-            "desc": "Overseeing real-time command centers, safety protocols, and synchronized civic events across India."
-          }
-        ]
-      },
-      {
-        "n": "Ravi Soni",
-        "h": "रवि सोनी",
-        "r": "State Head - Rajasthan",
-        "e": "rs@swbu.in",
-        "i": "assets/team/ravi-soni.jpg",
-        "cat": "state",
-        "bio": "राजस्थान के सभी जिलों में जन-संवाद, युवा सहभागिता और टॉर्च रिले के सफल आयोजन के प्रांतीय प्रभारी।",
-        "overview": "RAVI SONI leads the Rajasthan state chapter, mobilizing local youth networks and civic leadership across all 50 districts.",
-        "role_swbu": "Coordinating district youth forums, cultural heritage celebrations, and public assemblies throughout Rajasthan.",
-        "highlights": [
-          { "title": "State Coordination", "desc": "Pan-Rajasthan mobilization across educational and civic institutions." },
-          { "title": "Torch Relay", "desc": "Managing state transit hubs and volunteer deployment." }
-        ]
-      },
-      {
-        "n": "Aniruddh Kanoria",
-        "h": "अनिरुद्ध कनोरीया",
-        "r": "State Head - West Bengal",
-        "e": "ak@swbu.in",
-        "i": "assets/team/aniruddh-kanoria.jpg",
-        "cat": "state",
-        "bio": "पश्चिम बंगाल एवं पूर्वी गलियारे में सांस्कृतिक विरासत, नागरिक संकल्प व स्वागत समितियों के प्रांतीय समन्वयक।",
-        "overview": "ANIRUDDH KANORIA is the State Head for West Bengal, championing cultural heritage, industrial entrepreneurship, and youth engagement.",
-        "role_swbu": "Spearheading regional partnerships and district forums across West Bengal and Eastern India.",
-        "highlights": [
-          { "title": "Eastern Corridor", "desc": "Facilitating youth outreach and heritage integration in West Bengal." },
-          { "title": "District Committees", "desc": "Forming reception councils across Kolkata and surrounding districts." }
-        ]
-      },
-      {
-        "n": "Martin Emmanuel",
-        "h": "मार्टिन इमैनुएल",
-        "r": "State Head - South",
-        "e": "me@swbu.in",
-        "i": "assets/team/martin-emmanuel.jpg",
-        "cat": "state",
-        "bio": "दक्षिण भारत के राज्यों में जन-जागरण, जिला परिषद संपर्क और सांस्कृतिक कार्यक्रमों के क्षेत्रीय नेतृत्वकर्ता।",
-        "overview": "MARTIN EMMANUEL is the Regional Head for South India, driving civic dialogue, community outreach, and inter-state coordination.",
-        "role_swbu": "Leading multi-state campaigns across Tamil Nadu, Karnataka, Kerala, Andhra Pradesh, and Telangana.",
-        "highlights": [
-          { "title": "Southern Region Outreach", "desc": "Connecting local civic bodies and youth forums across southern states." },
-          { "title": "Cultural Exchange", "desc": "Organizing multilingual civic dialogues celebrating national unity." }
-        ]
-      }
+    const TEAM = (typeof window !== "undefined" && window.SWBU_TEAM) ? window.SWBU_TEAM : [
+      // fallback
     ];
 
     const CATS = [
@@ -723,7 +605,10 @@
 
           <!-- Footer -->
           <div class="pt-2 border-t border-[#d4af37]/30 flex items-center justify-between text-[11px]">
-            <span class="text-white/60 text-[10px]">संपर्क / Contact:</span>
+            <a href="member-profile.html?id=${esc(m.id)}" class="text-[#ffe088] hover:text-white underline font-semibold flex items-center gap-1 text-[10px]">
+              <span>विस्तृत प्रोफाइल</span>
+              <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+            </a>
             <span class="text-[#ffe088] font-mono font-medium">${esc(m.e)}</span>
           </div>
         </div>
@@ -771,7 +656,10 @@
 
           <!-- Popover Footer -->
           <div class="mt-2.5 pt-2 border-t border-[#d4af37]/30 flex items-center justify-between text-[11px]">
-            <span class="text-white/60 text-[10px]">आधिकारिक संपर्क:</span>
+            <a href="member-profile.html?id=${esc(m.id)}" class="text-[#ffe088] hover:text-white underline font-semibold flex items-center gap-1 text-[10px]">
+              <span>विस्तृत प्रोफाइल व अन्य सदस्य</span>
+              <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+            </a>
             <span class="text-[#ffe088] font-mono font-medium">${esc(m.e)}</span>
           </div>
 
@@ -831,16 +719,25 @@
               <span class="text-on-surface-variant text-[10px]">ईमेल:</span>
               <span class="text-[#142940] font-mono font-medium">${esc(m.e)}</span>
             </div>
+            <!-- Click to Open Dedicated Profile Page -->
+            <a href="member-profile.html?id=${esc(m.id)}" class="mt-2 w-full py-2 px-3 rounded-xl bg-[#142940] hover:bg-[#b58d3d] text-white text-[11px] font-bold transition-all shadow-xs flex items-center justify-center gap-1.5 group-hover:shadow-md">
+              <span>विस्तृत प्रोफाइल व अन्य सदस्य देखें</span>
+              <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+            </a>
           </div>
         </div>
       ` : '';
 
       // Subtle hover for state cards
       const stateHover = (m.cat === 'state') ? `
-        <div class="mt-2 pt-2 border-t border-outline-variant/30 w-full overflow-hidden transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-36 group-hover:opacity-100 text-left">
+        <div class="mt-2 pt-2 border-t border-outline-variant/30 w-full overflow-hidden transition-all duration-300 max-h-0 opacity-0 group-hover:max-h-44 group-hover:opacity-100 text-left">
           <p class="text-[11px] text-on-surface-variant leading-relaxed px-1">
             ${esc(m.bio)}
           </p>
+          <a href="member-profile.html?id=${esc(m.id)}" class="mt-1.5 inline-flex items-center gap-1 text-[11px] font-bold text-[#a73a00] hover:underline px-1">
+            <span>विस्तृत प्रोफाइल देखें</span>
+            <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+          </a>
         </div>
       ` : '';
 
@@ -874,7 +771,7 @@
         <!-- Name in HINDI ONLY (Middle line, Bold) with Style 2 Popover anchor -->
         <div class="relative inline-block">
           <h3 class="font-headline-sm text-xl sm:text-2xl font-bold text-[#142940] leading-tight group-hover:text-[#b58d3d] transition-colors">
-            ${esc(m.h)}
+            <a href="member-profile.html?id=${esc(m.id)}" class="hover:underline" title="विस्तृत प्रोफाइल देखें">${esc(m.h)}</a>
           </h3>
           ${style2Popover}
         </div>
