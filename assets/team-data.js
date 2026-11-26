@@ -1,6 +1,66 @@
 // Swarnim Bharat Udayghosh - Governing Sarthi (Governing Council & State Heads) Data Source
 window.SWBU_TEAM = [
   {
+    id: "mahavir-radha-jangra",
+    n: "Mahavir Radha Jangra",
+    h: "महावीर राधा जांगड़ा",
+    r: "Founder & Convenor",
+    r_hi: "संस्थापक एवं मुख्य सूत्रधार",
+    cat: "leadership",
+    e: "mj@swbu.in",
+    i: "assets/team/mahavir-radha-jangra.jpg",
+    bio: "स्वर्णिम भारत उदयघोष के मुख्य सूत्रधार। 140 करोड़ नागरिकों को 2047 के संकल्प से जोड़ने हेतु 766 जिलों की राष्ट्रव्यापी यात्रा के मुख्य संयोजक।",
+    overview: "MAHAVIR RADHA JANGRA is the Founder & Convenor of Swarnim Bharat Udayghosh, a visionary leader dedicated to uniting 140 crore citizens across 766 districts towards a self-reliant and developed nation by 2047.",
+    role_title: "ROLE IN SWARNIM BHARAT",
+    role_swbu: "Leading the historic 13,000+ km pan-India journey across all states and union territories, mobilizing grassroots communities and transforming civic aspiration into decisive national action.",
+    role_quote: "मेरा देश, मेरी जिम्मेदारी — 140 करोड़ नागरिक जब एक साथ संकल्प लेते हैं, तो स्वर्णिम भारत का उदय सुनिश्चित होता है।",
+    highlights_title: "KEY HIGHLIGHTS",
+    highlights: [
+      {
+        title: "Nationwide Movement",
+        desc: "Architect of the 766-district grassroots outreach program connecting citizen aspirations with national mission."
+      },
+      {
+        title: "Youth Leadership",
+        desc: "Inspiring millions of emerging change-makers to take ownership of India's development."
+      },
+      {
+        title: "Vision 2047",
+        desc: "Blending civilizational heritage with modern governance for collective transformation."
+      }
+    ]
+  },
+  {
+    id: "arvind-singhatia",
+    n: "Arvind Singhatia",
+    h: "अरविन्द सिंघाटिया",
+    r: "Legal Advisor, Governing Council",
+    r_hi: "विधिक सलाहकार, गवर्निंग काउंसिल",
+    cat: "leadership",
+    e: "as@swbu.in",
+    i: "assets/team/arvind-singhatia.jpg",
+    bio: "सर्वोच्च न्यायालय व संवैधानिक मामलों के वरिष्ठ विशेषज्ञ। अभियान की कानूनी नीतियों व प्रशासनिक पारदर्शिता के मुख्य मार्गदर्शक।",
+    overview: "ARVIND SINGHATIYA is a Senior Supreme Court Advocate and Constitutional Strategist guiding institutional integrity, legal compliance, and nationwide policy for Swarnim Bharat.",
+    role_title: "ROLE IN SWARNIM BHARAT",
+    role_swbu: "Associated with the Governing Council of Swarnim Bharat, Adv. Arvind Singhatia architects the statutory and ethical governance framework across 766 districts. He champions citizen-centric constitutional literacy and administrative transparency as fundamental pillars of a self-reliant India.",
+    role_quote: "संविधान और कानून के प्रति जागरूकता ही किसी भी राष्ट्र के सच्चे विकास और सुशासन की नींव है।",
+    highlights_title: "KEY HIGHLIGHTS",
+    highlights: [
+      {
+        title: "Constitutional Guidance",
+        desc: "Formulating nationwide governance policies grounded in constitutional principles and civic participation."
+      },
+      {
+        title: "Statutory Integrity",
+        desc: "Ensuring comprehensive institutional compliance, legal protocols, and regulatory coordination across all 31 states and UTs."
+      },
+      {
+        title: "Civic Rights & Policy",
+        desc: "Empowering youth and community leaders with legal literacy, public ethics, and democratic accountability."
+      }
+    ]
+  },
+  {
     id: "rajesh-dahiya",
     n: "Rajesh Dahiya",
     h: "राजेश दहिया",
@@ -58,66 +118,6 @@ window.SWBU_TEAM = [
       {
         title: "Youth & Global Vision",
         desc: "Passionate about encouraging young Indians to think globally, embrace diverse experiences, and contribute to India's growth story."
-      }
-    ]
-  },
-  {
-    id: "mahavir-radha-jangra",
-    n: "Mahavir Radha Jangra",
-    h: "महावीर राधा जांगड़ा",
-    r: "Founder & Convenor",
-    r_hi: "संस्थापक एवं मुख्य सूत्रधार",
-    cat: "leadership",
-    e: "mj@swbu.in",
-    i: "assets/team/mahavir-radha-jangra.jpg",
-    bio: "स्वर्णिम भारत उदयघोष के मुख्य सूत्रधार। 140 करोड़ नागरिकों को 2047 के संकल्प से जोड़ने हेतु 766 जिलों की राष्ट्रव्यापी यात्रा के मुख्य संयोजक।",
-    overview: "MAHAVIR RADHA JANGRA is the Founder & Convenor of Swarnim Bharat Udayghosh, a visionary leader dedicated to uniting 140 crore citizens across 766 districts towards a self-reliant and developed nation by 2047.",
-    role_title: "ROLE IN SWARNIM BHARAT",
-    role_swbu: "Leading the historic 13,000+ km pan-India journey across all states and union territories, mobilizing grassroots communities and transforming civic aspiration into decisive national action.",
-    role_quote: "मेरा देश, मेरी जिम्मेदारी — 140 करोड़ नागरिक जब एक साथ संकल्प लेते हैं, तो स्वर्णिम भारत का उदय सुनिश्चित होता है।",
-    highlights_title: "KEY HIGHLIGHTS",
-    highlights: [
-      {
-        title: "Nationwide Movement",
-        desc: "Architect of the 766-district grassroots outreach program connecting citizen aspirations with national mission."
-      },
-      {
-        title: "Youth Leadership",
-        desc: "Inspiring millions of emerging change-makers to take ownership of India's development."
-      },
-      {
-        title: "Vision 2047",
-        desc: "Blending civilizational heritage with modern governance for collective transformation."
-      }
-    ]
-  },
-  {
-    id: "arvind-singhatia",
-    n: "Arvind Singhatia",
-    h: "अरविन्द सिंघाटिया",
-    r: "Legal Advisor, Governing Council",
-    r_hi: "विधिक सलाहकार, गवर्निंग काउंसिल",
-    cat: "leadership",
-    e: "as@swbu.in",
-    i: "assets/team/arvind-singhatia.jpg",
-    bio: "सर्वोच्च न्यायालय व संवैधानिक मामलों के वरिष्ठ विशेषज्ञ। अभियान की कानूनी नीतियों व प्रशासनिक पारदर्शिता के मुख्य मार्गदर्शक।",
-    overview: "ARVIND SINGHATIYA is a Senior Supreme Court Advocate and Constitutional Strategist guiding institutional integrity, legal compliance, and nationwide policy for Swarnim Bharat.",
-    role_title: "ROLE IN SWARNIM BHARAT",
-    role_swbu: "Associated with the Governing Council of Swarnim Bharat, Adv. Arvind Singhatia architects the statutory and ethical governance framework across 766 districts. He champions citizen-centric constitutional literacy and administrative transparency as fundamental pillars of a self-reliant India.",
-    role_quote: "संविधान और कानून के प्रति जागरूकता ही किसी भी राष्ट्र के सच्चे विकास और सुशासन की नींव है।",
-    highlights_title: "KEY HIGHLIGHTS",
-    highlights: [
-      {
-        title: "Constitutional Guidance",
-        desc: "Formulating nationwide governance policies grounded in constitutional principles and civic participation."
-      },
-      {
-        title: "Statutory Integrity",
-        desc: "Ensuring comprehensive institutional compliance, legal protocols, and regulatory coordination across all 31 states and UTs."
-      },
-      {
-        title: "Civic Rights & Policy",
-        desc: "Empowering youth and community leaders with legal literacy, public ethics, and democratic accountability."
       }
     ]
   },

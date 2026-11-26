@@ -199,7 +199,7 @@
 
     // State
     const ALL_MEMBERS = window.SWBU_TEAM || [];
-    let currentId = 'rajesh-dahiya'; // Default to Rajesh Dahiya (Card 3 as requested by user)
+    let currentId = (ALL_MEMBERS[0] ? ALL_MEMBERS[0].id : 'mahavir-radha-jangra');
 
     // Parse URL param ?id=...
     function getUrlMemberId() {
@@ -208,7 +208,7 @@
       if (qId && ALL_MEMBERS.some(m => m.id === qId)) {
         return qId;
       }
-      return 'rajesh-dahiya';
+      return (ALL_MEMBERS[0] ? ALL_MEMBERS[0].id : 'mahavir-radha-jangra');
     }
 
     // Render active dossier inside Master Stage
