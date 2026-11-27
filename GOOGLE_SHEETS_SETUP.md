@@ -60,6 +60,15 @@ Ise 1 minute me fix karein:
 
 ---
 
+### 🔄 Google Apps Script Code Update (Recent Submissions Feed Ke Liye):
+Agar aap chahte hain ki Google Sheet me aane wale real submissions bhi website ke Recent stream me dynamically dikhein:
+1. Google Sheet me **Extensions > Apps Script** kholein.
+2. `assets/google-apps-script.js` ka updated code paste karein aur **Save (💾)** karein.
+3. **Deploy > Manage deployments > Edit (पेंसिल आइकन)** par click karein.
+4. **Version** dropdown me **"New version"** select karein aur **Deploy** dabayein.
+
+---
+
 ### ✅ Ready! Test Kaise Karein?
 1. Website par jayein aur form me apna naam, state, email daalein, apni photo select ya capture karein aur **"Affirm & Generate"** dabayein.
 2. Apni Google Sheet kholein — aapko turant new row dikhegi:

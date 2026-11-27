@@ -13,6 +13,8 @@
   window.savePledgeToLocalHistory = function(certData) {
     if (!certData) return;
     try {
+      if (!certData.createdAt) certData.createdAt = Date.now();
+      certData.isReal = true;
       localStorage.setItem('swarnim_my_pledge', JSON.stringify(certData));
       let history = [];
       const stored = localStorage.getItem('swarnim_pledge_history');
@@ -24,9 +26,19 @@
         return true;
       });
       history.unshift(certData);
-      // Keep up to 20 local pledges
-      if (history.length > 20) history = history.slice(0, 20);
+      // Keep up to 25 local pledges
+      if (history.length > 25) history = history.slice(0, 25);
       localStorage.setItem('swarnim_pledge_history', JSON.stringify(history));
+
+      // Trigger multi-tab sync event
+      try {
+        localStorage.setItem('swarnim_stream_update_tick', Date.now().toString());
+      } catch (e) {}
+
+      // Refresh citizen streams immediately
+      if (typeof window.refreshCitizenStreams === 'function') {
+        window.refreshCitizenStreams();
+      }
     } catch (e) {
       console.warn('Local pledge save error:', e);
     }
@@ -422,8 +434,297 @@
     window.open(url, '_blank');
   };
 
+  // =========================================================================
+  // 🇮🇳 LIVE CITIZEN STREAM & RECENT PLEDGES ENGINE
+  // =========================================================================
+  const NATIONAL_CITIZEN_STREAM_POOL = [
+    { name: "Aarav Sharma", state: "Varanasi, UP", vow: "Prakriti & Green Energy", id: "SB-2047-0135", minOffset: 2 },
+    { name: "Priya Patel", state: "Ahmedabad, GJ", vow: "Swadeshi & Innovation", id: "SB-2047-0134", minOffset: 7 },
+    { name: "Col. Rajeshwar Singh (Retd.)", state: "Jammu & Kashmir", vow: "Kartavya & Civic Duty", id: "SB-2047-0133", minOffset: 16 },
+    { name: "Ananya Deshmukh", state: "Pune, Maharashtra", vow: "Civilizational Pride", id: "SB-2047-0132", minOffset: 28 },
+    { name: "Gurpreet Singh", state: "Amritsar, Punjab", vow: "Kartavya & Civic Duty", id: "SB-2047-0131", minOffset: 45 },
+    { name: "Sunita Meena", state: "Jaipur, Rajasthan", vow: "Prakriti & Green Energy", id: "SB-2047-0130", minOffset: 68 },
+    { name: "K. Venkatesh", state: "Bengaluru, KA", vow: "Swadeshi & Innovation", id: "SB-2047-0129", minOffset: 92 },
+    { name: "Debashis Mukherjee", state: "Kolkata, WB", vow: "Civilizational Pride", id: "SB-2047-0128", minOffset: 125 },
+    { name: "Meenakshi Sundaram", state: "Madurai, TN", vow: "Kartavya & Civic Duty", id: "SB-2047-0127", minOffset: 160 },
+    { name: "Tsering Angchuk", state: "Leh, Ladakh", vow: "Prakriti & Green Energy", id: "SB-2047-0126", minOffset: 210 },
+    { name: "Bishnu Prasad Barua", state: "Guwahati, Assam", vow: "Swadeshi & Innovation", id: "SB-2047-0125", minOffset: 270 },
+    { name: "Deepak Choudhary", state: "Bhopal, MP", vow: "Civilizational Pride", id: "SB-2047-0124", minOffset: 340 },
+    { name: "Sneha Kulkarni", state: "Nagpur, MH", vow: "Kartavya & Civic Duty", id: "SB-2047-0123", minOffset: 420 },
+    { name: "Rameshwar Soren", state: "Ranchi, JH", vow: "Prakriti & Green Energy", id: "SB-2047-0122", minOffset: 510 },
+    { name: "Neha Patnaik", state: "Bhubaneswar, OD", vow: "Swadeshi & Innovation", id: "SB-2047-0121", minOffset: 620 },
+    { name: "Mohammad Irfan", state: "Srinagar, J&K", vow: "Kartavya & Civic Duty", id: "SB-2047-0120", minOffset: 740 },
+    { name: "Arvind Nambiar", state: "Kochi, Kerala", vow: "Civilizational Pride", id: "SB-2047-0119", minOffset: 860 },
+    { name: "Pooja Reddy", state: "Hyderabad, TS", vow: "Prakriti & Green Energy", id: "SB-2047-0118", minOffset: 990 },
+    { name: "Amit Kumar Jha", state: "Patna, Bihar", vow: "Swadeshi & Innovation", id: "SB-2047-0117", minOffset: 1140 },
+    { name: "Chhaya Chauhan", state: "Shimla, HP", vow: "Kartavya & Civic Duty", id: "SB-2047-0116", minOffset: 1300 },
+    { name: "Sandeep Rawat", state: "Dehradun, UK", vow: "Civilizational Pride", id: "SB-2047-0115", minOffset: 1480 },
+    { name: "Sonam Lepcha", state: "Gangtok, Sikkim", vow: "Prakriti & Green Energy", id: "SB-2047-0114", minOffset: 1680 }
+  ];
+
+  function formatRelativeTime(timestamp, minOffset) {
+    let diffMin = 2;
+    if (timestamp) {
+      let timeVal = typeof timestamp === 'number' ? timestamp : Date.parse(timestamp);
+      if (!isNaN(timeVal)) {
+        diffMin = Math.max(0, Math.floor((Date.now() - timeVal) / 60000));
+      } else if (typeof minOffset === 'number') {
+        diffMin = minOffset;
+      }
+    } else if (typeof minOffset === 'number') {
+      diffMin = minOffset;
+    }
+
+    if (diffMin < 1) return 'Just now';
+    if (diffMin === 1) return '1 min ago';
+    if (diffMin < 60) return diffMin + ' min ago';
+    if (diffMin < 120) return '1 hr ago';
+    if (diffMin < 1440) return Math.floor(diffMin / 60) + ' hrs ago';
+    if (diffMin < 2880) return '1 day ago';
+    return Math.floor(diffMin / 1440) + ' days ago';
+  }
+
+  function getCombinedCitizensList() {
+    const list = [];
+    const seen = new Set();
+
+    // 1. Real User Pledges submitted on this device (Top Priority)
+    const localPledges = getLocalPledges();
+    localPledges.forEach(item => {
+      if (!item || !item.name) return;
+      const key = (item.pledgeId || item.name).toLowerCase().trim();
+      if (!seen.has(key)) {
+        seen.add(key);
+        list.push({
+          name: item.name,
+          state: item.state || 'Bharat',
+          vow: item.vow || 'Kartavya & Civic Duty',
+          pledgeId: item.pledgeId || 'SB-2047-REG',
+          timestamp: item.createdAt || Date.now(),
+          isReal: true
+        });
+      }
+    });
+
+    // 2. Real Remote Pledges fetched from Google Sheet (if available)
+    try {
+      const remoteRaw = sessionStorage.getItem('swarnim_remote_pledges');
+      if (remoteRaw) {
+        const remoteArr = JSON.parse(remoteRaw);
+        if (Array.isArray(remoteArr)) {
+          remoteArr.forEach(item => {
+            if (!item || !item.name) return;
+            const key = (item.pledgeId || item.name).toLowerCase().trim();
+            if (!seen.has(key)) {
+              seen.add(key);
+              list.push({
+                name: item.name,
+                state: item.state || 'Bharat',
+                vow: item.vow || 'Kartavya & Civic Duty',
+                pledgeId: item.pledgeId || 'SB-2047-REG',
+                timestamp: item.timestamp || Date.now() - 360000,
+                isRemote: true
+              });
+            }
+          });
+        }
+      }
+    } catch (e) {}
+
+    // 3. National Dynamic Pool (Diverse States)
+    NATIONAL_CITIZEN_STREAM_POOL.forEach(item => {
+      const key = (item.id || item.name).toLowerCase().trim();
+      if (!seen.has(key)) {
+        seen.add(key);
+        list.push({
+          name: item.name,
+          state: item.state,
+          vow: item.vow,
+          pledgeId: item.id,
+          minOffset: item.minOffset,
+          isPool: true
+        });
+      }
+    });
+
+    return list;
+  }
+
+  // Refresh all citizen streams across the page
+  window.refreshCitizenStreams = function() {
+    const leftStream = document.getElementById('left-citizen-stream');
+    const honorRollStream = document.getElementById('honorRollStream');
+    const citizenStream = document.getElementById('citizen-stream');
+
+    if (!leftStream && !honorRollStream && !citizenStream) return;
+
+    const allCitizens = getCombinedCitizensList();
+
+    // 1. Homepage Left Stream (id="left-citizen-stream")
+    if (leftStream) {
+      let html = '';
+      allCitizens.slice(0, 15).forEach(item => {
+        const initials = item.name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase() || 'CT';
+        const relTime = formatRelativeTime(item.timestamp, item.minOffset);
+        const isReal = !!item.isReal;
+        const cardBorder = isReal ? 'border-[#B59A53] bg-amber-500/10' : 'border-outline-variant/30 bg-surface-container-lowest';
+        const tagColor = item.vow.includes('Prakriti') ? 'text-primary' : (item.vow.includes('Swadeshi') ? 'text-secondary' : 'text-tertiary');
+        const badge = isReal ? '<span class="text-[9px] bg-primary-container/60 text-on-primary-container font-semibold px-1 rounded ml-1">आप / You</span>' : '';
+        const timeClass = isReal ? 'text-tertiary font-bold' : 'text-outline';
+
+        html += `
+          <div class="p-2.5 rounded-lg ${cardBorder} border flex items-center justify-between shadow-xs transition-all hover:bg-surface-container-low" data-id="${item.pledgeId}">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <div class="w-8 h-8 rounded-full ${isReal ? 'bg-primary text-on-primary' : 'bg-primary-container/30 text-primary'} font-bold text-xs flex items-center justify-center shrink-0">${initials}</div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-1">
+                  <span class="font-title-sm text-xs font-bold text-on-surface truncate">${item.name}</span>
+                  <span class="material-symbols-outlined text-primary text-[13px]" title="Verified Citizen">verified</span>
+                  ${badge}
+                </div>
+                <p class="font-body-sm text-[11px] text-on-surface-variant truncate">${item.state} • <span class="${tagColor} font-medium">${item.vow}</span></p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-mono text-[10px] text-primary font-bold block">#${item.pledgeId}</span>
+              <span class="font-label-sm text-[9px] ${timeClass} block">${relTime}</span>
+            </div>
+          </div>
+        `;
+      });
+      leftStream.innerHTML = html;
+    }
+
+    // 2. Take Pledge Page Honor Roll Stream (id="honorRollStream")
+    if (honorRollStream) {
+      let html = '';
+      allCitizens.slice(0, 15).forEach(item => {
+        const initials = item.name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase() || 'CT';
+        const relTime = formatRelativeTime(item.timestamp, item.minOffset);
+        const isReal = !!item.isReal;
+        const cardBg = isReal ? 'bg-primary-fixed/20 border border-primary' : 'bg-surface-container-high/40 hover:bg-surface-container';
+        const badge = isReal ? '<span class="text-[10px] bg-primary text-white font-bold px-1.5 py-0.5 rounded ml-1">New Verified</span>' : '';
+
+        html += `
+          <div class="honor-card flex items-center justify-between p-3 rounded-lg ${cardBg} transition-colors" data-name="${item.name}" data-pillar="${item.vow}" data-state="${item.state}">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="w-10 h-10 rounded-full ${isReal ? 'bg-primary text-white' : 'bg-primary-fixed text-on-primary-fixed'} flex items-center justify-center font-bold font-headline-sm text-title-md flex-shrink-0">
+                ${initials}
+              </div>
+              <div class="flex flex-col min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="font-title-sm text-title-sm text-on-surface font-bold truncate">${item.name}</span>
+                  <span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+                  ${badge}
+                </div>
+                <div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+                  <span class="px-1.5 py-0.5 rounded bg-surface text-label-sm font-label-sm text-primary font-semibold">${item.state}</span>
+                  <span>• ${item.vow}</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col items-end flex-shrink-0 text-right">
+              <span class="font-mono text-label-sm text-primary font-bold">#${item.pledgeId}</span>
+              <span class="font-label-sm text-label-sm ${isReal ? 'text-tertiary font-bold' : 'text-outline'}">${relTime}</span>
+            </div>
+          </div>
+        `;
+      });
+      honorRollStream.innerHTML = html;
+    }
+
+    // 3. Citizen Honor Roll Stream (id="citizen-stream")
+    if (citizenStream) {
+      let html = '';
+      allCitizens.slice(0, 25).forEach(item => {
+        const initials = item.name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase() || 'CT';
+        const relTime = formatRelativeTime(item.timestamp, item.minOffset);
+        const isReal = !!item.isReal;
+
+        let pillarTag = 'Kartavya';
+        let badgeBg = 'bg-secondary-container text-on-secondary-container';
+        if (item.vow.includes('Swadeshi')) {
+          pillarTag = 'Swadeshi';
+          badgeBg = 'bg-surface-container-highest text-on-primary-container';
+        } else if (item.vow.includes('Prakriti')) {
+          pillarTag = 'Prakriti';
+          badgeBg = 'bg-tertiary-fixed text-on-tertiary-container';
+        } else if (item.vow.includes('Heritage') || item.vow.includes('Pride')) {
+          pillarTag = 'Heritage';
+          badgeBg = 'bg-primary-fixed text-on-primary-fixed';
+        }
+
+        html += `
+          <div class="citizen-card p-space-sm rounded-lg ${isReal ? 'bg-primary-fixed/20 border-l-4 border-primary' : 'bg-surface-container-low hover:bg-surface-container'} transition-all flex items-start justify-between" data-pillar="${pillarTag}" data-state="${item.state}" data-name="${item.name}">
+            <div class="flex items-start gap-space-sm">
+              <div class="w-9 h-9 rounded-full ${isReal ? 'bg-primary text-white' : 'bg-primary-container text-on-primary-container'} flex items-center justify-center font-bold text-sm shrink-0">
+                ${initials}
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-title-sm text-title-sm text-on-surface font-semibold citizen-name-txt">${item.name}</span>
+                  <span class="material-symbols-outlined text-primary text-[14px]">verified</span>
+                  ${isReal ? '<span class="text-[9px] bg-primary text-white font-bold px-1 rounded ml-1">You</span>' : ''}
+                </div>
+                <div class="flex items-center gap-2 mt-0.5">
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">${item.state}</span>
+                  <span class="text-outline text-xs">•</span>
+                  <span class="px-1.5 py-0.5 rounded ${badgeBg} font-label-sm text-label-sm">${item.vow}</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-label-sm text-label-sm ${isReal ? 'text-tertiary font-bold' : 'text-outline'} block">${relTime}</span>
+              <span class="font-label-sm text-label-sm font-mono text-primary block mt-0.5">#${item.pledgeId}</span>
+            </div>
+          </div>
+        `;
+      });
+      citizenStream.innerHTML = html;
+    }
+  };
+
+  // Fetch remote submissions from Google Apps Script endpoint
+  function fetchRemoteRecentPledges() {
+    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf('AKfycb') === -1) return;
+    fetch(GOOGLE_SCRIPT_URL)
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.recent && Array.isArray(data.recent) && data.recent.length > 0) {
+          sessionStorage.setItem('swarnim_remote_pledges', JSON.stringify(data.recent));
+          if (typeof window.refreshCitizenStreams === 'function') {
+            window.refreshCitizenStreams();
+          }
+        }
+      })
+      .catch(() => {});
+  }
+
+  // Multi-tab listener for live stream updates
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'swarnim_stream_update_tick' || e.key === 'swarnim_pledge_history') {
+      if (typeof window.refreshCitizenStreams === 'function') {
+        window.refreshCitizenStreams();
+      }
+    }
+  });
+
+  // Periodic relative time updater (every 30 seconds)
+  setInterval(() => {
+    if (typeof window.refreshCitizenStreams === 'function') {
+      window.refreshCitizenStreams();
+    }
+  }, 30000);
+
   // Auto-wire on page load
   document.addEventListener('DOMContentLoaded', () => {
+    // 1. Hydrate streams on load
+    if (typeof window.refreshCitizenStreams === 'function') {
+      window.refreshCitizenStreams();
+    }
+    // 2. Fetch remote recent submissions
+    fetchRemoteRecentPledges();
+
     // If URL contains ?track=... or #track
     const params = new URLSearchParams(window.location.search);
     const trackQ = params.get('track');

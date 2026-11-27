@@ -224,11 +224,46 @@ function doGet(e) {
         .setMimeType(ContentService.MimeType.JSON);
     }
     
+    // Extract recent submissions (last 15 rows, privacy-safe: NO phone, NO email)
+    var recent = [];
+    if (lastRow > 1) {
+      var numRows = Math.min(15, lastRow - 1);
+      var startRow = Math.max(2, lastRow - numRows + 1);
+      var rangeData = sheet.getRange(startRow, 1, numRows, sheet.getLastColumn()).getValues();
+      var sheetHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(function(h) {
+        return h ? h.toString().toLowerCase().trim() : '';
+      });
+
+      var cName = -1, cState = -1, cVow = -1, cId = -1, cDate = 0;
+      for (var hcIdx = 0; hcIdx < sheetHeaders.length; hcIdx++) {
+        var hdr = sheetHeaders[hcIdx];
+        if (hdr.indexOf('name') !== -1 || hdr.indexOf('नाम') !== -1) cName = hcIdx;
+        else if (hdr.indexOf('state') !== -1 || hdr.indexOf('राज्य') !== -1) cState = hcIdx;
+        else if (hdr.indexOf('vow') !== -1 || hdr.indexOf('focus') !== -1 || hdr.indexOf('संकल्प') !== -1) cVow = hcIdx;
+        else if (hdr.indexOf('registry') !== -1 || hdr.indexOf('id') !== -1 || hdr.indexOf('hash') !== -1) cId = hcIdx;
+      }
+
+      for (var rIdx = rangeData.length - 1; rIdx >= 0; rIdx--) {
+        var rData = rangeData[rIdx];
+        var cFullName = cName >= 0 && rData[cName] ? rData[cName].toString().trim() : '';
+        if (cFullName) {
+          recent.push({
+            name: cFullName,
+            state: cState >= 0 && rData[cState] ? rData[cState].toString().trim() : 'Bharat',
+            vow: cVow >= 0 && rData[cVow] ? rData[cVow].toString().trim() : 'Kartavya & Civic Duty',
+            pledgeId: cId >= 0 && rData[cId] ? rData[cId].toString().trim() : ('SB-2047-' + (baseCount + startRow + rIdx - 1)),
+            timestamp: rData[cDate] ? rData[cDate].toString() : ''
+          });
+        }
+      }
+    }
+
     return ContentService
       .createTextOutput(JSON.stringify({ 
         status: "success", 
         count: totalCount,
         submissions: rowCount,
+        recent: recent,
         timestamp: new Date().toISOString()
       }))
       .setMimeType(ContentService.MimeType.JSON);

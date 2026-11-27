@@ -1390,6 +1390,10 @@ button,a{-webkit-tap-highlight-color:transparent}
     };
 
     function prependToHonorRoll(name, state, pillar, hash) {
+      if (typeof window.refreshCitizenStreams === 'function') {
+        window.refreshCitizenStreams();
+        return;
+      }
       const stream = document.getElementById('honorRollStream');
       if (!stream) return;
 
