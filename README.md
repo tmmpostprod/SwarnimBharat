@@ -3,7 +3,7 @@
 ## Pages
 - `index.html` — Homepage
 - `the-journey.html` — The Journey
-- `three-pillars.html` — 3 Pillars
+- `three-pillars.html` — 4 Pillars
 - `route-and-milestones.html` — Route & Milestones
 - `take-pledge-and-scanner.html` — Take Pledge & Scanner
 - `citizen-honor-roll.html` — Citizen Honor Roll
