@@ -9642,15 +9642,14 @@ button,a{-webkit-tap-highlight-color:transparent}
   </div>
 </footer>
 
-
 <!-- ========================================================================= -->
 <!-- 🇮🇳 CHANGEMAKER FULL DOSSIER LIGHTBOX MODAL -->
 <!-- ========================================================================= -->
 <div id="changemakerModal" 
-     class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto opacity-0 pointer-events-none transition-all duration-300"
+     class="hidden fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
      role="dialog" aria-modal="true" aria-labelledby="modalChangemakerName">
   
-  <div class="relative w-full max-w-3xl bg-[#fcf9f2] rounded-3xl shadow-2xl border-2 border-[#d4af37]/60 overflow-hidden my-auto transform transition-all duration-300 scale-95" id="modalCard">
+  <div class="relative w-full max-w-3xl bg-[#fcf9f2] rounded-3xl shadow-2xl border-2 border-[#d4af37]/60 overflow-hidden my-auto" id="modalCard">
     
     <!-- Top Sovereign Ribbon Accent -->
     <div class="h-2 w-full bg-gradient-to-r from-[#a73a00] via-[#d4af37] to-[#142940]"></div>
@@ -9664,7 +9663,7 @@ button,a{-webkit-tap-highlight-color:transparent}
     </button>
 
     <!-- Modal Content Injected Here -->
-    <div id="modalContent" class="p-6 sm:p-8 space-y-5 max-h-[80vh] overflow-y-auto pr-3">
+    <div id="modalContent" class="p-6 sm:p-8 space-y-5 max-h-[78vh] overflow-y-auto pr-3">
       <!-- Injected by JavaScript -->
     </div>
 
@@ -9695,7 +9694,6 @@ button,a{-webkit-tap-highlight-color:transparent}
 
   </div>
 </div>
-
 
 <script>
 // Interactive Filter & Search Logic
@@ -9734,18 +9732,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    resultsCount.innerHTML = `प्रदर्शित: <strong>${visibleCount}</strong> में से <strong>${cards.length}</strong> राष्ट्र निर्माता`;
+    if (resultsCount) {
+      resultsCount.innerHTML = `प्रदर्शित: <strong>${visibleCount}</strong> में से <strong>${cards.length}</strong> राष्ट्र निर्माता`;
+    }
     
-    if (visibleCount === 0) {
-      noResults.classList.remove('hidden');
-    } else {
-      noResults.classList.add('hidden');
+    if (noResults) {
+      if (visibleCount === 0) noResults.classList.remove('hidden');
+      else noResults.classList.add('hidden');
     }
 
-    if (q) {
-      clearBtn.classList.remove('hidden');
-    } else {
-      clearBtn.classList.add('hidden');
+    if (clearBtn) {
+      if (q) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
     }
   }
 
@@ -9764,52 +9762,60 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Category select change
-  catSelect.addEventListener('change', (e) => {
-    currentCat = e.target.value;
-    applyFilters();
-  });
+  if (catSelect) {
+    catSelect.addEventListener('change', (e) => {
+      currentCat = e.target.value;
+      applyFilters();
+    });
+  }
 
   // Search input change
-  searchInput.addEventListener('input', (e) => {
-    searchQuery = e.target.value;
-    applyFilters();
-  });
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      applyFilters();
+    });
+  }
 
   // Clear search
-  clearBtn.addEventListener('click', () => {
-    searchInput.value = '';
-    searchQuery = '';
-    applyFilters();
-    searchInput.focus();
-  });
-
-  // Reset all filters
-  resetBtn.addEventListener('click', () => {
-    currentZone = 'all';
-    currentCat = 'all';
-    searchQuery = '';
-    searchInput.value = '';
-    catSelect.value = 'all';
-
-    zoneTabs.forEach((t, i) => {
-      if (i === 0) {
-        t.classList.add('active', 'bg-primary', 'text-on-primary', 'shadow-xs');
-        t.classList.remove('bg-surface-container', 'text-on-surface');
-      } else {
-        t.classList.remove('active', 'bg-primary', 'text-on-primary', 'shadow-xs');
-        t.classList.add('bg-surface-container', 'text-on-surface');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        searchQuery = '';
+        applyFilters();
+        searchInput.focus();
       }
     });
+  }
 
-    applyFilters();
-  });
+  // Reset all filters
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      currentZone = 'all';
+      currentCat = 'all';
+      searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      if (catSelect) catSelect.value = 'all';
 
+      zoneTabs.forEach((t, i) => {
+        if (i === 0) {
+          t.classList.add('active', 'bg-primary', 'text-on-primary', 'shadow-xs');
+          t.classList.remove('bg-surface-container', 'text-on-surface');
+        } else {
+          t.classList.remove('active', 'bg-primary', 'text-on-primary', 'shadow-xs');
+          t.classList.add('bg-surface-container', 'text-on-surface');
+        }
+      });
+
+      applyFilters();
+    });
+  }
 
   // ==========================================
   // CHANGEMAKER FULL DOSSIER LIGHTBOX MODAL
   // ==========================================
   const modal = document.getElementById('changemakerModal');
-  const modalCard = document.getElementById('modalCard');
   const modalContent = document.getElementById('modalContent');
   const prevBtn = document.getElementById('prevChangemakerBtn');
   const nextBtn = document.getElementById('nextChangemakerBtn');
@@ -9819,25 +9825,44 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentCardIndex = -1;
 
   function extractCardData(card) {
+    if (!card) return null;
     const id = card.getAttribute('data-id') || '';
-    const zoneBadge = card.querySelector('.inline-flex.items-center.gap-1\\.5');
-    const zone = zoneBadge ? zoneBadge.innerText.trim() : 'National';
-    const catBadge = card.querySelector('.font-label-sm.uppercase');
-    const category = (catBadge && catBadge.getAttribute('title')) ? catBadge.getAttribute('title') : (catBadge ? catBadge.innerText.trim() : '');
+    
+    // Zone
+    let zone = 'National';
+    const zoneEl = card.querySelector('.rounded-full');
+    if (zoneEl) zone = zoneEl.innerText.trim();
+    else if (card.getAttribute('data-zone')) zone = card.getAttribute('data-zone').replace('-', ' ').toUpperCase();
+
+    // Category
+    const catEl = card.querySelector('.font-label-sm.uppercase');
+    let category = '';
+    if (catEl) {
+      category = catEl.getAttribute('title') || catEl.innerText.trim();
+    }
+
+    // Image
     const imgEl = card.querySelector('img');
-    const img = imgEl ? imgEl.getAttribute('src') : 'assets/logo-shield.png';
+    const img = imgEl ? (imgEl.getAttribute('src') || 'assets/logo-shield.png') : 'assets/logo-shield.png';
+
+    // Name
     const nameEl = card.querySelector('h3');
     const name = nameEl ? nameEl.innerText.trim() : 'Changemaker';
+
+    // Tagline
     const taglineEl = card.querySelector('.font-serif.italic');
     const tagline = taglineEl ? taglineEl.innerText.trim() : '';
+
+    // Role
     const roleEl = card.querySelector('p.font-label-sm');
     const role = roleEl ? roleEl.innerText.trim() : '';
-    
+
     // Location
     let location = '';
-    card.querySelectorAll('.inline-flex.items-center.gap-1 span').forEach(sp => {
+    const locSpans = card.querySelectorAll('.inline-flex span');
+    locSpans.forEach(sp => {
       const txt = sp.innerText.trim();
-      if (txt !== 'location_on' && !location) {
+      if (txt && txt !== 'location_on' && !txt.includes('Zone') && !location) {
         location = txt;
       }
     });
@@ -9848,7 +9873,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3 Stats
     const stats = [];
-    card.querySelectorAll('.grid.grid-cols-3 > div').forEach(box => {
+    const statBoxes = card.querySelectorAll('.grid > div');
+    statBoxes.forEach(box => {
       const valEl = box.querySelector('.font-headline-sm');
       const lblEl = box.querySelector('.font-label-sm');
       if (valEl && lblEl) {
@@ -9870,7 +9896,42 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderModal(data) {
-    if (!modalContent) return;
+    if (!modalContent || !data) return;
+
+    let statsHtml = '';
+    if (data.stats && data.stats.length) {
+      statsHtml = `
+        <div class="space-y-2">
+          <div class="text-xs font-bold text-[#735c00] uppercase tracking-wider flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[18px] text-[#d4af37]">monitoring</span>
+            <span>प्रमुख उपलब्धियाँ व प्रभाव / Key Milestones & Impact</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            ${data.stats.map(s => `
+              <div class="bg-white rounded-2xl p-4 border border-[#e8dfcf] shadow-2xs flex flex-col justify-between">
+                <div class="font-headline text-lg sm:text-xl font-bold text-[#b58d3d] tracking-tight">${s.val}</div>
+                <div class="font-label text-xs text-[#4d4635] mt-1.5 leading-snug font-medium">${s.lbl}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    let honoursHtml = '';
+    if (data.honoursText) {
+      honoursHtml = `
+        <div class="bg-[#faf6ee] rounded-2xl p-4 border border-[#d4af37]/40 shadow-2xs flex items-start gap-3">
+          <span class="material-symbols-outlined text-[#d4af37] text-[24px] shrink-0 mt-0.5">military_tech</span>
+          <div>
+            <h4 class="font-bold text-xs uppercase tracking-wider text-[#735c00]">सम्मान एवं राष्ट्रीय अलंकरण / Honours & Recognition</h4>
+            <p class="text-xs sm:text-sm text-[#142940] mt-1 leading-relaxed font-medium">
+              ${data.honoursText}
+            </p>
+          </div>
+        </div>
+      `;
+    }
 
     modalContent.innerHTML = `
       <!-- Top Zone & Category Header -->
@@ -9878,37 +9939,39 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="flex items-center gap-2 flex-wrap">
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase bg-[#f0eee7] text-[#142940] border border-[#d0c5af]">
             <span class="w-2 h-2 rounded-full bg-[#d4af37]"></span>
-            \${data.zone}
+            ${data.zone}
           </span>
-          <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#a73a00]/10 text-[#a73a00] border border-[#a73a00]/20">
-            \${data.category}
-          </span>
+          ${data.category ? `
+            <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#a73a00]/10 text-[#a73a00] border border-[#a73a00]/20">
+              ${data.category}
+            </span>
+          ` : ''}
         </div>
         <span class="px-2.5 py-1 rounded-lg bg-[#142940] text-[#ffe088] font-mono text-xs font-bold shadow-xs">
-          #\${data.id}
+          #${data.id}
         </span>
       </div>
 
       <!-- Main Portrait + Title Block -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-1 border-b border-[#e6dbc6] pb-5">
         <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden p-0.5 bg-gradient-to-br from-[#d4af37] via-[#ffe088] to-[#142940] shadow-lg shrink-0">
-          <img src="\${data.img}" alt="\${data.name}" class="w-full h-full object-cover object-top rounded-[14px]" onerror="this.src='assets/logo-shield.png'">
+          <img src="${data.img}" alt="${data.name}" class="w-full h-full object-cover object-top rounded-[14px]" onerror="this.src='assets/logo-shield.png'">
           <div class="absolute -bottom-1 -right-1 bg-[#142940] text-white text-[10px] font-bold px-1.5 py-0.5 rounded shadow">
-            #\${data.id}
+            #${data.id}
           </div>
         </div>
 
         <div class="flex-1 min-w-0">
           <h2 id="modalChangemakerName" class="font-headline text-2xl sm:text-3xl font-bold text-[#142940] leading-tight">
-            \${data.name}
+            ${data.name}
           </h2>
-          \${data.tagline ? `<p class="text-sm sm:text-base font-serif italic font-bold text-[#b58d3d] mt-1">\${data.tagline}</p>` : ''}
+          ${data.tagline ? `<p class="text-sm sm:text-base font-serif italic font-bold text-[#b58d3d] mt-1">${data.tagline}</p>` : ''}
           <p class="font-label text-xs sm:text-sm text-[#4d4635] font-semibold mt-1.5">
-            \${data.role}
+            ${data.role}
           </p>
           <div class="inline-flex items-center gap-1.5 text-xs text-[#525f71] mt-2 flex-wrap">
             <span class="material-symbols-outlined text-[16px] text-[#a73a00]">location_on</span>
-            <span class="font-medium">\${data.location}</span>
+            <span class="font-medium">${data.location}</span>
             <span class="text-[#7f7663]">•</span>
             <span class="text-[#735c00] font-semibold">Category II: 300+ Changemakers</span>
           </div>
@@ -9922,55 +9985,31 @@ document.addEventListener('DOMContentLoaded', () => {
           <span>राष्ट्र-निर्माण गाथा एवं योगदान / Complete Journey & Contribution</span>
         </div>
         <p class="font-body text-xs sm:text-[14px] leading-relaxed text-[#2d2a24] text-justify bg-white/70 p-4 rounded-2xl border border-[#e8dfcf] shadow-2xs">
-          \${data.story}
+          ${data.story}
         </p>
       </div>
 
-      <!-- All 3 Key Stats in Full (Unabbreviated) -->
-      \${data.stats.length ? `
-      <div class="space-y-2">
-        <div class="text-xs font-bold text-[#735c00] uppercase tracking-wider flex items-center gap-1.5">
-          <span class="material-symbols-outlined text-[18px] text-[#d4af37]">monitoring</span>
-          <span>प्रमुख उपलब्धियाँ व प्रभाव / Key Milestones & Impact</span>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          \${data.stats.map(s => `
-            <div class="bg-white rounded-2xl p-4 border border-[#e8dfcf] shadow-2xs flex flex-col justify-between">
-              <div class="font-headline text-lg sm:text-xl font-bold text-[#b58d3d] tracking-tight">\${s.val}</div>
-              <div class="font-label text-xs text-[#4d4635] mt-1.5 leading-snug font-medium">\${s.lbl}</div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-      ` : ''}
+      <!-- All 3 Key Stats -->
+      ${statsHtml}
 
-      <!-- Complete Honours & Recognition Strip -->
-      \${data.honoursText ? `
-      <div class="bg-[#faf6ee] rounded-2xl p-4 border border-[#d4af37]/40 shadow-2xs flex items-start gap-3">
-        <span class="material-symbols-outlined text-[#d4af37] text-[24px] shrink-0 mt-0.5">military_tech</span>
-        <div>
-          <h4 class="font-bold text-xs uppercase tracking-wider text-[#735c00]">सम्मान एवं राष्ट्रीय अलंकरण / Honours & Recognition</h4>
-          <p class="text-xs sm:text-sm text-[#142940] mt-1 leading-relaxed font-medium">
-            \${data.honoursText}
-          </p>
-        </div>
-      </div>
-      ` : ''}
+      <!-- Complete Honours -->
+      ${honoursHtml}
     `;
 
     if (modalCounter) {
-      modalCounter.innerText = `\${currentCardIndex + 1} / \${cards.length}`;
+      modalCounter.innerText = `${currentCardIndex + 1} / ${cards.length}`;
     }
 
     if (shareBtn) {
       shareBtn.onclick = () => {
-        const text = encodeURIComponent(`🇮🇳 स्वर्णिम भारत 2047 Changemaker: \${data.name} (#\${data.id})\n"\${data.tagline || data.role}"\n\nपूरी राष्ट्र-निर्माण गाथा यहाँ देखें: \${window.location.origin}/changemakers.html?id=\${data.id}`);
-        window.open(`https://api.whatsapp.com/send?text=\${text}`, '_blank');
+        const text = encodeURIComponent(`🇮🇳 स्वर्णिम भारत 2047 Changemaker: ${data.name} (#${data.id})\n"${data.tagline || data.role}"\n\nपूरी राष्ट्र-निर्माण गाथा यहाँ देखें: ${window.location.origin}/changemakers.html?id=${data.id}`);
+        window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
       };
     }
   }
 
   window.openChangemakerModal = function(indexOrId) {
+    const modalEl = document.getElementById('changemakerModal');
     let targetIndex = -1;
     if (typeof indexOrId === 'number' && indexOrId >= 0 && indexOrId < cards.length) {
       targetIndex = indexOrId;
@@ -9985,55 +10024,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = extractCardData(card);
     renderModal(data);
 
-    if (modal && modalCard) {
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      modal.classList.add('opacity-100');
-      modalCard.classList.remove('scale-95');
-      modalCard.classList.add('scale-100');
+    if (modalEl) {
+      modalEl.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
   };
 
   window.closeChangemakerModal = function() {
-    if (modal && modalCard) {
-      modal.classList.remove('opacity-100');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      modalCard.classList.remove('scale-100');
-      modalCard.classList.add('scale-95');
+    const modalEl = document.getElementById('changemakerModal');
+    if (modalEl) {
+      modalEl.classList.add('hidden');
       document.body.style.overflow = '';
     }
   };
 
   if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
+    prevBtn.onclick = function(e) {
       e.stopPropagation();
       let nextIdx = currentCardIndex - 1;
       if (nextIdx < 0) nextIdx = cards.length - 1;
       window.openChangemakerModal(nextIdx);
-    });
+    };
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
+    nextBtn.onclick = function(e) {
       e.stopPropagation();
       let nextIdx = currentCardIndex + 1;
       if (nextIdx >= cards.length) nextIdx = 0;
       window.openChangemakerModal(nextIdx);
-    });
+    };
   }
 
   // Backdrop click to close
   if (modal) {
-    modal.addEventListener('click', (e) => {
+    modal.onclick = function(e) {
       if (e.target === modal) {
         window.closeChangemakerModal();
       }
-    });
+    };
   }
 
   // Keyboard navigation
   window.addEventListener('keydown', (e) => {
-    if (!modal || modal.classList.contains('pointer-events-none')) return;
+    const modalEl = document.getElementById('changemakerModal');
+    if (!modalEl || modalEl.classList.contains('hidden')) return;
     if (e.key === 'Escape') {
       window.closeChangemakerModal();
     } else if (e.key === 'ArrowLeft') {
@@ -10043,11 +10078,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Attach click listener to each card
-  cards.forEach((card, idx) => {
-    card.addEventListener('click', (e) => {
-      window.openChangemakerModal(idx);
-    });
+  // Global Event Delegation for Clicks on ANY card or inner button
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('#changemakerModal')) return;
+
+    const card = e.target.closest('.changemaker-card');
+    if (card) {
+      const id = card.getAttribute('data-id');
+      window.openChangemakerModal(id);
+    }
   });
 
   // Check URL params (?id=22) or hash (#22) on load
