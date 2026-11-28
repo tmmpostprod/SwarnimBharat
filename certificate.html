@@ -1011,10 +1011,8 @@
                 const citizenName = (inputName.value.trim() || 'Citizen');
                 const pledgeId = inputHash ? inputHash.value : (randomIdEl ? ('SB-2047-' + randomIdEl.textContent.trim()) : 'SB-2047');
                 
-                // Prevent duplicate sync for same pledge ID in this browser session
-                const syncFlagKey = 'swarnim_drive_synced_' + pledgeId;
-                if (sessionStorage.getItem(syncFlagKey)) return;
-                sessionStorage.setItem(syncFlagKey, '1');
+                // Allow sync to upload the exact official HD certificate
+                console.log('Initiating exact official certificate upload for:', citizenName, pledgeId);
 
                 try {
                     if (document.fonts && document.fonts.ready) {
