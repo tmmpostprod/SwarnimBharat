@@ -236,26 +236,27 @@
             align-items: center;
             justify-content: center;
             flex: 1;
+            padding: 14px 0;
         }
         .cert-citation {
             font-style: italic;
             color: #374151;
             font-family: 'Noto Sans Devanagari', sans-serif;
-            font-size: 18px;
-            margin: 0 0 10px 0;
+            font-size: 19px;
+            margin: 0 0 14px 0;
         }
         .cert-citizen-block {
-            margin: 0;
+            margin: 0 0 8px 0;
             text-align: center;
         }
         .cert-citizen-name {
             font-family: 'Playfair Display', serif;
-            font-size: 50px;
+            font-size: 52px;
             color: #A48641;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.04em;
-            line-height: 1;
+            line-height: 1.1;
             margin: 0;
         }
         .cert-state-name {
@@ -267,12 +268,12 @@
         .cert-narrative {
             color: #1f2937;
             max-width: 860px;
-            margin: 14px 0 12px 0;
+            margin: 16px 0 20px 0;
             text-align: center;
             font-family: 'Noto Sans Devanagari', sans-serif;
-            font-size: 17px;
-            line-height: 1.6;
-            padding: 0 16px;
+            font-size: 18px;
+            line-height: 1.65;
+            padding: 0 20px;
         }
         .cert-pillar-wrap {
             margin: 0;
@@ -281,10 +282,10 @@
             background-color: #FDFBF7;
             border: 2px solid #B59A53;
             border-radius: 9999px;
-            padding: 6px 28px;
+            padding: 8px 32px;
             color: #A48641;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 16px;
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -450,7 +451,9 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Vow / Pledge Focus (संकल्प) *</label>
                     <select id="input-pledge" required="" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition bg-white font-medium">
-                        <option value="🌿 Prakriti & Green Energy" selected>🌿 Prakriti & Green Energy</option>
+                        <option value="01. मेरा लोकल, मेरा स्वाभिमान" selected>🇮🇳 01. मेरा लोकल, मेरा स्वाभिमान</option>
+                        <option value="02. मेरा भारत, मेरी ज़िम्मेदारी">🇮🇳 02. मेरा भारत, मेरी ज़िम्मेदारी</option>
+                        <option value="🌿 Prakriti & Green Energy">🌿 Prakriti & Green Energy</option>
                         <option value="🇮🇳 Swadeshi & Innovation">🇮🇳 Swadeshi & Innovation</option>
                         <option value="🛕 Civilizational Pride">🛕 Civilizational Pride</option>
                         <option value="⚖️ Kartavya & Civic Duty">⚖️ Kartavya & Civic Duty</option>
@@ -566,7 +569,7 @@
 
                                 <div class="cert-pillar-wrap">
                                     <div id="cert-pledge" class="cert-pillar-pill">
-                                        🇮🇳 Swadeshi & Innovation
+                                        🇮🇳 01. मेरा लोकल, मेरा स्वाभिमान
                                     </div>
                                 </div>
                             </div>
@@ -667,9 +670,11 @@
                 if (certData.vow) {
                     let matched = false;
                     for (let i = 0; i < inputPledge.options.length; i++) {
-                        if (inputPledge.options[i].value.includes(certData.vow)) {
+                        const optVal = inputPledge.options[i].value;
+                        const optText = inputPledge.options[i].text;
+                        if (optVal && (optVal.includes(certData.vow) || certData.vow.includes(optVal) || (optText && optText.includes(certData.vow)))) {
                             inputPledge.selectedIndex = i;
-                            certPledge.textContent = inputPledge.options[i].value;
+                            certPledge.textContent = optText || optVal;
                             matched = true;
                             break;
                         }
@@ -678,7 +683,11 @@
                         inputPledge.value = 'custom';
                         customPledgeContainer.classList.remove('hidden');
                         inputCustomPledge.value = certData.vow;
-                        certPledge.textContent = certData.vow;
+                        let vowText = certData.vow;
+                        if (!vowText.includes('🇮🇳') && !vowText.includes('🌿') && !vowText.includes('⚖️') && !vowText.includes('🛕')) {
+                            vowText = `🇮🇳 ${vowText}`;
+                        }
+                        certPledge.textContent = vowText;
                     }
                 }
                 if (certData.pledgeId) {
@@ -750,10 +759,15 @@
             function updatePledge() {
                 if (inputPledge.value === 'custom') {
                     customPledgeContainer.classList.remove('hidden');
-                    certPledge.textContent = inputCustomPledge.value.trim() || 'My Citizen Pledge';
+                    let customTxt = inputCustomPledge.value.trim() || 'My Citizen Pledge';
+                    if (!customTxt.includes('🇮🇳') && !customTxt.includes('🌿') && !customTxt.includes('⚖️') && !customTxt.includes('🛕')) {
+                        customTxt = `🇮🇳 ${customTxt}`;
+                    }
+                    certPledge.textContent = customTxt;
                 } else {
                     customPledgeContainer.classList.add('hidden');
-                    certPledge.textContent = inputPledge.value;
+                    const selectedOpt = inputPledge.options[inputPledge.selectedIndex];
+                    certPledge.textContent = selectedOpt ? selectedOpt.text : inputPledge.value;
                 }
             }
 

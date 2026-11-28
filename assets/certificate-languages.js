@@ -8,11 +8,11 @@ const SWARNIM_CERT_LANGUAGES = {
     "font": "'Noto Sans Devanagari', sans-serif",
     "org": "स्वर्णिम भारत उदयघोष",
     "motto": "मेरा देश, मेरी ज़िम्मेदारी",
-    "title": "राष्ट्र संकल्प प्रमाण पत्र",
-    "subtitle": "अमृत काल से शताब्दी संकल्प • 1947 — 2047",
-    "citation": "यह सप्रमाण अभिप्रमाणित किया जाता है कि",
-    "pledgeLead": "ने 2047 के स्वर्णिम भारत निर्माण हेतु 'मैं भी भारत, तुम भी भारत' के राष्ट्रीय संकल्प को आत्मसात कर अपने नागरिक कर्तव्यों का निष्ठापूर्वक पालन करने का प्रण लिया है:",
-    "pledgeQuote": "« मैं भी भारत, तुम भी भारत — हम सब में ही तो भारत है »",
+    "title": "स्वर्णिम भारत उदयघोष",
+    "subtitle": "राष्ट्रीय संकल्प समर्पण पत्र • CERTIFICATE OF CITIZEN COMMITMENT",
+    "citation": "यह सादर प्रमाणित किया जाता है कि राष्ट्र के सम्मानित नागरिक",
+    "pledgeLead": "ने राष्ट्रीय महा-संकल्प <strong>\"मैं भी भारत, तुम भी भारत — मेरा देश, मेरी ज़िम्मेदारी\"</strong> को स्वीकार करते हुए, विकसित एवं आत्मनिर्भर भारत 2047 के निर्माण हेतु निष्ठापूर्वक अपना संकल्प समर्पित किया है।",
+    "pledgeQuote": "",
     "pillars": {
       "kartavya": "⚖️ कर्तव्य एवं नागरिक धर्म",
       "swadeshi": "🇮🇳 स्वदेशी एवं नवाचार",
@@ -20,12 +20,12 @@ const SWARNIM_CERT_LANGUAGES = {
       "sanskriti": "🛕 सांस्कृतिक गौरव"
     },
     "labels": {
-      "registry": "पंजीकरण संख्या",
+      "registry": "CITIZEN PLEDGE ID",
       "date": "दिनांक व समय",
-      "secretariat": "समन्वय समिति (Coordination Desk)",
-      "delhi": "नई दिल्ली (New Delhi)",
-      "seal": "नागरिक मुहर",
-      "authority": "अधिकृत हस्ताक्षर"
+      "secretariat": "COORDINATION DESK",
+      "delhi": "Swarnim Bharat",
+      "seal": "CITIZEN SEAL BHARAT 2047",
+      "authority": "Swarnim Bharat"
     }
   },
   "en": {
@@ -34,11 +34,11 @@ const SWARNIM_CERT_LANGUAGES = {
     "font": "'Playfair Display', 'Noto Sans', serif",
     "org": "SWARNIM BHARAT UDAYGHOSH",
     "motto": "MERA DESH, MERI ZIMMEDARI",
-    "title": "National Citizen Pledge Certificate",
-    "subtitle": "Amrit Kaal to Centennial Dawn • 1947 — 2047",
-    "citation": "This is to solemnly certify that proud citizen",
-    "pledgeLead": "has solemnly undertaken the National Citizen Pledge, dedicating personal duty, civic resolve, and unwavering dedication towards realizing Swarnim Bharat 2047:",
-    "pledgeQuote": "“Main Bhi Bharat, Tum Bhi Bharat — Together We Forge 2047”",
+    "title": "SWARNIM BHARAT UDAYGHOSH",
+    "subtitle": "CERTIFICATE OF CITIZEN COMMITMENT • BHARAT 2047",
+    "citation": "This is to proudly certify that esteemed citizen",
+    "pledgeLead": "has solemnly undertaken the National Affirmation <strong>\"Main Bhi Bharat, Tum Bhi Bharat — Mera Desh, Meri Zimmedari\"</strong>, dedicating personal commitment towards realizing a developed and self-reliant Bharat 2047.",
+    "pledgeQuote": "",
     "pillars": {
       "kartavya": "⚖️ Kartavya & Civic Duty",
       "swadeshi": "🇮🇳 Swadeshi & Innovation",
@@ -46,12 +46,12 @@ const SWARNIM_CERT_LANGUAGES = {
       "sanskriti": "🛕 Civilizational Pride"
     },
     "labels": {
-      "registry": "REGISTRY IDENTIFIER",
+      "registry": "CITIZEN PLEDGE ID",
       "date": "DATE & TIMESTAMP",
       "secretariat": "COORDINATION DESK",
-      "delhi": "New Delhi, Bharat",
-      "seal": "CITIZEN SEAL",
-      "authority": "AUTHORIZED SIGNATORY"
+      "delhi": "Swarnim Bharat",
+      "seal": "CITIZEN SEAL BHARAT 2047",
+      "authority": "Swarnim Bharat"
     }
   },
   "bn": {
@@ -637,11 +637,15 @@ window.applyCertificateLanguageToDOM = function(langCode, root) {
 
   // 2. Organization / Kicker / Title
   container.querySelectorAll(".cert-subtitle, #cert-subtitle").forEach(el => {
-    el.innerText = t.title + " • " + t.subtitle;
+    if (t.subtitle) {
+      el.innerText = t.subtitle;
+    }
   });
 
   container.querySelectorAll(".cert-citation, #cert-citation").forEach(el => {
-    el.innerText = t.citation;
+    if (t.citation) {
+      el.innerText = t.citation;
+    }
     if (t.font) el.style.fontFamily = t.font;
   });
 
@@ -651,27 +655,31 @@ window.applyCertificateLanguageToDOM = function(langCode, root) {
     if (t.dir) el.style.direction = t.dir;
     else el.style.direction = "ltr";
     
-    // Check if we should insert the citizen name into the narrative
-    const nameEl = getEl("cert-name") || getEl("certCitizenName") || getEl("cert-name-preview");
-    const citizenName = (nameEl && nameEl.innerText.trim() !== "YOUR NAME" && nameEl.innerText.trim() !== "CITIZEN") ? nameEl.innerText.trim() : "";
-    
-    if (citizenName) {
-      el.innerHTML = "<strong>" + citizenName + "</strong> " + t.pledgeLead + "<br/><span style=\"color: #A48641; font-weight: 700; display: block; margin-top: 4px;\">" + t.pledgeQuote + "</span>";
-    } else {
+    if (t.pledgeQuote && t.pledgeQuote.trim()) {
       el.innerHTML = t.pledgeLead + "<br/><span style=\"color: #A48641; font-weight: 700; display: block; margin-top: 4px;\">" + t.pledgeQuote + "</span>";
+    } else if (t.pledgeLead) {
+      el.innerHTML = t.pledgeLead;
     }
   });
 
   // 4. Pillar Pill
   container.querySelectorAll("#cert-pledge, #certPillarName, .cert-pillar-pill").forEach(el => {
     if (t.font) el.style.fontFamily = t.font;
-    const txt = el.innerText.toLowerCase();
-    let pKey = "kartavya";
-    if (txt.includes("swadeshi") || txt.includes("स्वदेशी") || txt.includes("innovation") || txt.includes("சுதேசி") || txt.includes("స్వదేశీ")) pKey = "swadeshi";
-    else if (txt.includes("prakriti") || txt.includes("प्रकृति") || txt.includes("green") || txt.includes("இயற்கை") || txt.includes("ప్రకృతి") || txt.includes("पर्यावरण")) pKey = "prakriti";
-    else if (txt.includes("pride") || txt.includes("गौरव") || txt.includes("heritage") || txt.includes("സംസ്കാര") || txt.includes("பண்பாட்டு") || txt.includes("వైభవం")) pKey = "sanskriti";
+    const txt = (el.innerText || "").trim();
     
-    if (t.pillars && t.pillars[pKey]) {
+    // CRITICAL: NEVER overwrite approved pledges or custom user vows!
+    if (txt.includes("01.") || txt.includes("02.") || txt.includes("मेरा लोकल") || txt.includes("मेरी ज़िम्मेदारी") || txt.includes("Proudly Local") || txt.includes("Naturally Sustainable")) {
+      return;
+    }
+    
+    const lower = txt.toLowerCase();
+    let pKey = null;
+    if (lower.includes("swadeshi") || lower.includes("स्वदेशी") || lower.includes("innovation") || lower.includes("சுதேசி") || lower.includes("స్వదేశీ")) pKey = "swadeshi";
+    else if (lower.includes("prakriti") || lower.includes("प्रकृति") || lower.includes("green") || lower.includes("இயற்கை") || lower.includes("ప్రకృతి") || lower.includes("पर्यावरण")) pKey = "prakriti";
+    else if (lower.includes("pride") || lower.includes("गौरव") || lower.includes("civilizational") || lower.includes("heritage") || lower.includes("സംസ്കാര") || lower.includes("பண்பாட்டு") || lower.includes("వైభవం")) pKey = "sanskriti";
+    else if (lower.includes("duty") || lower.includes("kartavya") || lower.includes("कर्तव्य") || lower.includes("civic")) pKey = "kartavya";
+    
+    if (pKey && t.pillars && t.pillars[pKey]) {
       el.innerText = t.pillars[pKey];
     }
   });

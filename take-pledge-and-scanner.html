@@ -197,26 +197,27 @@ button,a{-webkit-tap-highlight-color:transparent}
   align-items: center;
   justify-content: center;
   flex: 1;
+  padding: 14px 0;
 }
 .cert-citation {
   font-style: italic;
   color: #374151;
   font-family: 'Noto Sans Devanagari', sans-serif;
-  font-size: 18px;
-  margin: 0 0 10px 0;
+  font-size: 19px;
+  margin: 0 0 14px 0;
 }
 .cert-citizen-block {
-  margin: 0;
+  margin: 0 0 8px 0;
   text-align: center;
 }
 .cert-citizen-name {
   font-family: 'Playfair Display', serif;
-  font-size: 50px;
+  font-size: 52px;
   color: #A48641;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  line-height: 1;
+  line-height: 1.1;
   margin: 0;
 }
 .cert-state-name {
@@ -228,12 +229,12 @@ button,a{-webkit-tap-highlight-color:transparent}
 .cert-narrative {
   color: #1f2937;
   max-width: 860px;
-  margin: 14px 0 12px 0;
+  margin: 16px 0 20px 0;
   text-align: center;
   font-family: 'Noto Sans Devanagari', sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
-  padding: 0 16px;
+  font-size: 18px;
+  line-height: 1.65;
+  padding: 0 20px;
 }
 .cert-pillar-wrap {
   margin: 0;
@@ -242,10 +243,10 @@ button,a{-webkit-tap-highlight-color:transparent}
   background-color: #FDFBF7;
   border: 2px solid #B59A53;
   border-radius: 9999px;
-  padding: 6px 28px;
+  padding: 8px 32px;
   color: #A48641;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -769,7 +770,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 
                     <div class="cert-pillar-wrap">
                         <div id="certPillarName" class="cert-pillar-pill">
-                            🇮🇳 Swadeshi & Innovation
+                            🇮🇳 01. मेरा लोकल, मेरा स्वाभिमान
                         </div>
                     </div>
                 </div>
@@ -1340,7 +1341,7 @@ button,a{-webkit-tap-highlight-color:transparent}
         phone: mobile,
         email: email,
         state: state,
-        vow: pillar,
+        vow: pillarDisplay || pillar,
         language: chosenLang,
         pledgeId: newHash,
         photoBase64: userUploadedPhotoBase64,
@@ -1685,8 +1686,7 @@ button,a{-webkit-tap-highlight-color:transparent}
       // Ensure latest data is in sessionStorage
       const name = document.getElementById('certCitizenName') ? document.getElementById('certCitizenName').innerText.trim() : 'Citizen';
       const state = document.getElementById('certState') ? document.getElementById('certState').innerText.trim() : 'Bharat';
-      let pillar = document.getElementById('certPillarName') ? document.getElementById('certPillarName').innerText.trim() : 'Swarnim Bharat';
-      pillar = pillar.replace(/^[🇮🇳🌿⚖️🛕]\s*/, '');
+      let pillar = document.getElementById('certPillarName') ? document.getElementById('certPillarName').innerText.trim() : '🇮🇳 01. मेरा लोकल, मेरा स्वाभिमान';
       const chosenLang = document.getElementById('pledgeCertLanguage') ? document.getElementById('pledgeCertLanguage').value : 'hi';
       const regId = document.getElementById('certHash') ? document.getElementById('certHash').innerText.trim() : 'SB-2047-0125';
       const mobile = document.getElementById('contactMobile') ? document.getElementById('contactMobile').value.trim() : '';
