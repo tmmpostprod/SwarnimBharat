@@ -1180,6 +1180,107 @@ button,a{-webkit-tap-highlight-color:transparent}
     });
   }
 
+  // 1.5. प्रमाण पत्र (Admin Vault Copy) कैनवास जनरेटर
+  function generateAdminCertBase64(data) {
+    try {
+      const c = document.createElement('canvas');
+      c.width = 1123;
+      c.height = 794;
+      const ctx = c.getContext('2d');
+      if (!ctx) return '';
+
+      // Warm Parchment Canvas Background
+      ctx.fillStyle = '#FDFBF7';
+      ctx.fillRect(0, 0, 1123, 794);
+
+      // Gold Royal Dual Border
+      ctx.strokeStyle = '#d4af37';
+      ctx.lineWidth = 14;
+      ctx.strokeRect(18, 18, 1087, 758);
+
+      ctx.strokeStyle = '#735c00';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(32, 32, 1059, 730);
+
+      // Inner Accent Frame
+      ctx.strokeStyle = 'rgba(212, 175, 55, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(40, 40, 1043, 714);
+
+      // Header Titles
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#735c00';
+      ctx.font = 'bold 26px "Playfair Display", Georgia, serif';
+      ctx.fillText('स्वर्णिम भारत उदयघोष', 561, 100);
+
+      ctx.fillStyle = '#b58d3d';
+      ctx.font = 'italic 16px "Playfair Display", Georgia, serif';
+      ctx.fillText('NATIONAL CITIZEN MISSION 2047', 561, 130);
+
+      // Subtitle
+      ctx.fillStyle = '#142940';
+      ctx.font = 'bold 34px "Playfair Display", Georgia, serif';
+      ctx.fillText('राष्ट्र-निर्माण महा-संकल्प प्रमाण पत्र', 561, 205);
+
+      ctx.fillStyle = '#7f7663';
+      ctx.font = '13px "Noto Sans", sans-serif';
+      ctx.fillText('CITIZEN CERTIFICATE OF NATIONAL AFFIRMATION', 561, 235);
+
+      // Gold divider
+      ctx.strokeStyle = '#d4af37';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(380, 255);
+      ctx.lineTo(743, 255);
+      ctx.stroke();
+
+      // Citizen Name Intro
+      ctx.fillStyle = '#7f7663';
+      ctx.font = '15px "Noto Sans", sans-serif';
+      ctx.fillText('यह प्रमाणित किया जाता है कि राष्ट्र-निर्माता नागरिक', 561, 305);
+
+      // Citizen Name
+      ctx.fillStyle = '#142940';
+      ctx.font = 'bold 36px "Playfair Display", Georgia, serif';
+      ctx.fillText((data.name || 'Citizen of Bharat').toUpperCase(), 561, 360);
+
+      // State & Vow
+      ctx.fillStyle = '#525f71';
+      ctx.font = 'bold 16px "Noto Sans", sans-serif';
+      ctx.fillText('राज्य / STATE: ' + (data.state || 'Bharat').toUpperCase(), 561, 405);
+
+      ctx.fillStyle = '#735c00';
+      ctx.font = 'italic bold 20px "Playfair Display", Georgia, serif';
+      ctx.fillText('“' + (data.vow || 'Kartavya & Civic Duty') + '”', 561, 460);
+
+      ctx.fillStyle = '#4d4635';
+      ctx.font = '15px "Noto Sans", sans-serif';
+      ctx.fillText('ने 2047 के विकसित एवं स्वर्णिम भारत के निर्माण हेतु अपना पावन संकल्प अर्पित किया है।', 561, 510);
+
+      // Registry ID and Date Footer
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#142940';
+      ctx.font = 'bold 15px monospace';
+      ctx.fillText('REGISTRY ID: ' + (data.pledgeId || 'SB-2047'), 70, 715);
+
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#7f7663';
+      ctx.font = '14px "Noto Sans", sans-serif';
+      ctx.fillText('DATE & TIME: ' + (data.timestamp || new Date().toLocaleDateString('en-GB')), 1053, 715);
+
+      // Seal text center
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#a73a00';
+      ctx.font = 'bold 13px "Noto Sans", sans-serif';
+      ctx.fillText('★ सत्यमेव जयते • राष्ट्र प्रथम ★', 561, 680);
+
+      return c.toDataURL('image/jpeg', 0.88);
+    } catch (err) {
+      console.warn('generateAdminCertBase64 error:', err);
+      return '';
+    }
+  }
+
   // 2. फॉर्म सबमिट करने का लॉजिक
   const pledgeForm = document.getElementById('pledgeForm');
   if (pledgeForm) {
@@ -1233,22 +1334,13 @@ button,a{-webkit-tap-highlight-color:transparent}
         return;
       }
 
-      const payload = {
-        full_name: fullName,
-        phone_number: phoneNumber,
-        state: state,
-        vow_focus: vowFocus,
-        email: email,
-        photoBase64: photoBase64,
-        photoName: photoName
-      };
-
       // Increment count ONLY upon real form submission/confirmation
       const nextCount = incrementLocalCount();
       const pledgeId = 'SB-2047-0' + nextCount;
 
       // Construct Certificate Data and store in sessionStorage for the new tab
       const certLanguage = document.getElementById('cert_language') ? document.getElementById('cert_language').value : 'hi';
+      const certTimestamp = (new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase() + ' • IST');
       const certData = {
         name: fullName,
         phone: phoneNumber,
@@ -1258,7 +1350,23 @@ button,a{-webkit-tap-highlight-color:transparent}
         language: certLanguage,
         pledgeId: pledgeId,
         photoBase64: photoBase64,
-        timestamp: (new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase() + ' • IST')
+        timestamp: certTimestamp
+      };
+
+      // Generate complete certificate image for Admin Private Vault in Google Drive
+      const certBase64 = generateAdminCertBase64(certData);
+
+      const payload = {
+        full_name: fullName,
+        phone_number: phoneNumber,
+        state: state,
+        vow_focus: vowFocus,
+        email: email,
+        pledge_id: pledgeId,
+        photoBase64: photoBase64,
+        photoName: photoName,
+        certBase64: certBase64,
+        certName: "Certificate_" + pledgeId + "_" + fullName.replace(/[^a-zA-Z0-9]/g, "_") + ".jpg"
       };
       try {
         sessionStorage.setItem('swarnim_cert_data', JSON.stringify(certData));
