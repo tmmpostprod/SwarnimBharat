@@ -33,9 +33,10 @@ function doPost(e) {
         "Vow / Focus (संकल्प)", 
         "Email (ईमेल)", 
         "Citizen Photo (फोटो लिंक)",
+        "Admin Certificate Copy (प्रमाण पत्र)",
         "Pledge Registry ID"
       ]);
-      sheet.getRange(1, 1, 1, 8).setFontWeight("bold").setBackground("#d4af37").setFontColor("#132c4d");
+      sheet.getRange(1, 1, 1, 9).setFontWeight("bold").setBackground("#d4af37").setFontColor("#132c4d");
       sheet.setFrozenRows(1);
     }
 
@@ -55,22 +56,45 @@ function doPost(e) {
     var vowFocus = data.vow_focus || data.focus || "Viksit Bharat 2047";
     var email = data.email || "";
     var photoUrl = "No Photo Uploaded";
+    var certUrl = "No Certificate Uploaded";
 
-    // Photo Base64 handling: save to Google Drive
+    // Dedicated Private Admin Vault Folder in Google Drive (NOT Public)
+    var folderName = "Swarnim_Bharat_Admin_Vault";
+    var folders = DriveApp.getFoldersByName(folderName);
+    var vaultFolder = folders.hasNext() ? folders.next() : DriveApp.createFolder(folderName);
+
+    // 1. Citizen Photo Base64 handling: save to Admin Vault
     if (data.photoBase64 && data.photoBase64.indexOf("base64,") !== -1) {
       try {
         var parts = data.photoBase64.split("base64,");
         var contentType = parts[0].split(":")[1].split(";")[0] || "image/jpeg";
         var decoded = Utilities.base64Decode(parts[1]);
-        var fileName = (fullName.replace(/[^a-zA-Z0-9]/g, "_") + "_" + Date.now() + ".jpg");
+        var fileName = ("Photo_" + fullName.replace(/[^a-zA-Z0-9]/g, "_") + "_" + Date.now() + ".jpg");
         var blob = Utilities.newBlob(decoded, contentType, fileName);
         
-        // Save file to Google Drive
-        var file = DriveApp.createFile(blob);
+        // Save file inside private vault folder
+        var file = vaultFolder.createFile(blob);
         file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
         photoUrl = file.getUrl();
       } catch (photoErr) {
         photoUrl = "Error saving photo: " + photoErr.toString();
+      }
+    }
+
+    // 2. Full Certificate Base64 handling: save directly to Admin Vault (Private to Admin)
+    if (data.certBase64 && data.certBase64.indexOf("base64,") !== -1) {
+      try {
+        var cParts = data.certBase64.split("base64,");
+        var cContentType = cParts[0].split(":")[1].split(";")[0] || "image/jpeg";
+        var cDecoded = Utilities.base64Decode(cParts[1]);
+        var cFileName = ("Certificate_" + fullName.replace(/[^a-zA-Z0-9]/g, "_") + "_" + Date.now() + ".jpg");
+        var cBlob = Utilities.newBlob(cDecoded, cContentType, cFileName);
+        
+        // Saved strictly private to admin Drive account (NOT shared publicly)
+        var cFile = vaultFolder.createFile(cBlob);
+        certUrl = cFile.getUrl();
+      } catch (cErr) {
+        certUrl = "Error saving certificate: " + cErr.toString();
       }
     }
 
@@ -106,6 +130,22 @@ function doPost(e) {
         headers.push('phone');
       }
 
+      // Check if Certificate column exists; if not, automatically add it!
+      var hasCertHeader = false;
+      for (var ck = 0; ck < headers.length; ck++) {
+        var hck = headers[ck];
+        if (hck.indexOf('cert') !== -1 || hck.indexOf('प्रमाण') !== -1) {
+          hasCertHeader = true;
+          break;
+        }
+      }
+
+      if (!hasCertHeader) {
+        var newCertCol = headers.length + 1;
+        sheet.getRange(1, newCertCol).setValue("Admin Certificate Copy (प्रमाण पत्र)").setFontWeight("bold").setBackground("#d4af37").setFontColor("#132c4d");
+        headers.push('certificate');
+      }
+
       var row = [];
       for (var i = 0; i < headers.length; i++) {
         var h = headers[i];
@@ -121,6 +161,8 @@ function doPost(e) {
           row.push(email);
         } else if (h.indexOf('photo') !== -1 || h.indexOf('फोटो') !== -1 || h.indexOf('image') !== -1) {
           row.push(photoUrl);
+        } else if (h.indexOf('cert') !== -1 || h.indexOf('प्रमाण') !== -1) {
+          row.push(certUrl);
         } else if (h.indexOf('phone') !== -1 || h.indexOf('mobile') !== -1 || h.indexOf('फोन') !== -1 || h.indexOf('फ़ोन') !== -1) {
           row.push(phoneNumber);
         } else if (h.indexOf('id') !== -1 || h.indexOf('registry') !== -1) {
@@ -132,7 +174,7 @@ function doPost(e) {
       sheet.appendRow(row);
     } else {
       // Default fallback if sheet has no headers
-      sheet.appendRow([formattedDate, fullName, state, vowFocus, email, photoUrl, phoneNumber, pledgeId]);
+      sheet.appendRow([formattedDate, fullName, state, vowFocus, email, photoUrl, certUrl, phoneNumber, pledgeId]);
     }
 
     return ContentService
@@ -141,6 +183,7 @@ function doPost(e) {
         result: "success",
         count: totalCount + 1,
         photoUrl: photoUrl,
+        certUrl: certUrl,
         pledgeId: pledgeId 
       }))
       .setMimeType(ContentService.MimeType.JSON);

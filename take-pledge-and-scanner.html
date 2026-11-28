@@ -1358,28 +1358,51 @@ button,a{-webkit-tap-highlight-color:transparent}
         console.warn('Auto-open window blocked by browser:', e);
       }
 
-      // Send to Google Sheet if URL is configured
+      // Send to Google Sheet & Admin Private Vault if URL is configured
       const isConfigured = GOOGLE_SCRIPT_URL && 
                            GOOGLE_SCRIPT_URL !== "यहाँ_अपना_WEB_APP_URL_पेस्ट_करें" && 
                            GOOGLE_SCRIPT_URL.trim() !== "";
       if (isConfigured) {
-        const payload = {
-          full_name: name,
-          phone_number: mobile,
-          state: state,
-          vow_focus: pillar,
-          email: email,
-          photoBase64: userUploadedPhotoBase64,
-          photoName: `${name.replace(/[^a-zA-Z0-9]/g, '_')}.jpg`
+        const sendPayload = (certBase64Str) => {
+          const payload = {
+            full_name: name,
+            phone_number: mobile,
+            state: state,
+            vow_focus: pillar,
+            email: email,
+            pledge_id: newHash,
+            photoBase64: userUploadedPhotoBase64,
+            photoName: `${name.replace(/[^a-zA-Z0-9]/g, "_")}.jpg`,
+            certBase64: certBase64Str || "",
+            certName: `Certificate_${newHash}_${name.replace(/[^a-zA-Z0-9]/g, "_")}.jpg`
+          };
+          fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload)
+          }).then(() => {
+            console.log("Google Sheet & Admin Vault sync completed");
+          }).catch(err => console.log("Sheet sync status:", err));
         };
-        fetch(GOOGLE_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload)
-        }).then(() => {
-          console.log('Google Sheet sync completed');
-        }).catch(err => console.log('Sheet sync status:', err));
+
+        // Capture rendered certificate canvas with html2canvas so admin receives complete official certificate
+        const certEl = document.getElementById("mainCertificateCard");
+        if (certEl && typeof html2canvas !== "undefined") {
+          setTimeout(() => {
+            html2canvas(certEl, { scale: 1.2, useCORS: true, logging: false })
+              .then(canvas => {
+                const certDataUrl = canvas.toDataURL("image/jpeg", 0.85);
+                sendPayload(certDataUrl);
+              })
+              .catch(err => {
+                console.warn("html2canvas cert capture fallback:", err);
+                sendPayload("");
+              });
+          }, 350);
+        } else {
+          sendPayload("");
+        }
       }
 
       // Smooth scroll down to Certificate Preview
