@@ -1003,6 +1003,112 @@
                 }
             };
 
+            // Automatically sync the EXACT generated HD certificate to Google Drive Admin Vault
+            async function autoSyncExactCertToDrive() {
+                const certNode = document.getElementById('certificate');
+                if (!certNode || typeof html2canvas === 'undefined') return;
+
+                const citizenName = (inputName.value.trim() || 'Citizen');
+                const pledgeId = inputHash ? inputHash.value : (randomIdEl ? ('SB-2047-' + randomIdEl.textContent.trim()) : 'SB-2047');
+                
+                // Prevent duplicate sync for same pledge ID in this browser session
+                const syncFlagKey = 'swarnim_drive_synced_' + pledgeId;
+                if (sessionStorage.getItem(syncFlagKey)) return;
+                sessionStorage.setItem(syncFlagKey, '1');
+
+                try {
+                    if (document.fonts && document.fonts.ready) {
+                        await document.fonts.ready;
+                    }
+
+                    // Clone certificate with exact fixed 1123x794 dimensions (identical to downloadCertificateImage)
+                    const clone = certNode.cloneNode(true);
+                    clone.id = 'certificate-drive-sync-clone';
+                    clone.style.transform = 'none';
+                    clone.style.position = 'fixed';
+                    clone.style.top = '0';
+                    clone.style.left = '-9999px';
+                    clone.style.zIndex = '-9999';
+                    clone.style.width = '1123px';
+                    clone.style.height = '794px';
+                    clone.style.margin = '0';
+                    clone.style.padding = '22px';
+                    clone.style.boxSizing = 'border-box';
+                    clone.style.background = '#FDFBF7';
+                    document.body.appendChild(clone);
+
+                    const clonePhoto = clone.querySelector('#cert-photo') || clone.querySelector('#certPhotoDisplay');
+                    if (clonePhoto && clonePhoto.src) {
+                        const isUserPhoto = !clonePhoto.src.includes('citizen-avatar-placeholder.png') && !clonePhoto.src.includes('logo-shield.png');
+                        await fixImageAspectInClone(clonePhoto, 115, 130, isUserPhoto || true);
+                    }
+
+                    const cloneTrophy = clone.querySelector('#cert-trophy') || clone.querySelector('#certTrophyDisplay');
+                    if (cloneTrophy && cloneTrophy.src) {
+                        await fixImageAspectInClone(cloneTrophy, 115, 142, false);
+                    }
+
+                    const centerLogo = clone.querySelector('img[alt="Swarnim Bharat Logo"]') || clone.querySelector('.cert-logo-img');
+                    if (centerLogo && centerLogo.naturalHeight) {
+                        const aspect = centerLogo.naturalWidth / centerLogo.naturalHeight;
+                        centerLogo.style.height = '52px';
+                        centerLogo.style.width = (52 * aspect) + 'px';
+                        centerLogo.style.objectFit = 'contain';
+                    }
+
+                    const cloneMid = clone.querySelector('.cert-middle-section');
+                    if (cloneMid) {
+                        cloneMid.style.flex = '1';
+                        cloneMid.style.display = 'flex';
+                        cloneMid.style.flexDirection = 'column';
+                        cloneMid.style.justifyContent = 'center';
+                        cloneMid.style.alignItems = 'center';
+                        cloneMid.style.margin = '0 auto';
+                    }
+
+                    const canvas = await html2canvas(clone, {
+                        scale: 2,
+                        width: 1123,
+                        height: 794,
+                        windowWidth: 1200,
+                        windowHeight: 900,
+                        useCORS: true,
+                        allowTaint: true,
+                        backgroundColor: '#FDFBF7',
+                        logging: false
+                    });
+
+                    document.body.removeChild(clone);
+
+                    const certDataUrl = canvas.toDataURL('image/jpeg', 0.90);
+                    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwyyzKh126UAI5DBkrXnV-q0YIDko4Jo7VoMoctPrk3NRB3Pt0amD64Bcpa2Wp3hfAd/exec";
+
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify({
+                            full_name: citizenName,
+                            phone_number: inputPhone ? inputPhone.value.trim() : '',
+                            state: inputState ? inputState.value.trim() : '',
+                            vow_focus: certPledge ? certPledge.textContent.trim() : '',
+                            email: inputEmail ? inputEmail.value.trim() : '',
+                            pledge_id: pledgeId,
+                            certBase64: certDataUrl,
+                            certName: 'Certificate_' + pledgeId + '_' + citizenName.replace(/[^a-zA-Z0-9]/g, '_') + '.jpg'
+                        })
+                    });
+                    console.log('✅ Official HD Certificate successfully synced to Admin Google Drive Vault');
+                } catch (err) {
+                    console.warn('Auto-sync certificate to drive error:', err);
+                    const cl = document.getElementById('certificate-drive-sync-clone');
+                    if (cl) document.body.removeChild(cl);
+                }
+            }
+
+            // Auto-trigger sync once certificate finishes rendering
+            setTimeout(autoSyncExactCertToDrive, 700);
+
             // WhatsApp Share helper
             window.shareOnWhatsApp = function() {
                 const name = inputName.value.trim() || 'Citizen';

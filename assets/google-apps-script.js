@@ -171,6 +171,47 @@ function doPost(e) {
           row.push('');
         }
       }
+      // Check if this pledgeId already exists in sheet (to update certificate link instead of duplicate row)
+      var targetPledgeId = (data.pledge_id || data.pledgeId || '').toString().toLowerCase().trim();
+      var existingRowIndex = -1;
+      var certColIndex = -1;
+
+      for (var hc = 0; hc < headers.length; hc++) {
+        if (headers[hc].indexOf('cert') !== -1 || headers[hc].indexOf('प्रमाण') !== -1) {
+          certColIndex = hc + 1;
+        }
+      }
+
+      if (targetPledgeId && sheet.getLastRow() > 1) {
+        var idCol = -1;
+        for (var ic = 0; ic < headers.length; ic++) {
+          if (headers[ic].indexOf('id') !== -1 || headers[ic].indexOf('registry') !== -1) {
+            idCol = ic + 1;
+            break;
+          }
+        }
+        if (idCol > 0) {
+          var idVals = sheet.getRange(2, idCol, sheet.getLastRow() - 1, 1).getValues();
+          for (var r = idVals.length - 1; r >= 0; r--) {
+            if (idVals[r][0] && idVals[r][0].toString().toLowerCase().trim() === targetPledgeId) {
+              existingRowIndex = r + 2;
+              break;
+            }
+          }
+        }
+      }
+
+      if (existingRowIndex > 0 && certColIndex > 0 && certUrl !== "No Certificate Uploaded") {
+        sheet.getRange(existingRowIndex, certColIndex).setValue(certUrl);
+        return ContentService
+          .createTextOutput(JSON.stringify({ 
+            status: "success", 
+            action: "updated",
+            certUrl: certUrl 
+          }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+
       sheet.appendRow(row);
     } else {
       // Default fallback if sheet has no headers
