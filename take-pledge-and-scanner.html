@@ -617,7 +617,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 <!-- Affirmation Checkboxes -->
 <div class="space-y-2 pt-1">
 <label class="flex items-start gap-2.5 cursor-pointer">
-<input class="mt-1 accent-primary rounded" required="" type="checkbox"/>
+<input class="mt-1 accent-primary rounded" checked="" required="" type="checkbox"/>
 <span class="font-body-sm text-body-sm text-on-surface-variant">
                   I confirm that I am a citizen/diaspora well-wisher of India and voluntarily register this pledge on the Swarnim Bharat Citizen Roll. <span class="text-tertiary">*</span>
                 </span>
@@ -1283,8 +1283,12 @@ button,a{-webkit-tap-highlight-color:transparent}
       document.getElementById('certPillarName').innerText = pillarDisplay;
       const chosenLang = document.getElementById('pledgeCertLanguage') ? document.getElementById('pledgeCertLanguage').value : 'hi';
       const certCard = document.getElementById('mainCertificateCard');
-      if (certCard && window.applyCertificateLanguageToDOM) {
-        window.applyCertificateLanguageToDOM(chosenLang, certCard);
+      try {
+        if (certCard && window.applyCertificateLanguageToDOM) {
+          window.applyCertificateLanguageToDOM(chosenLang, certCard);
+        }
+      } catch (err) {
+        console.warn('Language application fallback:', err);
       }
 
       // Update Certificate Photo

@@ -620,49 +620,56 @@ window.getCertTranslation = function(langCode) {
  */
 window.applyCertificateLanguageToDOM = function(langCode, root) {
   const t = window.getCertTranslation(langCode);
-  const doc = root || document;
+  const container = root || document;
+  const getEl = function(id) {
+    if (container && container.querySelector) {
+      const el = container.querySelector("#" + id);
+      if (el) return el;
+    }
+    return document.getElementById(id);
+  };
 
   // 1. Certificate Root Container & Fonts
-  const certNode = doc.getElementById('certificate') || doc.getElementById('mainCertificateCard') || doc.getElementById('blankCertCard') || doc.getElementById('certificate-display');
+  const certNode = getEl("certificate") || getEl("mainCertificateCard") || getEl("blankCertCard") || getEl("certificate-display");
   if (certNode && t.font) {
     certNode.style.fontFamily = t.font;
   }
 
   // 2. Organization / Kicker / Title
-  doc.querySelectorAll('.cert-subtitle, #cert-subtitle').forEach(el => {
-    el.innerText = `${t.title} • ${t.subtitle}`;
+  container.querySelectorAll(".cert-subtitle, #cert-subtitle").forEach(el => {
+    el.innerText = t.title + " • " + t.subtitle;
   });
 
-  doc.querySelectorAll('.cert-citation, #cert-citation').forEach(el => {
+  container.querySelectorAll(".cert-citation, #cert-citation").forEach(el => {
     el.innerText = t.citation;
     if (t.font) el.style.fontFamily = t.font;
   });
 
   // 3. Narrative Text
-  doc.querySelectorAll('.cert-narrative, #cert-narrative-text').forEach(el => {
+  container.querySelectorAll(".cert-narrative, #cert-narrative-text").forEach(el => {
     if (t.font) el.style.fontFamily = t.font;
     if (t.dir) el.style.direction = t.dir;
-    else el.style.direction = 'ltr';
+    else el.style.direction = "ltr";
     
     // Check if we should insert the citizen name into the narrative
-    const nameEl = doc.getElementById('cert-name') || doc.getElementById('certCitizenName') || doc.getElementById('cert-name-preview');
-    const citizenName = (nameEl && nameEl.innerText.trim() !== 'YOUR NAME' && nameEl.innerText.trim() !== 'CITIZEN') ? nameEl.innerText.trim() : '';
+    const nameEl = getEl("cert-name") || getEl("certCitizenName") || getEl("cert-name-preview");
+    const citizenName = (nameEl && nameEl.innerText.trim() !== "YOUR NAME" && nameEl.innerText.trim() !== "CITIZEN") ? nameEl.innerText.trim() : "";
     
     if (citizenName) {
-      el.innerHTML = `<strong>${citizenName}</strong> ${t.pledgeLead}<br/><span style="color: #A48641; font-weight: 700; display: block; margin-top: 4px;">${t.pledgeQuote}</span>`;
+      el.innerHTML = "<strong>" + citizenName + "</strong> " + t.pledgeLead + "<br/><span style=\"color: #A48641; font-weight: 700; display: block; margin-top: 4px;\">" + t.pledgeQuote + "</span>";
     } else {
-      el.innerHTML = `${t.pledgeLead}<br/><span style="color: #A48641; font-weight: 700; display: block; margin-top: 4px;">${t.pledgeQuote}</span>`;
+      el.innerHTML = t.pledgeLead + "<br/><span style=\"color: #A48641; font-weight: 700; display: block; margin-top: 4px;\">" + t.pledgeQuote + "</span>";
     }
   });
 
   // 4. Pillar Pill
-  doc.querySelectorAll('#cert-pledge, #certPillarName, .cert-pillar-pill').forEach(el => {
+  container.querySelectorAll("#cert-pledge, #certPillarName, .cert-pillar-pill").forEach(el => {
     if (t.font) el.style.fontFamily = t.font;
     const txt = el.innerText.toLowerCase();
-    let pKey = 'kartavya';
-    if (txt.includes('swadeshi') || txt.includes('स्वदेशी') || txt.includes('innovation') || txt.includes('சுதேசி') || txt.includes('స్వదేశీ')) pKey = 'swadeshi';
-    else if (txt.includes('prakriti') || txt.includes('प्रकृति') || txt.includes('green') || txt.includes('இயற்கை') || txt.includes('ప్రకృతి') || txt.includes('पर्यावरण')) pKey = 'prakriti';
-    else if (txt.includes('pride') || txt.includes('गौरव') || txt.includes('heritage') || txt.includes('സംസ്കാര') || txt.includes('பண்பாட்டு') || txt.includes('వైభవం')) pKey = 'sanskriti';
+    let pKey = "kartavya";
+    if (txt.includes("swadeshi") || txt.includes("स्वदेशी") || txt.includes("innovation") || txt.includes("சுதேசி") || txt.includes("స్వదేశీ")) pKey = "swadeshi";
+    else if (txt.includes("prakriti") || txt.includes("प्रकृति") || txt.includes("green") || txt.includes("இயற்கை") || txt.includes("ప్రకృతి") || txt.includes("पर्यावरण")) pKey = "prakriti";
+    else if (txt.includes("pride") || txt.includes("गौरव") || txt.includes("heritage") || txt.includes("സംസ്കാര") || txt.includes("பண்பாட்டு") || txt.includes("వైభవం")) pKey = "sanskriti";
     
     if (t.pillars && t.pillars[pKey]) {
       el.innerText = t.pillars[pKey];
@@ -670,18 +677,18 @@ window.applyCertificateLanguageToDOM = function(langCode, root) {
   });
 
   // 5. Labels & Footer Elements
-  const regLabelEl = doc.getElementById('cert-reg-label');
+  const regLabelEl = getEl("cert-reg-label");
   if (regLabelEl && t.labels) regLabelEl.innerText = t.labels.registry;
 
-  const secLabelEl = doc.getElementById('cert-sec-label');
+  const secLabelEl = getEl("cert-sec-label");
   if (secLabelEl && t.labels) secLabelEl.innerText = t.labels.secretariat;
 
-  const delhiLabelEl = doc.getElementById('cert-delhi-label');
+  const delhiLabelEl = getEl("cert-delhi-label");
   if (delhiLabelEl && t.labels) delhiLabelEl.innerText = t.labels.delhi;
 
-  const sealLabelEl = doc.getElementById('cert-seal-label');
+  const sealLabelEl = getEl("cert-seal-label");
   if (sealLabelEl && t.labels) sealLabelEl.innerText = t.labels.seal;
 
-  const authLabelEl = doc.getElementById('cert-auth-label');
+  const authLabelEl = getEl("cert-auth-label");
   if (authLabelEl && t.labels) authLabelEl.innerText = t.labels.authority;
 };
