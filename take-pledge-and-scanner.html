@@ -376,10 +376,10 @@ button,a{-webkit-tap-highlight-color:transparent}
 <div class="relative my-space-sm p-4 bg-surface-container-lowest rounded-xl shadow-lg flex flex-col items-center group">
 <!-- Simulated Architectural Jharokha Notch Accents -->
 <div class="absolute -top-1.5 left-4 right-4 h-1 bg-gradient-to-r from-tertiary via-surface-container-high to-secondary"></div>
-<div class="relative w-64 h-64 sm:w-72 sm:h-72 overflow-hidden rounded-lg flex items-center justify-center bg-surface-bright">
-<img alt="Sacred Bharat 2047 QR Scanner Portal" class="w-full h-full object-contain filter drop-shadow-md transition-transform duration-500 group-hover:scale-105" src="assets/official-qr-code.png?v=4"/>
-<!-- Subtle Scanner Laser Beam Animation -->
-<div class="absolute left-0 right-0 h-1 bg-tertiary/75 shadow-[0_0_12px_rgba(167,58,0,0.8)] pointer-events-none transition-all duration-75" id="laserBeam" style="top: 25%;"></div>
+<div class="relative w-full max-w-[420px] sm:max-w-[480px] aspect-square my-2 rounded-2xl overflow-hidden bg-surface-container p-3 sm:p-4 shadow-inner border border-outline-variant/30 flex items-center justify-center mx-auto">
+<img alt="Official Swarnim Bharat QR Code" class="w-full h-full object-contain rounded-xl drop-shadow-md transition-transform duration-500 group-hover:scale-105" src="assets/official-qr-code.png?v=5"/>
+<!-- Active Scanning Crosshair Line -->
+<div class="absolute left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-tertiary to-transparent shadow-[0_0_10px_#a73a00] animate-pulse" id="scanner-beam"></div>
 </div>
 <!-- Authentic Sovereign Subtext Tag -->
 <div class="mt-space-sm px-3 py-1 rounded bg-surface-container text-center w-full">
